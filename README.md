@@ -1,5 +1,5 @@
 1. Download atau clone repository : <code>https://github.com/HassanFHidayat/waroeng-steak.git</code>
-2. Buka terminal pada directory project dan jalankan perintah <code>’composer install’</code>
+2. Buka terminal pada directory project dan jalankan perintah <code>composer install</code>
 3. Kemudian jalankan perintah <code>cp .env.example .env</code>
 4. Selanjutnya jalankan perintah <code>php artisan key:generate</code>
 5. Buat database baru dengan nama <code>waroengsteak</code>
