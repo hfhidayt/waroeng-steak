@@ -22,7 +22,6 @@ class CreatePembeliansTable extends Migration
             $table->string('satuan');
             $table->integer('harga');
             $table->integer('total');
-            $table->integer('total');
             $table->integer('dp');
             $table->date('tgl_dp');
             $table->integer('angsuran');
