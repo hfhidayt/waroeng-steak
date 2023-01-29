@@ -14,7 +14,9 @@ class KendaraanController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.kendaraan.index', [
+            'title' => 'Kendaraan'
+        ]);
     }
 
     /**

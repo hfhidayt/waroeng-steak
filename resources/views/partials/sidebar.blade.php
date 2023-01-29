@@ -18,8 +18,19 @@
         </div>
     </div>
 
-    @can('admin')
     <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-weight="treeview" role="menu" data-accordion="false">
+            <li class="nav-header">INVENTARIS</li>
+            <li class="nav-item">
+                <a href="/dashboard/kendaraan" class="nav-link">
+                <i class="nav-icon fas fa-car"></i>
+                <p>
+                    Kendaraan
+                </p>
+                </a>
+            </li>
+        </ul>
+        @can('admin')
         <ul class="nav nav-pills nav-sidebar flex-column" data-weight="treeview" role="menu" data-accordion="false">
             <li class="nav-header">USER</li>
             <li class="nav-item">
@@ -31,8 +42,8 @@
                 </a>
             </li>
         </ul>
+        @endcan
     </nav>
-    @endcan
 
     {{-- <!-- SidebarSearch Form -->
     <div class="form-inline">
