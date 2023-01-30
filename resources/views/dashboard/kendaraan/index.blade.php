@@ -12,6 +12,7 @@
                     </div>
                 @endif
                 <a href="#create" class="btn btn-success" data-bs-toggle="modal">Tambah Baru</a>
+                <a href="#createP" class="btn btn-success" data-bs-toggle="modal">Pembelian Kendaraan</a>
             </div>
         </div>
         <div class="row">
@@ -51,6 +52,7 @@
             </div>
         </div>
         @include('dashboard.kendaraan.create')
+        @include('dashboard.kendaraan.pembelian.create')
     </div>
 @endsection
 @push('script')

@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KendaraanController;
+use App\Http\Controllers\PembelianController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,5 +32,7 @@ Route::get('/dashboard', function() {
 })->middleware('auth');
 
 Route::resource('/dashboard/kendaraan', KendaraanController::class)->middleware('auth');
+
+Route::resource('/dashboard/pembelian/kendaraan', PembelianController::class)->middleware('auth');
 
 Route::resource('/dashboard/akun', UserController::class)->except('create', 'show', 'edit')->middleware('admin');

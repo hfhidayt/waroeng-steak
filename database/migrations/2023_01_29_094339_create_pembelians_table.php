@@ -26,7 +26,8 @@ class CreatePembeliansTable extends Migration
             $table->date('tgl_dp');
             $table->integer('angsuran');
             $table->integer('jml_angsuran');
-            $table->date('periode_angsuran');
+            $table->date('mulai_angsuran');
+            $table->date('selesai_angsuran');
             $table->string('rekening');
             $table->timestamps();
         });

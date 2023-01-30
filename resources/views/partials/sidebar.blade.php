@@ -32,18 +32,19 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/dashboard/kendaraandibeli" class="nav-link">
-                        <i class="nav-icon fas fa-car-crash"></i>
+                    <a href="/dashboard/pembelian/kendaraan" class="nav-link">
+                        {{-- <i class="nav-icon far fa-sack-dollar"></i> --}}
+                        <i class="nav-icon fas fa-cart-shopping"></i>
                         <p>
-                            Kendaraan Dibeli
+                            Pembelian Kendaraan
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="/dashboard/kendaraandijual" class="nav-link">
-                        <i class="nav-icon fas fa-car-crash"></i>
+                        <i class="nav-icon fas fa-sack-dollar"></i>
                         <p>
-                            Kendaraan Terjual
+                            Penjualan Kendaraan
                         </p>
                     </a>
                 </li>
