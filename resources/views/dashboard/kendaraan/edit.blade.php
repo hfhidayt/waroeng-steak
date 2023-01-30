@@ -6,7 +6,6 @@
                 <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Kendaraan {{ $k->no_plat }}</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
             <div class="modal-body">
                 <form action="/dashboard/kendaraan/{{ $k->id }}" method="post">
                     @csrf
@@ -147,14 +146,12 @@
                         {{-- @error('keterangan')
                         @enderror --}}
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger mr-auto" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger mr-auto" data-bs-dismiss="modal">Batal</button>
-                <button type="submit" class="btn btn-primary">Update</button>
-
-            </div>
-
         </div>
     </div>
 </div>
