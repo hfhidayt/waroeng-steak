@@ -2,50 +2,69 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/dashboard" class="brand-link">
-    <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">Waroeng Steak</span>
+        <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            style="opacity: .8">
+        <span class="brand-text font-weight-light">Waroeng Steak</span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
-    <!-- Sidebar user panel (optional) -->
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-            <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">{{ auth()->user()->username }}</a>
+            </div>
         </div>
-        <div class="info">
-            <a href="#" class="d-block">{{ auth()->user()->username }}</a>
-        </div>
-    </div>
 
-    <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-weight="treeview" role="menu" data-accordion="false">
-            <li class="nav-header">INVENTARIS</li>
-            <li class="nav-item">
-                <a href="/dashboard/kendaraan" class="nav-link">
-                <i class="nav-icon fas fa-car"></i>
-                <p>
-                    Kendaraan
-                </p>
-                </a>
-            </li>
-        </ul>
-        @can('admin')
-        <ul class="nav nav-pills nav-sidebar flex-column" data-weight="treeview" role="menu" data-accordion="false">
-            <li class="nav-header">USER</li>
-            <li class="nav-item">
-                <a href="/dashboard/akun" class="nav-link">
-                <i class="nav-icon far fa-user"></i>
-                <p>
-                    Akun
-                </p>
-                </a>
-            </li>
-        </ul>
-        @endcan
-    </nav>
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-weight="treeview" role="menu"
+                data-accordion="false">
+                <li class="nav-header">INVENTARIS</li>
+                <li class="nav-item">
+                    <a href="/dashboard/kendaraan" class="nav-link">
+                        <i class="nav-icon fas fa-car"></i>
+                        <p>
+                            Kendaraan
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/dashboard/kendaraandibeli" class="nav-link">
+                        <i class="nav-icon fas fa-car-crash"></i>
+                        <p>
+                            Kendaraan Dibeli
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/dashboard/kendaraandijual" class="nav-link">
+                        <i class="nav-icon fas fa-car-crash"></i>
+                        <p>
+                            Kendaraan Terjual
+                        </p>
+                    </a>
+                </li>
+            </ul>
+            @can('admin')
+                <ul class="nav nav-pills nav-sidebar flex-column" data-weight="treeview" role="menu"
+                    data-accordion="false">
+                    <li class="nav-header">USER</li>
+                    <li class="nav-item">
+                        <a href="/dashboard/akun" class="nav-link">
+                            <i class="nav-icon far fa-user"></i>
+                            <p>
+                                Akun
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            @endcan
+        </nav>
 
-    {{-- <!-- SidebarSearch Form -->
+        {{-- <!-- SidebarSearch Form -->
     <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
         <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">

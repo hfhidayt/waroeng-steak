@@ -15,7 +15,8 @@ class KendaraanController extends Controller
     public function index()
     {
         return view('dashboard.kendaraan.index', [
-            'title' => 'Kendaraan'
+            'title' => 'Kendaraan',
+            'kendaraans' => Kendaraan::all()
         ]);
     }
 
@@ -37,7 +38,25 @@ class KendaraanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'wilayah' => 'required',
+            'no_plat' => 'required|unique:kendaraans',
+            'jenis_kendaraan' => 'nullable',
+            'no_rangka' => 'nullable',
+            'no_mesin' => 'nullable',
+            'no_bpkb' => 'nullable',
+            'atas_nama' => 'nullable',
+            'tahun' => 'nullable',
+            'warna' => 'nullable',
+            'jenis_merk' => 'nullable',
+            'posisi_kendaraan' => 'nullable',
+            'pajak' => 'nullable|date',
+            'ganti_plat' => 'nullable|date',
+            'keterangan' => 'nullable',
+        ]);
+
+        Kendaraan::Create($validatedData);
+        return redirect('/dashboard/kendaraan')->with('success', 'Berhasil menambah kendaraan baru!');
     }
 
     /**
@@ -71,7 +90,24 @@ class KendaraanController extends Controller
      */
     public function update(Request $request, Kendaraan $kendaraan)
     {
-        //
+        $validatedData = $request->validate([
+            'wilayah' => 'required',
+            'no_plat' => 'required|unique:kendaraans',
+            'jenis_kendaraan' => 'nullable',
+            'no_rangka' => 'nullable',
+            'no_mesin' => 'nullable',
+            'no_bpkb' => 'nullable',
+            'atas_nama' => 'nullable',
+            'tahun' => 'nullable',
+            'warna' => 'nullable',
+            'jenis_merk' => 'nullable',
+            'posisi_kendaraan' => 'nullable',
+            'pajak' => 'nullable|date',
+            'ganti_plat' => 'nullable|date',
+            'keterangan' => 'nullable',
+        ]);
+        Kendaraan::Where('id', $kendaraan->id)->update($validatedData);
+        return redirect('/dashboard/kendaraan')->with('success', 'Berhasil memperbarui data kendaraan');
     }
 
     /**
@@ -82,6 +118,7 @@ class KendaraanController extends Controller
      */
     public function destroy(Kendaraan $kendaraan)
     {
-        //
+        Kendaraan::destroy($kendaraan->id);
+        return redirect('/dashboard/kendaraan')->with('success', 'Kendaraan berhasil dihapus');
     }
 }
