@@ -1,8 +1,9 @@
-<div class="modal fade" id="createP" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="createP" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Pembelian Kendaraan</h1>
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Pembelian Kendaraan</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -21,7 +22,8 @@
                     <div class="input-group mb-3">
                         <div class="input-group">
                             <span class="input-group-text">Tanggal Perolehan</span>
-                            <input type="date" class="form-control" placeholder="Tanggal Perolehan" name="tgl_perolehan">
+                            <input type="date" class="form-control" placeholder="Tanggal Perolehan"
+                                name="tgl_perolehan">
                         </div>
                         <div class="invalid-feedback">
                         </div>
@@ -72,7 +74,8 @@
                     <div class="input-group mb-3">
                         <div class="input-group">
                             <span class="input-group-text">Mulai Angsuran</span>
-                            <input type="date" class="form-control" placeholder="Mulai Angsuran" name="mulai_angsuran">
+                            <input type="date" class="form-control" placeholder="Mulai Angsuran"
+                                name="mulai_angsuran">
                         </div>
                         <div class="invalid-feedback">
                         </div>
@@ -80,7 +83,8 @@
                     <div class="input-group mb-3">
                         <div class="input-group">
                             <span class="input-group-text">Selesai Angsuran</span>
-                            <input type="date" class="form-control" placeholder="Selesai Angsuran" name="selesai_angsuran">
+                            <input type="date" class="form-control" placeholder="Selesai Angsuran"
+                                name="selesai_angsuran">
                         </div>
                         <div class="invalid-feedback">
                         </div>
@@ -90,11 +94,11 @@
                         <div class="invalid-feedback">
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger mr-auto" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary">Buat</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger mr-auto" data-bs-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-primary">Buat</button>
+            </div>
             </form>
         </div>
     </div>

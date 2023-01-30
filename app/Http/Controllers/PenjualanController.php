@@ -14,7 +14,10 @@ class PenjualanController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.kendaraan.penjualan.index', [
+            'title' => 'Penjualan',
+            'penjualans' => Penjualan::all()
+        ]);
     }
 
     /**
@@ -35,7 +38,14 @@ class PenjualanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'pic' => 'required',
+            'atas_nama' => 'required',
+            'harga_jual' => 'required',
+            'tanggal_jual' => 'required|date',
+        ]);
+        Penjualan::Create($validatedData);
+        return redirect('/dashboard/penjualan/kendaraan')->with('success', 'Berhasil menambah data penjualan!');
     }
 
     /**
@@ -67,9 +77,16 @@ class PenjualanController extends Controller
      * @param  \App\Models\Penjualan  $penjualan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Penjualan $penjualan)
+    public function update(Request $request, Penjualan $kendaraan)
     {
-        //
+        $validatedData = $request->validate([
+            'pic' => 'required',
+            'atas_nama' => 'required',
+            'harga_jual' => 'required',
+            'tanggal_jual' => 'required|date',
+        ]);
+        Penjualan::where('id', $kendaraan->id)->update($validatedData);
+        return redirect('/dashboard/penjualan/kendaraan')->with('success', 'Berhasil menambah data penjualan!');
     }
 
     /**
@@ -80,6 +97,7 @@ class PenjualanController extends Controller
      */
     public function destroy(Penjualan $penjualan)
     {
-        //
+        Penjualan::destroy($penjualan->id);
+        return redirect('/dashboard/penjualan/kendaraan')->with('success', 'Data Penjualan berhasil dihapus');
     }
 }

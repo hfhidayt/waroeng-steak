@@ -4,6 +4,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\PembelianController;
+use App\Http\Controllers\PenjualanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +26,7 @@ Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('g
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/dashboard', function() {
+Route::get('/dashboard', function () {
     return view('dashboard.index', [
         'title' => 'Dashboard'
     ]);
@@ -34,5 +35,7 @@ Route::get('/dashboard', function() {
 Route::resource('/dashboard/kendaraan', KendaraanController::class)->middleware('auth');
 
 Route::resource('/dashboard/pembelian/kendaraan', PembelianController::class)->middleware('auth');
+
+Route::resource('/dashboard/penjualan/kendaraan', PenjualanController::class)->middleware('auth');
 
 Route::resource('/dashboard/akun', UserController::class)->except('create', 'show', 'edit')->middleware('admin');
