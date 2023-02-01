@@ -32,6 +32,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/dashboard/perawatan/kendaraan" class="nav-link">
+                        <i class="nav-icon fa-solid fa-screwdriver-wrench"></i>
+                        <p>
+                            Perawatan Kendaraan
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/dashboard/pembelian/kendaraan" class="nav-link">
                         <i class="nav-icon fas fa-cart-shopping"></i>
                         <p>

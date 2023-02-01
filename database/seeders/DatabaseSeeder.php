@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Kendaraan;
+use App\Models\Perawatan;
+use App\Models\JenisPerawatan;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 
@@ -37,6 +39,30 @@ class DatabaseSeeder extends Seeder
         User::Create([
             'username' => 'hassan',
             'password' => Hash::make('hassan')
+        ]);
+        
+        JenisPerawatan::Create([
+            'jenis_perawatan' => 'Pengisian BBM'
+        ]);
+        
+        JenisPerawatan::Create([
+            'jenis_perawatan' => 'Servis Rutin'
+        ]);
+        
+        JenisPerawatan::Create([
+            'jenis_perawatan' => 'Perbaikan'
+        ]);
+        
+        JenisPerawatan::Create([
+            'jenis_perawatan' => 'Pergantian'
+        ]);
+        
+        JenisPerawatan::Create([
+            'jenis_perawatan' => 'Bayar Pajak Tahunan'
+        ]);
+        
+        JenisPerawatan::Create([
+            'jenis_perawatan' => 'Bayar Pajak 5 Tahunan'
         ]);
 
         Kendaraan::Create([
@@ -503,5 +529,355 @@ class DatabaseSeeder extends Seeder
             'ganti_plat'=>Carbon::create('2027', '05', '01'),
             'keterangan'=>''
         ]);
-}
+
+        Perawatan::Create([
+            'kendaraan_id' => '15',
+            'tgl_perawatan' => Carbon::Create('2021','1','3'),
+            'jenis_perawatan' => 'Servis Rutin',
+            'total_biaya' => '635000',
+            'tempat_perawatan' => 'Service Center',
+            'kilometer' => '186955366.3',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '11',
+            'tgl_perawatan' => Carbon::Create('2021','1','8'),
+            'jenis_perawatan' => 'Perbaikan',
+            'total_biaya' => '6350000',
+            'tempat_perawatan' => 'AUO Vehicle',
+            'kilometer' => '263602354.6',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '9',
+            'tgl_perawatan' => Carbon::Create('2021','1','5'),
+            'jenis_perawatan' => 'Pengisian BBM',
+            'total_biaya' => '95000',
+            'tempat_perawatan' => 'SPBU 35021',
+            'kilometer' => '175134938.7',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '22',
+            'tgl_perawatan' => Carbon::Create('2021','1','22'),
+            'jenis_perawatan' => 'Pengisian BBM',
+            'total_biaya' => '212500',
+            'tempat_perawatan' => 'SPBU 35021',
+            'kilometer' => '95022220.13',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '21',
+            'tgl_perawatan' => Carbon::Create('2021','1','3'),
+            'jenis_perawatan' => 'Servis Rutin',
+            'total_biaya' => '635000',
+            'tempat_perawatan' => 'Service Center',
+            'kilometer' => '88316669.03',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '4',
+            'tgl_perawatan' => Carbon::Create('2021','1','8'),
+            'jenis_perawatan' => 'Perbaikan',
+            'total_biaya' => '6350000',
+            'tempat_perawatan' => 'AUO Vehicle',
+            'kilometer' => '141657902.1',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '8',
+            'tgl_perawatan' => Carbon::Create('2021','1','5'),
+            'jenis_perawatan' => 'Pengisian BBM',
+            'total_biaya' => '95000',
+            'tempat_perawatan' => 'SPBU 43021',
+            'kilometer' => '10072108.47',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '5',
+            'tgl_perawatan' => Carbon::Create('2021','1','22'),
+            'jenis_perawatan' => 'Pengisian BBM',
+            'total_biaya' => '212500',
+            'tempat_perawatan' => 'SPBU 43021',
+            'kilometer' => '221682237.2',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '25',
+            'tgl_perawatan' => Carbon::Create('2021','2','13'),
+            'jenis_perawatan' => 'Servis Rutin',
+            'total_biaya' => '635000',
+            'tempat_perawatan' => 'Service Center',
+            'kilometer' => '220218001.8',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '27',
+            'tgl_perawatan' => Carbon::Create('2021','2','13'),
+            'jenis_perawatan' => 'Perbaikan',
+            'total_biaya' => '7550000',
+            'tempat_perawatan' => 'AUO Vehicle',
+            'kilometer' => '275575119',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '15',
+            'tgl_perawatan' => Carbon::Create('2021','2','21'),
+            'jenis_perawatan' => 'Servis Rutin',
+            'total_biaya' => '380000',
+            'tempat_perawatan' => 'Service Center',
+            'kilometer' => '124700603.5',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '28',
+            'tgl_perawatan' => Carbon::Create('2021','2','22'),
+            'jenis_perawatan' => 'Perbaikan',
+            'total_biaya' => '255000',
+            'tempat_perawatan' => 'Multi Pro',
+            'kilometer' => '20254449.9',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '1',
+            'tgl_perawatan' => Carbon::Create('2021','2','3'),
+            'jenis_perawatan' => 'Servis Rutin',
+            'total_biaya' => '635000',
+            'tempat_perawatan' => 'Service Center',
+            'kilometer' => '22163337.56',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '20',
+            'tgl_perawatan' => Carbon::Create('2021','2','8'),
+            'jenis_perawatan' => 'Perbaikan',
+            'total_biaya' => '6350000',
+            'tempat_perawatan' => 'Multi Pro',
+            'kilometer' => '259090329.3',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '3',
+            'tgl_perawatan' => Carbon::Create('2021','2','5'),
+            'jenis_perawatan' => 'Pengisian BBM',
+            'total_biaya' => '187000',
+            'tempat_perawatan' => 'SPBU 66432',
+            'kilometer' => '93927337.43',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '4',
+            'tgl_perawatan' => Carbon::Create('2021','2','22'),
+            'jenis_perawatan' => 'Pengisian BBM',
+            'total_biaya' => '212500',
+            'tempat_perawatan' => 'SPBU 66432',
+            'kilometer' => '5996193.349',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '24',
+            'tgl_perawatan' => Carbon::Create('2021','3','1'),
+            'jenis_perawatan' => 'Pengisian BBM',
+            'total_biaya' => '187000',
+            'tempat_perawatan' => 'SPBU 66432',
+            'kilometer' => '196875902.4',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '22',
+            'tgl_perawatan' => Carbon::Create('2021','3','3'),
+            'jenis_perawatan' => 'Pengisian BBM',
+            'total_biaya' => '6100000',
+            'tempat_perawatan' => 'SPBU 35021',
+            'kilometer' => '192703438.5',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '6',
+            'tgl_perawatan' => Carbon::Create('2021','3','2'),
+            'jenis_perawatan' => 'Servis Rutin',
+            'total_biaya' => '380000',
+            'tempat_perawatan' => 'Service Center',
+            'kilometer' => '137761871.9',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '16',
+            'tgl_perawatan' => Carbon::Create('2021','3','3'),
+            'jenis_perawatan' => 'Perbaikan',
+            'total_biaya' => '187000',
+            'tempat_perawatan' => 'Multi Pro',
+            'kilometer' => '16873426.77',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '17',
+            'tgl_perawatan' => Carbon::Create('2021','3','1'),
+            'jenis_perawatan' => 'Pengisian BBM',
+            'total_biaya' => '345000',
+            'tempat_perawatan' => 'SPBU 43021',
+            'kilometer' => '152577590.5',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '10',
+            'tgl_perawatan' => Carbon::Create('2021','3','3'),
+            'jenis_perawatan' => 'Pengisian BBM',
+            'total_biaya' => '6350000',
+            'tempat_perawatan' => 'SPBU 43021',
+            'kilometer' => '270926145.5',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '3',
+            'tgl_perawatan' => Carbon::Create('2021','3','2'),
+            'jenis_perawatan' => 'Servis Rutin',
+            'total_biaya' => '380000',
+            'tempat_perawatan' => 'Service Center',
+            'kilometer' => '118607078',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '27',
+            'tgl_perawatan' => Carbon::Create('2021','3','3'),
+            'jenis_perawatan' => 'Perbaikan',
+            'total_biaya' => '187000',
+            'tempat_perawatan' => 'Multi Pro',
+            'kilometer' => '223461963.9',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '14',
+            'tgl_perawatan' => Carbon::Create('2021','4','3'),
+            'jenis_perawatan' => 'Servis Rutin',
+            'total_biaya' => '635000',
+            'tempat_perawatan' => 'Service Center',
+            'kilometer' => '38248262.61',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '3',
+            'tgl_perawatan' => Carbon::Create('2021','4','8'),
+            'jenis_perawatan' => 'Perbaikan',
+            'total_biaya' => '6350000',
+            'tempat_perawatan' => 'Multi Pro',
+            'kilometer' => '43072557.37',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '12',
+            'tgl_perawatan' => Carbon::Create('2021','4','5'),
+            'jenis_perawatan' => 'Pengisian BBM',
+            'total_biaya' => '95000',
+            'tempat_perawatan' => 'SPBU 43021',
+            'kilometer' => '62470867.9',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '1',
+            'tgl_perawatan' => Carbon::Create('2021','4','22'),
+            'jenis_perawatan' => 'Pengisian BBM',
+            'total_biaya' => '212500',
+            'tempat_perawatan' => 'SPBU 43021',
+            'kilometer' => '76172136',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '1',
+            'tgl_perawatan' => Carbon::Create('2021','5','13'),
+            'jenis_perawatan' => 'Servis Rutin',
+            'total_biaya' => '3245000',
+            'tempat_perawatan' => 'Service Center',
+            'kilometer' => '240067023.8',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '21',
+            'tgl_perawatan' => Carbon::Create('2021','5','13'),
+            'jenis_perawatan' => 'Perbaikan',
+            'total_biaya' => '6350000',
+            'tempat_perawatan' => 'AUO Vehicle',
+            'kilometer' => '131442045.9',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '5',
+            'tgl_perawatan' => Carbon::Create('2021','5','21'),
+            'jenis_perawatan' => 'Servis Rutin',
+            'total_biaya' => '95000',
+            'tempat_perawatan' => 'Service Center',
+            'kilometer' => '5204444.86',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '13',
+            'tgl_perawatan' => Carbon::Create('2021','5','22'),
+            'jenis_perawatan' => 'Perbaikan',
+            'total_biaya' => '255000',
+            'tempat_perawatan' => 'AUO Vehicle',
+            'kilometer' => '154848173.1',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '26',
+            'tgl_perawatan' => Carbon::Create('2021','4','1'),
+            'jenis_perawatan' => 'Pengisian BBM',
+            'total_biaya' => '635000',
+            'tempat_perawatan' => 'SPBU 43021',
+            'kilometer' => '109666422.2',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '20',
+            'tgl_perawatan' => Carbon::Create('2021','4','3'),
+            'jenis_perawatan' => 'Pengisian BBM',
+            'total_biaya' => '6350000',
+            'tempat_perawatan' => 'SPBU 43021',
+            'kilometer' => '140570277.9',
+            'nota' => 'nota/00.png'
+        ]);
+        
+        Perawatan::Create([
+            'kendaraan_id' => '8',
+            'tgl_perawatan' => Carbon::Create('2021','4','2'),
+            'jenis_perawatan' => 'Perbaikan',
+            'total_biaya' => '2090000',
+            'tempat_perawatan' => 'Multi Pro',
+            'kilometer' => '17683778.29',
+            'nota' => 'nota/00.png'
+        ]);
+    }
 }
