@@ -100,21 +100,21 @@
         integrity="sha512-4MvcHwcbqXKUHB6Lx3Zb5CEAVoE9u84qN+ZSMM6s7z8IeJriExrV3ND5zRze9mxNlABJ6k864P/Vl8m0Sd3DtQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
-            var min = parseInt($('#min').val(), 10);
-            var max = parseInt($('#max').val(), 10);
-            var age = parseFloat(data[3]) || 0; // use data for the age column
+        // $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+        //     var min = parseInt($('#min').val(), 10);
+        //     var max = parseInt($('#max').val(), 10);
+        //     var age = parseFloat(data[3]) || 0; // use data for the age column
 
-            if (
-                (isNaN(min) && isNaN(max)) ||
-                (isNaN(min) && age <= max) ||
-                (min <= age && isNaN(max)) ||
-                (min <= age && age <= max)
-            ) {
-                return true;
-            }
-            return false;
-        });
+        //     if (
+        //         (isNaN(min) && isNaN(max)) ||
+        //         (isNaN(min) && age <= max) ||
+        //         (min <= age && isNaN(max)) ||
+        //         (min <= age && age <= max)
+        //     ) {
+        //         return true;
+        //     }
+        //     return false;
+        // });
         $(document).ready(function() {
             var table = $('#table_id').DataTable({
                 columnDefs: [{
@@ -122,9 +122,9 @@
                     className: 'dt-head-center'
                 }]
             });
-            $('#min, #max').keyup(function() {
-                table.draw();
-            });
+            // $('#min, #max').keyup(function() {
+            //     table.draw();
+            // });
         });
     </script>
     @stack('script')
