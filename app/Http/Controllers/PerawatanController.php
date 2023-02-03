@@ -55,7 +55,7 @@ class PerawatanController extends Controller
             'nota' => 'image|file'
         ]);
 
-        if($request->nota) {
+        if ($request->nota) {
             $validatedData['nota'] = $request->file('nota')->store('nota');
         } else {
             $validatedData['nota'] = 'nota/00.png';
@@ -110,8 +110,8 @@ class PerawatanController extends Controller
             'nota' => 'image|file'
         ]);
 
-        if($request->nota) {
-            if($request->oldNota != 'nota/00.jpg') {
+        if ($request->file('nota')) {
+            if ($request->oldNota) {
                 Storage::delete($request->oldNota);
             }
             $validatedData['nota'] = $request->file('nota')->store('nota');
@@ -134,7 +134,7 @@ class PerawatanController extends Controller
      */
     public function destroy(Perawatan $kendaraan)
     {
-        if($kendaraan->nota != 'nota/00.jpg') {
+        if ($kendaraan->nota != 'nota/00.jpg') {
             Storage::delete($kendaraan->nota);
         }
         Perawatan::destroy($kendaraan->id);
