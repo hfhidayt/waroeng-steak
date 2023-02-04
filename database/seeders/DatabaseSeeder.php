@@ -534,9 +534,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '15',
             'tgl_perawatan' => Carbon::Create('2021','1','3'),
             'jenis_perawatan' => 'Servis Rutin',
-            'total_biaya' => '635000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'Service Center',
             'kilometer' => '186955366.3',
+            'harga_satuan' => '1000',
+            'total_biaya' => '635000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -544,9 +548,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '11',
             'tgl_perawatan' => Carbon::Create('2021','1','8'),
             'jenis_perawatan' => 'Perbaikan',
-            'total_biaya' => '6350000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'AUO Vehicle',
             'kilometer' => '263602354.6',
+            'harga_satuan' => '1000',
+            'total_biaya' => '6350000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -554,9 +562,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '9',
             'tgl_perawatan' => Carbon::Create('2021','1','5'),
             'jenis_perawatan' => 'Pengisian BBM',
-            'total_biaya' => '95000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'SPBU 35021',
             'kilometer' => '175134938.7',
+            'harga_satuan' => '1000',
+            'total_biaya' => '95000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -564,9 +576,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '22',
             'tgl_perawatan' => Carbon::Create('2021','1','22'),
             'jenis_perawatan' => 'Pengisian BBM',
-            'total_biaya' => '212500',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'SPBU 35021',
             'kilometer' => '95022220.13',
+            'harga_satuan' => '1000',
+            'total_biaya' => '212500',
             'nota' => 'nota/00.png'
         ]);
         
@@ -574,9 +590,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '21',
             'tgl_perawatan' => Carbon::Create('2021','1','3'),
             'jenis_perawatan' => 'Servis Rutin',
-            'total_biaya' => '635000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'Service Center',
             'kilometer' => '88316669.03',
+            'harga_satuan' => '1000',
+            'total_biaya' => '635000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -584,9 +604,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '4',
             'tgl_perawatan' => Carbon::Create('2021','1','8'),
             'jenis_perawatan' => 'Perbaikan',
-            'total_biaya' => '6350000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'AUO Vehicle',
             'kilometer' => '141657902.1',
+            'harga_satuan' => '1000',
+            'total_biaya' => '6350000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -594,9 +618,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '8',
             'tgl_perawatan' => Carbon::Create('2021','1','5'),
             'jenis_perawatan' => 'Pengisian BBM',
-            'total_biaya' => '95000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'SPBU 43021',
             'kilometer' => '10072108.47',
+            'harga_satuan' => '1000',
+            'total_biaya' => '95000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -604,9 +632,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '5',
             'tgl_perawatan' => Carbon::Create('2021','1','22'),
             'jenis_perawatan' => 'Pengisian BBM',
-            'total_biaya' => '212500',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'SPBU 43021',
             'kilometer' => '221682237.2',
+            'harga_satuan' => '1000',
+            'total_biaya' => '212500',
             'nota' => 'nota/00.png'
         ]);
         
@@ -614,9 +646,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '25',
             'tgl_perawatan' => Carbon::Create('2021','2','13'),
             'jenis_perawatan' => 'Servis Rutin',
-            'total_biaya' => '635000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'Service Center',
             'kilometer' => '220218001.8',
+            'harga_satuan' => '1000',
+            'total_biaya' => '635000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -624,9 +660,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '27',
             'tgl_perawatan' => Carbon::Create('2021','2','13'),
             'jenis_perawatan' => 'Perbaikan',
-            'total_biaya' => '7550000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'AUO Vehicle',
             'kilometer' => '275575119',
+            'harga_satuan' => '1000',
+            'total_biaya' => '7550000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -634,9 +674,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '15',
             'tgl_perawatan' => Carbon::Create('2021','2','21'),
             'jenis_perawatan' => 'Servis Rutin',
-            'total_biaya' => '380000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'Service Center',
             'kilometer' => '124700603.5',
+            'harga_satuan' => '1000',
+            'total_biaya' => '380000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -644,9 +688,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '28',
             'tgl_perawatan' => Carbon::Create('2021','2','22'),
             'jenis_perawatan' => 'Perbaikan',
-            'total_biaya' => '255000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'Multi Pro',
             'kilometer' => '20254449.9',
+            'harga_satuan' => '1000',
+            'total_biaya' => '255000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -654,9 +702,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '1',
             'tgl_perawatan' => Carbon::Create('2021','2','3'),
             'jenis_perawatan' => 'Servis Rutin',
-            'total_biaya' => '635000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'Service Center',
             'kilometer' => '22163337.56',
+            'harga_satuan' => '1000',
+            'total_biaya' => '635000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -664,9 +716,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '20',
             'tgl_perawatan' => Carbon::Create('2021','2','8'),
             'jenis_perawatan' => 'Perbaikan',
-            'total_biaya' => '6350000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'Multi Pro',
             'kilometer' => '259090329.3',
+            'harga_satuan' => '1000',
+            'total_biaya' => '6350000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -674,9 +730,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '3',
             'tgl_perawatan' => Carbon::Create('2021','2','5'),
             'jenis_perawatan' => 'Pengisian BBM',
-            'total_biaya' => '187000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'SPBU 66432',
             'kilometer' => '93927337.43',
+            'harga_satuan' => '1000',
+            'total_biaya' => '187000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -684,9 +744,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '4',
             'tgl_perawatan' => Carbon::Create('2021','2','22'),
             'jenis_perawatan' => 'Pengisian BBM',
-            'total_biaya' => '212500',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'SPBU 66432',
             'kilometer' => '5996193.349',
+            'harga_satuan' => '1000',
+            'total_biaya' => '212500',
             'nota' => 'nota/00.png'
         ]);
         
@@ -694,9 +758,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '24',
             'tgl_perawatan' => Carbon::Create('2021','3','1'),
             'jenis_perawatan' => 'Pengisian BBM',
-            'total_biaya' => '187000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'SPBU 66432',
             'kilometer' => '196875902.4',
+            'harga_satuan' => '1000',
+            'total_biaya' => '187000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -704,9 +772,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '22',
             'tgl_perawatan' => Carbon::Create('2021','3','3'),
             'jenis_perawatan' => 'Pengisian BBM',
-            'total_biaya' => '6100000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'SPBU 35021',
             'kilometer' => '192703438.5',
+            'harga_satuan' => '1000',
+            'total_biaya' => '6100000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -714,9 +786,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '6',
             'tgl_perawatan' => Carbon::Create('2021','3','2'),
             'jenis_perawatan' => 'Servis Rutin',
-            'total_biaya' => '380000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'Service Center',
             'kilometer' => '137761871.9',
+            'harga_satuan' => '1000',
+            'total_biaya' => '380000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -724,9 +800,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '16',
             'tgl_perawatan' => Carbon::Create('2021','3','3'),
             'jenis_perawatan' => 'Perbaikan',
-            'total_biaya' => '187000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'Multi Pro',
             'kilometer' => '16873426.77',
+            'harga_satuan' => '1000',
+            'total_biaya' => '187000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -734,9 +814,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '17',
             'tgl_perawatan' => Carbon::Create('2021','3','1'),
             'jenis_perawatan' => 'Pengisian BBM',
-            'total_biaya' => '345000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'SPBU 43021',
             'kilometer' => '152577590.5',
+            'harga_satuan' => '1000',
+            'total_biaya' => '345000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -744,9 +828,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '10',
             'tgl_perawatan' => Carbon::Create('2021','3','3'),
             'jenis_perawatan' => 'Pengisian BBM',
-            'total_biaya' => '6350000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'SPBU 43021',
             'kilometer' => '270926145.5',
+            'harga_satuan' => '1000',
+            'total_biaya' => '6350000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -754,9 +842,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '3',
             'tgl_perawatan' => Carbon::Create('2021','3','2'),
             'jenis_perawatan' => 'Servis Rutin',
-            'total_biaya' => '380000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'Service Center',
             'kilometer' => '118607078',
+            'harga_satuan' => '1000',
+            'total_biaya' => '380000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -764,9 +856,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '27',
             'tgl_perawatan' => Carbon::Create('2021','3','3'),
             'jenis_perawatan' => 'Perbaikan',
-            'total_biaya' => '187000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'Multi Pro',
             'kilometer' => '223461963.9',
+            'harga_satuan' => '1000',
+            'total_biaya' => '187000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -774,9 +870,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '14',
             'tgl_perawatan' => Carbon::Create('2021','4','3'),
             'jenis_perawatan' => 'Servis Rutin',
-            'total_biaya' => '635000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'Service Center',
             'kilometer' => '38248262.61',
+            'harga_satuan' => '1000',
+            'total_biaya' => '635000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -784,9 +884,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '3',
             'tgl_perawatan' => Carbon::Create('2021','4','8'),
             'jenis_perawatan' => 'Perbaikan',
-            'total_biaya' => '6350000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'Multi Pro',
             'kilometer' => '43072557.37',
+            'harga_satuan' => '1000',
+            'total_biaya' => '6350000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -794,9 +898,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '12',
             'tgl_perawatan' => Carbon::Create('2021','4','5'),
             'jenis_perawatan' => 'Pengisian BBM',
-            'total_biaya' => '95000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'SPBU 43021',
             'kilometer' => '62470867.9',
+            'harga_satuan' => '1000',
+            'total_biaya' => '95000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -804,9 +912,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '1',
             'tgl_perawatan' => Carbon::Create('2021','4','22'),
             'jenis_perawatan' => 'Pengisian BBM',
-            'total_biaya' => '212500',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'SPBU 43021',
             'kilometer' => '76172136',
+            'harga_satuan' => '1000',
+            'total_biaya' => '212500',
             'nota' => 'nota/00.png'
         ]);
         
@@ -814,9 +926,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '1',
             'tgl_perawatan' => Carbon::Create('2021','5','13'),
             'jenis_perawatan' => 'Servis Rutin',
-            'total_biaya' => '3245000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'Service Center',
             'kilometer' => '240067023.8',
+            'harga_satuan' => '1000',
+            'total_biaya' => '3245000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -824,9 +940,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '21',
             'tgl_perawatan' => Carbon::Create('2021','5','13'),
             'jenis_perawatan' => 'Perbaikan',
-            'total_biaya' => '6350000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'AUO Vehicle',
             'kilometer' => '131442045.9',
+            'harga_satuan' => '1000',
+            'total_biaya' => '6350000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -834,9 +954,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '5',
             'tgl_perawatan' => Carbon::Create('2021','5','21'),
             'jenis_perawatan' => 'Servis Rutin',
-            'total_biaya' => '95000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'Service Center',
             'kilometer' => '5204444.86',
+            'harga_satuan' => '1000',
+            'total_biaya' => '95000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -844,9 +968,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '13',
             'tgl_perawatan' => Carbon::Create('2021','5','22'),
             'jenis_perawatan' => 'Perbaikan',
-            'total_biaya' => '255000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'AUO Vehicle',
             'kilometer' => '154848173.1',
+            'harga_satuan' => '1000',
+            'total_biaya' => '255000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -854,9 +982,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '26',
             'tgl_perawatan' => Carbon::Create('2021','4','1'),
             'jenis_perawatan' => 'Pengisian BBM',
-            'total_biaya' => '635000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'SPBU 43021',
             'kilometer' => '109666422.2',
+            'harga_satuan' => '1000',
+            'total_biaya' => '635000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -864,9 +996,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '20',
             'tgl_perawatan' => Carbon::Create('2021','4','3'),
             'jenis_perawatan' => 'Pengisian BBM',
-            'total_biaya' => '6350000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'SPBU 43021',
             'kilometer' => '140570277.9',
+            'harga_satuan' => '1000',
+            'total_biaya' => '6350000',
             'nota' => 'nota/00.png'
         ]);
         
@@ -874,9 +1010,13 @@ class DatabaseSeeder extends Seeder
             'kendaraan_id' => '8',
             'tgl_perawatan' => Carbon::Create('2021','4','2'),
             'jenis_perawatan' => 'Perbaikan',
-            'total_biaya' => '2090000',
+            'barang_jasa' => 'ban',
+            'volume' => '1',
+            'satuan' => 'buah',
             'tempat_perawatan' => 'Multi Pro',
             'kilometer' => '17683778.29',
+            'harga_satuan' => '1000',
+            'total_biaya' => '2090000',
             'nota' => 'nota/00.png'
         ]);
     }

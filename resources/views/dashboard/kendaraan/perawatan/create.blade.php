@@ -11,7 +11,7 @@
                     @csrf
                     <div class="input-group mb-3">
                         {{-- <input type="text" class="form-control" placeholder="Nomor Plat" name="no_plat" id="no_plat"> --}}
-                        <select class="form-select" name="kendaraan_id" id="kendaraan_id">
+                        <select class="form-select kendaraan_idC" name="kendaraan_id" id="kendaraan_id">
                             <option value="">-- Nomor Plat --</option>
                             @foreach ($no_plat as $np)
                                 <option value="{{ $np->id }}" {{ old('no_plat') == $np->id ? "selected" : "" }}>{{ $np->no_plat }}</option>
@@ -39,8 +39,18 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="number" class="form-control" placeholder="Total Biaya" name="total_biaya" id="total_biaya">
-                        <div class="invalid-feedback" id="tb_e">
+                        <input type="text" class="form-control" placeholder="Barang/Jasa" name="barang_jasa" id="barang_jasa">
+                        <div class="invalid-feedback" id="bj_e">
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control volume" placeholder="Volume" name="volume" id="volume" oninput="hitung()">
+                        <div class="invalid-feedback" id="v_e">
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Satuan" name="satuan" id="satuan">
+                        <div class="invalid-feedback" id="s_e">
                         </div>
                     </div>
                     <div class="input-group mb-3">
@@ -51,6 +61,16 @@
                     <div class="input-group mb-3">
                         <input type="number" class="form-control" placeholder="Kilometer Kendaraan" name="kilometer" id="kilometer">
                         <div class="invalid-feedback" id="k_e">
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control harga_satuan" placeholder="Harga Satuan" name="harga_satuan" id="harga_satuan" oninput="hitung()">
+                        <div class="invalid-feedback" id="hs_e">
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control total_biaya" placeholder="Total Biaya" name="total_biaya" id="total_biaya" disabled>
+                        <div class="invalid-feedback" id="tb_e">
                         </div>
                     </div>
                     <div class="mb-3">

@@ -49,9 +49,13 @@ class PerawatanController extends Controller
             'kendaraan_id' => 'required',
             'tgl_perawatan' => 'required',
             'jenis_perawatan' => 'required',
-            'total_biaya' => 'required',
+            'barang_jasa' => 'required',
+            'volume' => 'required',
+            'satuan' => 'required',
             'tempat_perawatan' => 'required',
             'kilometer' => 'required',
+            'harga_satuan' => 'required',
+            // 'total_biaya' => 'required',
             'nota' => 'image|file'
         ]);
 
@@ -60,6 +64,9 @@ class PerawatanController extends Controller
         } else {
             $validatedData['nota'] = 'nota/00.png';
         }
+
+        $validatedData['total_biaya'] = (int)$validatedData['harga_satuan'] * (int)$validatedData['volume'];
+        // ddd($validatedData['total_biaya'], $validatedData['harga_satuan'], $validatedData['volume']);
 
         Perawatan::Create($validatedData);
 
@@ -104,9 +111,13 @@ class PerawatanController extends Controller
             'kendaraan_id' => 'required',
             'tgl_perawatan' => 'required',
             'jenis_perawatan' => 'required',
-            'total_biaya' => 'required',
+            'barang_jasa' => 'required',
+            'volume' => 'required',
+            'satuan' => 'required',
             'tempat_perawatan' => 'required',
             'kilometer' => 'required',
+            'harga_satuan' => 'required',
+            // 'total_biaya' => 'required',
             'nota' => 'image|file'
         ]);
 
@@ -118,6 +129,8 @@ class PerawatanController extends Controller
         } else {
             $validatedData['nota'] = $request->oldNota;
         }
+
+        $validatedData['total_biaya'] = (int)$validatedData['harga_satuan'] * (int)$validatedData['volume'];
 
         Perawatan::where('id', $kendaraan->id)->update($validatedData);
 

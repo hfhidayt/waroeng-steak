@@ -45,9 +45,23 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="total_biaya" class="form-label">Total Biaya</label>
-                        <input type="number" class="form-control" placeholder="Total Biaya" name="total_biaya"
-                            id="total_biaya" value="{{ $ps->total_biaya }}" disabled>
+                        <label for="barang_jasa" class="form-label">Barang/Jasa</label>
+                        <input type="text" class="form-control" placeholder="Barang/Jasa" name="barang_jasa"
+                            id="barang_jasa" value="{{ $ps->barang_jasa }}" disabled>
+                        <div class="invalid-feedback" id="tb_e">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="volume" class="form-label">Volume</label>
+                        <input type="number" class="form-control" placeholder="Volume" name="volume"
+                            id="volume" value="{{ $ps->volume }}" disabled>
+                        <div class="invalid-feedback" id="tb_e">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="satuan" class="form-label">Satuan</label>
+                        <input type="text" class="form-control" placeholder="Satuan" name="satuan"
+                            id="satuan" value="{{ $ps->satuan }}" disabled>
                         <div class="invalid-feedback" id="tb_e">
                         </div>
                     </div>
@@ -63,6 +77,20 @@
                         <input type="number" class="form-control" placeholder="Kilometer Kendaraan" name="kilometer"
                             id="kilometer" value="{{ $ps->kilometer }}" disabled>
                         <div class="invalid-feedback" id="k_e">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="harga_satuan" class="form-label">Harga Satuan</label>
+                        <input type="number" class="form-control" placeholder="Harga Satuan" name="harga_satuan"
+                            id="harga_satuan" value="{{ $ps->harga_satuan }}" disabled>
+                        <div class="invalid-feedback" id="tb_e">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="total_biaya" class="form-label">Total Biaya</label>
+                        <input type="number" class="form-control" placeholder="Total Biaya" name="total_biaya"
+                            id="total_biaya" value="{{ $ps->total_biaya }}" disabled>
+                        <div class="invalid-feedback" id="tb_e">
                         </div>
                     </div>
                     <div class="mb-3 sizeimg">

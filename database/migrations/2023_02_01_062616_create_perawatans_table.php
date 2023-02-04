@@ -18,9 +18,13 @@ class CreatePerawatansTable extends Migration
             $table->foreignId('kendaraan_id'); //relasi tabel kendaraan
             $table->date('tgl_perawatan');
             $table->string('jenis_perawatan');
-            $table->integer('total_biaya');
+            $table->string('barang_jasa');
+            $table->integer('volume');
+            $table->string('satuan');
             $table->string('tempat_perawatan');
             $table->double('kilometer');
+            $table->integer('harga_satuan');
+            $table->integer('total_biaya');
             $table->string('nota');
             $table->timestamps();
         });

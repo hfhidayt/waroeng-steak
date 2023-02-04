@@ -5,5 +5,6 @@
 5. Buat database baru dengan nama <code>waroengsteak</code>
 6. Konfigurasi database di file <code>.env</code>
 7. Kemudian Jalankan perintah <code>php artisan migrate:refresh --seed</code>
-8. Selanjutnya jalankan perintah <code>php artisan storage:link</code>
-9. Jalankan aplikasi dengan printah <code>php artisan serve</code>
+8. Pada file <code>.env</code> tambahkan <code>FILESYSTEM_DRIVER=public</code> dipaling akhir file
+9. Selanjutnya jalankan perintah <code>php artisan storage:link</code>
+10. Jalankan aplikasi dengan printah <code>php artisan serve</code>
