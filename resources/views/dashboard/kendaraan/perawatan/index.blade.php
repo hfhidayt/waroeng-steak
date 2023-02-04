@@ -22,91 +22,14 @@
                 <option value="{{ $np->id }}" {{ old('no_plat') == $np->id ? "selected" : "" }}>{{ $np->no_plat }}</option>
             @endforeach
         </select> --}}
-        <div class="row">
-            <div class="col mx-4 my-4 table-responsive">
-                <table class="table" id="table_filter">
-                <tr>
-                    <td class="col-2">Periode</td>
-                    <td class="col-8">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineBulan" value="bulan">
-                            <div class="btn-group">
-                                <button class="btn btn-secondary btn-sm dropdown-toggle form-check-label" type="button" data-bs-toggle="dropdown" aria-expanded="false" for="inlineBulan">
-                                Bulan
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Januari</a></li>
-                                    <li><a class="dropdown-item" href="#">Februari</a></li>
-                                    <li><a class="dropdown-item" href="#">Maret</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineTahun" value="tahun">
-                            <div class="btn-group">
-                                <button class="btn btn-secondary btn-sm dropdown-toggle form-check-label" type="button" data-bs-toggle="dropdown" aria-expanded="false" for="inlineTahun">
-                                Tahun
-                                </button>
-                                <!-- pake javascript list tahun bang ytta -->
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-2">Jenis Perawatan</td>
-                    <td class="col-8">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineSemuaPerawatan" value="semuaPerawatan">
-                            <label class="form-check-label" for="inlineSemuaPerawatan">Semua</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlinePerawatan" value="perawatan">
-                            <div class="btn-group">
-                                <button class="btn btn-secondary btn-sm dropdown-toggle form-check-label" type="button" data-bs-toggle="dropdown" aria-expanded="false" for="inlinePerawatan">
-                                Pilih Perawatan
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-2">Kendaraan</td>
-                    <td class="col-8">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineSemuaKendaraan" value="semuaKendaraan">
-                            <label class="form-check-label" for="inlineSemuaKendaraan">Bulan</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineKendaraan" value="kendaraan">
-                            <div class="btn-group">
-                                <button class="btn btn-secondary btn-sm dropdown-toggle form-check-label" type="button" data-bs-toggle="dropdown" aria-expanded="false" for="inlineKendaraan">
-                                Pilih Kendaraan
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-2">Tanggal Laporan</td>
-                    <td class="col-8">
-                        date
-                    </td>
-                </tr>
+        <div class="div row">
+            <div class="col">
+                <table>
+                    <tr>
+                        <td>Nomor Polisi <span class="ml-3">Tanggal</span> <span class="ml-5">Jenis Perawatan</span></td>
+                    </tr>
+                    <tr id="filter">
+                    </tr>
                 </table>
             </div>
         </div>
@@ -144,6 +67,7 @@
                                 </td>
                             </tr>
                         @endforeach
+                    </tbody>
                 </table>
             </div>
         </div>
