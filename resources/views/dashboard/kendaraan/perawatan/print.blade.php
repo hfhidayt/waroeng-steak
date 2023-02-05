@@ -1,28 +1,28 @@
 @extends('layouts.main')
 @section('wrapper')
-    <div class="container">
+    <div class="container" id="print">
         <div class="row justify-content-center text-center">
             <div class="col">
-                <h3>LAPORAN BIAYA PERAWATAN KENDARAAN</h3>
+                <h3 class="headerPrint">LAPORAN BIAYA PERAWATAN KENDARAAN</h3>
             </div>
         </div>
         <div class="row justify-content-center text-center">
             <div class="col">
-                <h3>PT WAROENG STEAK INDONESIA</h3>
+                <h3 class="headerPrint">PT WAROENG STEAK INDONESIA</h3>
             </div>
         </div>
         <div class="row justify-content-center text-center">
             <div class="col">
-                <h3>jenis_perwatan - no_plat - bulan_tahun</h3>
+                <h3 class="headerPrint">jenis_perwatan - no_plat - bulan_tahun</h3>
             </div>
         </div>
         <table class="table table-bordered">
             <tbody>
                 <tr>
-                    <th>Nomor Data</th> <!-- id -->
-                    <th>No</th> <!-- urut -->
+                    <th>Nomor Data</th>
+                    <th>No</th>
                     <th>Nomor Plat</th>
-                    <th>Tanggal</th> <!-- tanggal-bulan-tahun -->
+                    <th>Tanggal</th>
                     <th>Jenis Perawatan</th>
                     <th>Total Biaya</th>
                     <th>Tempat</th>
@@ -77,18 +77,15 @@
         </div>
     </div>
     <div class="d-grid gap-2 col-1 mx-auto my-5">
-        <button type="button" class="btn btn-primary" onclick="printData()">
-            Print</button>
-        {{-- <button type="button" class="btn btn-primary" id="create_pdf">
-            Print</button> --}}
+        {{-- <button type="button" class="btn btn-primary" onclick="printDiv('print')">Print</button> --}}
+        <button type="button" class="btn btn-primary" onclick="print()">Print</button>
+        {{-- <button type="button" class="btn btn-primary" onclick="printData()">Print</button> --}}
     </div>
-    <script>
-        function printData() {
-            var print = document.getElementById("printTabel");
-            newWin = window.open("");
-            newWin.document.write(print.outerHTML);
-            newWin.print();
-            newWin.close();
-        }
-    </script>
 @endsection
+@push('script')
+<script >
+    function print() {
+        $('.container').printThis();
+    }
+</script>
+@endpush
