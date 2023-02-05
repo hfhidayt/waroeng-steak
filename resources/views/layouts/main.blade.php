@@ -100,161 +100,80 @@
         integrity="sha512-4MvcHwcbqXKUHB6Lx3Zb5CEAVoE9u84qN+ZSMM6s7z8IeJriExrV3ND5zRze9mxNlABJ6k864P/Vl8m0Sd3DtQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        // $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
-        //     var min = parseInt($('#min').val(), 10);
-        //     var max = parseInt($('#max').val(), 10);
-        //     var age = parseFloat(data[3]) || 0; // use data for the age column
-
-        //     if (
-        //         (isNaN(min) && isNaN(max)) ||
-        //         (isNaN(min) && age <= max) ||
-        //         (min <= age && isNaN(max)) ||
-        //         (min <= age && age <= max)
-        //     ) {
-        //         return true;
-        //     }
-        //     return false;
-        // });
-        // $(document).ready(function() {
-        //     var table = $('#table_id').DataTable({
-        //         columnDefs: [{
-        //             targets: '_all',
-        //             className: 'dt-head-center'
-        //         }],
-        //         initComplete: function () {
-        //         this.api()
-        //         .columns(1)
-        //         .every(function () {
-        //             var column = this;
-        //             var select = $('<select class="form-select" id="filter"><option value="">-- Nomor Polisi --</option></select>')
-        //                 .appendTo($('#plat'))
-        //                 .on('change', function () {
-        //                     var val = $.fn.dataTable.util.escapeRegex($(this).val());
- 
-        //                     column.search(val ? '^' + val + '$' : '', true, false).draw();
-        //                 });
-        //             column
-        //                 .data()
-        //                 .unique()
-        //                 .sort()
-        //                 .each(function (d, j) {
-        //                     select.append('<option value="' + d + '">' + d + '</option>');
-        //                 });
-        //             });
-        //         },
-        //         initComplete: function () {
-        //         this.api()
-        //         .columns(2)
-        //         .every(function () {
-        //             var column = this;
-        //             var select = $('<select class="form-select"><option value="">-- Tanggal --</option></select>')
-        //                 .appendTo($('#tgl'))
-        //                 .on('change', function () {
-        //                     var val = $.fn.dataTable.util.escapeRegex($(this).val());
- 
-        //                     column.search(val ? '^' + val + '$' : '', true, false).draw();
-        //                 });
-        //             column
-        //                 .data()
-        //                 .unique()
-        //                 .sort()
-        //                 .each(function (d, j) {
-        //                     select.append('<option value="' + d + '">' + d + '</option>');
-        //                 });
-        //             });
-        //         },
-        //         initComplete: function () {
-        //         this.api()
-        //         .columns(3)
-        //         .every(function () {
-        //             var column = this;
-        //             var select = $('<select class="form-select" id="filter"><option value="">-- Jenis Perawatan --</option></select>')
-        //                 .appendTo($('#perawatan'))
-        //                 .on('change', function () {
-        //                     var val = $.fn.dataTable.util.escapeRegex($(this).val());
- 
-        //                     column.search(val ? '^' + val + '$' : '', true, false).draw();
-        //                 });
-        //             column
-        //                 .data()
-        //                 .unique()
-        //                 .sort()
-        //                 .each(function (d, j) {
-        //                     select.append('<option value="' + d + '">' + d + '</option>');
-        //                 });
-        //             });
-        //         }
-        //     });
-        //     // $('#min, #max').keyup(function() {
-        //     //     table.draw();
-        //     // });
-        // });
         $(document).ready(function() {
-	var table = $('#table_id').DataTable({
-		columnDefs: [{
-			targets: '_all',
-			className: 'dt-head-center'
-		}],
+            var table = $('#table_id').DataTable({
+                columnDefs: [{
+                    targets: '_all',
+                    className: 'dt-head-center'
+                }],
 
-		initComplete: function () {
-		this.api()
-		.columns(1)
-		.every(function () {
-			var column = this;
-			var select = $('<select class="form-select"><option value="">-- Nomor Polisi --</option></select>')
-				.appendTo($('#plat'))
-				.on('change', function () {
-					var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                initComplete: function () {
+                this.api()
+                .columns(1)
+                .every(function () {
+                    var column = this;
+                    var select = $('<select class="form-select platF"><option value="">-- Nomor Polisi --</option></select>')
+                        .appendTo($('#plat'))
+                        .on('change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-					column.search(val ? '^' + val + '$' : '', true, false).draw();
-				});
-			column
-				.data()
-				.unique()
-				.sort()
-				.each(function (d, j) {
-					select.append('<option value="' + d + '">' + d + '</option>');
-				});
-			})
-		.columns(2)
-		.every(function () {
-			var column = this;
-			var select = $('<select class="form-select"><option value="">-- Tanggal --</option></select>')
-				.appendTo($('#tgl'))
-				.on('change', function () {
-					var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                            column.search(val ? '^' + val + '$' : '', true, false).draw();
+                        });
+                    column
+                        .data()
+                        .unique()
+                        .sort()
+                        .each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>');
+                        });
+                    })
+                .columns(2)
+                .every(function () {
+                    var column = this;
+                    var select = $('<select class="form-select tglF"><option value="">-- Tanggal --</option></select>')
+                        .appendTo($('#tgl'))
+                        .on('change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-					column.search(val ? '^' + val + '$' : '', true, false).draw();
-				});
-			column
-				.data()
-				.unique()
-				.sort()
-				.each(function (d, j) {
-					select.append('<option value="' + d + '">' + d + '</option>');
-				});
-			})
-		.columns(3)
-		.every(function () {
-			var column = this;
-			var select = $('<select class="form-select"><option value="">-- Jenis Perawatan --</option></select>')
-				.appendTo($('#perawatan'))
-				.on('change', function () {
-					var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                            column.search(val ? '^' + val + '$' : '', true, false).draw();
+                        });
+                    column
+                        .data()
+                        .unique()
+                        .sort()
+                        .each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>');
+                        });
+                    })
+                .columns(3)
+                .every(function () {
+                    var column = this;
+                    var select = $('<select class="form-select"><option value="">-- Jenis Perawatan --</option></select>')
+                        .appendTo($('#perawatan'))
+                        .on('change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-					column.search(val ? '^' + val + '$' : '', true, false).draw();
-				});
-			column
-				.data()
-				.unique()
-				.sort()
-				.each(function (d, j) {
-					select.append('<option value="' + d + '">' + d + '</option>');
-				});
-			});
-		},
-	});
-});
+                            column.search(val ? '^' + val + '$' : '', true, false).draw();
+                        });
+                    column
+                        .data()
+                        .unique()
+                        .sort()
+                        .each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>');
+                        });
+                    });
+                },
+            });
+
+            $('.platF').select2({
+                theme: 'bootstrap-5',
+            });
+            
+            $('.tglF').select2({
+                theme: 'bootstrap-5',
+            });
+        });
     </script>
     @stack('script')
 </body>
