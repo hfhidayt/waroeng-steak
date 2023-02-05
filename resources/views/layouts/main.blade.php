@@ -115,38 +115,146 @@
         //     }
         //     return false;
         // });
-        $(document).ready(function() {
-            var table = $('#table_id').DataTable({
-                columnDefs: [{
-                    targets: '_all',
-                    className: 'dt-head-center'
-                }],
-                initComplete: function () {
-                this.api()
-                .columns([1,2,3])
-                .every(function () {
-                    var column = this;
-                    var select = $('<select><option value=""></option></select>')
-                        .appendTo($('#filter'))
-                        .on('change', function () {
-                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+        // $(document).ready(function() {
+        //     var table = $('#table_id').DataTable({
+        //         columnDefs: [{
+        //             targets: '_all',
+        //             className: 'dt-head-center'
+        //         }],
+        //         initComplete: function () {
+        //         this.api()
+        //         .columns(1)
+        //         .every(function () {
+        //             var column = this;
+        //             var select = $('<select class="form-select" id="filter"><option value="">-- Nomor Polisi --</option></select>')
+        //                 .appendTo($('#plat'))
+        //                 .on('change', function () {
+        //                     var val = $.fn.dataTable.util.escapeRegex($(this).val());
  
-                            column.search(val ? '^' + val + '$' : '', true, false).draw();
-                        });
-                    column
-                        .data()
-                        .unique()
-                        .sort()
-                        .each(function (d, j) {
-                            select.append('<option value="' + d + '">' + d + '</option>');
-                        });
-                    });
-                },
-            });
-            // $('#min, #max').keyup(function() {
-            //     table.draw();
-            // });
-        });
+        //                     column.search(val ? '^' + val + '$' : '', true, false).draw();
+        //                 });
+        //             column
+        //                 .data()
+        //                 .unique()
+        //                 .sort()
+        //                 .each(function (d, j) {
+        //                     select.append('<option value="' + d + '">' + d + '</option>');
+        //                 });
+        //             });
+        //         },
+        //         initComplete: function () {
+        //         this.api()
+        //         .columns(2)
+        //         .every(function () {
+        //             var column = this;
+        //             var select = $('<select class="form-select"><option value="">-- Tanggal --</option></select>')
+        //                 .appendTo($('#tgl'))
+        //                 .on('change', function () {
+        //                     var val = $.fn.dataTable.util.escapeRegex($(this).val());
+ 
+        //                     column.search(val ? '^' + val + '$' : '', true, false).draw();
+        //                 });
+        //             column
+        //                 .data()
+        //                 .unique()
+        //                 .sort()
+        //                 .each(function (d, j) {
+        //                     select.append('<option value="' + d + '">' + d + '</option>');
+        //                 });
+        //             });
+        //         },
+        //         initComplete: function () {
+        //         this.api()
+        //         .columns(3)
+        //         .every(function () {
+        //             var column = this;
+        //             var select = $('<select class="form-select" id="filter"><option value="">-- Jenis Perawatan --</option></select>')
+        //                 .appendTo($('#perawatan'))
+        //                 .on('change', function () {
+        //                     var val = $.fn.dataTable.util.escapeRegex($(this).val());
+ 
+        //                     column.search(val ? '^' + val + '$' : '', true, false).draw();
+        //                 });
+        //             column
+        //                 .data()
+        //                 .unique()
+        //                 .sort()
+        //                 .each(function (d, j) {
+        //                     select.append('<option value="' + d + '">' + d + '</option>');
+        //                 });
+        //             });
+        //         }
+        //     });
+        //     // $('#min, #max').keyup(function() {
+        //     //     table.draw();
+        //     // });
+        // });
+        $(document).ready(function() {
+	var table = $('#table_id').DataTable({
+		columnDefs: [{
+			targets: '_all',
+			className: 'dt-head-center'
+		}],
+
+		initComplete: function () {
+		this.api()
+		.columns(1)
+		.every(function () {
+			var column = this;
+			var select = $('<select class="form-select"><option value="">-- Nomor Polisi --</option></select>')
+				.appendTo($('#plat'))
+				.on('change', function () {
+					var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+					column.search(val ? '^' + val + '$' : '', true, false).draw();
+				});
+			column
+				.data()
+				.unique()
+				.sort()
+				.each(function (d, j) {
+					select.append('<option value="' + d + '">' + d + '</option>');
+				});
+			})
+		.columns(2)
+		.every(function () {
+			var column = this;
+			var select = $('<select class="form-select"><option value="">-- Tanggal --</option></select>')
+				.appendTo($('#tgl'))
+				.on('change', function () {
+					var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+					column.search(val ? '^' + val + '$' : '', true, false).draw();
+				});
+			column
+				.data()
+				.unique()
+				.sort()
+				.each(function (d, j) {
+					select.append('<option value="' + d + '">' + d + '</option>');
+				});
+			})
+		.columns(3)
+		.every(function () {
+			var column = this;
+			var select = $('<select class="form-select"><option value="">-- Jenis Perawatan --</option></select>')
+				.appendTo($('#perawatan'))
+				.on('change', function () {
+					var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+					column.search(val ? '^' + val + '$' : '', true, false).draw();
+				});
+			column
+				.data()
+				.unique()
+				.sort()
+				.each(function (d, j) {
+					select.append('<option value="' + d + '">' + d + '</option>');
+				});
+			});
+		},
+	});
+});
     </script>
     @stack('script')
 </body>

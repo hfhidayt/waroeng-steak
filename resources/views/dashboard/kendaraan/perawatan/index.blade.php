@@ -26,9 +26,9 @@
             <div class="col">
                 <table>
                     <tr>
-                        <td>Nomor Polisi <span class="ml-3">Tanggal</span> <span class="ml-5">Jenis Perawatan</span></td>
-                    </tr>
-                    <tr id="filter">
+                        <td id="plat"></td>
+                        <td id="tgl"></td>
+                        <td id="perawatan"></td>
                     </tr>
                 </table>
             </div>
