@@ -16,7 +16,10 @@ class CreatePerawatansTable extends Migration
         Schema::create('perawatans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('kendaraan_id'); //relasi tabel kendaraan
-            $table->date('tgl_perawatan');
+            // $table->date('tgl_perawatan');
+            $table->string('tanggal');
+            $table->string('bulan');
+            $table->string('tahun');
             $table->string('jenis_perawatan');
             $table->string('barang_jasa');
             $table->integer('volume');

@@ -532,7 +532,9 @@ class DatabaseSeeder extends Seeder
 
         Perawatan::Create([
             'kendaraan_id' => '15',
-            'tgl_perawatan' => Carbon::Create('2021','1','3'),
+            'tanggal' => '3',
+            'bulan' => 'Januari',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Servis Rutin',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -546,7 +548,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '11',
-            'tgl_perawatan' => Carbon::Create('2021','1','8'),
+            'tanggal' => '8',
+            'bulan' => 'Januari',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Perbaikan',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -560,7 +564,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '9',
-            'tgl_perawatan' => Carbon::Create('2021','1','5'),
+            'tanggal' => '5',
+            'bulan' => 'Januari',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Pengisian BBM',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -574,7 +580,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '22',
-            'tgl_perawatan' => Carbon::Create('2021','1','22'),
+            'tanggal' => '22',
+            'bulan' => 'Januari',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Pengisian BBM',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -588,7 +596,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '21',
-            'tgl_perawatan' => Carbon::Create('2021','1','3'),
+            'tanggal' => '3',
+            'bulan' => 'Januari',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Servis Rutin',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -602,7 +612,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '4',
-            'tgl_perawatan' => Carbon::Create('2021','1','8'),
+            'tanggal' => '8',
+            'bulan' => 'Januari',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Perbaikan',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -616,7 +628,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '8',
-            'tgl_perawatan' => Carbon::Create('2021','1','5'),
+            'tanggal' => '5',
+            'bulan' => 'Januari',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Pengisian BBM',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -630,7 +644,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '5',
-            'tgl_perawatan' => Carbon::Create('2021','1','22'),
+            'tanggal' => '22',
+            'bulan' => 'Januari',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Pengisian BBM',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -644,7 +660,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '25',
-            'tgl_perawatan' => Carbon::Create('2021','2','13'),
+            'tanggal' => '13',
+            'bulan' => 'Februari',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Servis Rutin',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -658,7 +676,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '27',
-            'tgl_perawatan' => Carbon::Create('2021','2','13'),
+            'tanggal' => '13',
+            'bulan' => 'Februari',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Perbaikan',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -672,7 +692,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '15',
-            'tgl_perawatan' => Carbon::Create('2021','2','21'),
+            'tanggal' => '21',
+            'bulan' => 'Februari',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Servis Rutin',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -686,7 +708,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '28',
-            'tgl_perawatan' => Carbon::Create('2021','2','22'),
+            'tanggal' => '22',
+            'bulan' => 'Februari',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Perbaikan',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -700,7 +724,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '1',
-            'tgl_perawatan' => Carbon::Create('2021','2','3'),
+            'tanggal' => '3',
+            'bulan' => 'Februari',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Servis Rutin',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -714,7 +740,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '20',
-            'tgl_perawatan' => Carbon::Create('2021','2','8'),
+            'tanggal' => '8',
+            'bulan' => 'Februari',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Perbaikan',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -728,7 +756,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '3',
-            'tgl_perawatan' => Carbon::Create('2021','2','5'),
+            'tanggal' => '5',
+            'bulan' => 'Februari',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Pengisian BBM',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -742,7 +772,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '4',
-            'tgl_perawatan' => Carbon::Create('2021','2','22'),
+            'tanggal' => '22',
+            'bulan' => 'Februari',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Pengisian BBM',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -756,7 +788,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '24',
-            'tgl_perawatan' => Carbon::Create('2021','3','1'),
+            'tanggal' => '1',
+            'bulan' => 'Maret',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Pengisian BBM',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -770,7 +804,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '22',
-            'tgl_perawatan' => Carbon::Create('2021','3','3'),
+            'tanggal' => '3',
+            'bulan' => 'Maret',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Pengisian BBM',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -784,7 +820,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '6',
-            'tgl_perawatan' => Carbon::Create('2021','3','2'),
+            'tanggal' => '2',
+            'bulan' => 'Maret',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Servis Rutin',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -798,7 +836,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '16',
-            'tgl_perawatan' => Carbon::Create('2021','3','3'),
+            'tanggal' => '3',
+            'bulan' => 'Maret',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Perbaikan',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -812,7 +852,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '17',
-            'tgl_perawatan' => Carbon::Create('2021','3','1'),
+            'tanggal' => '1',
+            'bulan' => 'Maret',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Pengisian BBM',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -826,7 +868,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '10',
-            'tgl_perawatan' => Carbon::Create('2021','3','3'),
+            'tanggal' => '3',
+            'bulan' => 'Maret',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Pengisian BBM',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -840,7 +884,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '3',
-            'tgl_perawatan' => Carbon::Create('2021','3','2'),
+            'tanggal' => '2',
+            'bulan' => 'Maret',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Servis Rutin',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -854,7 +900,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '27',
-            'tgl_perawatan' => Carbon::Create('2021','3','3'),
+            'tanggal' => '3',
+            'bulan' => 'Maret',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Perbaikan',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -868,7 +916,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '14',
-            'tgl_perawatan' => Carbon::Create('2021','4','3'),
+            'tanggal' => '3',
+            'bulan' => 'April',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Servis Rutin',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -882,7 +932,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '3',
-            'tgl_perawatan' => Carbon::Create('2021','4','8'),
+            'tanggal' => '8',
+            'bulan' => 'April',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Perbaikan',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -896,7 +948,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '12',
-            'tgl_perawatan' => Carbon::Create('2021','4','5'),
+            'tanggal' => '5',
+            'bulan' => 'April',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Pengisian BBM',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -910,7 +964,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '1',
-            'tgl_perawatan' => Carbon::Create('2021','4','22'),
+            'tanggal' => '22',
+            'bulan' => 'April',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Pengisian BBM',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -924,7 +980,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '1',
-            'tgl_perawatan' => Carbon::Create('2021','5','13'),
+            'tanggal' => '13',
+            'bulan' => 'Mei',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Servis Rutin',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -938,7 +996,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '21',
-            'tgl_perawatan' => Carbon::Create('2021','5','13'),
+            'tanggal' => '13',
+            'bulan' => 'Mei',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Perbaikan',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -952,7 +1012,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '5',
-            'tgl_perawatan' => Carbon::Create('2021','5','21'),
+            'tanggal' => '21',
+            'bulan' => 'Mei',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Servis Rutin',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -966,7 +1028,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '13',
-            'tgl_perawatan' => Carbon::Create('2021','5','22'),
+            'tanggal' => '22',
+            'bulan' => 'Mei',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Perbaikan',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -980,7 +1044,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '26',
-            'tgl_perawatan' => Carbon::Create('2021','4','1'),
+            'tanggal' => '1',
+            'bulan' => 'April',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Pengisian BBM',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -994,7 +1060,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '20',
-            'tgl_perawatan' => Carbon::Create('2021','4','3'),
+            'tanggal' => '3',
+            'bulan' => 'April',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Pengisian BBM',
             'barang_jasa' => 'ban',
             'volume' => '1',
@@ -1008,7 +1076,9 @@ class DatabaseSeeder extends Seeder
         
         Perawatan::Create([
             'kendaraan_id' => '8',
-            'tgl_perawatan' => Carbon::Create('2021','4','2'),
+            'tanggal' => '2',
+            'bulan' => 'April',
+            'tahun' => '2021',
             'jenis_perawatan' => 'Perbaikan',
             'barang_jasa' => 'ban',
             'volume' => '1',

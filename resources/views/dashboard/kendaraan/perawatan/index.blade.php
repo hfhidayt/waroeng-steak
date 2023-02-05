@@ -14,6 +14,7 @@
                 <a href="#createPS" class="btn btn-success" data-bs-toggle="modal">Tambah Perawatan</a>
                 @include('dashboard.kendaraan.perawatan.create')
                 <a href="/dashboard/jenis/perawatan/kendaraan" class="btn btn-success">Jenis Perawatan</a>
+                <a href="#" class="btn btn-success" onclick="print()">Print</a>
             </div>
         </div>
         {{-- <select class="form-select kendaraan_idC" name="kendaraan_id" id="kendaraan_id">
@@ -27,7 +28,8 @@
                 <table>
                     <tr>
                         <td id="plat"></td>
-                        <td id="tgl"></td>
+                        <td id="bulan"></td>
+                        <td id="tahun"></td>
                         <td id="perawatan"></td>
                     </tr>
                 </table>
@@ -40,6 +42,8 @@
                         <tr>
                             <th scope="col">No</th>
                             <th scope="col">Nomor Polisi</th>
+                            <th scope="col" hidden>bulan</th>
+                            <th scope="col" hidden>tahun</th>
                             <th scope="col">Tanggal</th>
                             <th scope="col">Jenis Perawatan</th>
                             <th scope="col">Total Biaya</th>
@@ -51,9 +55,10 @@
                         @foreach ($perawatan as $ps)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                {{-- <td>{{ ddd($ps->kendaraan->no_plat) }}</td> --}}
                                 <td class="text-center">{{ $ps->kendaraan->no_plat }}</td>
-                                <td class="text-center">{{ $ps->tgl_perawatan }}</td>
+                                <td class="text-center" hidden>{{ $ps->bulan }}</td>
+                                <td class="text-center" hidden>{{ $ps->tahun }}</td>
+                                <td class="text-center">{{ $ps->tanggal }} {{ $ps->bulan }} {{ $ps->tahun }}</td>
                                 <td class="text-center">{{ $ps->jenis_perawatan }}</td>
                                 <td class="text-center">{{ $ps->total_biaya }}</td>
                                 <td class="text-center">{{ $ps->tempat_perawatan }}</td>

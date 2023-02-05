@@ -130,8 +130,35 @@
                 .columns(2)
                 .every(function () {
                     var column = this;
-                    var select = $('<select class="form-select tglF"><option value="">-- Tanggal --</option></select>')
-                        .appendTo($('#tgl'))
+                    var select = $('<select class="form-select"><option value="">-- Bulan --</option></select>')
+                        .appendTo($('#bulan'))
+                        .on('change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                            column.search(val ? '^' + val + '$' : '', true, false).draw();
+                        });
+                    column
+                        .data()
+                        .unique()
+                        .sort()
+                        select.append('<option value="Januari">Januari</option>')
+                        select.append('<option value="Februari">Februari</option>')
+                        select.append('<option value="Maret">Maret</option>')
+                        select.append('<option value="April">April</option>')
+                        select.append('<option value="Mei">Mei</option>')
+                        select.append('<option value="Juni">Juni</option>')
+                        select.append('<option value="Juli">Juli</option>')
+                        select.append('<option value="Agustus">Agustus</option>')
+                        select.append('<option value="September">September</option>')
+                        select.append('<option value="Oktober">Oktober</option>')
+                        select.append('<option value="November">November</option>')
+                        select.append('<option value="Desember">Desember</option>')
+                    })
+                .columns(3)
+                .every(function () {
+                    var column = this;
+                    var select = $('<select class="form-select"><option value="">-- Tahun --</option></select>')
+                        .appendTo($('#tahun'))
                         .on('change', function () {
                             var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
@@ -145,7 +172,7 @@
                             select.append('<option value="' + d + '">' + d + '</option>');
                         });
                     })
-                .columns(3)
+                .columns(5)
                 .every(function () {
                     var column = this;
                     var select = $('<select class="form-select"><option value="">-- Jenis Perawatan --</option></select>')
