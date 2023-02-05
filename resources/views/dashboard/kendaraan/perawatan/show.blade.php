@@ -22,13 +22,25 @@
                         <div class="invalid-feedback" id="np_e">
                         </div>
                     </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group">
-                            <span class="input-group-text">Tanggal Perawatan</span>
-                            <input type="date" class="form-control" placeholder="Tanggal Perawatan"
-                                name="tgl_perawatan" id="tgl_perawatan" value="{{ $ps->tgl_perawatan }}" disabled>
-                            <div class="invalid-feedback" id="tp_e">
-                            </div>
+                    <div class="mb-3">
+                        <label for="tanggal" class="form-label">Tanggal Perawatan</label>
+                        <input type="text" class="form-control" placeholder="Tanggal Perawatan" name="tanggal"
+                            id="tanggal" value="{{ $ps->tanggal }}" disabled>
+                        <div class="invalid-feedback" id="tp_e">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="jenis_perawatan" class="form-label">Bulan Perawatan</label>
+                        <input type="text" class="form-control" placeholder="Bulan Perawatan" name="bulan"
+                            id="bulan" value="{{ $ps->bulan }}" disabled>
+                        <div class="invalid-feedback" id="tp_e">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="jenis_perawatan" class="form-label">Tahun Perawatan</label>
+                        <input type="text" class="form-control" placeholder="Tahun Perawatan" name="tahun"
+                            id="tahun" value="{{ $ps->tahun }}" disabled>
+                        <div class="invalid-feedback" id="tp_e">
                         </div>
                     </div>
                     <div class="mb-3">
@@ -53,29 +65,30 @@
                     </div>
                     <div class="mb-3">
                         <label for="volume" class="form-label">Volume</label>
-                        <input type="number" class="form-control" placeholder="Volume" name="volume"
-                            id="volume" value="{{ $ps->volume }}" disabled>
+                        <input type="number" class="form-control" placeholder="Volume" name="volume" id="volume"
+                            value="{{ $ps->volume }}" disabled>
                         <div class="invalid-feedback" id="tb_e">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="satuan" class="form-label">Satuan</label>
-                        <input type="text" class="form-control" placeholder="Satuan" name="satuan"
-                            id="satuan" value="{{ $ps->satuan }}" disabled>
+                        <input type="text" class="form-control" placeholder="Satuan" name="satuan" id="satuan"
+                            value="{{ $ps->satuan }}" disabled>
                         <div class="invalid-feedback" id="tb_e">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="tempat_perawatan" class="form-label">Tempat Perawatan</label>
                         <input type="text" class="form-control" placeholder="Tempat Perawatan"
-                            name="tempat_perawatan" id="tempat_perawatan" value="{{ $ps->tempat_perawatan }}" disabled>
+                            name="tempat_perawatan" id="tempat_perawatan" value="{{ $ps->tempat_perawatan }}"
+                            disabled>
                         <div class="invalid-feedback" id="tps_e">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="kilometer" class="form-label">Kilometer Kendaraan</label>
-                        <input type="number" class="form-control" placeholder="Kilometer Kendaraan" name="kilometer"
-                            id="kilometer" value="{{ $ps->kilometer }}" disabled>
+                        <input type="number" class="form-control" placeholder="Kilometer Kendaraan"
+                            name="kilometer" id="kilometer" value="{{ $ps->kilometer }}" disabled>
                         <div class="invalid-feedback" id="k_e">
                         </div>
                     </div>

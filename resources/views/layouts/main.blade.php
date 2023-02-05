@@ -107,96 +107,111 @@
                     className: 'dt-head-center'
                 }],
 
-                initComplete: function () {
-                this.api()
-                .columns(1)
-                .every(function () {
-                    var column = this;
-                    var select = $('<select class="form-select platF"><option value="">-- Nomor Polisi --</option></select>')
-                        .appendTo($('#plat'))
-                        .on('change', function () {
-                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                initComplete: function() {
+                    this.api()
+                        .columns(1)
+                        .every(function() {
+                            var column = this;
+                            var select = $(
+                                    '<select class="form-select platF"><option value="">-- Nomor Polisi --</option></select>'
+                                )
+                                .appendTo($('#plat'))
+                                .on('change', function() {
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-                            column.search(val ? '^' + val + '$' : '', true, false).draw();
-                        });
-                    column
-                        .data()
-                        .unique()
-                        .sort()
-                        .each(function (d, j) {
-                            select.append('<option value="' + d + '">' + d + '</option>');
-                        });
-                    })
-                .columns(2)
-                .every(function () {
-                    var column = this;
-                    var select = $('<select class="form-select"><option value="">-- Bulan --</option></select>')
-                        .appendTo($('#bulan'))
-                        .on('change', function () {
-                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                                    column.search(val ? '^' + val + '$' : '', true, false)
+                                        .draw();
+                                });
+                            column
+                                .data()
+                                .unique()
+                                .sort()
+                                .each(function(d, j) {
+                                    select.append('<option value="' + d + '">' + d +
+                                        '</option>');
+                                });
+                        })
+                        .columns(2)
+                        .every(function() {
+                            var column = this;
+                            var select = $(
+                                    '<select class="form-select"><option value="">-- Bulan --</option></select>'
+                                )
+                                .appendTo($('#bulanF'))
+                                .on('change', function() {
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-                            column.search(val ? '^' + val + '$' : '', true, false).draw();
-                        });
-                    column
-                        .data()
-                        .unique()
-                        .sort()
-                        select.append('<option value="Januari">Januari</option>')
-                        select.append('<option value="Februari">Februari</option>')
-                        select.append('<option value="Maret">Maret</option>')
-                        select.append('<option value="April">April</option>')
-                        select.append('<option value="Mei">Mei</option>')
-                        select.append('<option value="Juni">Juni</option>')
-                        select.append('<option value="Juli">Juli</option>')
-                        select.append('<option value="Agustus">Agustus</option>')
-                        select.append('<option value="September">September</option>')
-                        select.append('<option value="Oktober">Oktober</option>')
-                        select.append('<option value="November">November</option>')
-                        select.append('<option value="Desember">Desember</option>')
-                    })
-                .columns(3)
-                .every(function () {
-                    var column = this;
-                    var select = $('<select class="form-select"><option value="">-- Tahun --</option></select>')
-                        .appendTo($('#tahun'))
-                        .on('change', function () {
-                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                                    column.search(val ? '^' + val + '$' : '', true, false)
+                                        .draw();
+                                });
+                            column
+                                .data()
+                                .unique()
+                                .sort()
+                            select.append('<option value="Januari">Januari</option>')
+                            select.append('<option value="Februari">Februari</option>')
+                            select.append('<option value="Maret">Maret</option>')
+                            select.append('<option value="April">April</option>')
+                            select.append('<option value="Mei">Mei</option>')
+                            select.append('<option value="Juni">Juni</option>')
+                            select.append('<option value="Juli">Juli</option>')
+                            select.append('<option value="Agustus">Agustus</option>')
+                            select.append('<option value="September">September</option>')
+                            select.append('<option value="Oktober">Oktober</option>')
+                            select.append('<option value="November">November</option>')
+                            select.append('<option value="Desember">Desember</option>')
+                        })
+                        .columns(3)
+                        .every(function() {
+                            var column = this;
+                            var select = $(
+                                    '<select class="form-select"><option value="">-- Tahun --</option></select>'
+                                )
+                                .appendTo($('#tahunF'))
+                                .on('change', function() {
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-                            column.search(val ? '^' + val + '$' : '', true, false).draw();
-                        });
-                    column
-                        .data()
-                        .unique()
-                        .sort()
-                        .each(function (d, j) {
-                            select.append('<option value="' + d + '">' + d + '</option>');
-                        });
-                    })
-                .columns(5)
-                .every(function () {
-                    var column = this;
-                    var select = $('<select class="form-select"><option value="">-- Jenis Perawatan --</option></select>')
-                        .appendTo($('#perawatan'))
-                        .on('change', function () {
-                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                                    column.search(val ? '^' + val + '$' : '', true, false)
+                                        .draw();
+                                });
+                            column
+                                .data()
+                                .unique()
+                                .sort()
+                                .each(function(d, j) {
+                                    select.append('<option value="' + d + '">' + d +
+                                        '</option>');
+                                });
+                        })
+                        .columns(5)
+                        .every(function() {
+                            var column = this;
+                            var select = $(
+                                    '<select class="form-select"><option value="">-- Jenis Perawatan --</option></select>'
+                                )
+                                .appendTo($('#perawatan'))
+                                .on('change', function() {
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-                            column.search(val ? '^' + val + '$' : '', true, false).draw();
+                                    column.search(val ? '^' + val + '$' : '', true, false)
+                                        .draw();
+                                });
+                            column
+                                .data()
+                                .unique()
+                                .sort()
+                                .each(function(d, j) {
+                                    select.append('<option value="' + d + '">' + d +
+                                        '</option>');
+                                });
                         });
-                    column
-                        .data()
-                        .unique()
-                        .sort()
-                        .each(function (d, j) {
-                            select.append('<option value="' + d + '">' + d + '</option>');
-                        });
-                    });
                 },
             });
 
             $('.platF').select2({
                 theme: 'bootstrap-5',
             });
-            
+
             $('.tglF').select2({
                 theme: 'bootstrap-5',
             });

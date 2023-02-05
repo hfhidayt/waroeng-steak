@@ -23,14 +23,25 @@
                         <div class="invalid-feedback" id="np_e{{ $ps->id }}">
                         </div>
                     </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group">
-                            <span class="input-group-text">Tanggal Perawatan</span>
-                            <input type="date" class="form-control" placeholder="Tanggal Perawatan"
-                                name="tgl_perawatan" id="tgl_perawatan{{ $ps->id }}"
-                                value="{{ $ps->tgl_perawatan }}">
-                            <div class="invalid-feedback" id="tp_e{{ $ps->id }}">
-                            </div>
+                    <div class="mb-3">
+                        <label for="tanggal" class="form-label">Tanggal Perawatan</label>
+                        <input type="text" class="form-control" placeholder="Tanggal Perawatan" name="tanggal"
+                            id="tanggal{{ $ps->id }}" value="{{ $ps->tanggal }}">
+                        <div class="invalid-feedback" id="tp_e{{ $ps->id }}">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tanggal" class="form-label">Bulan Perawatan</label>
+                        <input type="text" class="form-control" placeholder="Bulan Perawatan" name="bulan"
+                            id="bulan{{ $ps->id }}" value="{{ $ps->bulan }}">
+                        <div class="invalid-feedback" id="tp_e{{ $ps->id }}">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tanggal" class="form-label">Tahun Perawatan</label>
+                        <input type="text" class="form-control" placeholder="Tahun Perawatan" name="tahun"
+                            id="tahun{{ $ps->id }}" value="{{ $ps->tahun }}">
+                        <div class="invalid-feedback" id="tp_e{{ $ps->id }}">
                         </div>
                     </div>
                     <div class="mb-3">
@@ -56,46 +67,46 @@
                     </div>
                     <div class="mb-3">
                         <label for="barang_jasa" class="form-label">Barang/Jasa</label>
-                        <input type="text" class="form-control" placeholder="Barang/Jasa"
-                            name="barang_jasa" id="barang_jasa{{ $ps->id }}"
-                            value="{{ $ps->barang_jasa }}">
+                        <input type="text" class="form-control" placeholder="Barang/Jasa" name="barang_jasa"
+                            id="barang_jasa{{ $ps->id }}" value="{{ $ps->barang_jasa }}">
                         <div class="invalid-feedback" id="bj_e{{ $ps->id }}">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="volume" class="form-label">Volume</label>
                         <input type="text" class="form-control volume{{ $ps->id }}" placeholder="Volume"
-                            name="volume" id="volume{{ $ps->id }}"
-                            value="{{ $ps->volume }}" oninput="hitungEdit({{ $ps->id }})">
+                            name="volume" id="volume{{ $ps->id }}" value="{{ $ps->volume }}"
+                            oninput="hitungEdit({{ $ps->id }})">
                         <div class="invalid-feedback" id="v_e{{ $ps->id }}">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="satuan" class="form-label">Satuan</label>
-                        <input type="text" class="form-control" placeholder="Satuan"
-                            name="satuan" id="satuan{{ $ps->id }}"
-                            value="{{ $ps->satuan }}">
+                        <input type="text" class="form-control" placeholder="Satuan" name="satuan"
+                            id="satuan{{ $ps->id }}" value="{{ $ps->satuan }}">
                         <div class="invalid-feedback" id="s_e{{ $ps->id }}">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="kilometer" class="form-label">Kilometer Kendaraan</label>
-                        <input type="number" class="form-control" placeholder="Kilometer Kendaraan" name="kilometer"
-                            id="kilometer{{ $ps->id }}" value="{{ $ps->kilometer }}">
+                        <input type="number" class="form-control" placeholder="Kilometer Kendaraan"
+                            name="kilometer" id="kilometer{{ $ps->id }}" value="{{ $ps->kilometer }}">
                         <div class="invalid-feedback" id="k_e{{ $ps->id }}">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="harga_satuan" class="form-label">Harga Satuan</label>
-                        <input type="number" class="form-control harga_satuan{{ $ps->id }}" placeholder="Harga Satuan" name="harga_satuan"
-                            id="harga_satuan{{ $ps->id }}" value="{{ $ps->harga_satuan }}" oninput="hitungEdit({{ $ps->id }})">
+                        <input type="number" class="form-control harga_satuan{{ $ps->id }}"
+                            placeholder="Harga Satuan" name="harga_satuan" id="harga_satuan{{ $ps->id }}"
+                            value="{{ $ps->harga_satuan }}" oninput="hitungEdit({{ $ps->id }})">
                         <div class="invalid-feedback" id="hs_e{{ $ps->id }}">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="total_biaya" class="form-label">Total Biaya</label>
-                        <input type="number" class="form-control total_biaya{{ $ps->id }}" placeholder="Total Biaya" name="total_biaya"
-                            id="total_biaya{{ $ps->id }}" disabled>
+                        <input type="number" class="form-control total_biaya{{ $ps->id }}"
+                            placeholder="Total Biaya" name="total_biaya" id="total_biaya{{ $ps->id }}"
+                            disabled>
                         <div class="invalid-feedback" id="tb_e{{ $ps->id }}">
                         </div>
                     </div>

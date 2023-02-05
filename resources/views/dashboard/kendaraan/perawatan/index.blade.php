@@ -14,7 +14,7 @@
                 <a href="#createPS" class="btn btn-success" data-bs-toggle="modal">Tambah Perawatan</a>
                 @include('dashboard.kendaraan.perawatan.create')
                 <a href="/dashboard/jenis/perawatan/kendaraan" class="btn btn-success">Jenis Perawatan</a>
-                <a href="#" class="btn btn-success" onclick="print()">Print</a>
+                <a href="/dashboard/print/perawatan/kendaraan" class="btn btn-success">Print</a>
             </div>
         </div>
         {{-- <select class="form-select kendaraan_idC" name="kendaraan_id" id="kendaraan_id">
@@ -24,12 +24,12 @@
             @endforeach
         </select> --}}
         <div class="div row">
-            <div class="col">
+            <div class="col mx-4">
                 <table>
                     <tr>
                         <td id="plat"></td>
-                        <td id="bulan"></td>
-                        <td id="tahun"></td>
+                        <td id="bulanF"></td>
+                        <td id="tahunF"></td>
                         <td id="perawatan"></td>
                     </tr>
                 </table>

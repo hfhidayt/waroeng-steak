@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Perawatan;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KendaraanController;
@@ -31,6 +32,13 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/dashboard', function () {
     return view('dashboard.index', [
         'title' => 'Dashboard'
+    ]);
+})->middleware('auth');
+
+Route::get('/dashboard/print/perawatan/kendaraan', function () {
+    return view('dashboard.kendaraan.perawatan.print', [
+        'title' => 'Print',
+        'perawatan' => Perawatan::all(),
     ]);
 })->middleware('auth');
 
