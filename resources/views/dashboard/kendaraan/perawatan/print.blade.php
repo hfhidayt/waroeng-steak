@@ -4,7 +4,7 @@
     <head>
     </head>
 
-    <body>
+    <body id="printTable">
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col">
@@ -21,7 +21,7 @@
                     <h3>jenis_perwatan - no_plat - bulan_tahun</h3>
                 </div>
             </div>
-            <table class="table table-bordered" id="printTable">
+            <table class="table table-bordered">
                 <tbody>
                     <tr>
                         <th>Nomor Data</th> <!-- id -->
@@ -82,7 +82,10 @@
             </div>
         </div>
     </body>
-
+    <div class="d-grid gap-2 col-1 mx-auto my-5">
+        <button type="button" class="btn btn-primary" onclick="printData()">
+            Print</button>
+    </div>
     <script>
         function printData() {
             var divToPrint = document.getElementById("printTable");
@@ -92,5 +95,4 @@
             newWin.close();
         }
     </script>
-    <button onclick="printData()>Print</button>
 @endsection
