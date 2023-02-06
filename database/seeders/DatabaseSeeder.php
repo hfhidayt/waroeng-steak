@@ -77,8 +77,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'HITAM METALIK',
             'jenis_merk'=>'BOX/TOYOTA HILUX',
             'posisi_kendaraan'=>'DAPUR PRODUKSI',
-            'pajak'=>Carbon::create('2023', '12', '13'),
-            'ganti_plat'=>Carbon::create('2024', '12', '13'),
+            'pic'=>'DAPUR PRODUKSI',
+            'tanggal_pajak' => '13',
+            'bulan_pajak' => 'Desember',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '13',
+            'bulan_ganti_plat' => 'Desember',
+            'tahun_ganti_plat' => '2024',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>'SEKEN '
         ]);
         
@@ -94,8 +104,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'HITAM KOMBINASI',
             'jenis_merk'=>'MITSHUBISHI TRUCK',
             'posisi_kendaraan'=>'FOODTRUCK tyok',
-            'pajak'=>Carbon::create('2023', '11', '06'),
-            'ganti_plat'=>Carbon::create('2025', '11', '06'),
+            'pic'=>'FOODTRUCK tyok',
+            'tanggal_pajak' => '06',
+            'bulan_pajak' => 'November',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '06',
+            'bulan_ganti_plat' => 'November',
+            'tahun_ganti_plat' => '2025',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>'BARU'
         ]);
         
@@ -111,8 +131,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'HITAM',
             'jenis_merk'=>'BOX/DHAIHATSU',
             'posisi_kendaraan'=>'WH',
-            'pajak'=>Carbon::create('2023', '09', '22'),
-            'ganti_plat'=>Carbon::create('2027', '09', '22'),
+            'pic'=>'WH',
+            'tanggal_pajak' => '22',
+            'bulan_pajak' => 'September',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '22',
+            'bulan_ganti_plat' => 'September',
+            'tahun_ganti_plat' => '2027',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>'BARU'
         ]);
         
@@ -128,8 +158,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'PUTIH',
             'jenis_merk'=>'NISSAN LIVINA',
             'posisi_kendaraan'=>'Kantor Deresan/Operasional',
-            'pajak'=>Carbon::create('2023', '02', '27'),
-            'ganti_plat'=>Carbon::create('2027', '02', '27'),
+            'pic'=>'Kantor Deresan/Operasional',
+            'tanggal_pajak' => '27',
+            'bulan_pajak' => 'Februari',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '27',
+            'bulan_ganti_plat' => 'Februari',
+            'tahun_ganti_plat' => '2027',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>'BARU'
         ]);
         
@@ -145,8 +185,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'PUTIH',
             'jenis_merk'=>'BOX/DHAIHATSU',
             'posisi_kendaraan'=>'PURCASING',
-            'pajak'=>Carbon::create('2023', '02', '05'),
-            'ganti_plat'=>Carbon::create('2023', '02', '05'),
+            'pic'=>'PURCASING',
+            'tanggal_pajak' => '05',
+            'bulan_pajak' => 'Februari',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '05',
+            'bulan_ganti_plat' => 'Februari',
+            'tahun_ganti_plat' => '2023',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>'BARU'
         ]);
         
@@ -162,8 +212,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'HITAM',
             'jenis_merk'=>'HONDA VARIO 150',
             'posisi_kendaraan'=>'ENDANG CATUR',
-            'pajak'=>Carbon::create('2023', '03', '15'),
-            'ganti_plat'=>Carbon::create('2024', '03', '15'),
+            'pic'=>'ENDANG CATUR',
+            'tanggal_pajak' => '15',
+            'bulan_pajak' => 'Maret',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '15',
+            'bulan_ganti_plat' => 'Maret',
+            'tahun_ganti_plat' => '2024',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>'BARU'
         ]);
         
@@ -179,8 +239,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'HITAM',
             'jenis_merk'=>'HONDA VARIO 150         ',
             'posisi_kendaraan'=>'MARIA',
-            'pajak'=>Carbon::create('2023', '03', '15'),
-            'ganti_plat'=>Carbon::create('2024', '03', '15'),
+            'pic'=>'MARIA',
+            'tanggal_pajak' => '15',
+            'bulan_pajak' => 'Maret',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '15',
+            'bulan_ganti_plat' => 'Maret',
+            'tahun_ganti_plat' => '2024',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>'BARU'
         ]);
         
@@ -196,8 +266,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'HITAM',
             'jenis_merk'=>'BEAT SCREAT HITAM',
             'posisi_kendaraan'=>'Kantor Deresan/Owner',
-            'pajak'=>Carbon::create('2023', '01', '17'),
-            'ganti_plat'=>Carbon::create('2025', '01', '17'),
+            'pic'=>'Kantor Deresan/Owner',
+            'tanggal_pajak' => '17',
+            'bulan_pajak' => 'Januari',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '17',
+            'bulan_ganti_plat' => 'Januari',
+            'tahun_ganti_plat' => '2025',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
         
@@ -213,8 +293,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'HITAM',
             'jenis_merk'=>'YAMAHA MIO',
             'posisi_kendaraan'=>'KANTOR JOGJA/MARKETING',
-            'pajak'=>Carbon::create('2023', '08', '12'),
-            'ganti_plat'=>Carbon::create('2026', '08', '12'),
+            'pic'=>'KANTOR JOGJA/MARKETING',
+            'tanggal_pajak' => '12',
+            'bulan_pajak' => 'Agustus',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '12',
+            'bulan_ganti_plat' => 'Agustus',
+            'tahun_ganti_plat' => '2026',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
         
@@ -230,8 +320,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'PUTIH',
             'jenis_merk'=>'HONDA PCX',
             'posisi_kendaraan'=>'PRODUKSI/IYAN',
-            'pajak'=>Carbon::create('2023', '09', '23'),
-            'ganti_plat'=>Carbon::create('2024', '09', '23'),
+            'pic'=>'PRODUKSI/IYAN',
+            'tanggal_pajak' => '23',
+            'bulan_pajak' => 'September',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '23',
+            'bulan_ganti_plat' => 'September',
+            'tahun_ganti_plat' => '2024',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>'BARU'
         ]);
         
@@ -247,8 +347,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'PUTIH',
             'jenis_merk'=>'MOBIL HIACE ',
             'posisi_kendaraan'=>'Kantor Deresan/Pesantren Subar ARIP',
-            'pajak'=>Carbon::create('2023', '10', '29'),
-            'ganti_plat'=>Carbon::create('2023', '10', '29'),
+            'pic'=>'Kantor Deresan/Pesantren Subar ARIP',
+            'tanggal_pajak' => '29',
+            'bulan_pajak' => 'Oktober',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '29',
+            'bulan_ganti_plat' => 'Oktober',
+            'tahun_ganti_plat' => '2023',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
         
@@ -264,8 +374,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'HITAM',
             'jenis_merk'=>'MOBIL LIVINA VL',
             'posisi_kendaraan'=>'Kantor Deresan/Operasional',
-            'pajak'=>Carbon::create('2023', '11', '01'),
-            'ganti_plat'=>Carbon::create('2025', '11', '01'),
+            'pic'=>'Kantor Deresan/Operasional',
+            'tanggal_pajak' => '01',
+            'bulan_pajak' => 'November',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '01',
+            'bulan_ganti_plat' => 'November',
+            'tahun_ganti_plat' => '2025',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
         
@@ -281,6 +401,7 @@ class DatabaseSeeder extends Seeder
             'warna'=>'HITAM',
             'jenis_merk'=>'MOBIL TOYOTA VOXY HITAM',
             'posisi_kendaraan'=>'Kantor Deresan/Owner',
+            'pic'=>'Kantor Deresan/Owner',
             'keterangan'=>''
         ]);
         
@@ -296,8 +417,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'PUTIH',
             'jenis_merk'=>'MOBIL NISSAN LIVINA SVE AT',
             'posisi_kendaraan'=>'Kantor Deresan/ OWNER',
-            'pajak'=>Carbon::create('2023', '01', '21'),
-            'ganti_plat'=>Carbon::create('2027', '01', '21'),
+            'pic'=>'Kantor Deresan/ OWNER',
+            'tanggal_pajak' => '21',
+            'bulan_pajak' => 'Januari',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '21',
+            'bulan_ganti_plat' => 'Januari',
+            'tahun_ganti_plat' => '2027',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
         
@@ -313,8 +444,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'HITAM',
             'jenis_merk'=>'MOBIL BRIO E CVT',
             'posisi_kendaraan'=>'Kantor Deresan/Agung Priono',
-            'pajak'=>Carbon::create('2023', '01', '21'),
-            'ganti_plat'=>Carbon::create('2026', '01', '21'),
+            'pic'=>'Kantor Deresan/Agung Priono',
+            'tanggal_pajak' => '21',
+            'bulan_pajak' => 'Januari',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '21',
+            'bulan_ganti_plat' => 'Januari',
+            'tahun_ganti_plat' => '2026',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
         
@@ -330,8 +471,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'HITAM',
             'jenis_merk'=>'MOBIL MOBILIO (A)',
             'posisi_kendaraan'=>'Kantor Deresan/Agus Wawan',
-            'pajak'=>Carbon::create('2023', '04', '15'),
-            'ganti_plat'=>Carbon::create('2026', '04', '15'),
+            'pic'=>'Kantor Deresan/Agus Wawan',
+            'tanggal_pajak' => '15',
+            'bulan_pajak' => 'April',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '15',
+            'bulan_ganti_plat' => 'April',
+            'tahun_ganti_plat' => '2026',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>'Baru'
         ]);
         
@@ -347,6 +498,12 @@ class DatabaseSeeder extends Seeder
             'warna'=>'HITAM',
             'jenis_merk'=>'MOBIL BRV (A)',
             'posisi_kendaraan'=>'Kantor Deresan/ Riyanto',
+            'pic'=>'Kantor Deresan/ Riyanto',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
         
@@ -362,8 +519,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'PUTIH',
             'jenis_merk'=>'MOBIL OPERASIONAL BRIO E CVT',
             'posisi_kendaraan'=>'Kantor Deresan/Heri Setiawan',
-            'pajak'=>Carbon::create('2023', '02', '06'),
-            'ganti_plat'=>Carbon::create('2026', '02', '06'),
+            'pic'=>'Kantor Deresan/Heri Setiawan',
+            'tanggal_pajak' => '06',
+            'bulan_pajak' => 'Februari',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '06',
+            'bulan_ganti_plat' => 'Februari',
+            'tahun_ganti_plat' => '2026',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>'Baru'
         ]);
         
@@ -379,8 +546,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'HITAM',
             'jenis_merk'=>'MOBIL BRIO E CVT HITAM ',
             'posisi_kendaraan'=>'Kantor Deresan/Darwoto',
-            'pajak'=>Carbon::create('2023', '08', '24'),
-            'ganti_plat'=>Carbon::create('2026', '08', '24'),
+            'pic'=>'Kantor Deresan/Darwoto',
+            'tanggal_pajak' => '24',
+            'bulan_pajak' => 'Agustus',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '24',
+            'bulan_ganti_plat' => 'Agustus',
+            'tahun_ganti_plat' => '2026',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
         
@@ -396,8 +573,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'SILVER',
             'jenis_merk'=>'MOBIL TOYOTA VELOZ 1.5 Q CVT TSS',
             'posisi_kendaraan'=>'Kantor Deresan/Utsd Danin',
-            'pajak'=>Carbon::create('2023', '12', '03'),
-            'ganti_plat'=>Carbon::create('2026', '12', '03'),
+            'pic'=>'Kantor Deresan/Utsd Danin',
+            'tanggal_pajak' => '03',
+            'bulan_pajak' => 'Desember',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '03',
+            'bulan_ganti_plat' => 'Desember',
+            'tahun_ganti_plat' => '2026',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
         
@@ -413,8 +600,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'GREY METALIK',
             'jenis_merk'=>'MOBIL TOYOTA CALYA ',
             'posisi_kendaraan'=>'Kantor Deresan/Muh Suyitno',
-            'pajak'=>Carbon::create('2023', '01', '11'),
-            'ganti_plat'=>Carbon::create('2027', '01', '11'),
+            'pic'=>'Kantor Deresan/Muh Suyitno',
+            'tanggal_pajak' => '11',
+            'bulan_pajak' => 'Januari',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '11',
+            'bulan_ganti_plat' => 'Januari',
+            'tahun_ganti_plat' => '2027',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
         
@@ -430,8 +627,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'HITAM',
             'jenis_merk'=>'MOBIL TOYOTA CALYA ',
             'posisi_kendaraan'=>'Kantor Deresan/Ibnu Asakir',
-            'pajak'=>Carbon::create('2023', '01', '12'),
-            'ganti_plat'=>Carbon::create('2027', '01', '12'),
+            'pic'=>'Kantor Deresan/Ibnu Asakir',
+            'tanggal_pajak' => '12',
+            'bulan_pajak' => 'Januari',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '12',
+            'bulan_ganti_plat' => 'Januari',
+            'tahun_ganti_plat' => '2027',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
         
@@ -447,8 +654,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'PUTIH',
             'jenis_merk'=>'MOBIL TOYOTA CALYA 1.2 G',
             'posisi_kendaraan'=>'Kantor Deresan/Afifundin',
-            'pajak'=>Carbon::create('2023', '01', '13'),
-            'ganti_plat'=>Carbon::create('2027', '01', '13'),
+            'pic'=>'Kantor Deresan/Afifundin',
+            'tanggal_pajak' => '13',
+            'bulan_pajak' => 'Januari',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '13',
+            'bulan_ganti_plat' => 'Januari',
+            'tahun_ganti_plat' => '2027',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
         
@@ -464,8 +681,18 @@ class DatabaseSeeder extends Seeder
             'warna'=>'PUTIH',
             'jenis_merk'=>'MOBIL HIACE ',
             'posisi_kendaraan'=>'Kantor Deresan/Pesantren',
-            'pajak'=>Carbon::create('2023', '01', '17'),
-            'ganti_plat'=>Carbon::create('2027', '01', '17'),
+            'pic'=>'Kantor Deresan/Pesantren',
+            'tanggal_pajak' => '17',
+            'bulan_pajak' => 'Januari',
+            'tahun_pajak' => '2023',
+            'tanggal_ganti_plat' => '17',
+            'bulan_ganti_plat' => 'Januari',
+            'tahun_ganti_plat' => '2027',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
         
@@ -481,6 +708,12 @@ class DatabaseSeeder extends Seeder
             'warna'=>'HITAM',
             'jenis_merk'=>'MOBIL BRIO 1.2 E AT',
             'posisi_kendaraan'=>'Kantor Deresan/Aldi',
+            'pic'=>'Kantor Deresan/Aldi',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
         
@@ -496,6 +729,12 @@ class DatabaseSeeder extends Seeder
             'warna'=>'HITAM',
             'jenis_merk'=>'MOBIL CRV',
             'posisi_kendaraan'=>'Kantor Deresan/Owner',
+            'pic'=>'Kantor Deresan/Owner',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
         
@@ -511,6 +750,12 @@ class DatabaseSeeder extends Seeder
             'warna'=>'putih',
             'jenis_merk'=>'SUZUKI ISUZU TRAGA',
             'posisi_kendaraan'=>'Kantor Deresan',
+            'pic'=>'Kantor Deresan',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
         
@@ -526,7 +771,15 @@ class DatabaseSeeder extends Seeder
             'warna'=>'HITAM ',
             'jenis_merk'=>'PICKUP',
             'posisi_kendaraan'=>'KANTOR DERESAN',
-            'ganti_plat'=>Carbon::create('2027', '05', '01'),
+            'pic'=>'KANTOR DERESAN',
+            'tanggal_ganti_plat' => '01',
+            'bulan_ganti_plat' => 'Mei',
+            'tahun_ganti_plat' => '2027',
+            'surat_penanggung_jawab' => 'surat/contoh.pdf',
+            'gambar_depan' => 'kendaraan/depan.png',
+            'gambar_belakang' => 'kendaraan/belakang.png',
+            'gambar_samping_kanan' => 'kendaraan/kanan.png',
+            'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
 
