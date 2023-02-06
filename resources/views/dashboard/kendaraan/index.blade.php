@@ -25,8 +25,8 @@
                             <th scope="col">Wilayah</th>
                             <th scope="col">Plat</th>
                             <th scope="col">Jenis/Merk</th>
-                            <th scope="col">Atas Nama</th>
-                            <th scope="col">Keterangan</th>
+                            <th scope="col">Jenis Kendaraan</th>
+                            <th scope="col">PIC</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -37,8 +37,8 @@
                                 <td>{{ $k->wilayah }}</td>
                                 <td>{{ $k->no_plat }}</td>
                                 <td>{{ $k->jenis_merk }}</td>
-                                <td>{{ $k->atas_nama }}</td>
-                                <td>{{ $k->keterangan }}</td>
+                                <td>{{ $k->jenis_kendaraan }}</td>
+                                <td>{{ $k->posisi_kendaraan }}</td>
                                 <td>
                                     <a href="#show{{ $k->id }}" class="btn btn-primary border-0" data-bs-toggle="modal">Lihat</a>
                                     @include('dashboard.kendaraan.show')

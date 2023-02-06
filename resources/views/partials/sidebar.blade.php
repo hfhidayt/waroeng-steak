@@ -40,6 +40,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/dashboard/pajak/kendaraan" class="nav-link">
+                        <i class="nav-icon fas fa-sack-dollar"></i>
+                        <p>
+                            Pajak Kendaraan
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/dashboard/pembelian/kendaraan" class="nav-link">
                         <i class="nav-icon fas fa-cart-shopping"></i>
                         <p>

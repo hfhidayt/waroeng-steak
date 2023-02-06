@@ -20,9 +20,8 @@
     <link rel="stylesheet"
         href="{{ asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
     <!-- INI BOOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-        rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-        crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <!-- iCheck -->
     <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
     <!-- JQVMap -->
@@ -41,7 +40,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/css/select2.min.css"
         integrity="sha512-aD9ophpFQ61nFZP6hXYu4Q/b/USW7rpLCQLX6Bi0WJHXNO7Js/fUENpBQf/+P4NtpzNX0jSgR5zVvPOJp+W2Kg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
     <link rel="stylesheet" href="{{ asset('dist/css/style.css') }}">
 </head>
 
@@ -109,40 +109,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('dist/js/printThis.js') }}"></script>
     <script src="{{ asset('dist/js/jquery.printelement.min.js') }}"></script>
+    {{-- filter datatables javascript --}}
     <script>
         $(document).ready(function() {
-            // var form = $('#printTable'),
-            //     cache_width = form.width(),
-            //     a4 = [595.28, 841.89]; // for a4 size paper width and height  
-
-            // $('#create_pdf').on('click', function() {
-            //     $('body').scrollTop(0);
-            //     createPDF();
-            // });
-
-            // function createPDF() {
-            //     getCanvas().then(function(canvas) {
-            //         var
-            //             // img = canvas.toDataURL("image/png"),
-            //             doc = new jsPDF({
-            //                 unit: 'px',
-            //                 format: 'a4'
-            //             });
-            //         // doc.addImage(img, 'JPEG', 20, 20);
-            //         doc.save('pdf.pdf');
-            //         form.width(cache_width);
-            //     });
-            // }
-
-            // function getCanvas() {
-            //     form.width((a4[0] * 1.33333) - 80).css('max-width', 'none');
-            //     return html2canvas(form, {
-            //         imageTimeout: 2000,
-            //         removeContainer: true
-            //     });
-            // }
-
-
             var table = $('#table_id').DataTable({
                 columnDefs: [{
                     targets: '_all',
@@ -151,6 +120,30 @@
 
                 initComplete: function() {
                     this.api()
+                        // filter no_plat pajak.blade
+                        .columns(2)
+                        .every(function() {
+                            var column = this;
+                            var select = $(
+                                    '<select class="form-select platF"><option value="">-- Nomor Polisi --</option></select>'
+                                )
+                                .appendTo($('#platP'))
+                                .on('change', function() {
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                                    column.search(val ? '^' + val + '$' : '', true, false)
+                                        .draw();
+                                });
+                            column
+                                .data()
+                                .unique()
+                                .sort()
+                                .each(function(d, j) {
+                                    select.append('<option value="' + d + '">' + d +
+                                        '</option>');
+                                });
+                        })
+                        // filter no_plat perawatan.blade
                         .columns(1)
                         .every(function() {
                             var column = this;
@@ -173,6 +166,7 @@
                                         '</option>');
                                 });
                         })
+                        // filter bulan perawatan.blade
                         .columns(2)
                         .every(function() {
                             var column = this;
@@ -203,6 +197,7 @@
                             select.append('<option value="November">November</option>')
                             select.append('<option value="Desember">Desember</option>')
                         })
+                        // filter tahun perawatan.blade
                         .columns(3)
                         .every(function() {
                             var column = this;
@@ -225,6 +220,7 @@
                                         '</option>');
                                 });
                         })
+                        // filter jenis_perawatan perawatan.blade
                         .columns(5)
                         .every(function() {
                             var column = this;

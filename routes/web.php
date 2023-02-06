@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Perawatan;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KendaraanController;
@@ -8,6 +7,8 @@ use App\Http\Controllers\PerawatanController;
 use App\Http\Controllers\JenisPerawatanController;
 use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\PenjualanController;
+use App\Models\Kendaraan;
+use App\Models\Perawatan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +40,13 @@ Route::get('/dashboard/print/perawatan/kendaraan', function () {
     return view('dashboard.kendaraan.perawatan.print', [
         'title' => 'Print',
         'perawatan' => Perawatan::all(),
+    ]);
+})->middleware('auth');
+
+Route::get('/dashboard/pajak/kendaraan', function () {
+    return view('dashboard.kendaraan.pajak', [
+        'title' => 'Pajak',
+        'kendaraan' => Kendaraan::all(),
     ]);
 })->middleware('auth');
 

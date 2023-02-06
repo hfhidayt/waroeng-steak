@@ -46,8 +46,8 @@
                             <th scope="col" hidden>tahun</th>
                             <th scope="col">Tanggal</th>
                             <th scope="col">Jenis Perawatan</th>
-                            <th scope="col">Total Biaya</th>
                             <th scope="col">Tempat</th>
+                            <th scope="col">Total Biaya</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -60,8 +60,8 @@
                                 <td class="text-center" hidden>{{ $ps->tahun }}</td>
                                 <td class="text-center">{{ $ps->tanggal }} {{ $ps->bulan }} {{ $ps->tahun }}</td>
                                 <td class="text-center">{{ $ps->jenis_perawatan }}</td>
-                                <td class="text-center">{{ $ps->total_biaya }}</td>
                                 <td class="text-center">{{ $ps->tempat_perawatan }}</td>
+                                <td class="text-center">{{ $ps->total_biaya }}</td>
                                 <td>
                                     <a href="#show{{ $ps->id }}" class="btn btn-primary border-0" data-bs-toggle="modal">Lihat</a>
                                     @include('dashboard.kendaraan.perawatan.show')
