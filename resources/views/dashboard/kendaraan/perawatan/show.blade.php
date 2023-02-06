@@ -106,7 +106,7 @@
                         <div class="invalid-feedback" id="tb_e">
                         </div>
                     </div>
-                    <div class="mb-3 sizeimg">
+                    <div class="mb-3">
                         <label for="nota" class="form-label text-center">Nota</label>
                         <img src="{{ asset('storage/' . $ps->nota) }}" class="img-preview img-fluid mb-3" disabled>
                         <div class="invalid-feedback" id="n_e">

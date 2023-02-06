@@ -7,144 +7,193 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="/dashboard/kendaraan/{{ $k->id }}" method="post">
+                <form action="/dashboard/kendaraan/{{ $k->id }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('put')
-                    <div class="input-group mb-3">
-                        <label for="showWilayah" style="text-align: right" class="col-4 col-form-label">Wilayah</label>
+                    <div class="mb-3">
+                        <label for="editWilayah" class="form-label">Wilayah</label>
                         <input type="text" class="form-control" placeholder="Wilayah" name="wilayah"
-                            id="aa{{ $k->id }}" value="{{ $k->wilayah }}">
+                            id="inputWilayah{{ $k->id }}" value="{{ $k->wilayah }}">
                         <div class="invalid-feedback" id="a{{ $k->id }}">
                         </div>
-                        {{-- @error('wilayah')
-                        @enderror --}}
                     </div>
-                    <div class="input-group mb-3">
-                        <label for="showNomorPlat" style="text-align: right" class="col-4 col-form-label">Nomor
+                    <div class="mb-3">
+                        <label for="editNomorPlat" class="form-label">Nomor
                             Plat</label>
                         <input type="text" class="form-control" placeholder="Nomor Plat" name="no_plat"
-                            id="bb{{ $k->id }}" value="{{ $k->no_plat }}">
+                            id="inputNomorPlat{{ $k->id }}" value="{{ $k->no_plat }}">
                         <div class="invalid-feedback" id="b{{ $k->id }}">
                         </div>
-                        {{-- @error('no_plat')
-                        @enderror --}}
                     </div>
-                    <div class="input-group mb-3">
-                        <label for="showJenisKendaraan" style="text-align: right" class="col-4 col-form-label">Jenis
+                    <div class="mb-3">
+                        <label for="editJenisKendaraan" class="form-label">Jenis
                             Kendaraan</label>
                         <input type="text" class="form-control" placeholder="Jenis Kendaraan" name="jenis_kendaraan"
-                            id="cc{{ $k->id }}" value="{{ $k->jenis_kendaraan }}">
+                            id="inputJenisKendaraan{{ $k->id }}" value="{{ $k->jenis_kendaraan }}">
                         <div class="invalid-feedback" id="c{{ $k->id }}">
                         </div>
-                        {{-- @error('jenis_kendaraan')
-                        @enderror --}}
                     </div>
-                    <div class="input-group mb-3">
-                        <label for="showNomorRangka" style="text-align: right" class="col-4 col-form-label">Nomor
+                    <div class="mb-3">
+                        <label for="editNomorRangka" class="form-label">Nomor
                             Rangka</label>
                         <input type="text" class="form-control" placeholder="Nomor Rangka" name="no_rangka"
-                            id="dd{{ $k->id }}" value="{{ $k->no_rangka }}">
+                            id="inputNomorRangka{{ $k->id }}" value="{{ $k->no_rangka }}">
                         <div class="invalid-feedback" id="d{{ $k->id }}">
                         </div>
-                        {{-- @error('no_rangka')
-                        @enderror --}}
                     </div>
-                    <div class="input-group mb-3">
-                        <label for="showNomorMesin" style="text-align: right" class="col-4 col-form-label">Nomor
+                    <div class="mb-3">
+                        <label for="editNomorMesin" class="form-label">Nomor
                             Mesin</label>
                         <input type="text" class="form-control" placeholder="Nomor Mesin" name="no_mesin"
-                            id="ee{{ $k->id }}" value="{{ $k->no_mesin }}">
+                            id="inputNomorMesin{{ $k->id }}" value="{{ $k->no_mesin }}">
                         <div class="invalid-feedback" id="e{{ $k->id }}">
                         </div>
-                        {{-- @error('no_mesin')
-                        @enderror --}}
                     </div>
-                    <div class="input-group mb-3">
-                        <label for="showNomorBPKB" style="text-align: right" class="col-4 col-form-label">Nomor
+                    <div class="mb-3">
+                        <label for="editNomorBPKB" class="form-label">Nomor
                             BPKB</label>
                         <input type="text" class="form-control" placeholder="Nomor BPKB" name="no_bpkb"
-                            id="ff{{ $k->id }}" value="{{ $k->no_bpkb }}">
+                            id="inputNomorBPKB{{ $k->id }}" value="{{ $k->no_bpkb }}">
                         <div class="invalid-feedback" id="f{{ $k->id }}">
                         </div>
-                        {{-- @error('no_bpkb')
-                        @enderror --}}
                     </div>
-                    <div class="input-group mb-3">
-                        <label for="showAtasNama" style="text-align: right" class="col-4 col-form-label">Atas
+                    <div class="mb-3">
+                        <label for="editAtasNama" class="form-label">Atas
                             Nama</label>
                         <input type="text" class="form-control" placeholder="Atas Nama" name="atas_nama"
-                            id="gg{{ $k->id }}" value="{{ $k->atas_nama }}">
+                            id="inputAtasNama{{ $k->id }}" value="{{ $k->atas_nama }}">
                         <div class="invalid-feedback" id="g{{ $k->id }}">
                         </div>
-                        {{-- @error('atas_nama')
-                        @enderror --}}
                     </div>
-                    <div class="input-group mb-3">
-                        <label for="showTahun" style="text-align: right" class="col-4 col-form-label">Tahun</label>
+                    <div class="mb-3">
+                        <label for="editTahun" class="form-label">Tahun</label>
                         <input type="text" class="form-control" placeholder="Tahun" name="tahun"
-                            id="hh{{ $k->id }}" value="{{ $k->tahun }}">
+                            id="inputTahun{{ $k->id }}" value="{{ $k->tahun }}">
                         <div class="invalid-feedback" id="h{{ $k->id }}">
                         </div>
-                        {{-- @error('tahun')
-                        @enderror --}}
                     </div>
-                    <div class="input-group mb-3">
-                        <label for="showWarna" style="text-align: right" class="col-4 col-form-label">Warna</label>
+                    <div class="mb-3">
+                        <label for="editWarna" class="form-label">Warna</label>
                         <input type="text" class="form-control" placeholder="Warna" name="warna"
-                            id="ii{{ $k->id }}" value="{{ $k->warna }}">
+                            id="inputWarna{{ $k->id }}" value="{{ $k->warna }}">
                         <div class="invalid-feedback" id="i{{ $k->id }}">
                         </div>
-                        {{-- @error('warna')
-                        @enderror --}}
                     </div>
-                    <div class="input-group mb-3">
-                        <label for="showJenisMerk" style="text-align: right"
-                            class="col-4 col-form-label">Jenis/Merk</label>
+                    <div class="mb-3">
+                        <label for="editJenisMerk" class="form-label">Jenis/Merk</label>
                         <input type="text" class="form-control" placeholder="Jenis/Merk" name="jenis_merk"
-                            id="jj{{ $k->id }}" value="{{ $k->jenis_merk }}">
+                            id="inputJenisMerk{{ $k->id }}" value="{{ $k->jenis_merk }}">
                         <div class="invalid-feedback" id="j{{ $k->id }}">
                         </div>
-                        {{-- @error('jenis_merk')
-                        @enderror --}}
                     </div>
-                    <div class="input-group mb-3">
-                        <label for="showPosisiKendaraan" style="text-align: right"
-                            class="col-4 col-form-label">Posisi Kendaraan</label>
-                        <input type="text" class="form-control" placeholder="Posisi Kendaraan"
-                            name="posisi_kendaraan" id="kk{{ $k->id }}" value="{{ $k->posisi_kendaraan }}">
+                    <div class="mb-3">
+                        <label for="inputPIC" class="form-label">PIC</label>
+                        <input type="text" class="form-control" placeholder="PIC" name="pic"
+                            id="inputPIC{{ $k->id }}" value="{{ $k->posisi_kendaraan }}">
                         <div class="invalid-feedback" id="k{{ $k->id }}">
                         </div>
-                        {{-- @error('posisi_kendaraan')
-                        @enderror --}}
                     </div>
-                    <div class="input-group mb-3">
-                        <label for="showPajak" style="text-align: right" class="col-4 col-form-label">Pajak</label>
-                        <input type="date" class="form-control" placeholder="Pajak" name="pajak"
-                            id="ll{{ $k->id }}" value="{{ $k->pajak }}">
+                    <div class="mb-3">
+                        <label for="editPosisiKendaraan" class="form-label">Posisi
+                            Kendaraan</label>
+                        <input type="text" class="form-control" placeholder="Posisi Kendaraan"
+                            name="posisi_kendaraan" id="inputPIC{{ $k->id }}" value="{{ $k->pajak }}">
                         <div class="invalid-feedback" id="l{{ $k->id }}">
                         </div>
-                        {{-- @error('pajak')
-                        @enderror --}}
                     </div>
-                    <div class="input-group mb-3">
-                        <label for="showGantiPlat" style="text-align: right" class="col-4 col-form-label">Ganti
-                            Plat</label>
-                        <input type="date" class="form-control" placeholder="Ganti Plat" name="ganti_plat"
-                            id="mm{{ $k->id }}" value="{{ $k->ganti_plat }}">
+                    <div class="mb-3">
+                        <label for="editTanggalPajak" class="form-label">Tanggal Pajak</label>
+                        <input type="text" class="form-control" placeholder="Tanggal Pajak" name="tanggal_pajak"
+                            id="inputTanggalPajak{{ $k->id }}" value="{{ $k->tanggal_pajak }}">
                         <div class="invalid-feedback" id="m{{ $k->id }}">
                         </div>
-                        {{-- @error('ganti_plat')
-                        @enderror --}}
                     </div>
-                    <div class="input-group mb-3">
-                        <label for="showKeterangan" style="text-align: right"
-                            class="col-4 col-form-label">Keterangan</label>
-                        <input type="text" class="form-control" placeholder="Keterangan" name="keterangan"
-                            id="nn{{ $k->id }}" value="{{ $k->keterangan }}">
+                    <div class="mb-3">
+                        <label for="editBulanPajak" class="form-label">Bulan Pajak</label>
+                        <input type="text" class="form-control" placeholder="Bulan Pajak" name="bulan_pajak"
+                            id="inputBulanPajak{{ $k->id }}" value="{{ $k->bulan_pajak }}">
                         <div class="invalid-feedback" id="n{{ $k->id }}">
                         </div>
-                        {{-- @error('keterangan')
-                        @enderror --}}
+                    </div>
+                    <div class="mb-3">
+                        <label for="editTahunPajak" class="form-label">Tahun Pajak</label>
+                        <input type="text" class="form-control" placeholder="Tahun Pajak" name="tahun_pajak"
+                            id="inputTahunPajak{{ $k->id }}" value="{{ $k->tahun_pajak }}">
+                        <div class="invalid-feedback" id="o{{ $k->id }}">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editTanggalGantiPlat" class="form-label">Tanggal Ganti Plat</label>
+                        <input type="text" class="form-control" placeholder="Tanggal Ganti Plat"
+                            name="tanggal_ganti_plat" id="inputTanggalGantiPlat{{ $k->id }}"
+                            value="{{ $k->tanggal_ganti_plat }}">
+                        <div class="invalid-feedback" id="p{{ $k->id }}">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editBulanGantiPlat" class="form-label">Bulan Ganti Plat</label>
+                        <input type="text" class="form-control" placeholder="Bulan Ganti Plat"
+                            name="bulan_ganti_plat" id="inputBulanGantiPlat{{ $k->id }}"
+                            value="{{ $k->bulan_ganti_plat }}">
+                        <div class="invalid-feedback" id="q{{ $k->id }}">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editTahunGantiPlat" class="form-label">Tahun Ganti Plat</label>
+                        <input type="text" class="form-control" placeholder="Tahun Ganti Plat"
+                            name="tahun_ganti_plat" id="inputTahunGantiPlat{{ $k->id }}"
+                            value="{{ $k->tahun_ganti_plat }}">
+                        <div class="invalid-feedback" id="r{{ $k->id }}">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editKeterangan" class="form-label">Keterangan</label>
+                        <input type="text" class="form-control" placeholder="Keterangan" name="keterangan"
+                            id="inputKeterangan{{ $k->id }}" value="{{ $k->keterangan }}">
+                        <div class="invalid-feedback" id="s{{ $k->id }}">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editSuratPenanggungJawab" class="form-label">Surat Penanggung
+                            Jawab</label>
+                        <input type="file" class="form-control"
+                            placeholder="Surat Penanggung
+                        Jawab" name="surat_penanggung_jawab"
+                            id="inputSuratPenanggungJawab{{ $k->id }}"
+                            value="{{ $k->surat_penanggung_jawab }}">
+                        <div class="invalid-feedback" id="t{{ $k->id }}">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editGambarDepan" class="form-label">Gambar Depan</label>
+                        <input type="file" class="form-control" placeholder="Gambar Depan" name="gambar_depan"
+                            id="inputGambarDepan{{ $k->id }}" value="{{ $k->gambar_depan }}">
+                        <div class="invalid-feedback" id="u{{ $k->id }}">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editGambarBelakang" class="form-label">Gambar Belakang</label>
+                        <input type="file" class="form-control" placeholder="Gambar Belakang"
+                            name="gambar_belakang" id="inputGambarBelakang{{ $k->id }}"
+                            value="{{ $k->gambar_belakang }}">
+                        <div class="invalid-feedback" id="v{{ $k->id }}">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editGambarSampingKanan" class="form-label">Gambar Samping Kanan</label>
+                        <input type="file" class="form-control" placeholder="Gambar Samping Kanan"
+                            name="gambar_samping_kanan" id="inputGambarSampingKanan{{ $k->id }}"
+                            value="{{ $k->gambar_samping_kanan }}">
+                        <div class="invalid-feedback" id="w{{ $k->id }}">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editGambarSampingKiri" class="form-label">Gambar Samping Kiri</label>
+                        <input type="file" class="form-control" placeholder="Gambar Samping Kiri"
+                            name="gambar_samping_kiri" id="inputGambarSampingKiri{{ $k->id }}"
+                            value="{{ $k->gambar_samping_kiri }}">
+                        <div class="invalid-feedback" id="x{{ $k->id }}">
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger mr-auto" data-bs-dismiss="modal">Batal</button>

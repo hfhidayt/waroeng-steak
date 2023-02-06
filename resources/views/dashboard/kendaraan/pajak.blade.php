@@ -18,6 +18,10 @@
                 <table>
                     <tr>
                         <td id="platP"></td>
+                        <td id="bulanPajak"></td>
+                        <td id="tahunPajak"></td>
+                        <td id="bulanGantiPlat"></td>
+                        <td id="tahunGantiPlat"></td>
                     </tr>
                 </table>
             </div>
@@ -31,19 +35,30 @@
                             <th scope="col">Wilayah</th>
                             <th scope="col">Plat</th>
                             <th scope="col">Jenis/Merk</th>
+                            <th scope="col" hidden>Bulan Pajak</th>
+                            <th scope="col" hidden>Tahun Pajak</th>
                             <th scope="col">Pajak</th>
+                            <th scope="col" hidden>Bulan Ganti Plat</th>
+                            <th scope="col" hidden>Tahun Ganti Plat</th>
                             <th scope="col">Ganti Plat</th>
                         </tr>
                     </thead>
                     <tbody class="text-center">
                         @foreach ($kendaraan as $k)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $k->wilayah }}</td>
-                                <td>{{ $k->no_plat }}</td>
-                                <td>{{ $k->jenis_merk }}</td>
-                                <td>{{ $k->pajak }}</td>
-                                <td>{{ $k->ganti_plat }}</td>
+                                <td class="text-center">{{ $loop->iteration }}</td>
+                                <td class="text-center">{{ $k->wilayah }}</td>
+                                <td class="text-center">{{ $k->no_plat }}</td>
+                                <td class="text-center">{{ $k->jenis_merk }}</td>
+                                <td class="text-center" hidden>{{ $k->bulan_pajak }}</td>
+                                <td class="text-center" hidden>{{ $k->tahun_pajak }}</td>
+                                <td class="text-center">{{ $k->tanggal_pajak }} - {{ $k->bulan_pajak }} -
+                                    {{ $k->tahun_pajak }}</td>
+                                <td class="text-center" hidden>{{ $k->bulan_ganti_plat }}</td>
+                                <td class="text-center" hidden>{{ $k->tahun_ganti_plat }}</td>
+                                <td class="text-center">{{ $k->tanggal_ganti_plat }} - {{ $k->bulan_ganti_plat }} -
+                                    {{ $k->tahun_ganti_plat }}
+                                </td>
                             </tr>
                         @endforeach
                 </table>

@@ -46,7 +46,7 @@
                             <th scope="col" hidden>tahun</th>
                             <th scope="col">Tanggal</th>
                             <th scope="col">Jenis Perawatan</th>
-                            <th scope="col">Tempat</th>
+                            <th scope="col">Tempat Perawatan</th>
                             <th scope="col">Total Biaya</th>
                             <th scope="col">Aksi</th>
                         </tr>
