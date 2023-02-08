@@ -52,15 +52,14 @@
                                 <td class="text-center">{{ $k->jenis_merk }}</td>
                                 <td class="text-center" hidden>{{ $k->bulan_pajak }}</td>
                                 <td class="text-center" hidden>{{ $k->tahun_pajak }}</td>
-                                <td class="text-center">{{ $k->tanggal_pajak }} - {{ $k->bulan_pajak }} -
-                                    {{ $k->tahun_pajak }}</td>
+                                <td class="text-center">{{ $k->tanggal_pajak }} {{ $k->bulan_pajak }} {{ $k->tahun_pajak }}</td>
                                 <td class="text-center" hidden>{{ $k->bulan_ganti_plat }}</td>
                                 <td class="text-center" hidden>{{ $k->tahun_ganti_plat }}</td>
-                                <td class="text-center">{{ $k->tanggal_ganti_plat }} - {{ $k->bulan_ganti_plat }} -
-                                    {{ $k->tahun_ganti_plat }}
+                                <td class="text-center">{{ $k->tanggal_ganti_plat }} {{ $k->bulan_ganti_plat }} {{ $k->tahun_ganti_plat }}
                                 </td>
                             </tr>
                         @endforeach
+                    </tbody>
                 </table>
             </div>
         </div>

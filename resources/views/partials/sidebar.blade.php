@@ -47,7 +47,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="/dashboard/pembelian/kendaraan" class="nav-link">
                         <i class="nav-icon fas fa-cart-shopping"></i>
                         <p>
@@ -63,7 +63,7 @@
                         </p>
                     </a>
                 </li>
-            </ul>
+            </ul> --}}
             @can('admin')
                 <ul class="nav nav-pills nav-sidebar flex-column" data-weight="treeview" role="menu"
                     data-accordion="false">
