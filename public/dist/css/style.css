@@ -1,16 +1,20 @@
 .headerPrint {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif !important;
+    font-size: 24px !important;
 }
 
 table.table-bordered > thead > tr > th{
-    border:1px solid black;
+    border: 1px solid black !important;
 }
 
 table.table-bordered > tbody > tr > td{
-    border:1px solid black;
+    border: 1px solid black !important;
 }
 
 table.table-bordered {
-    border:1px solid black;
+    border: 1px solid black !important;
+    border-width: 0 !important;
+    width: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }

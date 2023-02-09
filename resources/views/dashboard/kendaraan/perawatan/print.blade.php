@@ -2,7 +2,11 @@
 @section('wrapper')
     <style>
         @page {
-            size: 29.7cm 21cm;
+            /* size: 29.7cm 21cm; */
+            /* size: landscape; */
+            size: auto;
+            /* margin: 10mm 10mm 10mm 10mm; */
+
         }
     </style>
     <div class="container">
@@ -43,12 +47,13 @@
             </div>
             <div class="row justify-content-center text-center">
                 <div class="col mb-3" id="jpnpbt">
-                    <h3 class="headerPrint"><span id="jpPH"></span> <span id="npPH"></span> <span id="bPH"></span> <span id="tPH"></span></h3>
+                    <h3 class="headerPrint"><span id="jpPH"></span> <span id="npPH"></span> <span
+                            id="bPH"></span> <span id="tPH"></span></h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <table class="table-sm table-bordered" id="table_print" style="width:100%;">
+                    <table class="table-sm table-bordered" id="table_print">
                         <thead class="dt-head-center">
                             <tr>
                                 <th>No</th>
@@ -132,14 +137,19 @@
         function print() {
             $('.print').printThis();
         }
+        // import {
+        //     jsPDF
+        // } from "jspdf";
+        // const doc = new jsPDF('landscape');
+        // doc.text("Hello world!", 10, 10);
+        // doc.save("a4.pdf");
 
         var table = $('#table_print').DataTable({
             paging: false,
             bInfo: false,
             "sDom": "rtip",
             ordering: false,
-            columnDefs: [
-                {
+            columnDefs: [{
                     targets: '_all',
                     className: 'dt-head-center'
                 },
@@ -158,109 +168,127 @@
             ],
             initComplete: function() {
                 this.api().columns(1).every(function() {
-                    var column = this;
-                    var select = $('<select class="form-select pP" id="platP"><option value="">No Plat</option></select>')
-                        .appendTo($('#pP'))
-                        .on('change', function() {
-                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                        var column = this;
+                        var select = $(
+                                '<select class="form-select pP" id="platP"><option value="">No Plat</option></select>'
+                            )
+                            .appendTo($('#pP'))
+                            .on('change', function() {
+                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-                            column.search(val ? '^' + val + '$' : '', true, false).draw();
+                                column.search(val ? '^' + val + '$' : '', true, false).draw();
 
-                            var tots = document.getElementById('sum');
-                            sum = table.column(13, {search:'applied'} ).data().sum();
-                            sumP = new Intl.NumberFormat('de-DE').format(sum)
-                            tots.innerHTML = 'Rp' + sumP;
+                                var tots = document.getElementById('sum');
+                                sum = table.column(13, {
+                                    search: 'applied'
+                                }).data().sum();
+                                sumP = new Intl.NumberFormat('de-DE').format(sum)
+                                tots.innerHTML = 'Rp' + sumP;
 
-                            var npPH = document.getElementById('npPH');
-                            console.log(val);
-                            npPH.innerHTML = val;
-                        });
-                    column
-                    .data().unique().sort().each(function(d, j) {
-                        select.append('<option value="' + d + '">' + d + '</option>');
-                    });
-                })
-                .columns(3).every(function() {
-                    var column = this;
-                    var select = $('<select class="form-select bP" id="bulanP"><option value="">Bulan</option></select>')
-                        .appendTo($('#bP'))
-                        .on('change', function() {
-                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                                var npPH = document.getElementById('npPH');
+                                console.log(val);
+                                npPH.innerHTML = val;
+                            });
+                        column
+                            .data().unique().sort().each(function(d, j) {
+                                select.append('<option value="' + d + '">' + d + '</option>');
+                            });
+                    })
+                    .columns(3).every(function() {
+                        var column = this;
+                        var select = $(
+                                '<select class="form-select bP" id="bulanP"><option value="">Bulan</option></select>'
+                            )
+                            .appendTo($('#bP'))
+                            .on('change', function() {
+                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-                            column.search(val ? '^' + val + '$' : '', true, false).draw();
+                                column.search(val ? '^' + val + '$' : '', true, false).draw();
 
-                            var tots = document.getElementById('sum');
-                            sum = table.column(13, {search:'applied'} ).data().sum();
-                            sumP = new Intl.NumberFormat('de-DE').format(sum)
-                            tots.innerHTML = 'Rp' + sumP;
+                                var tots = document.getElementById('sum');
+                                sum = table.column(13, {
+                                    search: 'applied'
+                                }).data().sum();
+                                sumP = new Intl.NumberFormat('de-DE').format(sum)
+                                tots.innerHTML = 'Rp' + sumP;
 
-                            var bPH = document.getElementById('bPH');
-                            bPH.innerHTML = val;
-                        });
-                    column
-                    .data().unique().sort()
-                    select.append('<option value="Januari">Januari</option>')
-                    select.append('<option value="Februari">Februari</option>')
-                    select.append('<option value="Maret">Maret</option>')
-                    select.append('<option value="April">April</option>')
-                    select.append('<option value="Mei">Mei</option>')
-                    select.append('<option value="Juni">Juni</option>')
-                    select.append('<option value="Juli">Juli</option>')
-                    select.append('<option value="Agustus">Agustus</option>')
-                    select.append('<option value="September">September</option>')
-                    select.append('<option value="Oktober">Oktober</option>')
-                    select.append('<option value="November">November</option>')
-                    select.append('<option value="Desember">Desember</option>')
-                })
-                .columns(4).every(function() {
-                    var column = this;
-                    var select = $('<select class="form-select tP" id="tahunP"><option value="">Tahun</option></select>')
-                        .appendTo($('#tP'))
-                        .on('change', function() {
-                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                                var bPH = document.getElementById('bPH');
+                                bPH.innerHTML = val;
+                            });
+                        column
+                            .data().unique().sort()
+                        select.append('<option value="Januari">Januari</option>')
+                        select.append('<option value="Februari">Februari</option>')
+                        select.append('<option value="Maret">Maret</option>')
+                        select.append('<option value="April">April</option>')
+                        select.append('<option value="Mei">Mei</option>')
+                        select.append('<option value="Juni">Juni</option>')
+                        select.append('<option value="Juli">Juli</option>')
+                        select.append('<option value="Agustus">Agustus</option>')
+                        select.append('<option value="September">September</option>')
+                        select.append('<option value="Oktober">Oktober</option>')
+                        select.append('<option value="November">November</option>')
+                        select.append('<option value="Desember">Desember</option>')
+                    })
+                    .columns(4).every(function() {
+                        var column = this;
+                        var select = $(
+                                '<select class="form-select tP" id="tahunP"><option value="">Tahun</option></select>'
+                            )
+                            .appendTo($('#tP'))
+                            .on('change', function() {
+                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-                            column.search(val ? '^' + val + '$' : '', true, false).draw();
+                                column.search(val ? '^' + val + '$' : '', true, false).draw();
 
-                            var tots = document.getElementById('sum');
-                            sum = table.column(13, {search:'applied'} ).data().sum();
-                            sumP = new Intl.NumberFormat('de-DE').format(sum)
-                            tots.innerHTML = 'Rp' + sumP;
+                                var tots = document.getElementById('sum');
+                                sum = table.column(13, {
+                                    search: 'applied'
+                                }).data().sum();
+                                sumP = new Intl.NumberFormat('de-DE').format(sum)
+                                tots.innerHTML = 'Rp' + sumP;
 
-                            var tPH = document.getElementById('tPH');
-                            tPH.innerHTML = val;
-                        });
-                    column
-                    .data().unique().sort().each(function(d, j) {
-                        select.append('<option value="' + d + '">' + d + '</option>');
-                    });
-                })
-                .columns(5).every(function() {
-                    var column = this;
-                    var select = $('<select class="form-select jpP" id="jpP"><option value="">Jenis Perawatan</option></select>')
-                        .appendTo($('#jpP'))
-                        .on('change', function() {
-                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                                var tPH = document.getElementById('tPH');
+                                tPH.innerHTML = val;
+                            });
+                        column
+                            .data().unique().sort().each(function(d, j) {
+                                select.append('<option value="' + d + '">' + d + '</option>');
+                            });
+                    })
+                    .columns(5).every(function() {
+                        var column = this;
+                        var select = $(
+                                '<select class="form-select jpP" id="jpP"><option value="">Jenis Perawatan</option></select>'
+                            )
+                            .appendTo($('#jpP'))
+                            .on('change', function() {
+                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-                            column.search(val ? '^' + val + '$' : '', true, false).draw();
+                                column.search(val ? '^' + val + '$' : '', true, false).draw();
 
-                            var tots = document.getElementById('sum');
-                            sum = table.column(13, {search:'applied'} ).data().sum();
-                            sumP = new Intl.NumberFormat('de-DE').format(sum)
-                            tots.innerHTML = 'Rp' + sumP;
+                                var tots = document.getElementById('sum');
+                                sum = table.column(13, {
+                                    search: 'applied'
+                                }).data().sum();
+                                sumP = new Intl.NumberFormat('de-DE').format(sum)
+                                tots.innerHTML = 'Rp' + sumP;
 
-                            var jpPH = document.getElementById('jpPH');
-                            jpPH.innerHTML = val;
-                        });
-                    column
-                    .data().unique().sort().each(function(d, j) {
-                        select.append('<option value="' + d + '">' + d + '</option>');
-                    });
-                })
+                                var jpPH = document.getElementById('jpPH');
+                                jpPH.innerHTML = val;
+                            });
+                        column
+                            .data().unique().sort().each(function(d, j) {
+                                select.append('<option value="' + d + '">' + d + '</option>');
+                            });
+                    })
             }
         });
 
         var tots = document.getElementById('sum');
-        sum = table.column(13, {search:'applied'} ).data().sum();
+        sum = table.column(13, {
+            search: 'applied'
+        }).data().sum();
         sumP = new Intl.NumberFormat('de-DE').format(sum)
         tots.innerHTML = 'Rp' + sumP;
 
