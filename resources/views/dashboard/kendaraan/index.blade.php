@@ -12,8 +12,8 @@
                     </div>
                 @endif
                 <a href="#create" class="btn btn-success" data-bs-toggle="modal">Tambah Baru</a>
-                <a href="#createP" class="btn btn-success" data-bs-toggle="modal">Tambah Pembelian Kendaraan</a>
-                <a href="#createJ" class="btn btn-danger" data-bs-toggle="modal">Tambah Penjualan Kendaraan</a>
+                {{-- <a href="#createP" class="btn btn-success" data-bs-toggle="modal">Tambah Pembelian Kendaraan</a>
+                <a href="#createJ" class="btn btn-danger" data-bs-toggle="modal">Tambah Penjualan Kendaraan</a> --}}
             </div>
         </div>
         <div class="row">

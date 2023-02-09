@@ -53,7 +53,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <table class="table-sm table-bordered" id="table_print">
+                    <table class="table-sm table-bordered" id="table_print" width="100%">
                         <thead class="dt-head-center">
                             <tr>
                                 <th>No</th>
