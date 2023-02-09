@@ -1,23 +1,8 @@
 @extends('layouts.main')
 @section('wrapper')
-    <style type="text/css">
+    <style>
         @page {
-            /* margin: 3cm; */
             size: 29.7cm 21cm;
-            /* size: landscape; */
-        }
-        /* @media print and (width: 29.7cm) and (height: 21cm) {
-            @page {
-                margin: 3cm;
-                size: landscape;
-            }
-        } */
-        @media print {
-            table {page-break-after: auto}
-            tr{page-break-inside: avoid; page-break-after: auto;}
-            td{page-break-inside: avoid; page-break-after: auto;}
-            thead{display: table-header-group}
-            tfoot{display: table-footer-group}
         }
     </style>
     <div class="container">
@@ -33,14 +18,14 @@
                     <label class="input-group-text ml-3" for="tahunP">Tahun</label>
                     <span id="tP"></span>
                 </div>
-                <div class="input-group mb-3">
+                <div class="input-group">
                     <label class="input-group-text" for="jpP">Jenis Perawatan</label>
                     <span id="jpP"></span>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col my-3">
+            <div class="col mb-3">
                 <a href="/dashboard/perawatan/kendaraan" type="button" class="btn btn-primary">Kembali</a>
                 <button type="button" class="btn btn-success" onclick="print()">Print</button>
             </div>
@@ -58,12 +43,12 @@
             </div>
             <div class="row justify-content-center text-center">
                 <div class="col mb-3" id="jpnpbt">
-                    <h3 class="headerPrint">jenis_perwatan - no_plat - bulan_tahun</h3>
+                    <h3 class="headerPrint"><span id="jpPH"></span> <span id="npPH"></span> <span id="bPH"></span> <span id="tPH"></span></h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <table class="table table-bordered" id="table_print" style="width:100%">
+                    <table class="table-sm table-bordered" id="table_print" style="width:100%;">
                         <thead class="dt-head-center">
                             <tr>
                                 <th>No</th>
@@ -106,8 +91,7 @@
                             <td colspan="10" class="text-right"><strong>Total</strong></td>
                             <td class="sum" id="sum"></td>
                         </tr>
-                        <tfoot>
-                        </tfoot>
+                        <tfoot style="display: none;"></tfoot>
                         {{-- <tfoot> --}}
                     </table>
                 </div>
@@ -149,9 +133,6 @@
             $('.print').printThis();
         }
 
-        var total_biaya = document.querySelector('.total_biaya').value;
-        console.log(total_biaya);
-
         var table = $('#table_print').DataTable({
             paging: false,
             bInfo: false,
@@ -189,6 +170,10 @@
                             sum = table.column(13, {search:'applied'} ).data().sum();
                             sumP = new Intl.NumberFormat('de-DE').format(sum)
                             tots.innerHTML = 'Rp' + sumP;
+
+                            var npPH = document.getElementById('npPH');
+                            console.log(val);
+                            npPH.innerHTML = val;
                         });
                     column
                     .data().unique().sort().each(function(d, j) {
@@ -208,6 +193,9 @@
                             sum = table.column(13, {search:'applied'} ).data().sum();
                             sumP = new Intl.NumberFormat('de-DE').format(sum)
                             tots.innerHTML = 'Rp' + sumP;
+
+                            var bPH = document.getElementById('bPH');
+                            bPH.innerHTML = val;
                         });
                     column
                     .data().unique().sort()
@@ -237,6 +225,9 @@
                             sum = table.column(13, {search:'applied'} ).data().sum();
                             sumP = new Intl.NumberFormat('de-DE').format(sum)
                             tots.innerHTML = 'Rp' + sumP;
+
+                            var tPH = document.getElementById('tPH');
+                            tPH.innerHTML = val;
                         });
                     column
                     .data().unique().sort().each(function(d, j) {
@@ -256,6 +247,9 @@
                             sum = table.column(13, {search:'applied'} ).data().sum();
                             sumP = new Intl.NumberFormat('de-DE').format(sum)
                             tots.innerHTML = 'Rp' + sumP;
+
+                            var jpPH = document.getElementById('jpPH');
+                            jpPH.innerHTML = val;
                         });
                     column
                     .data().unique().sort().each(function(d, j) {
@@ -264,11 +258,6 @@
                 })
             }
         });
-
-        //select row get value column index 13
-        //ketika tabel berubah, ambil semua data pada kolom index 13 kemudian tampilkan pada total
-        // var row = table.column(13).data();
-        // console.log(row);
 
         var tots = document.getElementById('sum');
         sum = table.column(13, {search:'applied'} ).data().sum();
