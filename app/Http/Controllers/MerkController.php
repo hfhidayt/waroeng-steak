@@ -14,7 +14,10 @@ class MerkController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.kendaraan.merkKendaraan.index', [
+            'title' => 'Merk Kendaraan',
+            'merk' => Merk::all()
+        ]);
     }
 
     /**
@@ -35,7 +38,16 @@ class MerkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->session()->put('createMK', 'true');
+        $validatedData = $request->validate([
+            'merk' => 'required'
+        ]);
+
+        Merk::Create($validatedData);
+
+        $request->session()->forget('createMK');
+
+        return redirect('/dashboard/merk/kendaraan')->with('success', 'Berhasil menambahkan merk kendaraan');
     }
 
     /**
@@ -69,7 +81,16 @@ class MerkController extends Controller
      */
     public function update(Request $request, Merk $merk)
     {
-        //
+        $request->session()->put('editMK', $merk->id);
+        $validatedData = $request->validate([
+            'merk_perawatan' => 'required'
+        ]);
+
+        Merk::where('id', $merk->id)->update($validatedData);
+
+        $request->session()->forget('editMK');
+
+        return redirect('/dashboard/merk/kendaraan')->with('success', 'Berhasil memperbarui merk kendaraan');
     }
 
     /**
@@ -80,6 +101,7 @@ class MerkController extends Controller
      */
     public function destroy(Merk $merk)
     {
-        //
+        Merk::destroy($merk->id);
+        return redirect('/dashboard/merk/kendaraan')->with('success', 'Berhasil menghapus merk kendaraan!');
     }
 }

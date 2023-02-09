@@ -14,7 +14,10 @@ class BahanBakarController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.kendaraan.bbKendaraan.index', [
+            'title' => 'Bahan Bakar',
+            'bahan_bakar' => BahanBakar::all()
+        ]);
     }
 
     /**
@@ -35,7 +38,16 @@ class BahanBakarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->session()->put('createBB', 'true');
+        $validatedData = $request->validate([
+            'bahan_bakar' => 'required'
+        ]);
+
+        BahanBakar::Create($validatedData);
+
+        $request->session()->forget('createBB');
+
+        return redirect('/dashboard/bahanbakar/kendaraan')->with('success', 'Berhasil menambahkan bahan bakar');
     }
 
     /**
@@ -69,7 +81,16 @@ class BahanBakarController extends Controller
      */
     public function update(Request $request, BahanBakar $bahanBakar)
     {
-        //
+        $request->session()->put('editBB', $bahanBakar->id);
+        $validatedData = $request->validate([
+            'bahan_bakar' => 'required'
+        ]);
+
+        BahanBakar::where('id', $bahanBakar->id)->update($validatedData);
+
+        $request->session()->forget('editBB');
+
+        return redirect('/dashboard/bahanbakar/kendaraan')->with('success', 'Berhasil memperbarui bahan bakar');
     }
 
     /**
@@ -80,6 +101,7 @@ class BahanBakarController extends Controller
      */
     public function destroy(BahanBakar $bahanBakar)
     {
-        //
+        BahanBakar::destroy($bahanBakar->id);
+        return redirect('/dashboard/bahanbakar/kendaraan')->with('success', 'Berhasil menghapus bahan bakar!');
     }
 }

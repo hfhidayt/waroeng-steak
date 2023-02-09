@@ -12,6 +12,9 @@
                     </div>
                 @endif
                 <a href="#create" class="btn btn-success" data-bs-toggle="modal">Tambah Baru</a>
+                <a href="/dashboard/merk/kendaraan" class="btn btn-success">Merk Kendaraan</a>
+                <a href="/dashboard/jenis/kendaraan" class="btn btn-success">Jenis Kendaraan</a>
+                <a href="/dashboard/bahanbakar/kendaraan" class="btn btn-success">Bahan Bakar</a>
                 {{-- <a href="#createP" class="btn btn-success" data-bs-toggle="modal">Tambah Pembelian Kendaraan</a>
                 <a href="#createJ" class="btn btn-danger" data-bs-toggle="modal">Tambah Penjualan Kendaraan</a> --}}
             </div>

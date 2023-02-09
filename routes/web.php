@@ -5,6 +5,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\PerawatanController;
 use App\Http\Controllers\JenisPerawatanController;
+use App\Http\Controllers\JenisKendaraanController;
+use App\Http\Controllers\BahanBakarController;
+use App\Http\Controllers\MerkController;
 use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\PenjualanController;
 use App\Models\Kendaraan;
@@ -59,5 +62,11 @@ Route::resource('/dashboard/penjualan/kendaraan', PenjualanController::class)->e
 Route::resource('/dashboard/perawatan/kendaraan', PerawatanController::class)->except('create', 'show', 'edit')->middleware('auth');
 
 Route::resource('/dashboard/jenis/perawatan/kendaraan', JenisPerawatanController::class)->except('create', 'show', 'edit')->middleware('auth');
+
+Route::resource('/dashboard/jenis/kendaraan', JenisKendaraanController::class)->except('create', 'show', 'edit')->middleware('auth');
+
+Route::resource('/dashboard/bahanbakar/kendaraan', BahanBakarController::class)->except('create', 'show', 'edit')->middleware('auth');
+
+Route::resource('/dashboard/merk/kendaraan', MerkController::class)->except('create', 'show', 'edit')->middleware('auth');
 
 Route::resource('/dashboard/akun', UserController::class)->except('create', 'show', 'edit')->middleware('admin');
