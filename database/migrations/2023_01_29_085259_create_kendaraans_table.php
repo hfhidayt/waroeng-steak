@@ -24,6 +24,7 @@ class CreateKendaraansTable extends Migration
             $table->string('atas_nama')->nullable();
             $table->string('tahun')->nullable();
             $table->string('warna')->nullable();
+            $table->string('bahan_bakar')->nullable();
             $table->string('jenis_merk')->nullable();
             $table->string('pic')->nullable();
             $table->string('posisi_kendaraan')->nullable();
