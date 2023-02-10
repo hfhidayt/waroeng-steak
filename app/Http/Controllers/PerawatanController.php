@@ -47,15 +47,17 @@ class PerawatanController extends Controller
         $request->session()->put('createPS', 'true');
         $validatedData = $request->validate([
             'kendaraan_id' => 'required',
-            'tgl_perawatan' => 'required',
-            'jenis_perawatan' => 'required',
-            'barang_jasa' => 'required',
-            'volume' => 'required',
-            'satuan' => 'required',
-            'tempat_perawatan' => 'required',
-            'kilometer' => 'required',
-            'harga_satuan' => 'required',
-            // 'total_biaya' => 'required',
+            'tanggal' => 'nullable',
+            'bulan' => 'nullable',
+            'tahun' => 'nullable',
+            'jenis_perawatan' => 'nullable',
+            'barang_jasa' => 'nullable',
+            'volume' => 'nullable',
+            'satuan' => 'nullable',
+            'tempat_perawatan' => 'nullable',
+            'kilometer' => 'nullable',
+            'harga_satuan' => 'nullable',
+            // 'total_biaya' => 'nullable',
             'nota' => 'image|file'
         ]);
 
@@ -109,15 +111,17 @@ class PerawatanController extends Controller
         $request->session()->put('editPS', $kendaraan->id);
         $validatedData = $request->validate([
             'kendaraan_id' => 'required',
-            'tgl_perawatan' => 'required',
-            'jenis_perawatan' => 'required',
-            'barang_jasa' => 'required',
-            'volume' => 'required',
-            'satuan' => 'required',
-            'tempat_perawatan' => 'required',
-            'kilometer' => 'required',
-            'harga_satuan' => 'required',
-            // 'total_biaya' => 'required',
+            'tanggal' => 'nullable',
+            'bulan' => 'nullable',
+            'tahun' => 'nullable',
+            'jenis_perawatan' => 'nullable',
+            'barang_jasa' => 'nullable',
+            'volume' => 'nullable',
+            'satuan' => 'nullable',
+            'tempat_perawatan' => 'nullable',
+            'kilometer' => 'nullable',
+            'harga_satuan' => 'nullable',
+            // 'total_biaya' => 'nullable',
             'nota' => 'image|file'
         ]);
 

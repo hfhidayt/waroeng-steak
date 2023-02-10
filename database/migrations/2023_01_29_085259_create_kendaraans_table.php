@@ -20,7 +20,7 @@ class CreateKendaraansTable extends Migration
             $table->string('jenis_kendaraan')->nullable();
             $table->string('no_rangka')->nullable();
             $table->string('no_mesin')->nullable();
-            $table->string('no_bpkp')->nullable();
+            $table->string('no_bpkb')->nullable();
             $table->string('atas_nama')->nullable();
             $table->string('tahun')->nullable();
             $table->string('warna')->nullable();

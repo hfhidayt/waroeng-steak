@@ -11,25 +11,26 @@
                     @csrf
                     <div class="input-group mb-3">
                         {{-- <input type="text" class="form-control" placeholder="Nomor Plat" name="no_plat" id="no_plat"> --}}
-                        <select class="form-select kendaraan_idC" name="kendaraan_id" id="kendaraan_id">
+                        <select class="form-select kendaraan_idC" name="kendaraan_id" id="kendaraan_id" required>
                             <option value="">-- Nomor Plat --</option>
                             @foreach ($no_plat as $np)
                                 <option value="{{ $np->id }}" {{ old('no_plat') == $np->id ? 'selected' : '' }}>
                                     {{ $np->no_plat }}</option>
                             @endforeach
                         </select>
-                        <div class="invalid-feedback" id="np_e">
-                        </div>
+                        {{-- <div class="invalid-feedback" id="np_e">
+                        </div> --}}
                     </div>
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Tgl Perawatan" name="tanggal"
-                            id="tanggal">
+                            id="tanggal" required>
                         <div class="invalid-feedback" id="tp_e">
                         </div>
                         {{-- <input type="text" class="form-control" placeholder="Bulan Perawatan" name="bulan"
                             id="bulan"> --}}
-                        <select class="form-select" placeholder="Bulan Perawatan" name="bulan" id="bulan">
-                            <option selected>Bulan Perawatan</option>
+                        <select class="form-select" placeholder="Bulan Perawatan" name="bulan" id="bulan"
+                            required>
+                            <option value="" selected>Bulan Perawatan</option>
                             <option value="Januari">Januari</option>
                             <option value="Februari">Februari</option>
                             <option value="Maret">Maret</option>
@@ -43,15 +44,15 @@
                             <option value="November">November</option>
                             <option value="Desember">Desember</option>
                         </select>
-                        <div class="invalid-feedback" id="bp_e">
-                        </div>
+                        {{-- <div class="invalid-feedback" id="bp_e">
+                        </div> --}}
                         <input type="text" class="form-control" placeholder="Tahun Perawatan" name="tahun"
-                            id="tahun">
-                        <div class="invalid-feedback" id="thp_e">
-                        </div>
+                            id="tahun" required>
+                        {{-- <div class="invalid-feedback" id="thp_e">
+                        </div> --}}
                     </div>
                     <div class="input-group mb-3">
-                        <select class="form-select" name="jenis_perawatan" id="jenis_perawatan">
+                        <select class="form-select" name="jenis_perawatan" id="jenis_perawatan" required>
                             <option value="">-- Perawatan Kendaraan --</option>
                             @foreach ($jenis_perawatan as $js)
                                 <option value="{{ $js->jenis_perawatan }}"
@@ -59,8 +60,8 @@
                                     {{ $js->jenis_perawatan }}</option>
                             @endforeach
                         </select>
-                        <div class="invalid-feedback" id="jp_e">
-                        </div>
+                        {{-- <div class="invalid-feedback" id="jp_e">
+                        </div> --}}
                     </div>
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Barang/Jasa" name="barang_jasa"
@@ -86,8 +87,8 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="number" class="form-control" placeholder="Kilometer Kendaraan"
-                            name="kilometer" id="kilometer">
+                        <input type="number" class="form-control" placeholder="Kilometer Kendaraan" name="kilometer"
+                            id="kilometer">
                         <div class="invalid-feedback" id="k_e">
                         </div>
                     </div>

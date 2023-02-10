@@ -62,10 +62,10 @@
 @endsection
 @push('script')
     <script>
-        // printview image
+        // printview image create
         function previewGambarDepan() {
             const image = document.querySelector('#gambar_depan');
-            const imgPreview = document.querySelector('.img-preview-front');
+            const imgPreview = document.querySelector('.img-preview1');
 
             imgPreview.style.display = 'block';
 
@@ -78,7 +78,7 @@
         }
         function previewGambarBelakang() {
             const image = document.querySelector('#gambar_belakang');
-            const imgPreview = document.querySelector('.img-preview-behind');
+            const imgPreview = document.querySelector('.img-preview2');
 
             imgPreview.style.display = 'block';
 
@@ -91,7 +91,7 @@
         }
         function previewGambarSampingKanan() {
             const image = document.querySelector('#gambar_samping_kanan');
-            const imgPreview = document.querySelector('.img-preview-right');
+            const imgPreview = document.querySelector('.img-preview3');
 
             imgPreview.style.display = 'block';
 
@@ -104,7 +104,61 @@
         }
         function previewGambarSampingKiri() {
             const image = document.querySelector('#gambar_samping_kiri');
-            const imgPreview = document.querySelector('.img-preview-left');
+            const imgPreview = document.querySelector('.img-preview4');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+            }
+        }
+
+        // preview image update
+        function previewGambarDepanEdit() {
+            const image = document.querySelector('#gambar_depan_baru');
+            const imgPreview = document.querySelector('.img-preview11');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+            }
+        }
+        function previewGambarBelakangEdit() {
+            const image = document.querySelector('#gambar_belakang_baru');
+            const imgPreview = document.querySelector('.img-preview22');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+            }
+        }
+        function previewGambarSampingKananEdit() {
+            const image = document.querySelector('#gambar_samping_kanan_baru');
+            const imgPreview = document.querySelector('.img-preview33');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+            }
+        }
+        function previewGambarSampingKiriEdit   () {
+            const image = document.querySelector('#gambar_samping_kiri_baru');
+            const imgPreview = document.querySelector('.img-preview44');
 
             imgPreview.style.display = 'block';
 

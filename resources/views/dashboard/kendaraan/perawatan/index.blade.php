@@ -44,7 +44,7 @@
                             <th scope="col">Nomor Polisi</th>
                             <th scope="col" hidden>bulan</th>
                             <th scope="col" hidden>tahun</th>
-                            <th scope="col">Tanggal</th>
+                            <th scope="col">Tanggal Perawatan</th>
                             <th scope="col">Jenis Perawatan</th>
                             <th scope="col">Tempat Perawatan</th>
                             <th scope="col">Total Biaya</th>
@@ -55,7 +55,7 @@
                         @foreach ($perawatan as $ps)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                <td class="text-center">{{ $ps->kendaraan->no_plat }}</td>
+                                <td class="text-center">{{ !empty($ps->kendaraan) ? $ps->kendaraan->no_plat:'' }}</td>
                                 <td class="text-center" hidden>{{ $ps->bulan }}</td>
                                 <td class="text-center" hidden>{{ $ps->tahun }}</td>
                                 <td class="text-center">{{ $ps->tanggal }} {{ $ps->bulan }} {{ $ps->tahun }}</td>

@@ -22,10 +22,18 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Jenis Kendaraan" name="jenis_kendaraan"
-                            id="inputJenisKendaraan">
-                        <div class="invalid-feedback" id="c">
-                        </div>
+                        {{-- <input type="text" class="form-control" placeholder="Jenis Kendaraan" name="jenis_kendaraan"
+                            id="inputJenisKendaraan"> --}}
+                        <select class="form-select" name="jenis_kendaraan" id="jenis_kendaraan" required>
+                            <option value="">-- Jenis Kendaraan --</option>
+                            @foreach ($jenis_kendaraan as $jk)
+                                <option value="{{ $jk->jenis_kendaraan }}"
+                                    {{ old('jenis_kendaraan') == $jk->jenis_kendaraan ? 'selected' : '' }}>
+                                    {{ $jk->jenis_kendaraan }}</option>
+                            @endforeach
+                        </select>
+                        {{-- <div class="invalid-feedback" id="c">
+                        </div> --}}
                     </div>
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Nomor Rangka" name="no_rangka"
@@ -62,10 +70,27 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Jenis/Merk" name="jenis_merk"
-                            id="inputJenisMerk">
-                        <div class="invalid-feedback" id="j">
-                        </div>
+                        <select class="form-select" name="bahan_bakar" id="bahan_bakar" required>
+                            <option value="">-- Bahan Bakar --</option>
+                            @foreach ($bahan_bakar as $bb)
+                                <option value="{{ $bb->bahan_bakar }}"
+                                    {{ old('bahan_bakar') == $bb->bahan_bakar ? 'selected' : '' }}>
+                                    {{ $bb->bahan_bakar }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        {{-- <input type="text" class="form-control" placeholder="Jenis/Merk" name="jenis_merk"
+                            id="inputJenisMerk"> --}}
+                        <select class="form-select" name="merk" id="merk" required>
+                            <option value="">-- Merk --</option>
+                            @foreach ($merk as $m)
+                                <option value="{{ $m->merk }}" {{ old('merk') == $m->merk ? 'selected' : '' }}>
+                                    {{ $m->merk }}</option>
+                            @endforeach
+                        </select>
+                        {{-- <div class="invalid-feedback" id="j">
+                        </div> --}}
                     </div>
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="PIC" name="pic" id="inputPIC">
@@ -87,7 +112,7 @@
                             id="inputBulanPajak"> --}}
                         <select class="form-select" placeholder="Bulan Pajak" name="bulan_pajak"
                             id="inputBulanPajak">
-                            <option selected>Bulan Pajak</option>
+                            <option value="" selected>Bulan Pajak</option>
                             <option value="Januari">Januari</option>
                             <option value="Februari">Februari</option>
                             <option value="Maret">Maret</option>
@@ -115,9 +140,9 @@
                         </div>
                         {{-- <input type="text" class="form-control" placeholder="Bulan Ganti Plat"
                             name="bulan_ganti_plat" id="inputBulanGantiPlat"> --}}
-                        <select class="form-select" type="text" placeholder="Bulan Ganti Plat"
-                            name="bulan_ganti_plat" id="inputBulanGantiPlat">
-                            <option selected>Bulan Ganti Plat</option>
+                        <select class="form-select" placeholder="Bulan Ganti Plat" name="bulan_ganti_plat"
+                            id="inputBulanGantiPlat">
+                            <option value="" selected>Bulan Ganti Plat</option>
                             <option value="Januari">Januari</option>
                             <option value="Februari">Februari</option>
                             <option value="Maret">Maret</option>
@@ -154,35 +179,33 @@
                     </div>
                     <div class="mb-3">
                         <label for="gambar_depan" class="form-label">Gambar Depan</label>
-                        <img class="img-preview-front img-fluid mb-3">
-                        <input type="file" class="form-control" placeholder="Gambar Depan" name="gambar_depan"
-                            id="inputGambarDepan" onchange="previewGambarDepan()">
+                        <img class="img-preview1 img-fluid mb-3">
+                        <input type="file" class="form-control" name="gambar_depan" id="gambar_depan"
+                            onchange="previewGambarDepan()">
                         <div class="invalid-feedback" id="u">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="gambar_belakang" class="form-label">Gambar Belakang</label>
-                        <img class="img-preview-behind img-fluid mb-3">
-                        <input type="file" class="form-control" placeholder="Gambar Belakang"
-                            name="gambar_belakang" id="inputGambarBelakang" onchange="previewGambarBelakang()">
+                        <img class="img-preview2 img-fluid mb-3">
+                        <input type="file" class="form-control" name="gambar_belakang" id="gambar_belakang"
+                            onchange="previewGambarBelakang()">
                         <div class="invalid-feedback" id="v">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="gambar_samping_kanan" class="form-label">Gambar Samping Kanan</label>
-                        <img class="img-preview-right img-fluid mb-3">
-                        <input type="file" class="form-control" placeholder="Gambar Samping Kanan"
-                            name="gambar_samping_kanan" id="inputGambarSampingKanan"
-                            onchange="previewGambarSampingKanan()">
+                        <img class="img-preview3 img-fluid mb-3">
+                        <input type="file" class="form-control" name="gambar_samping_kanan"
+                            id="gambar_samping_kanan" onchange="previewGambarSampingKanan()">
                         <div class="invalid-feedback" id="w">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="gambar_samping_kiri" class="form-label">Gambar Samping Kiri</label>
-                        <img class="img-preview-left img-fluid mb-3">
-                        <input type="file" class="form-control" placeholder="Gambar Samping Kiri"
-                            name="gambar_samping_kiri" id="inputGambarSampingKiri"
-                            onchange="previewGambarSampingKiri()">
+                        <img class="img-preview4 img-fluid mb-3">
+                        <input type="file" class="form-control" name="gambar_samping_kiri"
+                            id="gambar_samping_kiri" onchange="previewGambarSampingKiri()">
                         <div class="invalid-feedback" id="x">
                         </div>
                     </div>

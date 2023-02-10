@@ -8,65 +8,70 @@
             </div>
             <div class="modal-body">
                 <div class="mb-3">
-                    <label for="showWilayah" class="form-label">Wilayah</label>
+                    <label for="wilayah" class="form-label">Wilayah</label>
                     <input type="text" class="form-control" placeholder="-" name="wilayah"
                         value="{{ $k->wilayah }}" disabled>
                 </div>
                 <div class="mb-3">
-                    <label for="showNomorPlat" class="form-label">Nomor Plat</label>
+                    <label for="no_plat" class="form-label">Nomor Plat</label>
                     <input type="text" class="form-control" placeholder="-" name="no_plat"
                         value="{{ $k->no_plat }}" disabled>
                 </div>
                 <div class="mb-3">
-                    <label for="showJenisKendaraan" class="form-label">Jenis
+                    <label for="jenis_kendaraan" class="form-label">Jenis
                         Kendaraan</label>
                     <input type="text" class="form-control" placeholder="-" name="jenis_kendaraan"
                         value="{{ $k->jenis_kendaraan }}" disabled>
                 </div>
                 <div class="mb-3">
-                    <label for="showNomorRangka" class="form-label">Nomor
+                    <label for="no_rangka" class="form-label">Nomor
                         Rangka</label>
                     <input type="text" class="form-control" placeholder="-" name="no_rangka"
                         value="{{ $k->no_rangka }}" disabled>
                 </div>
                 <div class="mb-3">
-                    <label for="showNomorMesin" class="form-label">Nomor
+                    <label for="no_mesin" class="form-label">Nomor
                         Mesin</label>
                     <input type="text" class="form-control" placeholder="-" name="no_mesin"
                         value="{{ $k->no_mesin }}" disabled>
                 </div>
                 <div class="mb-3">
-                    <label for="showNomorBPKB" class="form-label">Nomor BPKB</label>
+                    <label for="no_bpkb" class="form-label">Nomor BPKB</label>
                     <input type="text" class="form-control" placeholder="-" name="no_bpkb"
                         value="{{ $k->no_bpkb }}" disabled>
                 </div>
                 <div class="mb-3">
-                    <label for="showAtasNama" class="form-label">Atas Nama</label>
+                    <label for="atas_nama" class="form-label">Atas Nama</label>
                     <input type="text" class="form-control" placeholder="-" name="atas_nama"
                         value="{{ $k->atas_nama }}" disabled>
                 </div>
                 <div class="mb-3">
-                    <label for="showTahun" class="form-label">Tahun</label>
+                    <label for="tahun" class="form-label">Tahun</label>
                     <input type="text" class="form-control" placeholder="-" name="tahun"
                         value="{{ $k->tahun }}" disabled>
                 </div>
                 <div class="mb-3">
-                    <label for="showWarna" class="form-label">Warna</label>
+                    <label for="warna" class="form-label">Warna</label>
                     <input type="text" class="form-control" placeholder="-" name="warna"
                         value="{{ $k->warna }}" disabled>
                 </div>
                 <div class="mb-3">
-                    <label for="showJenisMerk" class="form-label">Jenis/Merk</label>
-                    <input type="text" class="form-control" placeholder="-" name="jenis_merk"
-                        value="{{ $k->jenis_merk }}" disabled>
+                    <label for="bahan_bakar" class="form-label">Bahan Bakar</label>
+                    <input type="text" class="form-control" placeholder="-" name="bahan_bakar"
+                        value="{{ $k->warna }}" disabled>
                 </div>
                 <div class="mb-3">
-                    <label for="showPIC" class="form-label">PIC</label>
+                    <label for="merk" class="form-label">Merk</label>
+                    <input type="text" class="form-control" placeholder="-" name="merk"
+                        value="{{ $k->merk }}" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="pic" class="form-label">PIC</label>
                     <input type="text" class="form-control @error('pic') is-invalid @enderror" placeholder="-"
                         name="pic" value="{{ $k->pic }}" disabled>
                 </div>
                 <div class="mb-3">
-                    <label for="showPosisiKendaraan" class="form-label">Posisi
+                    <label for="posisi_kendaraan" class="form-label">Posisi
                         Kendaraan</label>
                     <input type="text" class="form-control @error('posisi_kendaraan') is-invalid @enderror"
                         placeholder="-" name="posisi_kendaraan" value="{{ $k->posisi_kendaraan }}" disabled>
@@ -74,13 +79,13 @@
                 <div class="mb-3">
                     <div class="row">
                         <div class="col">
-                            <label for="showTanggalPajak" class="form-label">Tanggal Pajak</label>
+                            <label for="tanggal_pajak" class="form-label">Tanggal Pajak</label>
                         </div>
                         <div class="col">
-                            <label for="showBulanPajak" class="form-label">Bulan Pajak</label>
+                            <label for="bulan_pajak" class="form-label">Bulan Pajak</label>
                         </div>
                         <div class="col">
-                            <label for="showTahunPajak" class="form-label">Tahun Pajak</label>
+                            <label for="tahun_pajak" class="form-label">Tahun Pajak</label>
                         </div>
                     </div>
                     <div class="row">
@@ -101,13 +106,13 @@
                 <div class="mb-3">
                     <div class="row">
                         <div class="col">
-                            <label for="showTanggalGantiPlat" class="form-label">Tanggal Ganti Plat</label>
+                            <label for="tanggal_ganti_plat" class="form-label">Tanggal Ganti Plat</label>
                         </div>
                         <div class="col">
-                            <label for="showBulanGantiPlat" class="form-label">Bulan Ganti Plat</label>
+                            <label for="bulan_ganti_plat" class="form-label">Bulan Ganti Plat</label>
                         </div>
                         <div class="col">
-                            <label for="showTahunGantiPlat" class="form-label">Tahun Ganti Plat</label>
+                            <label for="tahun_ganti_plat" class="form-label">Tahun Ganti Plat</label>
                         </div>
                     </div>
                     <div class="row">
@@ -126,34 +131,36 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="showKeterangan" class="form-label">Keterangan</label>
+                    <label for="keterangan" class="form-label">Keterangan</label>
                     <input type="text" class="form-control " placeholder="-" name="keterangan"
                         value="{{ $k->keterangan }}" disabled>
                 </div>
                 <div class="mb-3">
-                    <label for="editSuratPenanggungJawab" class="form-label">Surat Penanggung
+                    <label for="surat_penanggung_jawab" class="form-label">Surat Penanggung
                         Jawab</label>
+                    <input type="text" class="form-control " placeholder="-" name="surat_penanggung_jawab"
+                        value="{{ $k->surat_penanggung_jawab }}" disabled>
                     {{-- <img src="{{ asset('storage/' . $k->surat_penanggung_jawab) }}" class="mb-3" disabled> --}}
                 </div>
                 <div class="mb-3">
-                    <label for="editGambarDepan" class="form-label">Gambar Depan</label>
-                    <img src="{{ asset('storage/' . $k->gambar_depan) }}" class="img-preview-front img-fluid mb-3"
+                    <label for="gambar_depan" class="form-label">Gambar Depan</label>
+                    <img src="{{ asset('storage/' . $k->gambar_depan) }}" class="img-preview img-fluid mb-3"
                         disabled>
                 </div>
                 <div class="mb-3">
-                    <label for="editGambarBelakang" class="form-label">Gambar Belakang</label>
-                    <img src="{{ asset('storage/' . $k->gambar_belakang) }}"
-                        class="img-preview-behind img-fluid mb-3" disabled>
+                    <label for="gambar_belakang" class="form-label">Gambar Belakang</label>
+                    <img src="{{ asset('storage/' . $k->gambar_belakang) }}" class="img-preview img-fluid mb-3"
+                        disabled>
                 </div>
                 <div class="mb-3">
-                    <label for="editGambarSampingKanan" class="form-label">Gambar Samping Kanan</label>
-                    <img src="{{ asset('storage/' . $k->gambar_samping_kanan) }}"
-                        class="img-preview-right img-fluid mb-3" disabled>
+                    <label for="gambar_samping_kanan" class="form-label">Gambar Samping Kanan</label>
+                    <img src="{{ asset('storage/' . $k->gambar_samping_kanan) }}" class="img-preview img-fluid mb-3"
+                        disabled>
                 </div>
                 <div class="mb-3">
-                    <label for="editGambarSampingKiri" class="form-label">Gambar Samping Kiri</label>
-                    <img src="{{ asset('storage/' . $k->gambar_samping_kiri) }}"
-                        class="img-preview-left img-fluid mb-3" disabled>
+                    <label for="gambar_samping_kiri" class="form-label">Gambar Samping Kiri</label>
+                    <img src="{{ asset('storage/' . $k->gambar_samping_kiri) }}" class="img-preview img-fluid mb-3"
+                        disabled>
                 </div>
             </div>
             <div class="modal-footer">

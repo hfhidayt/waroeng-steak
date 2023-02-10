@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BahanBakar;
+use App\Models\JenisKendaraan;
 use App\Models\Kendaraan;
+use App\Models\Merk;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class KendaraanController extends Controller
@@ -16,6 +20,9 @@ class KendaraanController extends Controller
     {
         return view('dashboard.kendaraan.index', [
             'title' => 'Kendaraan',
+            'jenis_kendaraan' => JenisKendaraan::all(),
+            'merk' => Merk::all(),
+            'bahan_bakar' => BahanBakar::all(),
             'kendaraans' => Kendaraan::all()
         ]);
     }
@@ -48,12 +55,29 @@ class KendaraanController extends Controller
             'atas_nama' => 'nullable',
             'tahun' => 'nullable',
             'warna' => 'nullable',
+            'bahan_bakar' => 'nullable',
             'jenis_merk' => 'nullable',
+            'pic' => 'nullable',
             'posisi_kendaraan' => 'nullable',
-            'pajak' => 'nullable|date',
-            'ganti_plat' => 'nullable|date',
+            'tanggal_pajak' => 'nullable',
+            'bulan_pajak' => 'nullable',
+            'tahun_pajak' => 'nullable',
+            'tanggal_ganti_plat' => 'nullable',
+            'bulan_ganti_plat' => 'nullable',
+            'tahun_ganti_plat' => 'nullable',
+            'surat_penanggung_jawab' => 'nullable',
+            'gambar_depan' => 'nullable',
+            'gambar_belakang' => 'nullable',
+            'gambar_samping_kanan' => 'nullable',
+            'gambar_samping_kiri' => 'nullable',
             'keterangan' => 'nullable',
         ]);
+
+        $validatedData['surat_penanggung_jawab'] = $request->file('surat_penanggung_jawab')->store('surat');
+        $validatedData['gambar_depan'] = $request->file('gambar_depan')->store('kendaraan');
+        $validatedData['gambar_belakang'] = $request->file('gambar_belakang')->store('kendaraan');
+        $validatedData['gambar_samping_kanan'] = $request->file('gambar_samping_kanan')->store('kendaraan');
+        $validatedData['gambar_samping_kiri'] = $request->file('gambar_samping_kiri')->store('kendaraan');
 
         Kendaraan::Create($validatedData);
         return redirect('/dashboard/kendaraan')->with('success', 'Berhasil menambah kendaraan baru!');
@@ -100,12 +124,55 @@ class KendaraanController extends Controller
             'atas_nama' => 'nullable',
             'tahun' => 'nullable',
             'warna' => 'nullable',
+            'bahan_bakar' => 'nullable',
             'jenis_merk' => 'nullable',
+            'pic' => 'nullable',
             'posisi_kendaraan' => 'nullable',
-            'pajak' => 'nullable|date',
-            'ganti_plat' => 'nullable|date',
+            'tanggal_pajak' => 'nullable',
+            'bulan_pajak' => 'nullable',
+            'tahun_pajak' => 'nullable',
+            'tanggal_ganti_plat' => 'nullable',
+            'bulan_ganti_plat' => 'nullable',
+            'tahun_ganti_plat' => 'nullable',
+            'surat_penanggung_jawab' => 'nullable',
+            'gambar_depan' => 'nullable',
+            'gambar_belakang' => 'nullable',
+            'gambar_samping_kanan' => 'nullable',
+            'gambar_samping_kiri' => 'nullable',
             'keterangan' => 'nullable',
         ]);
+
+        if ($request->file('surat_penanggung_jawab')) {
+            if ($request->oldSurat_penanggung_jawab) {
+                Storage::delete($request->oldSurat_penanggung_jawab);
+            }
+            $validatedData['surat_penanggung_jawab'] = $request->file('surat_penanggung_jawab')->store('surat');
+        }
+        if ($request->file('gambar_depan')) {
+            if ($request->oldGambar_depan) {
+                Storage::delete($request->oldGambar_depan);
+            }
+            $validatedData['gambar_depan_baru'] = $request->file('gambar_depan_baru')->store('kendaraan');
+        }
+        if ($request->file('gambar_belakang')) {
+            if ($request->oldGambar_belakang) {
+                Storage::delete($request->oldGambar_belakang);
+            }
+            $validatedData['gambar_belakang_baru'] = $request->file('gambar_belakang_baru')->store('kendaraan');
+        }
+        if ($request->file('gambar_samping_kanan')) {
+            if ($request->oldGambar_samping_kanan) {
+                Storage::delete($request->oldGambar_samping_kanan);
+            }
+            $validatedData['gambar_samping_kanan_baru'] = $request->file('gambar_samping_kanan_baru')->store('kendaraan');
+        }
+        if ($request->file('gambar_samping_kiri')) {
+            if ($request->oldGambar_samping_kiri) {
+                Storage::delete($request->oldGambar_samping_kiri);
+            }
+            $validatedData['gambar_samping_kiri_baru'] = $request->file('gambar_samping_kiri_baru')->store('kendaraan');
+        }
+
         Kendaraan::Where('id', $kendaraan->id)->update($validatedData);
         return redirect('/dashboard/kendaraan')->with('success', 'Berhasil memperbarui data kendaraan');
     }
