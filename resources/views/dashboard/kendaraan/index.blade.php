@@ -15,8 +15,6 @@
                 <a href="/dashboard/merk/kendaraan" class="btn btn-success">Merk Kendaraan</a>
                 <a href="/dashboard/jenis/kendaraan" class="btn btn-success">Jenis Kendaraan</a>
                 <a href="/dashboard/bahanbakar/kendaraan" class="btn btn-success">Bahan Bakar</a>
-                {{-- <a href="#createP" class="btn btn-success" data-bs-toggle="modal">Tambah Pembelian Kendaraan</a>
-                <a href="#createJ" class="btn btn-danger" data-bs-toggle="modal">Tambah Penjualan Kendaraan</a> --}}
             </div>
         </div>
         <div class="row">
@@ -62,6 +60,15 @@
 @endsection
 @push('script')
     <script>
+        $(document).ready(function() {
+            var table = $('#table_id').DataTable({
+                columnDefs: [{
+                    targets: '_all',
+                    className: 'dt-head-center'
+                }]
+            });
+        });
+
         // printview image create
         function previewGambarDepan() {
             const image = document.querySelector('#gambar_depan');
@@ -175,174 +182,18 @@
             $( document ).ready(function() {
                 $('#create').modal('show');
             });
-            @error('wilayah')
-                const c = document.getElementById('inputWilayah');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('wilayah') }}");
-            @enderror
+
+            const np = document.getElementById('no_plat');
+            const npe = document.getElementById('np_e');
             @error('no_plat')
-                const c = document.getElementById('inputNomorPlat');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('no_plat') }}");
+                np.classList.add('is-invalid');
+                npe.append('@error("no_plat") {{ $message }} @enderror');
             @enderror
-            @error('jenis_kendaraan')
-                const c = document.getElementById('inputJenisKendaraan');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('jenis_kendaraan') }}");
-            @enderror
-            @error('no_rangka')
-                const c = document.getElementById('inputNomorRangka');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('no_rangka') }}");
-            @enderror
-            @error('no_mesin')
-                const c = document.getElementById('inputNomorMesin');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('no_mesin') }}");
-            @enderror
-            @error('no_bpkb')
-                const c = document.getElementById('inputNomorBPKB');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('no_bpkb') }}");
-            @enderror
-            @error('atas_nama')
-                const c = document.getElementById('inputAtasNama');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('atas_nama') }}");
-            @enderror
-            @error('tahun')
-                const c = document.getElementById('inputTahun');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('tahun') }}");
-            @enderror
-            @error('warna')
-                const c = document.getElementById('inputWarna');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('warna') }}");
-            @enderror
-            @error('jenis_merk')
-                const c = document.getElementById('inputJenisMerk');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('jenis_merk') }}");
-            @enderror
-            @error('pic')
-                const c = document.getElementById('inputPIC');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('pic') }}");
-            @enderror
-            @error('posisi_kendaraan')
-                const c = document.getElementById('inputPosisiKendaraan');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('posisi_kendaraan') }}");
-            @enderror
-            @error('tanggal_pajak')
-                const c = document.getElementById('inputTanggalPajak');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('tanggal_pajak') }}");
-            @enderror
-            @error('bulan_pajak')
-                const c = document.getElementById('inputBulanPajak');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('bulan_pajak') }}");
-            @enderror
-            @error('tahun_pajak')
-                const c = document.getElementById('inputTahunPajak');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('tahun_pajak') }}");
-            @enderror
-            @error('tanggal_ganti_plat')
-                const c = document.getElementById('inputTanggalGantiPlat');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('tanggal_ganti_plat') }}");
-            @enderror
-            @error('bulan_ganti_plat')
-                const c = document.getElementById('inputBulanGantiPlat');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('bulan_ganti_plat') }}");
-            @enderror
-            @error('tahun_ganti_plat')
-                const c = document.getElementById('inputTahunGantiPlat');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('tahun_ganti_plat') }}");
-            @enderror
-            @error('keterangan')
-                const c = document.getElementById('inputKeterangan');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('keterangan') }}");
-            @enderror
-            @error('surat_penanggung_jawab')
-                const c = document.getElementById('inputSuratPenanggungJawab');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('surat_penanggung_jawab') }}");
-            @enderror
-            @error('gambar_depan')
-                const c = document.getElementById('inputGambarDepan');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('gambar_depan') }}");
-            @enderror
-            @error('gambar_belakang')
-                const c = document.getElementById('inputGambarBelakang');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('gambar_belakang') }}");
-            @enderror
-            @error('gambar_samping_kanan')
-                const c = document.getElementById('inputGambarSampingKanan');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('gambar_samping_kanan') }}");
-            @enderror
-            @error('gambar_samping_kiri')
-                const c = document.getElementById('inputGambarSampingKiri');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('gambar_samping_kiri') }}");
-            @enderror
-            const a = document.getElementById('a');
-            a.append('@error("wilayah") {{ $message }} @enderror');
-            const b = document.getElementById('b');
-            b.append('@error("no_plat") {{ $message }} @enderror');
-            const c = document.getElementById('c');
-            c.append('@error("jenis_kendaraan") {{ $message }} @enderror');
-            const d = document.getElementById('d');
-            d.append('@error("no_rangka") {{ $message }} @enderror');
-            const e = document.getElementById('e');
-            e.append('@error("no_mesin") {{ $message }} @enderror');
-            const f = document.getElementById('f');
-            f.append('@error("no_bpkb") {{ $message }} @enderror');
-            const g = document.getElementById('g');
-            g.append('@error("atas_nama") {{ $message }} @enderror');
-            const h = document.getElementById('h');
-            h.append('@error("tahun") {{ $message }} @enderror');
-            const i = document.getElementById('i');
-            i.append('@error("warna") {{ $message }} @enderror');
-            const j = document.getElementById('j');
-            j.append('@error("jenis_merk") {{ $message }} @enderror');
-            const k = document.getElementById('k');
-            k.append('@error("pic") {{ $message }} @enderror');
-            const l = document.getElementById('l');
-            l.append('@error("posisi_kendaraan") {{ $message }} @enderror');
-            const m = document.getElementById('m');
-            m.append('@error("tanggal_pajak") {{ $message }} @enderror');
-            const n = document.getElementById('n');
-            n.append('@error("bulan_pajak") {{ $message }} @enderror');
-            const o = document.getElementById('o');
-            o.append('@error("tahun_pajak") {{ $message }} @enderror');
-            const p = document.getElementById('p');
-            p.append('@error("tanggal_ganti_plat") {{ $message }} @enderror');
-            const q = document.getElementById('q');
-            q.append('@error("bulan_ganti_plat") {{ $message }} @enderror');
-            const r = document.getElementById('r');
-            r.append('@error("tahun_ganti_plat") {{ $message }} @enderror');
-            const s = document.getElementById('s');
-            s.append('@error("keterangan") {{ $message }} @enderror');
-            const t = document.getElementById('t');
-            t.append('@error("surat_penanggung_jawab") {{ $message }} @enderror');
-            const u = document.getElementById('u');
-            u.append('@error("gambar_depan") {{ $message }} @enderror');
-            const v = document.getElementById('v');
-            v.append('@error("gambar_belakang") {{ $message }} @enderror');
-            const w = document.getElementById('w');
-            w.append('@error("gambar_samping_kanan") {{ $message }} @enderror');
-            const x = document.getElementById('x');
-            x.append('@error("gambar_samping_kiri") {{ $message }} @enderror');
+            np.setAttribute('value', "{{ old('no_plat') }}");
+            
+            @php
+                Illuminate\Support\Facades\Session::forget('create')
+            @endphp
         @endif
 
         // error handling for edit
@@ -350,194 +201,17 @@
             $( document ).ready(function() {
                 $('#edit{{ session("editId") }}').modal('show');
             });
-            @error('wilayah')
-                const c = document.getElementById('inputWilayah{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('wilayah') }}");
-            @enderror
+            
+            const np = document.getElementById('no_plat{{ session("editId") }}');
+            const npe = document.getElementById('np_e{{ session("editId") }}');
             @error('no_plat')
-                const c = document.getElementById('inputNomorPlat{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('no_plat') }}");
+                np.classList.add('is-invalid');
+                npe.append('@error("no_plat") {{ $message }} @enderror');
             @enderror
-            @error('jenis_kendaraan')
-                const c = document.getElementById('inputJenisKendaraan{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('jenis_kendaraan') }}");
-            @enderror
-            @error('no_rangka')
-                const c = document.getElementById('inputNomorRangka{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('no_rangka') }}");
-            @enderror
-            @error('no_mesin')
-                const c = document.getElementById('inputNomorMesin{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('no_mesin') }}");
-            @enderror
-            @error('no_bpkb')
-                const c = document.getElementById('inputNomorBPKB{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('no_bpkb') }}");
-            @enderror
-            @error('atas_nama')
-                const c = document.getElementById('inputAtasNama{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('atas_nama') }}");
-            @enderror
-            @error('tahun')
-                const c = document.getElementById('inputTahun{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('tahun') }}");
-            @enderror
-            @error('warna')
-                const c = document.getElementById('inputWarna{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('warna') }}");
-            @enderror
-            @error('jenis_merk')
-                const c = document.getElementById('inputJenisMerk{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('jenis_merk') }}");
-            @enderror
-            // @error('posisi_kendaraan')
-            //     const c = document.getElementById('inputPIC{{ session("editId") }}');
-            //     c.classList.add('is-invalid');
-            //     c.setAttribute('value', "{{ old('posisi_kendaraan') }}");
-            // @enderror
-            // @error('pajak')
-            //     const c = document.getElementById('inputPosisiKendaraan{{ session("editId") }}');
-            //     c.classList.add('is-invalid');
-            //     c.setAttribute('value', "{{ old('pajak') }}");
-            // @enderror
-            // @error('ganti_plat')
-            //     const c = document.getElementById('inputTanggalPajak{{ session("editId") }}');
-            //     c.classList.add('is-invalid');
-            //     c.setAttribute('value', "{{ old('ganti_plat') }}");
-            // @enderror
-            // @error('keterangan')
-            //     const c = document.getElementById('nn{{ session("editId") }}');
-            //     c.classList.add('is-invalid');
-            //     c.setAttribute('value', "{{ old('keterangan') }}");
-            // @enderror
-            @error('pic')
-                const c = document.getElementById('inputPIC{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('pic') }}");
-            @enderror
-            @error('posisi_kendaraan')
-                const c = document.getElementById('inputPosisiKendaraan{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('posisi_kendaraan') }}");
-            @enderror
-            @error('tanggal_pajak')
-                const c = document.getElementById('inputTanggalPajak{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('tanggal_pajak') }}");
-            @enderror
-            @error('bulan_pajak')
-                const c = document.getElementById('inputBulanPajak{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('bulan_pajak') }}");
-            @enderror
-            @error('tahun_pajak')
-                const c = document.getElementById('inputTahunPajak{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('tahun_pajak') }}");
-            @enderror
-            @error('tanggal_ganti_plat')
-                const c = document.getElementById('inputTanggalGantiPlat{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('tanggal_ganti_plat') }}");
-            @enderror
-            @error('bulan_ganti_plat')
-                const c = document.getElementById('inputBulanGantiPlat{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('bulan_ganti_plat') }}");
-            @enderror
-            @error('tahun_ganti_plat')
-                const c = document.getElementById('inputTahunGantiPlat{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('tahun_ganti_plat') }}");
-            @enderror
-            @error('keterangan')
-                const c = document.getElementById('inputKeterangan{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('keterangan') }}");
-            @enderror
-            @error('surat_penanggung_jawab')
-                const c = document.getElementById('inputSuratPenanggungJawab{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('surat_penanggung_jawab') }}");
-            @enderror
-            @error('gambar_depan')
-                const c = document.getElementById('inputGambarDepan{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('gambar_depan') }}");
-            @enderror
-            @error('gambar_belakang')
-                const c = document.getElementById('inputGambarBelakang{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('gambar_belakang') }}");
-            @enderror
-            @error('gambar_samping_kanan')
-                const c = document.getElementById('inputGambarSampingKanan{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('gambar_samping_kanan') }}");
-            @enderror
-            @error('gambar_samping_kiri')
-                const c = document.getElementById('inputGambarSampingKiri{{ session("editId") }}');
-                c.classList.add('is-invalid');
-                c.setAttribute('value', "{{ old('gambar_samping_kiri') }}");
-            @enderror
-            const a = document.getElementById('a{{ session("editId") }}');
-            a.append('@error("wilayah") {{ $message }} @enderror');
-            const b = document.getElementById('b{{ session("editId") }}');
-            b.append('@error("no_plat") {{ $message }} @enderror');
-            const c = document.getElementById('c{{ session("editId") }}');
-            c.append('@error("jenis_kendaraan") {{ $message }} @enderror');
-            const d = document.getElementById('d{{ session("editId") }}');
-            d.append('@error("no_rangka") {{ $message }} @enderror');
-            const e = document.getElementById('e{{ session("editId") }}');
-            e.append('@error("no_mesin") {{ $message }} @enderror');
-            const f = document.getElementById('f{{ session("editId") }}');
-            f.append('@error("no_bpkb") {{ $message }} @enderror');
-            const g = document.getElementById('g{{ session("editId") }}');
-            g.append('@error("atas_nama") {{ $message }} @enderror');
-            const h = document.getElementById('h{{ session("editId") }}');
-            h.append('@error("tahun") {{ $message }} @enderror');
-            const i = document.getElementById('i{{ session("editId") }}');
-            i.append('@error("warna") {{ $message }} @enderror');
-            const j = document.getElementById('j{{ session("editId") }}');
-            j.append('@error("jenis_merk") {{ $message }} @enderror');
-            const k = document.getElementById('k{{ session("editId") }}');
-            k.append('@error("pic") {{ $message }} @enderror');
-            const l = document.getElementById('l{{ session("editId") }}');
-            l.append('@error("posisi_kendaraan") {{ $message }} @enderror');
-            const m = document.getElementById('m{{ session("editId") }}');
-            m.append('@error("tanggal_pajak") {{ $message }} @enderror');
-            const n = document.getElementById('n{{ session("editId") }}');
-            n.append('@error("bulan_pajak") {{ $message }} @enderror');
-            const o = document.getElementById('o{{ session("editId") }}');
-            o.append('@error("tahun_pajak") {{ $message }} @enderror');
-            const p = document.getElementById('p{{ session("editId") }}');
-            p.append('@error("tanggal_ganti_plat") {{ $message }} @enderror');
-            const q = document.getElementById('q{{ session("editId") }}');
-            q.append('@error("bulan_ganti_plat") {{ $message }} @enderror');
-            const r = document.getElementById('r{{ session("editId") }}');
-            r.append('@error("tahun_ganti_plat") {{ $message }} @enderror');
-            const s = document.getElementById('s{{ session("editId") }}');
-            s.append('@error("keterangan") {{ $message }} @enderror');
-            const t = document.getElementById('t{{ session("editId") }}');
-            t.append('@error("surat_penanggung_jawab") {{ $message }} @enderror');
-            const u = document.getElementById('u{{ session("editId") }}');
-            u.append('@error("gambar_depan") {{ $message }} @enderror');
-            const v = document.getElementById('v{{ session("editId") }}');
-            v.append('@error("gambar_belakang") {{ $message }} @enderror');
-            const w = document.getElementById('w{{ session("editId") }}');
-            w.append('@error("gambar_samping_kanan") {{ $message }} @enderror');
-            const x = document.getElementById('x{{ session("editId") }}');
-            x.append('@error("gambar_samping_kiri") {{ $message }} @enderror');
+
+            @php
+                Illuminate\Support\Facades\Session::forget('editId')
+            @endphp
         @endif
     </script>
 @endpush

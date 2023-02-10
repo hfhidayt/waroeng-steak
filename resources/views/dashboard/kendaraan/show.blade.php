@@ -63,7 +63,7 @@
                 <div class="mb-3">
                     <label for="merk" class="form-label">Merk</label>
                     <input type="text" class="form-control" placeholder="-" name="merk"
-                        value="{{ $k->merk }}" disabled>
+                        value="{{ $k->jenis_merk }}" disabled>
                 </div>
                 <div class="mb-3">
                     <label for="pic" class="form-label">PIC</label>
@@ -136,10 +136,13 @@
                         value="{{ $k->keterangan }}" disabled>
                 </div>
                 <div class="mb-3">
-                    <label for="surat_penanggung_jawab" class="form-label">Surat Penanggung
-                        Jawab</label>
-                    <input type="text" class="form-control " placeholder="-" name="surat_penanggung_jawab"
-                        value="{{ $k->surat_penanggung_jawab }}" disabled>
+                    <label for="surat_penanggung_jawab" class="form-label">Surat Penanggung Jawab</label>
+                    <div class="col mb-3">
+                        {{-- <iframe src="http://docs.google.com/gview?url={{ asset('storage/'.$k->surat_penanggung_jawab) }}&embedded=true" style="width:600px; height:500px;" frameborder="0"></iframe> --}}
+                        <a href="#" onclick="window.open('{{ asset('storage/'.$k->surat_penanggung_jawab) }}', '_blank')">Lihat Surat Penanggung Jawab</a>
+                    </div>
+                    {{-- <a href="#" onclick="window.open({{ asset('storage/'.$k->surat_penanggung_jawab) }}, '_blank')">Lihat Surat Penanggung Jawab</a> --}}
+                    {{-- <input type="text" class="form-control " placeholder="-" name="surat_penanggung_jawab" value="{{ $k->surat_penanggung_jawab }}" disabled> --}}
                     {{-- <img src="{{ asset('storage/' . $k->surat_penanggung_jawab) }}" class="mb-3" disabled> --}}
                 </div>
                 <div class="mb-3">

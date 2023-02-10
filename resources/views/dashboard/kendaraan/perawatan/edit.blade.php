@@ -13,7 +13,7 @@
                     @method('put')
                     <div class="mb-3">
                         <label for="kendaraan_id" class="form-label">Nomor Plat</label>
-                        <select class="form-select" name="kendaraan_id" id="kendaraan_id{{ $ps->id }}" required>
+                        <select class="form-select" name="kendaraan_id" id="kendaraan_id{{ $ps->id }}">
                             <option value="">-- Nomor Plat --</option>
                             @foreach ($no_plat as $np)
                                 <option value="{{ $np->id }}"
@@ -35,23 +35,38 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Tanggal Perawatan"
-                                    name="tanggal" id="tanggal{{ $ps->id }}" value="{{ $ps->tanggal }}" required>
+                                <input type="number" class="form-control" placeholder="Tanggal Perawatan"
+                                    name="tanggal" id="tanggal{{ $ps->id }}" value="{{ $ps->tanggal }}" >
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Bulan Perawatan" name="bulan"
-                                    id="bulan{{ $ps->id }}" value="{{ $ps->bulan }}" required>
+                                <select class="form-select" placeholder="Bulan Perawatan" name="bulan"
+                                    id="inputBulanPerawatan{{ $ps->id }}">
+                                    {{-- <option value="{{ $ps->bulan }}" selected>{{ $ps->bulan }}
+                                    </option> --}}
+                                    <option value="Januari" {{ $ps->bulan == 'Januari' ? 'selected' : '' }}>Januari</option>
+                                    <option value="Februari" {{ $ps->bulan == 'Februari' ? 'selected' : '' }}>Februari</option>
+                                    <option value="Maret" {{ $ps->bulan == 'Maret' ? 'selected' : '' }}>Maret</option>
+                                    <option value="April" {{ $ps->bulan == 'April' ? 'selected' : '' }}>April</option>
+                                    <option value="Mei" {{ $ps->bulan == 'Mei' ? 'selected' : '' }}>Mei</option>
+                                    <option value="Juni" {{ $ps->bulan == 'Juni' ? 'selected' : '' }}>Juni</option>
+                                    <option value="Juli" {{ $ps->bulan == 'Juli' ? 'selected' : '' }}>Juli</option>
+                                    <option value="Agustus" {{ $ps->bulan == 'Agustus' ? 'selected' : '' }}>Agustus</option>
+                                    <option value="September" {{ $ps->bulan == 'September' ? 'selected' : '' }}>September</option>
+                                    <option value="Oktober" {{ $ps->bulan == 'Oktober' ? 'selected' : '' }}>Oktober</option>
+                                    <option value="November" {{ $ps->bulan == 'November' ? 'selected' : '' }}>November</option>
+                                    <option value="Desember" {{ $ps->bulan == 'Desember' ? 'selected' : '' }}>Desember</option>
+                                </select>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Tahun Perawatan" name="tahun"
-                                    id="tahun{{ $ps->id }}" value="{{ $ps->tahun }}" required>
+                                <input type="number" class="form-control" placeholder="Tahun Perawatan" name="tahun"
+                                    id="tahun{{ $ps->id }}" value="{{ $ps->tahun }}" >
                             </div>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="jenis_perawatan" class="form-label">Jenis Perawatan</label>
                         <select class="form-select" name="jenis_perawatan"
-                            id="jenis_perawatan{{ $ps->id }} required" required>
+                            id="jenis_perawatan{{ $ps->id }} " >
                             <option value="">-- Perawatan Kendaraan --</option>
                             @foreach ($jenis_perawatan as $js)
                                 <option value="{{ $js->jenis_perawatan }}"
@@ -64,41 +79,41 @@
                         <label for="tempat_perawatan" class="form-label">Tempat Perawatan</label>
                         <input type="text" class="form-control" placeholder="Tempat Perawatan"
                             name="tempat_perawatan" id="tempat_perawatan{{ $ps->id }}"
-                            value="{{ $ps->tempat_perawatan }}" required>
+                            value="{{ $ps->tempat_perawatan }}" >
                     </div>
                     <div class="mb-3">
                         <label for="barang_jasa" class="form-label">Barang/Jasa</label>
                         <input type="text" class="form-control" placeholder="Barang/Jasa" name="barang_jasa"
-                            id="barang_jasa{{ $ps->id }}" value="{{ $ps->barang_jasa }}" required>
+                            id="barang_jasa{{ $ps->id }}" value="{{ $ps->barang_jasa }}" >
                     </div>
                     <div class="mb-3">
                         <label for="volume" class="form-label">Volume</label>
                         <input type="text" class="form-control volume{{ $ps->id }}" placeholder="Volume"
                             name="volume" id="volume{{ $ps->id }}" value="{{ $ps->volume }}"
-                            oninput="hitungEdit({{ $ps->id }})" required>
+                            oninput="hitungEdit({{ $ps->id }})" >
                     </div>
                     <div class="mb-3">
                         <label for="satuan" class="form-label">Satuan</label>
                         <input type="text" class="form-control" placeholder="Satuan" name="satuan"
-                            id="satuan{{ $ps->id }}" value="{{ $ps->satuan }}" required>
+                            id="satuan{{ $ps->id }}" value="{{ $ps->satuan }}" >
                     </div>
                     <div class="mb-3">
                         <label for="kilometer" class="form-label">Kilometer Kendaraan</label>
                         <input type="number" class="form-control" placeholder="Kilometer Kendaraan"
                             name="kilometer" id="kilometer{{ $ps->id }}" value="{{ $ps->kilometer }}"
-                            required>
+                            >
                     </div>
                     <div class="mb-3">
                         <label for="harga_satuan" class="form-label">Harga Satuan</label>
                         <input type="number" class="form-control harga_satuan{{ $ps->id }}"
                             placeholder="Harga Satuan" name="harga_satuan" id="harga_satuan{{ $ps->id }}"
-                            value="{{ $ps->harga_satuan }}" oninput="hitungEdit({{ $ps->id }})" required>
+                            value="{{ $ps->harga_satuan }}" oninput="hitungEdit({{ $ps->id }})" >
                     </div>
                     <div class="mb-3">
                         <label for="total_biaya" class="form-label">Total Biaya</label>
                         <input type="number" class="form-control total_biaya{{ $ps->id }}"
                             placeholder="Total Biaya" name="total_biaya" id="total_biaya{{ $ps->id }}"
-                            disabled required>
+                            disabled >
                     </div>
                     <div class="mb-3">
                         <label for="nota" class="form-label">Nota</label>
@@ -108,8 +123,7 @@
                         @else
                             <img class="img-preview img-fluid mb-3">
                         @endif
-                        <input class="form-control" type="file" id="nota{{ $ps->id }}" name="nota"
-                            onchange="previewImage()">
+                        <input class="form-control" type="file" id="nota{{ $ps->id }}" name="nota" onchange="previewImage()">
                     </div>
             </div>
             <div class="modal-footer">

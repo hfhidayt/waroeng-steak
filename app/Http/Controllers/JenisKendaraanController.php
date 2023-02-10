@@ -79,14 +79,14 @@ class JenisKendaraanController extends Controller
      * @param  \App\Models\JenisKendaraan  $jenisKendaraan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, JenisKendaraan $jenisKendaraan)
+    public function update(Request $request, JenisKendaraan $kendaraan)
     {
-        $request->session()->put('editJK', $jenisKendaraan->id);
+        $request->session()->put('editJK', $kendaraan->id);
         $validatedData = $request->validate([
-            'jenis_perawatan' => 'required'
+            'jenis_kendaraan' => 'required'
         ]);
 
-        JenisKendaraan::where('id', $jenisKendaraan->id)->update($validatedData);
+        JenisKendaraan::where('id', $kendaraan->id)->update($validatedData);
 
         $request->session()->forget('editJK');
 
@@ -99,9 +99,9 @@ class JenisKendaraanController extends Controller
      * @param  \App\Models\JenisKendaraan  $jenisKendaraan 
      * @return \Illuminate\Http\Response
      */
-    public function destroy(JenisKendaraan $jenisKendaraan)
+    public function destroy(JenisKendaraan $kendaraan)
     {
-        JenisKendaraan::destroy($jenisKendaraan->id);
+        JenisKendaraan::destroy($kendaraan->id);
         return redirect('/dashboard/jenis/kendaraan')->with('success', 'Berhasil menghapus jenis kendaraan!');
     }
 }

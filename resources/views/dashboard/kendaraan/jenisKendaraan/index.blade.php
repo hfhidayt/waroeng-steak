@@ -57,7 +57,7 @@
                 jk.classList.add('is-invalid');
                 jke.append('@error("jenis_kendaraan") {{ $message }} @enderror');
             @enderror
-            jk.setAttribute('value', "{{ old('jenis_kendaraan') }}");
+            // jk.setAttribute('value', "{{ old('jenis_kendaraan') }}");
 
             @php
                 Illuminate\Support\Facades\Session::forget('editJK')
@@ -73,7 +73,7 @@
                 jk.classList.add('is-invalid');
                 jke.append('@error("jenis_kendaraan") {{ $message }} @enderror');
             @enderror
-            jk.setAttribute('value', "{{ old('jenis_kendaraan') }}");
+            // jk.setAttribute('value', "{{ old('jenis_kendaraan') }}");
 
             const tp = document.getElementById('tgl_kendaraan');
 

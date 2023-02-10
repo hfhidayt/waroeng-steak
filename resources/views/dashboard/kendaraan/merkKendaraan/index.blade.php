@@ -57,7 +57,7 @@
                 mk.classList.add('is-invalid');
                 mke.append('@error("merk") {{ $message }} @enderror');
             @enderror
-            mk.setAttribute('value', "{{ old('merk') }}");
+            // mk.setAttribute('value', "{{ old('merk') }}");
 
             @php
                 Illuminate\Support\Facades\Session::forget('editMK')
@@ -73,7 +73,7 @@
                 mk.classList.add('is-invalid');
                 mke.append('@error("merk") {{ $message }} @enderror');
             @enderror
-            mk.setAttribute('value', "{{ old('merk') }}");
+            // mk.setAttribute('value', "{{ old('merk') }}");
 
             const tp = document.getElementById('tgl_kendaraan');
 

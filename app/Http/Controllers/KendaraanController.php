@@ -45,8 +45,9 @@ class KendaraanController extends Controller
      */
     public function store(Request $request)
     {
+        $request->session()->put('create', 'true');
         $validatedData = $request->validate([
-            'wilayah' => 'required',
+            'wilayah' => 'nullable',
             'no_plat' => 'required|unique:kendaraans',
             'jenis_kendaraan' => 'nullable',
             'no_rangka' => 'nullable',
@@ -80,6 +81,9 @@ class KendaraanController extends Controller
         $validatedData['gambar_samping_kiri'] = $request->file('gambar_samping_kiri')->store('kendaraan');
 
         Kendaraan::Create($validatedData);
+
+        $request->session()->forget('create');
+
         return redirect('/dashboard/kendaraan')->with('success', 'Berhasil menambah kendaraan baru!');
     }
 
@@ -114,9 +118,10 @@ class KendaraanController extends Controller
      */
     public function update(Request $request, Kendaraan $kendaraan)
     {
+        $request->session()->put('editId', $kendaraan->id);
         $validatedData = $request->validate([
-            'wilayah' => 'required',
-            'no_plat' => 'required|unique:kendaraans',
+            'wilayah' => 'nullable',
+            'no_plat' => 'required',
             'jenis_kendaraan' => 'nullable',
             'no_rangka' => 'nullable',
             'no_mesin' => 'nullable',
@@ -142,6 +147,11 @@ class KendaraanController extends Controller
             'keterangan' => 'nullable',
         ]);
 
+        if($request->no_plat === $kendaraan->no_plat) {
+            unset($validatedData['no_plat']);
+        }
+        // dd("request: ".$request->no_plat, "kendaraan: ".$kendaraan->no_plat, $validatedData);
+
         if ($request->file('surat_penanggung_jawab')) {
             if ($request->oldSurat_penanggung_jawab) {
                 Storage::delete($request->oldSurat_penanggung_jawab);
@@ -152,28 +162,31 @@ class KendaraanController extends Controller
             if ($request->oldGambar_depan) {
                 Storage::delete($request->oldGambar_depan);
             }
-            $validatedData['gambar_depan_baru'] = $request->file('gambar_depan_baru')->store('kendaraan');
+            $validatedData['gambar_depan'] = $request->file('gambar_depan')->store('kendaraan');
         }
         if ($request->file('gambar_belakang')) {
             if ($request->oldGambar_belakang) {
                 Storage::delete($request->oldGambar_belakang);
             }
-            $validatedData['gambar_belakang_baru'] = $request->file('gambar_belakang_baru')->store('kendaraan');
+            $validatedData['gambar_belakang'] = $request->file('gambar_belakang')->store('kendaraan');
         }
         if ($request->file('gambar_samping_kanan')) {
             if ($request->oldGambar_samping_kanan) {
                 Storage::delete($request->oldGambar_samping_kanan);
             }
-            $validatedData['gambar_samping_kanan_baru'] = $request->file('gambar_samping_kanan_baru')->store('kendaraan');
+            $validatedData['gambar_samping_kanan'] = $request->file('gambar_samping_kanan')->store('kendaraan');
         }
         if ($request->file('gambar_samping_kiri')) {
             if ($request->oldGambar_samping_kiri) {
                 Storage::delete($request->oldGambar_samping_kiri);
             }
-            $validatedData['gambar_samping_kiri_baru'] = $request->file('gambar_samping_kiri_baru')->store('kendaraan');
+            $validatedData['gambar_samping_kiri'] = $request->file('gambar_samping_kiri')->store('kendaraan');
         }
 
         Kendaraan::Where('id', $kendaraan->id)->update($validatedData);
+
+        $request->session()->forget('editId');
+
         return redirect('/dashboard/kendaraan')->with('success', 'Berhasil memperbarui data kendaraan');
     }
 

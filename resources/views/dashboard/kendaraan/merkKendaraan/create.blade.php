@@ -10,8 +10,7 @@
                 <div class="modal-body">
                     @csrf
                     <div class="mb-3">
-                        <input type="text" class="form-control" placeholder="Merk Kendaraan" name="merk"
-                            id="merk">
+                        <input type="text" class="form-control" placeholder="Merk Kendaraan" name="merk" id="merk">
                         <div class="invalid-feedback" id="mk_e">
                         </div>
                     </div>

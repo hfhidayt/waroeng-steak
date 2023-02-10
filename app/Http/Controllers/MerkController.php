@@ -79,14 +79,14 @@ class MerkController extends Controller
      * @param  \App\Models\Merk  $merk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Merk $merk)
+    public function update(Request $request, Merk $kendaraan)
     {
-        $request->session()->put('editMK', $merk->id);
+        $request->session()->put('editMK', $kendaraan->id);
         $validatedData = $request->validate([
-            'merk_perawatan' => 'required'
+            'merk' => 'required'
         ]);
 
-        Merk::where('id', $merk->id)->update($validatedData);
+        Merk::where('id', $kendaraan->id)->update($validatedData);
 
         $request->session()->forget('editMK');
 
@@ -99,9 +99,9 @@ class MerkController extends Controller
      * @param  \App\Models\Merk  $merk
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Merk $merk)
+    public function destroy(Merk $kendaraan)
     {
-        Merk::destroy($merk->id);
+        Merk::destroy($kendaraan->id);
         return redirect('/dashboard/merk/kendaraan')->with('success', 'Berhasil menghapus merk kendaraan!');
     }
 }

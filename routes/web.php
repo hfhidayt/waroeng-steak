@@ -63,10 +63,10 @@ Route::resource('/dashboard/perawatan/kendaraan', PerawatanController::class)->e
 
 Route::resource('/dashboard/jenis/perawatan/kendaraan', JenisPerawatanController::class)->except('create', 'show', 'edit')->middleware('auth');
 
+Route::resource('/dashboard/merk/kendaraan', MerkController::class)->except('create', 'show', 'edit')->middleware('auth');
+
 Route::resource('/dashboard/jenis/kendaraan', JenisKendaraanController::class)->except('create', 'show', 'edit')->middleware('auth');
 
 Route::resource('/dashboard/bahanbakar/kendaraan', BahanBakarController::class)->except('create', 'show', 'edit')->middleware('auth');
-
-Route::resource('/dashboard/merk/kendaraan', MerkController::class)->except('create', 'show', 'edit')->middleware('auth');
 
 Route::resource('/dashboard/akun', UserController::class)->except('create', 'show', 'edit')->middleware('admin');

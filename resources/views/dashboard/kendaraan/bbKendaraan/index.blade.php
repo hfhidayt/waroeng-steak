@@ -57,7 +57,7 @@
                 bb.classList.add('is-invalid');
                 bbe.append('@error("bahan_bakar") {{ $message }} @enderror');
             @enderror
-            bb.setAttribute('value', "{{ old('bahan_bakar') }}");
+            // bb.setAttribute('value', "{{ old('bahan_bakar') }}");
 
             @php
                 Illuminate\Support\Facades\Session::forget('editBB')
@@ -73,7 +73,7 @@
                 bb.classList.add('is-invalid');
                 bbe.append('@error("bahan_bakar") {{ $message }} @enderror');
             @enderror
-            bb.setAttribute('value', "{{ old('bahan_bakar') }}");
+            // bb.setAttribute('value', "{{ old('bahan_bakar') }}");
 
             const tp = document.getElementById('tgl_kendaraan');
 

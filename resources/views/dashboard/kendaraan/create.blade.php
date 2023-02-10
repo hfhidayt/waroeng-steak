@@ -10,21 +10,19 @@
                 <form action="/dashboard/kendaraan" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Wilayah" name="wilayah"
-                            id="inputWilayah">
-                        <div class="invalid-feedback" id="a">
+                        <input type="text" class="form-control" placeholder="Wilayah" name="wilayah" id="wilayah">
+                        <div class="invalid-feedback" id="w_e">
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Nomor Plat" name="no_plat"
-                            id="inputNomorPlat">
-                        <div class="invalid-feedback" id="b">
+                        <input type="text" class="form-control" placeholder="Nomor Plat" name="no_plat" id="no_plat">
+                        <div class="invalid-feedback" id="np_e">
                         </div>
                     </div>
                     <div class="input-group mb-3">
                         {{-- <input type="text" class="form-control" placeholder="Jenis Kendaraan" name="jenis_kendaraan"
                             id="inputJenisKendaraan"> --}}
-                        <select class="form-select" name="jenis_kendaraan" id="jenis_kendaraan" required>
+                        <select class="form-select" name="jenis_kendaraan" id="jenis_kendaraan">
                             <option value="">-- Jenis Kendaraan --</option>
                             @foreach ($jenis_kendaraan as $jk)
                                 <option value="{{ $jk->jenis_kendaraan }}"
@@ -32,6 +30,8 @@
                                     {{ $jk->jenis_kendaraan }}</option>
                             @endforeach
                         </select>
+                        <div class="invalid-feedback" id="jk_e">
+                        </div>
                         {{-- <div class="invalid-feedback" id="c">
                         </div> --}}
                     </div>
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Tahun" name="tahun" id="inputTahun">
+                        <input type="number" class="form-control" placeholder="Tahun" name="tahun" id="inputTahun">
                         <div class="invalid-feedback" id="h">
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <select class="form-select" name="bahan_bakar" id="bahan_bakar" required>
+                        <select class="form-select" name="bahan_bakar" id="bahan_bakar">
                             <option value="">-- Bahan Bakar --</option>
                             @foreach ($bahan_bakar as $bb)
                                 <option value="{{ $bb->bahan_bakar }}"
@@ -82,10 +82,10 @@
                     <div class="input-group mb-3">
                         {{-- <input type="text" class="form-control" placeholder="Jenis/Merk" name="jenis_merk"
                             id="inputJenisMerk"> --}}
-                        <select class="form-select" name="merk" id="merk" required>
+                        <select class="form-select" name="jenis_merk" id="jenis_merk">
                             <option value="">-- Merk --</option>
                             @foreach ($merk as $m)
-                                <option value="{{ $m->merk }}" {{ old('merk') == $m->merk ? 'selected' : '' }}>
+                                <option value="{{ $m->merk }}" {{ old('jenis_merk') == $m->merk ? 'selected' : '' }}>
                                     {{ $m->merk }}</option>
                             @endforeach
                         </select>
@@ -104,7 +104,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Tanggal Pajak" name="tanggal_pajak"
+                        <input type="number" class="form-control" placeholder="Tanggal Pajak" name="tanggal_pajak"
                             id="inputTanggalPajak">
                         <div class="invalid-feedback" id="m">
                         </div>
@@ -128,13 +128,13 @@
                         </select>
                         <div class="invalid-feedback" id="n">
                         </div>
-                        <input type="text" class="form-control" placeholder="Tahun Pajak" name="tahun_pajak"
+                        <input type="number" class="form-control" placeholder="Tahun Pajak" name="tahun_pajak"
                             id="inputTahunPajak">
                         <div class="invalid-feedback" id="o">
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Tgl Ganti Plat"
+                        <input type="number" class="form-control" placeholder="Tgl Ganti Plat"
                             name="tanggal_ganti_plat" id="inputTanggalGantiPlat">
                         <div class="invalid-feedback" id="p">
                         </div>
@@ -158,7 +158,7 @@
                         </select>
                         <div class="invalid-feedback" id="q">
                         </div>
-                        <input type="text" class="form-control" placeholder="Tahun Ganti Plat"
+                        <input type="number" class="form-control" placeholder="Tahun Ganti Plat"
                             name="tahun_ganti_plat" id="inputTahunGantiPlat">
                         <div class="invalid-feedback" id="r">
                         </div>

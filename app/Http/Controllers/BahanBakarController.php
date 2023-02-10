@@ -79,14 +79,14 @@ class BahanBakarController extends Controller
      * @param  \App\Models\BahanBakar  $bahanBakar
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BahanBakar $bahanBakar)
+    public function update(Request $request, BahanBakar $kendaraan)
     {
-        $request->session()->put('editBB', $bahanBakar->id);
+        $request->session()->put('editBB', $kendaraan->id);
         $validatedData = $request->validate([
             'bahan_bakar' => 'required'
         ]);
 
-        BahanBakar::where('id', $bahanBakar->id)->update($validatedData);
+        BahanBakar::where('id', $kendaraan->id)->update($validatedData);
 
         $request->session()->forget('editBB');
 
@@ -99,9 +99,9 @@ class BahanBakarController extends Controller
      * @param  \App\Models\BahanBakar  $bahanBakar
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BahanBakar $bahanBakar)
+    public function destroy(BahanBakar $kendaraan)
     {
-        BahanBakar::destroy($bahanBakar->id);
+        BahanBakar::destroy($kendaraan->id);
         return redirect('/dashboard/bahanbakar/kendaraan')->with('success', 'Berhasil menghapus bahan bakar!');
     }
 }
