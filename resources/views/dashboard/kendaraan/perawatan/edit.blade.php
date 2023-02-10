@@ -24,24 +24,36 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="tanggal" class="form-label">Tanggal Perawatan</label>
-                        <input type="text" class="form-control" placeholder="Tanggal Perawatan" name="tanggal"
-                            id="tanggal{{ $ps->id }}" value="{{ $ps->tanggal }}">
-                        <div class="invalid-feedback" id="tp_e{{ $ps->id }}">
+                        <div class="row">
+                            <div class="col">
+                                <label for="tanggal" class="form-label">Tanggal Perawatan</label>
+                            </div>
+                            <div class="col">
+                                <label for="tanggal" class="form-label">Bulan Perawatan</label>
+                            </div>
+                            <div class="col">
+                                <label for="tanggal" class="form-label">Tahun Perawatan</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="tanggal" class="form-label">Bulan Perawatan</label>
-                        <input type="text" class="form-control" placeholder="Bulan Perawatan" name="bulan"
-                            id="bulan{{ $ps->id }}" value="{{ $ps->bulan }}">
-                        <div class="invalid-feedback" id="tp_e{{ $ps->id }}">
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="tanggal" class="form-label">Tahun Perawatan</label>
-                        <input type="text" class="form-control" placeholder="Tahun Perawatan" name="tahun"
-                            id="tahun{{ $ps->id }}" value="{{ $ps->tahun }}">
-                        <div class="invalid-feedback" id="tp_e{{ $ps->id }}">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Tanggal Perawatan"
+                                    name="tanggal" id="tanggal{{ $ps->id }}" value="{{ $ps->tanggal }}">
+                                <div class="invalid-feedback" id="tp_e{{ $ps->id }}">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Bulan Perawatan" name="bulan"
+                                    id="bulan{{ $ps->id }}" value="{{ $ps->bulan }}">
+                                <div class="invalid-feedback" id="bp_e{{ $ps->id }}">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Tahun Perawatan" name="tahun"
+                                    id="tahun{{ $ps->id }}" value="{{ $ps->tahun }}">
+                                <div class="invalid-feedback" id="thp_e{{ $ps->id }}">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="mb-3">

@@ -102,48 +102,75 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="editTanggalPajak" class="form-label">Tanggal Pajak</label>
-                        <input type="text" class="form-control" placeholder="Tanggal Pajak" name="tanggal_pajak"
-                            id="inputTanggalPajak{{ $k->id }}" value="{{ $k->tanggal_pajak }}">
-                        <div class="invalid-feedback" id="m{{ $k->id }}">
+                        <div class="row">
+                            <div class="col">
+                                <label for="editTanggalPajak" class="form-label">Tanggal Pajak</label>
+                            </div>
+                            <div class="col">
+                                <label for="editBulanPajak" class="form-label">Bulan Pajak</label>
+                            </div>
+                            <div class="col">
+                                <label for="editTahunPajak" class="form-label">Tahun Pajak</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Tanggal Pajak"
+                                    name="tanggal_pajak" id="inputTanggalPajak{{ $k->id }}"
+                                    value="{{ $k->tanggal_pajak }}">
+                                <div class="invalid-feedback" id="m{{ $k->id }}">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Bulan Pajak"
+                                    name="bulan_pajak" id="inputBulanPajak{{ $k->id }}"
+                                    value="{{ $k->bulan_pajak }}">
+                                <div class="invalid-feedback" id="n{{ $k->id }}">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Tahun Pajak"
+                                    name="tahun_pajak" id="inputTahunPajak{{ $k->id }}"
+                                    value="{{ $k->tahun_pajak }}">
+                                <div class="invalid-feedback" id="o{{ $k->id }}">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="editBulanPajak" class="form-label">Bulan Pajak</label>
-                        <input type="text" class="form-control" placeholder="Bulan Pajak" name="bulan_pajak"
-                            id="inputBulanPajak{{ $k->id }}" value="{{ $k->bulan_pajak }}">
-                        <div class="invalid-feedback" id="n{{ $k->id }}">
+                        <div class="row">
+                            <div class="col">
+                                <label for="editTanggalGantiPlat" class="form-label">Tanggal Ganti Plat</label>
+                            </div>
+                            <div class="col">
+                                <label for="editBulanGantiPlat" class="form-label">Bulan Ganti Plat</label>
+                            </div>
+                            <div class="col">
+                                <label for="editTahunGantiPlat" class="form-label">Tahun Ganti Plat</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="editTahunPajak" class="form-label">Tahun Pajak</label>
-                        <input type="text" class="form-control" placeholder="Tahun Pajak" name="tahun_pajak"
-                            id="inputTahunPajak{{ $k->id }}" value="{{ $k->tahun_pajak }}">
-                        <div class="invalid-feedback" id="o{{ $k->id }}">
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="editTanggalGantiPlat" class="form-label">Tanggal Ganti Plat</label>
-                        <input type="text" class="form-control" placeholder="Tanggal Ganti Plat"
-                            name="tanggal_ganti_plat" id="inputTanggalGantiPlat{{ $k->id }}"
-                            value="{{ $k->tanggal_ganti_plat }}">
-                        <div class="invalid-feedback" id="p{{ $k->id }}">
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="editBulanGantiPlat" class="form-label">Bulan Ganti Plat</label>
-                        <input type="text" class="form-control" placeholder="Bulan Ganti Plat"
-                            name="bulan_ganti_plat" id="inputBulanGantiPlat{{ $k->id }}"
-                            value="{{ $k->bulan_ganti_plat }}">
-                        <div class="invalid-feedback" id="q{{ $k->id }}">
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="editTahunGantiPlat" class="form-label">Tahun Ganti Plat</label>
-                        <input type="text" class="form-control" placeholder="Tahun Ganti Plat"
-                            name="tahun_ganti_plat" id="inputTahunGantiPlat{{ $k->id }}"
-                            value="{{ $k->tahun_ganti_plat }}">
-                        <div class="invalid-feedback" id="r{{ $k->id }}">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Tgl Ganti Plat"
+                                    name="tanggal_ganti_plat" id="inputTanggalGantiPlat{{ $k->id }}"
+                                    value="{{ $k->tanggal_ganti_plat }}">
+                                <div class="invalid-feedback" id="p{{ $k->id }}">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Bulan Ganti Plat"
+                                    name="bulan_ganti_plat" id="inputBulanGantiPlat{{ $k->id }}"
+                                    value="{{ $k->bulan_ganti_plat }}">
+                                <div class="invalid-feedback" id="q{{ $k->id }}">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Tahun Ganti Plat"
+                                    name="tahun_ganti_plat" id="inputTahunGantiPlat{{ $k->id }}"
+                                    value="{{ $k->tahun_ganti_plat }}">
+                                <div class="invalid-feedback" id="r{{ $k->id }}">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="mb-3">

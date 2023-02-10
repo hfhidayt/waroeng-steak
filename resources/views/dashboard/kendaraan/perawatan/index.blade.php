@@ -137,11 +137,25 @@
                 npe.append('@error("kendaraan_id") {{ $message }} @enderror');
             @enderror
 
-            const tp = document.getElementById('tgl_perawatan{{ session("editPS") }}');
+            const tp = document.getElementById('tanggal{{ session("editPS") }}');
             const tpe = document.getElementById('tp_e{{ session("editPS") }}');
-            @error('tgl_perawatan')
+            @error('tanggal')
                 tp.classList.add('is-invalid');
-                tpe.append('@error("tgl_perawatan") {{ $message }} @enderror');
+                tpe.append('@error("tanggal") {{ $message }} @enderror');
+            @enderror
+
+            const bp = document.getElementById('bulan{{ session("editPS") }}');
+            const bpe = document.getElementById('bp_e{{ session("editPS") }}');
+            @error('bulan')
+                bp.classList.add('is-invalid');
+                bpe.append('@error("bulan") {{ $message }} @enderror');
+            @enderror
+
+            const thp = document.getElementById('tahun{{ session("editPS") }}');
+            const thpe = document.getElementById('thp_e{{ session("editPS") }}');
+            @error('tahun')
+                th.classList.add('is-invalid');
+                thpe.append('@error("tahun") {{ $message }} @enderror');
             @enderror
 
             const jp = document.getElementById('jenis_perawatan{{ session("editPS") }}');
@@ -226,13 +240,29 @@
                 npe.append('@error("kendaraan_id") {{ $message }} @enderror');
             @enderror
 
-            const tp = document.getElementById('tgl_perawatan');
+            const tp = document.getElementById('tanggal');
             const tpe = document.getElementById('tp_e');
-            @error('tgl_perawatan')
+            @error('tanggal')
                 tp.classList.add('is-invalid');
-                tpe.append('@error("tgl_perawatan") {{ $message }} @enderror');
+                tpe.append('@error("tanggal") {{ $message }} @enderror');
             @enderror
-            tp.setAttribute('value', "{{ old('tgl_perawatan') }}");
+            tp.setAttribute('value', "{{ old('tanggal') }}");
+
+            const bp = document.getElementById('bulan');
+            const bpe = document.getElementById('bp_e');
+            @error('bulan')
+                bp.classList.add('is-invalid');
+                bpe.append('@error("bulan") {{ $message }} @enderror');
+            @enderror
+            tp.setAttribute('value', "{{ old('bulan') }}");
+
+            const thp = document.getElementById('tahun');
+            const thpe = document.getElementById('thp_e');
+            @error('tahun')
+                thp.classList.add('is-invalid');
+                thpe.append('@error("tahun") {{ $message }} @enderror');
+            @enderror
+            tp.setAttribute('value', "{{ old('tahun') }}");
 
             const jp = document.getElementById('jenis_perawatan');
             const jpe = document.getElementById('jp_e');

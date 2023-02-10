@@ -12,7 +12,7 @@
                     </div>
                 @endif
                 <a href="/dashboard/perawatan/kendaraan" class="btn btn-primary">Kembali</a>
-                <a href="#createJPS" class="btn btn-success" data-bs-toggle="modal">Tambah Perawatan</a>
+                <a href="#createJPS" class="btn btn-success" data-bs-toggle="modal">Tambah Jenis Perawatan</a>
                 @include('dashboard.kendaraan.perawatan.jenis.create')
             </div>
         </div>

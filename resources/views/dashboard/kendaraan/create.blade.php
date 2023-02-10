@@ -83,8 +83,24 @@
                             id="inputTanggalPajak">
                         <div class="invalid-feedback" id="m">
                         </div>
-                        <input type="text" class="form-control" placeholder="Bulan Pajak" name="bulan_pajak"
+                        {{-- <input type="text" class="form-control" placeholder="Bulan Pajak" name="bulan_pajak"
+                            id="inputBulanPajak"> --}}
+                        <select class="form-select" placeholder="Bulan Pajak" name="bulan_pajak"
                             id="inputBulanPajak">
+                            <option selected>Bulan Pajak</option>
+                            <option value="Januari">Januari</option>
+                            <option value="Februari">Februari</option>
+                            <option value="Maret">Maret</option>
+                            <option value="April">April</option>
+                            <option value="Mei">Mei</option>
+                            <option value="Juni">Juni</option>
+                            <option value="Juli">Juli</option>
+                            <option value="Agustus">Agustus</option>
+                            <option value="September">September</option>
+                            <option value="Oktober">Oktober</option>
+                            <option value="November">November</option>
+                            <option value="Desember">Desember</option>
+                        </select>
                         <div class="invalid-feedback" id="n">
                         </div>
                         <input type="text" class="form-control" placeholder="Tahun Pajak" name="tahun_pajak"
@@ -93,12 +109,28 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Tanggal Ganti Plat"
+                        <input type="text" class="form-control" placeholder="Tgl Ganti Plat"
                             name="tanggal_ganti_plat" id="inputTanggalGantiPlat">
                         <div class="invalid-feedback" id="p">
                         </div>
-                        <input type="text" class="form-control" placeholder="Bulan Ganti Plat"
+                        {{-- <input type="text" class="form-control" placeholder="Bulan Ganti Plat"
+                            name="bulan_ganti_plat" id="inputBulanGantiPlat"> --}}
+                        <select class="form-select" type="text" placeholder="Bulan Ganti Plat"
                             name="bulan_ganti_plat" id="inputBulanGantiPlat">
+                            <option selected>Bulan Ganti Plat</option>
+                            <option value="Januari">Januari</option>
+                            <option value="Februari">Februari</option>
+                            <option value="Maret">Maret</option>
+                            <option value="April">April</option>
+                            <option value="Mei">Mei</option>
+                            <option value="Juni">Juni</option>
+                            <option value="Juli">Juli</option>
+                            <option value="Agustus">Agustus</option>
+                            <option value="September">September</option>
+                            <option value="Oktober">Oktober</option>
+                            <option value="November">November</option>
+                            <option value="Desember">Desember</option>
+                        </select>
                         <div class="invalid-feedback" id="q">
                         </div>
                         <input type="text" class="form-control" placeholder="Tahun Ganti Plat"

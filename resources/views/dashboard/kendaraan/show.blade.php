@@ -72,34 +72,58 @@
                         placeholder="-" name="posisi_kendaraan" value="{{ $k->posisi_kendaraan }}" disabled>
                 </div>
                 <div class="mb-3">
-                    <label for="showTanggalPajak" class="form-label">Tanggal Pajak</label>
-                    <input type="text" class="form-control" placeholder="-" name="tanggal_pajak"
-                        value="{{ $k->tanggal_pajak }}" disabled>
+                    <div class="row">
+                        <div class="col">
+                            <label for="showTanggalPajak" class="form-label">Tanggal Pajak</label>
+                        </div>
+                        <div class="col">
+                            <label for="showBulanPajak" class="form-label">Bulan Pajak</label>
+                        </div>
+                        <div class="col">
+                            <label for="showTahunPajak" class="form-label">Tahun Pajak</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="-" name="tanggal_pajak"
+                                value="{{ $k->tanggal_pajak }}" disabled>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="-" name="bulan_pajak"
+                                value="{{ $k->bulan_pajak }}" disabled>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="-" name="tahun_pajak"
+                                value="{{ $k->tahun_pajak }}" disabled>
+                        </div>
+                    </div>
                 </div>
                 <div class="mb-3">
-                    <label for="showBulanPajak" class="form-label">Bulan Pajak</label>
-                    <input type="text" class="form-control" placeholder="-" name="bulan_pajak"
-                        value="{{ $k->bulan_pajak }}" disabled>
-                </div>
-                <div class="mb-3">
-                    <label for="showTahunPajak" class="form-label">Tahun Pajak</label>
-                    <input type="text" class="form-control" placeholder="-" name="tahun_pajak"
-                        value="{{ $k->tahun_pajak }}" disabled>
-                </div>
-                <div class="mb-3">
-                    <label for="showTanggalGantiPlat" class="form-label">Tanggal Ganti Plat</label>
-                    <input type="text" class="form-control " placeholder="-" name="tanggal_ganti_plat"
-                        value="{{ $k->tanggal_ganti_plat }}" disabled>
-                </div>
-                <div class="mb-3">
-                    <label for="showBulanGantiPlat" class="form-label">Bulan Ganti Plat</label>
-                    <input type="text" class="form-control " placeholder="-" name="bulan_ganti_plat"
-                        value="{{ $k->bulan_ganti_plat }}" disabled>
-                </div>
-                <div class="mb-3">
-                    <label for="showTahunGantiPlat" class="form-label">Tahun Ganti Plat</label>
-                    <input type="text" class="form-control " placeholder="-" name="tahun_ganti_plat"
-                        value="{{ $k->tahun_ganti_plat }}" disabled>
+                    <div class="row">
+                        <div class="col">
+                            <label for="showTanggalGantiPlat" class="form-label">Tanggal Ganti Plat</label>
+                        </div>
+                        <div class="col">
+                            <label for="showBulanGantiPlat" class="form-label">Bulan Ganti Plat</label>
+                        </div>
+                        <div class="col">
+                            <label for="showTahunGantiPlat" class="form-label">Tahun Ganti Plat</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control " placeholder="-" name="tanggal_ganti_plat"
+                                value="{{ $k->tanggal_ganti_plat }}" disabled>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control " placeholder="-" name="bulan_ganti_plat"
+                                value="{{ $k->bulan_ganti_plat }}" disabled>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control " placeholder="-" name="tahun_ganti_plat"
+                                value="{{ $k->tahun_ganti_plat }}" disabled>
+                        </div>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="showKeterangan" class="form-label">Keterangan</label>
