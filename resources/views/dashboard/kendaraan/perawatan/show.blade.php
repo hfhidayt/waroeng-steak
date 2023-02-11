@@ -68,18 +68,19 @@
                     </div>
                     <div class="mb-3">
                         <label for="kilometer" class="form-label">Kilometer Kendaraan</label>
-                        <input type="number" class="form-control" placeholder="Kilometer Kendaraan"
-                            name="kilometer" id="kilometer" value="{{ $ps->kilometer }}" disabled>
+                        <input type="text" class="form-control" placeholder="Kilometer Kendaraan"
+                            name="kilometer" id="kilometer" value="{{ $ps->kilometer }}KM" disabled>
                     </div>
                     <div class="mb-3">
                         <label for="harga_satuan" class="form-label">Harga Satuan</label>
-                        <input type="number" class="form-control" placeholder="Harga Satuan" name="harga_satuan"
-                            id="harga_satuan" value="{{ $ps->harga_satuan }}" disabled>
+                        <input type="text" class="form-control" placeholder="Harga Satuan" name="harga_satuan"
+                            id="harga_satuan" value="Rp{{ number_format($ps->harga_satuan, 0, ',', '.') }}" disabled>
                     </div>
                     <div class="mb-3">
                         <label for="total_biaya" class="form-label">Total Biaya</label>
-                        <input type="number" class="form-control" placeholder="Total Biaya" name="total_biaya"
-                            id="total_biaya" value="{{ $ps->total_biaya }}" disabled>
+                        <input type="text" class="form-control" placeholder="Total Biaya" name="total_biaya"
+                            {{-- id="total_biaya" value="{{ $ps->total_biaya }}" disabled> --}}
+                            id="total_biaya" value="Rp{{ number_format($ps->total_biaya, 0, ',', '.') }}" disabled>
                     </div>
                     <div class="mb-3">
                         <label for="nota" class="form-label text-center">Nota</label>

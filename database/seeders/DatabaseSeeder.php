@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\BahanBakar;
+use App\Models\JabatanPegawai;
 use App\Models\JenisKendaraan;
 use Illuminate\Database\Seeder;
 use App\Models\User;
@@ -10,6 +11,7 @@ use App\Models\Kendaraan;
 use App\Models\Perawatan;
 use App\Models\JenisPerawatan;
 use App\Models\Merk;
+use App\Models\Pegawai;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 
@@ -42,6 +44,26 @@ class DatabaseSeeder extends Seeder
         User::Create([
             'username' => 'hassan',
             'password' => Hash::make('hassan')
+        ]);
+
+        JabatanPegawai::Create([
+            'nama_jabatan' => 'Kasubbag. Keuangan & Umum'
+        ]);
+        
+        JabatanPegawai::Create([
+            'nama_jabatan' => 'Pengadministrasi BMN'
+        ]);
+
+        Pegawai::Create([
+            'nip' => '19805122001011002',
+            'nama' => 'Arkham Varis',
+            'jabatan_pegawai_id' => '1'
+        ]);
+
+        Pegawai::Create([
+            'nip' => '19805122001011002',
+            'nama' => 'Sulendro',
+            'jabatan_pegawai_id' => '2'
         ]);
 
         Merk::Create([

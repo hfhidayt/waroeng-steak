@@ -7,10 +7,14 @@ use App\Http\Controllers\PerawatanController;
 use App\Http\Controllers\JenisPerawatanController;
 use App\Http\Controllers\JenisKendaraanController;
 use App\Http\Controllers\BahanBakarController;
+use App\Http\Controllers\JabatanPegawaiController;
 use App\Http\Controllers\MerkController;
+use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\PenjualanController;
+use App\Models\JabatanPegawai;
 use App\Models\Kendaraan;
+use App\Models\Pegawai;
 use App\Models\Perawatan;
 use Illuminate\Support\Facades\Route;
 
@@ -39,10 +43,21 @@ Route::get('/dashboard', function () {
     ]);
 })->middleware('auth');
 
-Route::get('/dashboard/print/perawatan/kendaraan', function () {
-    return view('dashboard.kendaraan.perawatan.print', [
-        'title' => 'Print',
+Route::get('/dashboard/laporan/perawatan/kendaraan', function () {
+    return view('dashboard.kendaraan.perawatan.laporan', [
+        'title' => 'Laporan Biaya Perawatan',
         'perawatan' => Perawatan::all(),
+        'pegawai' => Pegawai::all(),
+        'jabatan' => JabatanPegawai::all()
+    ]);
+})->middleware('auth');
+
+Route::get('/dashboard/rincian/perawatan/kendaraan', function () {
+    return view('dashboard.kendaraan.perawatan.rincian', [
+        'title' => 'Rincian Biaya Perawatan',
+        'perawatan' => Perawatan::all(),
+        'pegawai' => Pegawai::all(),
+        'jabatan' => JabatanPegawai::all()
     ]);
 })->middleware('auth');
 
@@ -70,3 +85,7 @@ Route::resource('/dashboard/jenis/kendaraan', JenisKendaraanController::class)->
 Route::resource('/dashboard/bahanbakar/kendaraan', BahanBakarController::class)->except('create', 'show', 'edit')->middleware('auth');
 
 Route::resource('/dashboard/akun', UserController::class)->except('create', 'show', 'edit')->middleware('admin');
+
+Route::resource('/dashboard/pegawai', PegawaiController::class)->except('create', 'show', 'edit')->middleware('admin');
+
+Route::resource('/dashboard/jabatan/pegawai', JabatanPegawaiController::class)->except('create', 'show', 'edit')->middleware('admin');

@@ -62,6 +62,7 @@
     <script>
         $(document).ready(function() {
             var table = $('#table_id').DataTable({
+                ordering: false,
                 columnDefs: [{
                     targets: '_all',
                     className: 'dt-head-center'

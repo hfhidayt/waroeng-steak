@@ -11,7 +11,7 @@
     </style>
     <div class="container">
         <div class="row">
-            <div class="col my-3">
+            <div class="col my-3" id="filters">
                 <div class="input-group mb-3">
                     <label class="input-group-text" for="platP">Nomor Polisi</label>
                     <span id="pP"></span>
@@ -22,9 +22,18 @@
                     <label class="input-group-text ml-3" for="tahunP">Tahun</label>
                     <span id="tP"></span>
                 </div>
-                <div class="input-group">
+                <div class="input-group mb-3">
                     <label class="input-group-text" for="jpP">Jenis Perawatan</label>
                     <span id="jpP"></span>
+                </div>
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="pegawai">Pegawai</label>
+                    <select class="form-select" name="pegawai" id="pegawai">
+                        <option value="">Pegawai</option>
+                        @foreach ($pegawai as $p)
+                            <option value="{{ $p->id }}">{{ $p->nama }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
         </div>
@@ -32,6 +41,7 @@
             <div class="col mb-3">
                 <a href="/dashboard/perawatan/kendaraan" type="button" class="btn btn-primary">Kembali</a>
                 <button type="button" class="btn btn-success" onclick="print()">Print</button>
+                <button type="reset" class="btn btn-success" id="reset">Reset</button>
             </div>
         </div>
         <div class="print">
@@ -104,29 +114,29 @@
             <div class="row mt-5">
                 <div class="col"></div>
                 <div class="col"></div>
-                <div class="col">
-                    Yogyakarta,
+                <div class="col tnw">
+                    Yogyakarta, <span id="tanggalN"></span> <span id="bulanN"></span> <span id="tahunN"></span>
                 </div>
             </div>
             <div class="row mb-5">
                 <div class="col"></div>
                 <div class="col"></div>
                 <div class="col">
-                    Staff Keuangan
+                    <span id="jabatanN" class="tnw"></span>
                 </div>
             </div>
             <div class="row pt-4">
                 <div class="col"></div>
                 <div class="col"></div>
                 <div class="col">
-                    FEBTRI YANNA RAMADANI
+                    <span id="pegawaiN" class="tnw"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="col"></div>
                 <div class="col"></div>
                 <div class="col">
-                    ID : 0821/4514
+                    <span id="nipN" class="tnw"></span>
                 </div>
             </div>
         </div>
@@ -134,15 +144,92 @@
 @endsection
 @push('script')
     <script>
+        var pegawai = @json($pegawai);
+        var jabatan = @json($jabatan);
+
         function print() {
             $('.print').printThis();
         }
-        // import {
-        //     jsPDF
-        // } from "jspdf";
-        // const doc = new jsPDF('landscape');
-        // doc.text("Hello world!", 10, 10);
-        // doc.save("a4.pdf");
+
+        $('document').ready(function() {
+            const date = new Date();
+            document.getElementById('tanggalN').innerHTML = date.getDate();
+            switch(date.getMonth()) {
+                case 1:
+                    document.getElementById('bulanN').innerHTML = 'Januari';
+                    break;
+                case 2:
+                    document.getElementById('bulanN').innerHTML = 'Februari';
+                    break;
+                case 3:
+                    document.getElementById('bulanN').innerHTML = 'Maret';
+                    break;
+                case 4:
+                    document.getElementById('bulanN').innerHTML = 'April';
+                    break;
+                case 5:
+                    document.getElementById('bulanN').innerHTML = 'Mei';
+                    break;
+                case 6:
+                    document.getElementById('bulanN').innerHTML = 'Juni';
+                    break;
+                case 7:
+                    document.getElementById('bulanN').innerHTML = 'Juli';
+                    break;
+                case 8:
+                    document.getElementById('bulanN').innerHTML = 'Agustus';
+                    break;
+                case 9:
+                    document.getElementById('bulanN').innerHTML = 'September';
+                    break;
+                case 10:
+                    document.getElementById('bulanN').innerHTML = 'Oktober';
+                    break;
+                case 11:
+                    document.getElementById('bulanN').innerHTML = 'November';
+                    break;
+                case 12:
+                    document.getElementById('bulanN').innerHTML = 'Desember';
+                    break;
+                default:
+                    document.getElementById('bulanN').innerHTML = '';
+                    break;
+            }
+            document.getElementById('tahunN').innerHTML = date.getFullYear();
+        });
+
+        $('#pegawai').on('change', function() {
+            var pn = this.value - 1;
+            document.getElementById('pegawaiN').innerHTML = pegawai[pn].nama;
+            document.getElementById('jabatanN').innerHTML = jabatan[pegawai[pn].jabatan_pegawai_id].nama_jabatan;
+            document.getElementById('nipN').innerHTML = pegawai[pn].nip;
+        });
+
+        $('#reset').on('click', function() {
+            var table = $('#table_print').DataTable();
+            table.search('').draw();
+            table.columns().search('').draw();
+
+            $("#platP").val(null).trigger('change');
+            
+            document.getElementById('bulanP').value = '';
+            var bPH = document.getElementById('bPH');
+            bPH.innerHTML = '';
+            
+            document.getElementById('tahunP').value = '';
+            document.getElementById('tPH').innerHTML = '';
+            
+            document.getElementById('jenis_perawatanP').value = '';
+            document.getElementById('jpPH').innerHTML = '';
+            
+            document.getElementById('pegawai').value = '';
+            document.getElementById('tanggalN').innerHTML = '';
+            document.getElementById('bulanN').innerHTML = '';
+            document.getElementById('tahunN').innerHTML = '';
+            document.getElementById('pegawaiN').innerHTML = '';
+            document.getElementById('jabatanN').innerHTML = '';
+            document.getElementById('nipN').innerHTML = '';
+        });
 
         var table = $('#table_print').DataTable({
             paging: false,
@@ -169,30 +256,25 @@
             initComplete: function() {
                 this.api().columns(1).every(function() {
                         var column = this;
-                        var select = $(
-                                '<select class="form-select pP" id="platP"><option value="">No Plat</option></select>'
-                            )
-                            .appendTo($('#pP'))
-                            .on('change', function() {
-                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                        var select = $('<select class="form-select pP" id="platP"><option value="">No Plat</option></select>')
+                        .appendTo($('#pP')).on('change', function() {
+                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-                                column.search(val ? '^' + val + '$' : '', true, false).draw();
+                            column.search(val ? '^' + val + '$' : '', true, false).draw();
 
-                                var tots = document.getElementById('sum');
-                                sum = table.column(13, {
-                                    search: 'applied'
-                                }).data().sum();
-                                sumP = new Intl.NumberFormat('de-DE').format(sum)
-                                tots.innerHTML = 'Rp' + sumP;
+                            var tots = document.getElementById('sum');
+                            sum = table.column(13, {
+                                search: 'applied'
+                            }).data().sum();
+                            sumP = new Intl.NumberFormat('de-DE').format(sum)
+                            tots.innerHTML = 'Rp' + sumP;
 
-                                var npPH = document.getElementById('npPH');
-                                console.log(val);
-                                npPH.innerHTML = val;
-                            });
-                        column
-                            .data().unique().sort().each(function(d, j) {
-                                select.append('<option value="' + d + '">' + d + '</option>');
-                            });
+                            var npPH = document.getElementById('npPH');
+                            npPH.innerHTML = val;
+                        });
+                        column.data().unique().sort().each(function(d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>');
+                        });
                     })
                     .columns(3).every(function() {
                         var column = this;
@@ -200,7 +282,7 @@
                                 '<select class="form-select bP" id="bulanP"><option value="">Bulan</option></select>'
                             )
                             .appendTo($('#bP'))
-                            .on('change', function() {
+                            .on('input', function() {
                                 var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
                                 column.search(val ? '^' + val + '$' : '', true, false).draw();
@@ -259,7 +341,7 @@
                     .columns(5).every(function() {
                         var column = this;
                         var select = $(
-                                '<select class="form-select jpP" id="jpP"><option value="">Jenis Perawatan</option></select>'
+                                '<select class="form-select jpP" id="jenis_perawatanP"><option value="">Jenis Perawatan</option></select>'
                             )
                             .appendTo($('#jpP'))
                             .on('change', function() {

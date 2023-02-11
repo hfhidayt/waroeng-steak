@@ -14,7 +14,8 @@
                 <a href="#createPS" class="btn btn-success" data-bs-toggle="modal">Tambah Perawatan</a>
                 @include('dashboard.kendaraan.perawatan.create')
                 <a href="/dashboard/jenis/perawatan/kendaraan" class="btn btn-success">Jenis Perawatan</a>
-                <a href="/dashboard/print/perawatan/kendaraan" class="btn btn-success">Print</a>
+                <a href="/dashboard/laporan/perawatan/kendaraan" class="btn btn-success">Laporan Biaya</a>
+                <a href="/dashboard/rincian/perawatan/kendaraan" class="btn btn-success">Rincian Biaya</a>
             </div>
         </div>
         {{-- <select class="form-select kendaraan_idC" name="kendaraan_id" id="kendaraan_id">
@@ -37,13 +38,13 @@
         </div>
         <div class="row">
             <div class="col mx-4 my-3">
-                <table class="table" id="table_id">
+                <table class="table" id="table_id" width="100%">
                     <thead class="table-dark dt-head-center">
                         <tr>
                             <th scope="col">No</th>
                             <th scope="col">Nomor Polisi</th>
-                            <th scope="col" hidden>bulan</th>
-                            <th scope="col" hidden>tahun</th>
+                            <th scope="col">bulan</th>
+                            <th scope="col">tahun</th>
                             <th scope="col">Tanggal Perawatan</th>
                             <th scope="col">Jenis Perawatan</th>
                             <th scope="col">Tempat Perawatan</th>
@@ -56,8 +57,8 @@
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td class="text-center">{{ !empty($ps->kendaraan) ? $ps->kendaraan->no_plat:'' }}</td>
-                                <td class="text-center" hidden>{{ $ps->bulan }}</td>
-                                <td class="text-center" hidden>{{ $ps->tahun }}</td>
+                                <td class="text-center">{{ $ps->bulan }}</td>
+                                <td class="text-center">{{ $ps->tahun }}</td>
                                 <td class="text-center">{{ $ps->tanggal }} {{ $ps->bulan }} {{ $ps->tahun }}</td>
                                 <td class="text-center">{{ $ps->jenis_perawatan }}</td>
                                 <td class="text-center">{{ $ps->tempat_perawatan }}</td>
@@ -85,7 +86,16 @@
                 columnDefs: [{
                     targets: '_all',
                     className: 'dt-head-center'
-                }],
+                },
+                {
+                    target: 2,
+                    visible: false
+                },
+                {
+                    target: 3,
+                    visible: false
+                }
+            ],
 
                 initComplete: function() {
                     this.api()

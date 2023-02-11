@@ -11,7 +11,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
-                <a href="#create" class="btn btn-success" data-bs-toggle="modal">Akun Baru</a>
+                <a href="#create" class="btn btn-success" data-bs-toggle="modal">Tambah Akun Baru</a>
+                <a href="/dashboard/pegawai" class="btn btn-success">Pegawai</a>
             </div>
         </div>
         <div class="row">
