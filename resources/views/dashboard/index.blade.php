@@ -2,7 +2,8 @@
 @section('wrapper')
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo" height="60" width="60">
+        <img class="animation__shake" src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo" height="60"
+            width="60">
     </div>
     @include('partials.navbar')
     @include('partials.sidebar')
@@ -31,602 +32,456 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div class="col-lg-3 col-6">
+                    <div class="col-lg-4 col-6">
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>150</h3>
-
-                                <p>New Orders</p>
+                                <h3>{{ $kendaraan }}</h3>
+                                <p>Total Kendaraan</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i
+                            <a href="/dashboard/kendaraan" class="small-box-footer">More info <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-success">
-                            <div class="inner">
-                                <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                                <p>Bounce Rate</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-stats-bars"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-6">
+                    <div class="col-lg-4 col-6">
                         <!-- small box -->
                         <div class="small-box bg-warning">
                             <div class="inner">
-                                <h3>44</h3>
-
-                                <p>User Registrations</p>
+                                <h3>{{ $user }}</h3>
+                                <p>Total Akun User</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-person-add"></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i
+                            <a href="/dashboard/akun" class="small-box-footer">More info <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
-                    <div class="col-lg-3 col-6">
+                    <div class="col-lg-4 col-6">
                         <!-- small box -->
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3>65</h3>
-
-                                <p>Unique Visitors</p>
+                                <h3 class="totalbiaya" id="totalbiaya">Rp {{ $perawatan }}</h3>
+                                <p>Total Biaya Perawatan</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-pie-graph"></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i
+                            <a href="/dashboard/laporan/perawatan/kendaraan" class="small-box-footer">More info <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
                 </div>
                 <!-- /.row -->
+
                 <!-- Main row -->
                 <div class="row">
-                    <!-- Left col -->
-                    <section class="col-lg-7 connectedSortable">
-                        <!-- Custom tabs (Charts with tabs)-->
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">
-                                    <i class="fas fa-chart-pie mr-1"></i>
-                                    Sales
-                                </h3>
-                                <div class="card-tools">
-                                    <ul class="nav nav-pills ml-auto">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div><!-- /.card-header -->
-                            <div class="card-body">
-                                <div class="tab-content p-0">
-                                    <!-- Morris chart - Sales -->
-                                    <div class="chart tab-pane active" id="revenue-chart"
-                                        style="position: relative; height: 300px;">
-                                        <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
-                                    </div>
-                                    <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
-                                        <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
-                                    </div>
-                                </div>
-                            </div><!-- /.card-body -->
+                    <div class="col">
+                        <div class="judul">
+                            <h2>INFORMASI BIAYA PERAWATAN SELURUH KENDARAAN PT WAROENG STEAK</h2>
                         </div>
-                        <!-- /.card -->
-
-                        <!-- DIRECT CHAT -->
-                        <div class="card direct-chat direct-chat-primary">
-                            <div class="card-header">
-                                <h3 class="card-title">Direct Chat</h3>
-
-                                <div class="card-tools">
-                                    <span title="3 New Messages" class="badge badge-primary">3</span>
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-tool" title="Contacts"
-                                        data-widget="chat-pane-toggle">
-                                        <i class="fas fa-comments"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                        <i class="fas fa-times"></i>
-                                    </button>
+                        <div class="row">
+                            <!-- Left col -->
+                            <section class="col-lg-4 connectedSortable">
+                                <!-- Custom tabs (Charts with tabs)-->
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">FILTER</h3>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <div class="card-body">
+                                        <div class="col my-3" id="filters">
+                                            <div class="input-group mb-3">
+                                                <label class="input-group-text" for="platP">Jumlah Kendaraan</label>
+                                                <span id="pP"></span>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <label class="input-group-text" for="jpP">Jenis Perawatan</label>
+                                                <span id="jpP"></span>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <label class="input-group-text" for="bulanP">Pilih Bulan</label>
+                                                <span id="bP"></span>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <label class="input-group-text" for="tahunP">Pilih Tahun</label>
+                                                <span id="tP"></span>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <label class="input-group-text" for="pegawai">Total ......</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.card-body -->
                                 </div>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body">
-                                <!-- Conversations are loaded here -->
-                                <div class="direct-chat-messages">
-                                    <!-- Message. Default to the left -->
-                                    <div class="direct-chat-msg">
-                                        <div class="direct-chat-infos clearfix">
-                                            <span class="direct-chat-name float-left">Alexander Pierce</span>
-                                            <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+                                <!-- /.card -->
+                            </section>
+                            <!-- /.Left col -->
+                            <!-- right col (We are only adding the ID to make the widgets sortable)-->
+                            <section class="col-lg-8 connectedSortable">
+                                <!-- Custom tabs (Charts with tabs)-->
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">
+                                            <i class="fas fa-chart-bar mr-1"></i>
+                                            Perawatan Tahun .........
+                                        </h3>
+                                        {{-- <div class="card-tools">
+                                            <ul class="nav nav-pills ml-auto">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" href="#perbulan-chart"
+                                                        data-toggle="tab">Perbulan</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#pertahun-chart"
+                                                        data-toggle="tab">Pertahun</a>
+                                                </li>
+                                            </ul>
+                                        </div> --}}
+                                    </div><!-- /.card-header -->
+                                    <div class="card-body" id="table_chart_1">
+                                        <div class="tab-content p-0">
+                                            <!-- Morris chart - Sales -->
+                                            <div class="chart tab-pane active" id="revenue-chart"
+                                                style="position: relative; height: 300px;">
+                                                <canvas id="revenue-chart-canvas" height="300"
+                                                    style="height: 300px;"></canvas>
+                                            </div>
+                                            <div class="chart tab-pane" id="sales-chart"
+                                                style="position: relative; height: 300px;">
+                                                <canvas id="sales-chart-canvas" height="300"
+                                                    style="height: 300px;"></canvas>
+                                            </div>
                                         </div>
-                                        <!-- /.direct-chat-infos -->
-                                        <img class="direct-chat-img" src="dist/img/user1-128x128.jpg"
-                                            alt="message user image">
-                                        <!-- /.direct-chat-img -->
-                                        <div class="direct-chat-text">
-                                            Is this template really for free? That's unbelievable!
-                                        </div>
-                                        <!-- /.direct-chat-text -->
                                     </div>
-                                    <!-- /.direct-chat-msg -->
-
-                                    <!-- Message to the right -->
-                                    <div class="direct-chat-msg right">
-                                        <div class="direct-chat-infos clearfix">
-                                            <span class="direct-chat-name float-right">Sarah Bullock</span>
-                                            <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
-                                        </div>
-                                        <!-- /.direct-chat-infos -->
-                                        <img class="direct-chat-img" src="dist/img/user3-128x128.jpg"
-                                            alt="message user image">
-                                        <!-- /.direct-chat-img -->
-                                        <div class="direct-chat-text">
-                                            You better believe it!
-                                        </div>
-                                        <!-- /.direct-chat-text -->
-                                    </div>
-                                    <!-- /.direct-chat-msg -->
-
-                                    <!-- Message. Default to the left -->
-                                    <div class="direct-chat-msg">
-                                        <div class="direct-chat-infos clearfix">
-                                            <span class="direct-chat-name float-left">Alexander Pierce</span>
-                                            <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
-                                        </div>
-                                        <!-- /.direct-chat-infos -->
-                                        <img class="direct-chat-img" src="dist/img/user1-128x128.jpg"
-                                            alt="message user image">
-                                        <!-- /.direct-chat-img -->
-                                        <div class="direct-chat-text">
-                                            Working with AdminLTE on a great new app! Wanna join?
-                                        </div>
-                                        <!-- /.direct-chat-text -->
-                                    </div>
-                                    <!-- /.direct-chat-msg -->
-
-                                    <!-- Message to the right -->
-                                    <div class="direct-chat-msg right">
-                                        <div class="direct-chat-infos clearfix">
-                                            <span class="direct-chat-name float-right">Sarah Bullock</span>
-                                            <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
-                                        </div>
-                                        <!-- /.direct-chat-infos -->
-                                        <img class="direct-chat-img" src="dist/img/user3-128x128.jpg"
-                                            alt="message user image">
-                                        <!-- /.direct-chat-img -->
-                                        <div class="direct-chat-text">
-                                            I would love to.
-                                        </div>
-                                        <!-- /.direct-chat-text -->
-                                    </div>
-                                    <!-- /.direct-chat-msg -->
-
+                                    <!-- /.card-body -->
                                 </div>
-                                <!--/.direct-chat-messages-->
-
-                                <!-- Contacts are loaded here -->
-                                <div class="direct-chat-contacts">
-                                    <ul class="contacts-list">
-                                        <li>
-                                            <a href="#">
-                                                <img class="contacts-list-img" src="dist/img/user1-128x128.jpg"
-                                                    alt="User Avatar">
-
-                                                <div class="contacts-list-info">
-                                                    <span class="contacts-list-name">
-                                                        Count Dracula
-                                                        <small class="contacts-list-date float-right">2/28/2015</small>
-                                                    </span>
-                                                    <span class="contacts-list-msg">How have you been? I was...</span>
-                                                </div>
-                                                <!-- /.contacts-list-info -->
-                                            </a>
-                                        </li>
-                                        <!-- End Contact Item -->
-                                        <li>
-                                            <a href="#">
-                                                <img class="contacts-list-img" src="dist/img/user7-128x128.jpg"
-                                                    alt="User Avatar">
-
-                                                <div class="contacts-list-info">
-                                                    <span class="contacts-list-name">
-                                                        Sarah Doe
-                                                        <small class="contacts-list-date float-right">2/23/2015</small>
-                                                    </span>
-                                                    <span class="contacts-list-msg">I will be waiting for...</span>
-                                                </div>
-                                                <!-- /.contacts-list-info -->
-                                            </a>
-                                        </li>
-                                        <!-- End Contact Item -->
-                                        <li>
-                                            <a href="#">
-                                                <img class="contacts-list-img" src="dist/img/user3-128x128.jpg"
-                                                    alt="User Avatar">
-
-                                                <div class="contacts-list-info">
-                                                    <span class="contacts-list-name">
-                                                        Nadia Jolie
-                                                        <small class="contacts-list-date float-right">2/20/2015</small>
-                                                    </span>
-                                                    <span class="contacts-list-msg">I'll call you back at...</span>
-                                                </div>
-                                                <!-- /.contacts-list-info -->
-                                            </a>
-                                        </li>
-                                        <!-- End Contact Item -->
-                                        <li>
-                                            <a href="#">
-                                                <img class="contacts-list-img" src="dist/img/user5-128x128.jpg"
-                                                    alt="User Avatar">
-
-                                                <div class="contacts-list-info">
-                                                    <span class="contacts-list-name">
-                                                        Nora S. Vans
-                                                        <small class="contacts-list-date float-right">2/10/2015</small>
-                                                    </span>
-                                                    <span class="contacts-list-msg">Where is your new...</span>
-                                                </div>
-                                                <!-- /.contacts-list-info -->
-                                            </a>
-                                        </li>
-                                        <!-- End Contact Item -->
-                                        <li>
-                                            <a href="#">
-                                                <img class="contacts-list-img" src="dist/img/user6-128x128.jpg"
-                                                    alt="User Avatar">
-
-                                                <div class="contacts-list-info">
-                                                    <span class="contacts-list-name">
-                                                        John K.
-                                                        <small class="contacts-list-date float-right">1/27/2015</small>
-                                                    </span>
-                                                    <span class="contacts-list-msg">Can I take a look at...</span>
-                                                </div>
-                                                <!-- /.contacts-list-info -->
-                                            </a>
-                                        </li>
-                                        <!-- End Contact Item -->
-                                        <li>
-                                            <a href="#">
-                                                <img class="contacts-list-img" src="dist/img/user8-128x128.jpg"
-                                                    alt="User Avatar">
-
-                                                <div class="contacts-list-info">
-                                                    <span class="contacts-list-name">
-                                                        Kenneth M.
-                                                        <small class="contacts-list-date float-right">1/4/2015</small>
-                                                    </span>
-                                                    <span class="contacts-list-msg">Never mind I found...</span>
-                                                </div>
-                                                <!-- /.contacts-list-info -->
-                                            </a>
-                                        </li>
-                                        <!-- End Contact Item -->
-                                    </ul>
-                                    <!-- /.contacts-list -->
-                                </div>
-                                <!-- /.direct-chat-pane -->
-                            </div>
-                            <!-- /.card-body -->
-                            <div class="card-footer">
-                                <form action="#" method="post">
-                                    <div class="input-group">
-                                        <input type="text" name="message" placeholder="Type Message ..."
-                                            class="form-control">
-                                        <span class="input-group-append">
-                                            <button type="button" class="btn btn-primary">Send</button>
-                                        </span>
-                                    </div>
-                                </form>
-                            </div>
-                            <!-- /.card-footer-->
+                                <!-- /.card -->
+                            </section>
+                            <!-- right col -->
                         </div>
-                        <!--/.direct-chat -->
-
-                        <!-- TO DO List -->
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">
-                                    <i class="ion ion-clipboard mr-1"></i>
-                                    To Do List
-                                </h3>
-
-                                <div class="card-tools">
-                                    <ul class="pagination pagination-sm">
-                                        <li class="page-item"><a href="#" class="page-link">&laquo;</a></li>
-                                        <li class="page-item"><a href="#" class="page-link">1</a></li>
-                                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                                        <li class="page-item"><a href="#" class="page-link">3</a></li>
-                                        <li class="page-item"><a href="#" class="page-link">&raquo;</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body">
-                                <ul class="todo-list" data-widget="todo-list">
-                                    <li>
-                                        <!-- drag handle -->
-                                        <span class="handle">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </span>
-                                        <!-- checkbox -->
-                                        <div class="icheck-primary d-inline ml-2">
-                                            <input type="checkbox" value="" name="todo1" id="todoCheck1">
-                                            <label for="todoCheck1"></label>
-                                        </div>
-                                        <!-- todo text -->
-                                        <span class="text">Design a nice theme</span>
-                                        <!-- Emphasis label -->
-                                        <small class="badge badge-danger"><i class="far fa-clock"></i> 2 mins</small>
-                                        <!-- General tools such as edit or delete-->
-                                        <div class="tools">
-                                            <i class="fas fa-edit"></i>
-                                            <i class="fas fa-trash-o"></i>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <span class="handle">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </span>
-                                        <div class="icheck-primary d-inline ml-2">
-                                            <input type="checkbox" value="" name="todo2" id="todoCheck2"
-                                                checked>
-                                            <label for="todoCheck2"></label>
-                                        </div>
-                                        <span class="text">Make the theme responsive</span>
-                                        <small class="badge badge-info"><i class="far fa-clock"></i> 4 hours</small>
-                                        <div class="tools">
-                                            <i class="fas fa-edit"></i>
-                                            <i class="fas fa-trash-o"></i>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <span class="handle">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </span>
-                                        <div class="icheck-primary d-inline ml-2">
-                                            <input type="checkbox" value="" name="todo3" id="todoCheck3">
-                                            <label for="todoCheck3"></label>
-                                        </div>
-                                        <span class="text">Let theme shine like a star</span>
-                                        <small class="badge badge-warning"><i class="far fa-clock"></i> 1 day</small>
-                                        <div class="tools">
-                                            <i class="fas fa-edit"></i>
-                                            <i class="fas fa-trash-o"></i>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <span class="handle">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </span>
-                                        <div class="icheck-primary d-inline ml-2">
-                                            <input type="checkbox" value="" name="todo4" id="todoCheck4">
-                                            <label for="todoCheck4"></label>
-                                        </div>
-                                        <span class="text">Let theme shine like a star</span>
-                                        <small class="badge badge-success"><i class="far fa-clock"></i> 3 days</small>
-                                        <div class="tools">
-                                            <i class="fas fa-edit"></i>
-                                            <i class="fas fa-trash-o"></i>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <span class="handle">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </span>
-                                        <div class="icheck-primary d-inline ml-2">
-                                            <input type="checkbox" value="" name="todo5" id="todoCheck5">
-                                            <label for="todoCheck5"></label>
-                                        </div>
-                                        <span class="text">Check your messages and notifications</span>
-                                        <small class="badge badge-primary"><i class="far fa-clock"></i> 1 week</small>
-                                        <div class="tools">
-                                            <i class="fas fa-edit"></i>
-                                            <i class="fas fa-trash-o"></i>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <span class="handle">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </span>
-                                        <div class="icheck-primary d-inline ml-2">
-                                            <input type="checkbox" value="" name="todo6" id="todoCheck6">
-                                            <label for="todoCheck6"></label>
-                                        </div>
-                                        <span class="text">Let theme shine like a star</span>
-                                        <small class="badge badge-secondary"><i class="far fa-clock"></i> 1 month</small>
-                                        <div class="tools">
-                                            <i class="fas fa-edit"></i>
-                                            <i class="fas fa-trash-o"></i>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- /.card-body -->
-                            <div class="card-footer clearfix">
-                                <button type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i>
-                                    Add item</button>
-                            </div>
-                        </div>
-                        <!-- /.card -->
-                    </section>
-                    <!-- /.Left col -->
-                    <!-- right col (We are only adding the ID to make the widgets sortable)-->
-                    <section class="col-lg-5 connectedSortable">
-
-                        <!-- Map card -->
-                        <div class="card bg-gradient-primary">
-                            <div class="card-header border-0">
-                                <h3 class="card-title">
-                                    <i class="fas fa-map-marker-alt mr-1"></i>
-                                    Visitors
-                                </h3>
-                                <!-- card tools -->
-                                <div class="card-tools">
-                                    <button type="button" class="btn btn-primary btn-sm daterange" title="Date range">
-                                        <i class="far fa-calendar-alt"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse"
-                                        title="Collapse">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                </div>
-                                <!-- /.card-tools -->
-                            </div>
-                            <div class="card-body">
-                                <div id="world-map" style="height: 250px; width: 100%;"></div>
-                            </div>
-                            <!-- /.card-body-->
-                            <div class="card-footer bg-transparent">
-                                <div class="row">
-                                    <div class="col-4 text-center">
-                                        <div id="sparkline-1"></div>
-                                        <div class="text-white">Visitors</div>
-                                    </div>
-                                    <!-- ./col -->
-                                    <div class="col-4 text-center">
-                                        <div id="sparkline-2"></div>
-                                        <div class="text-white">Online</div>
-                                    </div>
-                                    <!-- ./col -->
-                                    <div class="col-4 text-center">
-                                        <div id="sparkline-3"></div>
-                                        <div class="text-white">Sales</div>
-                                    </div>
-                                    <!-- ./col -->
-                                </div>
-                                <!-- /.row -->
-                            </div>
-                        </div>
-                        <!-- /.card -->
-
-                        <!-- solid sales graph -->
-                        <div class="card bg-gradient-info">
-                            <div class="card-header border-0">
-                                <h3 class="card-title">
-                                    <i class="fas fa-th mr-1"></i>
-                                    Sales Graph
-                                </h3>
-
-                                <div class="card-tools">
-                                    <button type="button" class="btn bg-info btn-sm" data-card-widget="collapse">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                    <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <canvas class="chart" id="line-chart"
-                                    style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                            </div>
-                            <!-- /.card-body -->
-                            <div class="card-footer bg-transparent">
-                                <div class="row">
-                                    <div class="col-4 text-center">
-                                        <input type="text" class="knob" data-readonly="true" value="20"
-                                            data-width="60" data-height="60" data-fgColor="#39CCCC">
-
-                                        <div class="text-white">Mail-Orders</div>
-                                    </div>
-                                    <!-- ./col -->
-                                    <div class="col-4 text-center">
-                                        <input type="text" class="knob" data-readonly="true" value="50"
-                                            data-width="60" data-height="60" data-fgColor="#39CCCC">
-
-                                        <div class="text-white">Online</div>
-                                    </div>
-                                    <!-- ./col -->
-                                    <div class="col-4 text-center">
-                                        <input type="text" class="knob" data-readonly="true" value="30"
-                                            data-width="60" data-height="60" data-fgColor="#39CCCC">
-
-                                        <div class="text-white">In-Store</div>
-                                    </div>
-                                    <!-- ./col -->
-                                </div>
-                                <!-- /.row -->
-                            </div>
-                            <!-- /.card-footer -->
-                        </div>
-                        <!-- /.card -->
-
-                        <!-- Calendar -->
-                        <div class="card bg-gradient-success">
-                            <div class="card-header border-0">
-
-                                <h3 class="card-title">
-                                    <i class="far fa-calendar-alt"></i>
-                                    Calendar
-                                </h3>
-                                <!-- tools card -->
-                                <div class="card-tools">
-                                    <!-- button with a dropdown -->
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-success btn-sm dropdown-toggle"
-                                            data-toggle="dropdown" data-offset="-52">
-                                            <i class="fas fa-bars"></i>
-                                        </button>
-                                        <div class="dropdown-menu" role="menu">
-                                            <a href="#" class="dropdown-item">Add new event</a>
-                                            <a href="#" class="dropdown-item">Clear events</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a href="#" class="dropdown-item">View calendar</a>
-                                        </div>
-                                    </div>
-                                    <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-success btn-sm" data-card-widget="remove">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                                <!-- /. tools -->
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body pt-0">
-                                <!--The calendar -->
-                                <div id="calendar" style="width: 100%"></div>
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
-                        <!-- /.card -->
-                    </section>
-                    <!-- right col -->
+                    </div>
                 </div>
-                <!-- /.row (main row) -->
+
+                <!-- /.row (second main row) -->
+                <div class="row">
+                    <div class="col">
+                        <div class="judul">
+                            <h2>INFORMASI BIAYA PERAWATAN PER KENDARAAN PT WAROENG STEAK</h2>
+                        </div>
+                        <div class="row">
+                            <!-- Left col -->
+                            <section class="col-lg-4 connectedSortable">
+                                <!-- Custom tabs (Charts with tabs)-->
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">FILTER</h3>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <div class="card-body">
+                                        <div class="col my-3" id="filters">
+                                            <div class="input-group mb-3">
+                                                <label class="input-group-text" for="jpP">Jenis Perawatan</label>
+                                                <span id="jpP"></span>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <label class="input-group-text" for="platP">Pilih Kendaraan</label>
+                                                <span id="pP"></span>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <label class="input-group-text" for="bulanP">Pilih Bulan</label>
+                                                <span id="bP"></span>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <label class="input-group-text" for="tahunP">Pilih Tahun</label>
+                                                <span id="tP"></span>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <label class="input-group-text" for="pegawai">Total ......</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+                            </section>
+                            <!-- /.Left col -->
+
+                            <!-- right col (We are only adding the ID to make the widgets sortable)-->
+                            <section class="col-lg-8 connectedSortable">
+                                <!-- chart 2-->
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title text-center">
+                                            <i class="fas fa-chart-bar mr-1"></i>
+                                            ....... Kendaraan No Plat .......
+                                        </h3>
+                                    </div><!-- /.card-header -->
+                                    <div class="card-body" id="table_chart_2">
+                                        <div class="tab-content p-0">
+                                            <!-- Morris chart - Sales -->
+                                            <div class="chart tab-pane active" id="revenue-chart"
+                                                style="position: relative; height: 300px;">
+                                                <canvas id="revenue-chart-canvas" height="300"
+                                                    style="height: 300px;"></canvas>
+                                            </div>
+                                            <div class="chart tab-pane" id="sales-chart"
+                                                style="position: relative; height: 300px;">
+                                                <canvas id="sales-chart-canvas" height="300"
+                                                    style="height: 300px;"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+                            </section>
+                            <!-- right col -->
+
+
+                            <section class="col-lg-7 connectedSortable">
+                                <!-- identitas kendaraan-->
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">IDENTITAS KENDARAAN</h3>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <div class="card-body">
+                                        <!-- data kendaraan -->
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label for="wilayah" class="form-label">Wilayah</label>
+                                                    {{-- <input type="text" class="form-control" placeholder="-" name="wilayah"
+                                                        value="{{ $k->wilayah }}" disabled> --}}
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="no_plat" class="form-label">Nomor Plat</label>
+                                                    {{-- <input type="text" class="form-control" placeholder="-" name="no_plat"
+                                                        value="{{ $k->no_plat }}" disabled> --}}
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="jenis_kendaraan" class="form-label">Jenis
+                                                        Kendaraan</label>
+                                                    {{-- <input type="text" class="form-control" placeholder="-"
+                                                        name="jenis_kendaraan" value="{{ $k->jenis_kendaraan }}" disabled> --}}
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="no_rangka" class="form-label">Nomor
+                                                        Rangka</label>
+                                                    {{-- <input type="text" class="form-control" placeholder="-" name="no_rangka"
+                                                        value="{{ $k->no_rangka }}" disabled> --}}
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="no_mesin" class="form-label">Nomor
+                                                        Mesin</label>
+                                                    {{-- <input type="text" class="form-control" placeholder="-" name="no_mesin"
+                                                        value="{{ $k->no_mesin }}" disabled> --}}
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="no_bpkb" class="form-label">Nomor BPKB</label>
+                                                    {{-- <input type="text" class="form-control" placeholder="-" name="no_bpkb"
+                                                        value="{{ $k->no_bpkb }}" disabled> --}}
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="atas_nama" class="form-label">Atas Nama</label>
+                                                    {{-- <input type="text" class="form-control" placeholder="-" name="atas_nama"
+                                                        value="{{ $k->atas_nama }}" disabled> --}}
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label for="tahun" class="form-label">Tahun</label>
+                                                    {{-- <input type="text" class="form-control" placeholder="-" name="tahun"
+                                                        value="{{ $k->tahun }}" disabled> --}}
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="warna" class="form-label">Warna</label>
+                                                    {{-- <input type="text" class="form-control" placeholder="-" name="warna"
+                                                        value="{{ $k->warna }}" disabled> --}}
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="bahan_bakar" class="form-label">Bahan Bakar</label>
+                                                    {{-- <input type="text" class="form-control" placeholder="-"
+                                                        name="bahan_bakar" value="{{ $k->warna }}" disabled> --}}
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="merk" class="form-label">Merk</label>
+                                                    {{-- <input type="text" class="form-control" placeholder="-" name="merk"
+                                                        value="{{ $k->jenis_merk }}" disabled> --}}
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="pic" class="form-label">PIC</label>
+                                                    {{-- <input type="text" class="form-control @error('pic') is-invalid @enderror"
+                                                        placeholder="-" name="pic" value="{{ $k->pic }}" disabled> --}}
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="posisi_kendaraan" class="form-label">Posisi
+                                                        Kendaraan</label>
+                                                    {{-- <input type="text"
+                                                        class="form-control @error('posisi_kendaraan') is-invalid @enderror"
+                                                        placeholder="-" name="posisi_kendaraan"
+                                                        value="{{ $k->posisi_kendaraan }}" disabled> --}}
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="surat_penanggung_jawab" class="form-label">Surat
+                                                        Penanggung
+                                                        Jawab</label>
+                                                    <div class="col mb-3">
+                                                        {{-- <a href="#"
+                                                                onclick="window.open('{{ asset('storage/' . $k->surat_penanggung_jawab) }}', '_blank')">Lihat
+                                                                Surat Penanggung Jawab</a> --}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <label for="tanggal_pajak" class="form-label">Tanggal
+                                                                Pajak</label>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="bulan_pajak" class="form-label">Bulan
+                                                                Pajak</label>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="tahun_pajak" class="form-label">Tahun
+                                                                Pajak</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            {{-- <input type="text" class="form-control" placeholder="-"
+                                                                name="tanggal_pajak" value="{{ $k->tanggal_pajak }}" disabled> --}}
+                                                        </div>
+                                                        <div class="col">
+                                                            {{-- <input type="text" class="form-control" placeholder="-"
+                                                                name="bulan_pajak" value="{{ $k->bulan_pajak }}" disabled> --}}
+                                                        </div>
+                                                        <div class="col">
+                                                            {{-- <input type="text" class="form-control" placeholder="-"
+                                                                name="tahun_pajak" value="{{ $k->tahun_pajak }}" disabled> --}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <label for="tanggal_ganti_plat" class="form-label">Tanggal
+                                                                Ganti
+                                                                Plat</label>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="bulan_ganti_plat" class="form-label">Bulan Ganti
+                                                                Plat</label>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="tahun_ganti_plat" class="form-label">Tahun Ganti
+                                                                Plat</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            {{-- <input type="text" class="form-control " placeholder="-" name="tanggal_ganti_plat"
+                                                                value="{{ $k->tanggal_ganti_plat }}" disabled> --}}
+                                                        </div>
+                                                        <div class="col">
+                                                            {{-- <input type="text" class="form-control " placeholder="-" name="bulan_ganti_plat"
+                                                                value="{{ $k->bulan_ganti_plat }}" disabled> --}}
+                                                        </div>
+                                                        <div class="col">
+                                                            {{-- <input type="text" class="form-control " placeholder="-" name="tahun_ganti_plat"
+                                                                value="{{ $k->tahun_ganti_plat }}" disabled> --}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label for="keterangan" class="form-label">Keterangan</label>
+                                                    {{-- <input type="text" class="form-control " placeholder="-" name="keterangan"
+                                                        value="{{ $k->keterangan }}" disabled> --}}
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+                            </section>
+
+                            <section class="col-lg-5 connectedSortable">
+                                <!-- gambar kendaraan -->
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">GAMBAR KENDARAAN</h3>
+                                    </div><!-- /.card-header -->
+                                    <div class="card-body" id="table_chart_2">
+                                        <div class="row">
+                                            <div class="col-6 col-sm-4">
+                                                <div class="mb-3">
+                                                    <label for="gambar_depan" class="form-label">Gambar Depan</label>
+                                                    {{-- <br>
+                                                    <img src="{{ asset('storage/' . $k->gambar_depan) }}"
+                                                        class="img-preview img-fluid border border-dark mb-3" disabled> --}}
+                                                </div>
+                                            </div>
+                                            <div class="w-100 d-none d-md-block"></div>
+                                            <div class="col-6 col-sm-4">
+                                                <div class="mb-3">
+                                                    <label for="gambar_belakang" class="form-label">Gambar
+                                                        Belakang</label>
+                                                    {{-- <br>
+                                                    <img src="{{ asset('storage/' . $k->gambar_belakang) }}"
+                                                        class="img-preview img-fluid border border-dark mb-3" disabled> --}}
+                                                </div>
+                                            </div>
+                                            <div class="w-100 d-none d-md-block"></div>
+                                            <div class="col-6 col-sm-4">
+                                                <div class="mb-3">
+                                                    <label for="gambar_samping_kanan" class="form-label">Gambar Samping
+                                                        Kanan</label>
+                                                    {{-- <br>
+                                                    <img src="{{ asset('storage/' . $k->gambar_samping_kanan) }}"
+                                                        class="img-preview img-fluid border border-dark mb-3" disabled> --}}
+                                                </div>
+                                            </div>
+                                            <div class="w-100 d-none d-md-block"></div>
+                                            <div class="col-6 col-sm-4">
+                                                <div class="mb-3">
+                                                    <label for="gambar_samping_kiri" class="form-label">Gambar Samping
+                                                        Kiri</label>
+                                                    {{-- <br>
+                                                    <img src="{{ asset('storage/' . $k->gambar_samping_kiri) }}"
+                                                        class="img-preview img-fluid border border-dark mb-3" disabled> --}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row (second main row) -->
             </div><!-- /.container-fluid -->
         </section>
         <!-- /.content -->
@@ -645,4 +500,146 @@
         <!-- Control sidebar content goes here -->
     </aside>
     <!-- /.control-sidebar -->
+
+    <!-- Javascript -->
+    {{-- <script>
+        var table = $('#table_chart').DataTable({
+            paging: false,
+            bInfo: false,
+            "sDom": "rtip",
+            ordering: false,
+            columnDefs: [{
+                    targets: '_all',
+                    className: 'dt-head-center'
+                },
+                {
+                    target: 3,
+                    visible: false
+                },
+                {
+                    target: 4,
+                    visible: false
+                },
+                {
+                    target: 13,
+                    visible: false
+                }
+            ],
+            initComplete: function() {
+                this.api().columns(1).every(function() {
+                        var column = this;
+                        var select = $(
+                                '<select class="form-select pP" id="platP"><option value="">No Plat</option></select>'
+                            )
+                            .appendTo($('#pP')).on('change', function() {
+                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                                column.search(val ? '^' + val + '$' : '', true, false).draw();
+
+                                var tots = document.getElementById('sum');
+                                sum = table.column(13, {
+                                    search: 'applied'
+                                }).data().sum();
+                                sumP = new Intl.NumberFormat('de-DE').format(sum)
+                                tots.innerHTML = 'Rp' + sumP;
+
+                                var npPH = document.getElementById('npPH');
+                                npPH.innerHTML = val;
+                            });
+                        column.data().unique().sort().each(function(d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>');
+                        });
+                    })
+                    .columns(3).every(function() {
+                        var column = this;
+                        var select = $(
+                                '<select class="form-select bP" id="bulanP"><option value="">Bulan</option></select>'
+                            )
+                            .appendTo($('#bP'))
+                            .on('input', function() {
+                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                                column.search(val ? '^' + val + '$' : '', true, false).draw();
+
+                                var tots = document.getElementById('sum');
+                                sum = table.column(13, {
+                                    search: 'applied'
+                                }).data().sum();
+                                sumP = new Intl.NumberFormat('de-DE').format(sum)
+                                tots.innerHTML = 'Rp' + sumP;
+
+                                var bPH = document.getElementById('bPH');
+                                bPH.innerHTML = val;
+                            });
+                        column
+                            .data().unique().sort()
+                        select.append('<option value="Januari">Januari</option>')
+                        select.append('<option value="Februari">Februari</option>')
+                        select.append('<option value="Maret">Maret</option>')
+                        select.append('<option value="April">April</option>')
+                        select.append('<option value="Mei">Mei</option>')
+                        select.append('<option value="Juni">Juni</option>')
+                        select.append('<option value="Juli">Juli</option>')
+                        select.append('<option value="Agustus">Agustus</option>')
+                        select.append('<option value="September">September</option>')
+                        select.append('<option value="Oktober">Oktober</option>')
+                        select.append('<option value="November">November</option>')
+                        select.append('<option value="Desember">Desember</option>')
+                    })
+                    .columns(4).every(function() {
+                        var column = this;
+                        var select = $(
+                                '<select class="form-select tP" id="tahunP"><option value="">Tahun</option></select>'
+                            )
+                            .appendTo($('#tP'))
+                            .on('change', function() {
+                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                                column.search(val ? '^' + val + '$' : '', true, false).draw();
+
+                                var tots = document.getElementById('sum');
+                                sum = table.column(13, {
+                                    search: 'applied'
+                                }).data().sum();
+                                sumP = new Intl.NumberFormat('de-DE').format(sum)
+                                tots.innerHTML = 'Rp' + sumP;
+
+                                var tPH = document.getElementById('tPH');
+                                tPH.innerHTML = val;
+                            });
+                        column
+                            .data().unique().sort().each(function(d, j) {
+                                select.append('<option value="' + d + '">' + d + '</option>');
+                            });
+                    })
+                    .columns(5).every(function() {
+                        var column = this;
+                        var select = $(
+                                '<select class="form-select jpP" id="jenis_perawatanP"><option value="">Jenis Perawatan</option></select>'
+                            )
+                            .appendTo($('#jpP'))
+                            .on('change', function() {
+                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                                column.search(val ? '^' + val + '$' : '', true, false).draw();
+
+                                var tots = document.getElementById('sum');
+                                sum = table.column(13, {
+                                    search: 'applied'
+                                }).data().sum();
+                                sumP = new Intl.NumberFormat('de-DE').format(sum)
+                                tots.innerHTML = 'Rp' + sumP;
+
+                                var jpPH = document.getElementById('jpPH');
+                                jpPH.innerHTML = val;
+                            });
+                        column
+                            .data().unique().sort().each(function(d, j) {
+                                select.append('<option value="' + d + '">' + d + '</option>');
+                            });
+                    })
+            }
+        });
+    </script> --}}
+    <!-- /.Javascript -->
 @endsection

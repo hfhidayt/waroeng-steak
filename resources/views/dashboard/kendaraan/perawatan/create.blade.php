@@ -28,8 +28,7 @@
                         </div>
                         {{-- <input type="text" class="form-control" placeholder="Bulan Perawatan" name="bulan"
                             id="bulan"> --}}
-                        <select class="form-select" placeholder="Bulan Perawatan" name="bulan" id="bulan"
-                        >
+                        <select class="form-select" placeholder="Bulan Perawatan" name="bulan" id="bulan">
                             <option value="" selected>Bulan Perawatan</option>
                             <option value="Januari">Januari</option>
                             <option value="Februari">Februari</option>

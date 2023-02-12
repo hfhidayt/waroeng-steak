@@ -139,7 +139,9 @@
                     <label for="surat_penanggung_jawab" class="form-label">Surat Penanggung Jawab</label>
                     <div class="col mb-3">
                         {{-- <iframe src="http://docs.google.com/gview?url={{ asset('storage/'.$k->surat_penanggung_jawab) }}&embedded=true" style="width:600px; height:500px;" frameborder="0"></iframe> --}}
-                        <a href="#" onclick="window.open('{{ asset('storage/'.$k->surat_penanggung_jawab) }}', '_blank')">Lihat Surat Penanggung Jawab</a>
+                        <a href="#"
+                            onclick="window.open('{{ asset('storage/' . $k->surat_penanggung_jawab) }}', '_blank')">Lihat
+                            Surat Penanggung Jawab</a>
                     </div>
                     {{-- <a href="#" onclick="window.open({{ asset('storage/'.$k->surat_penanggung_jawab) }}, '_blank')">Lihat Surat Penanggung Jawab</a> --}}
                     {{-- <input type="text" class="form-control " placeholder="-" name="surat_penanggung_jawab" value="{{ $k->surat_penanggung_jawab }}" disabled> --}}
@@ -147,23 +149,27 @@
                 </div>
                 <div class="mb-3">
                     <label for="gambar_depan" class="form-label">Gambar Depan</label>
-                    <img src="{{ asset('storage/' . $k->gambar_depan) }}" class="img-preview img-fluid mb-3"
-                        disabled>
+                    <br>
+                    <img src="{{ asset('storage/' . $k->gambar_depan) }}"
+                        class="img-preview img-fluid border border-dark mb-3" disabled>
                 </div>
                 <div class="mb-3">
                     <label for="gambar_belakang" class="form-label">Gambar Belakang</label>
-                    <img src="{{ asset('storage/' . $k->gambar_belakang) }}" class="img-preview img-fluid mb-3"
-                        disabled>
+                    <br>
+                    <img src="{{ asset('storage/' . $k->gambar_belakang) }}"
+                        class="img-preview img-fluid border border-dark mb-3" disabled>
                 </div>
                 <div class="mb-3">
                     <label for="gambar_samping_kanan" class="form-label">Gambar Samping Kanan</label>
-                    <img src="{{ asset('storage/' . $k->gambar_samping_kanan) }}" class="img-preview img-fluid mb-3"
-                        disabled>
+                    <br>
+                    <img src="{{ asset('storage/' . $k->gambar_samping_kanan) }}"
+                        class="img-preview img-fluid border border-dark mb-3" disabled>
                 </div>
                 <div class="mb-3">
                     <label for="gambar_samping_kiri" class="form-label">Gambar Samping Kiri</label>
-                    <img src="{{ asset('storage/' . $k->gambar_samping_kiri) }}" class="img-preview img-fluid mb-3"
-                        disabled>
+                    <br>
+                    <img src="{{ asset('storage/' . $k->gambar_samping_kiri) }}"
+                        class="img-preview img-fluid border border-dark mb-3" disabled>
                 </div>
             </div>
             <div class="modal-footer">

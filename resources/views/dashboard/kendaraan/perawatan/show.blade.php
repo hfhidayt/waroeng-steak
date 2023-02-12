@@ -79,12 +79,14 @@
                     <div class="mb-3">
                         <label for="total_biaya" class="form-label">Total Biaya</label>
                         <input type="text" class="form-control" placeholder="Total Biaya" name="total_biaya"
-                            {{-- id="total_biaya" value="{{ $ps->total_biaya }}" disabled> --}}
-                            id="total_biaya" value="Rp{{ number_format($ps->total_biaya, 0, ',', '.') }}" disabled>
+                            {{-- id="total_biaya" value="{{ $ps->total_biaya }}" disabled> --}} id="total_biaya"
+                            value="Rp{{ number_format($ps->total_biaya, 0, ',', '.') }}" disabled>
                     </div>
                     <div class="mb-3">
                         <label for="nota" class="form-label text-center">Nota</label>
-                        <img src="{{ asset('storage/' . $ps->nota) }}" class="img-preview img-fluid mb-3" disabled>
+                        <br>
+                        <img src="{{ asset('storage/' . $ps->nota) }}"
+                            class="img-preview img-fluid border border-dark mb-3" disabled>
                     </div>
             </div>
             <div class="modal-footer">

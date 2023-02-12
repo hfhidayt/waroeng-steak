@@ -16,6 +16,7 @@ use App\Models\JabatanPegawai;
 use App\Models\Kendaraan;
 use App\Models\Pegawai;
 use App\Models\Perawatan;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,7 +40,11 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/dashboard', function () {
     return view('dashboard.index', [
-        'title' => 'Dashboard'
+        'title' => 'Dashboard',
+        'kendaraan' => Kendaraan::count(),
+        'user' => User::count(),
+        'perawatan' => Perawatan::all()->sum('total_biaya'),
+        'kendaraans' => Kendaraan::all(),
     ]);
 })->middleware('auth');
 

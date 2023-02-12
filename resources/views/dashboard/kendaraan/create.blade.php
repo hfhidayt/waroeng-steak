@@ -15,7 +15,8 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Nomor Plat" name="no_plat" id="no_plat">
+                        <input type="text" class="form-control" placeholder="Nomor Plat" name="no_plat"
+                            id="no_plat">
                         <div class="invalid-feedback" id="np_e">
                         </div>
                     </div>
@@ -85,7 +86,8 @@
                         <select class="form-select" name="jenis_merk" id="jenis_merk">
                             <option value="">-- Merk --</option>
                             @foreach ($merk as $m)
-                                <option value="{{ $m->merk }}" {{ old('jenis_merk') == $m->merk ? 'selected' : '' }}>
+                                <option value="{{ $m->merk }}"
+                                    {{ old('jenis_merk') == $m->merk ? 'selected' : '' }}>
                                     {{ $m->merk }}</option>
                             @endforeach
                         </select>

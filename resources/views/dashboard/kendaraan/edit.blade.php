@@ -107,7 +107,8 @@
                         <select class="form-select" name="jenis_merk" id="jenis_merk">
                             <option value="{{ $k->jenis_merk }}">{{ $k->jenis_merk }}</option>
                             @foreach ($merk as $m)
-                                <option value="{{ $m->merk }}" {{ old('jenis_merk') == $m->merk ? 'selected' : '' }}>
+                                <option value="{{ $m->merk }}"
+                                    {{ old('jenis_merk') == $m->merk ? 'selected' : '' }}>
                                     {{ $m->merk }}</option>
                             @endforeach
                         </select>
@@ -156,18 +157,25 @@
                                     value="{{ $k->bulan_pajak }}"> --}}
                                 <select class="form-select" placeholder="Bulan Pajak" name="bulan_pajak"
                                     id="inputBulanPajak{{ $k->id }}">
-                                    <option value="Januari" {{ $k->bulan == 'Januari' ? 'selected' : '' }}>Januari</option>
-                                    <option value="Februari" {{ $k->bulan == 'Februari' ? 'selected' : '' }}>Februari</option>
+                                    <option value="Januari" {{ $k->bulan == 'Januari' ? 'selected' : '' }}>Januari
+                                    </option>
+                                    <option value="Februari" {{ $k->bulan == 'Februari' ? 'selected' : '' }}>Februari
+                                    </option>
                                     <option value="Maret" {{ $k->bulan == 'Maret' ? 'selected' : '' }}>Maret</option>
                                     <option value="April" {{ $k->bulan == 'April' ? 'selected' : '' }}>April</option>
                                     <option value="Mei" {{ $k->bulan == 'Mei' ? 'selected' : '' }}>Mei</option>
                                     <option value="Juni" {{ $k->bulan == 'Juni' ? 'selected' : '' }}>Juni</option>
                                     <option value="Juli" {{ $k->bulan == 'Juli' ? 'selected' : '' }}>Juli</option>
-                                    <option value="Agustus" {{ $k->bulan == 'Agustus' ? 'selected' : '' }}>Agustus</option>
-                                    <option value="September" {{ $k->bulan == 'September' ? 'selected' : '' }}>September</option>
-                                    <option value="Oktober" {{ $k->bulan == 'Oktober' ? 'selected' : '' }}>Oktober</option>
-                                    <option value="November" {{ $k->bulan == 'November' ? 'selected' : '' }}>November</option>
-                                    <option value="Desember" {{ $k->bulan == 'Desember' ? 'selected' : '' }}>Desember</option>
+                                    <option value="Agustus" {{ $k->bulan == 'Agustus' ? 'selected' : '' }}>Agustus
+                                    </option>
+                                    <option value="September" {{ $k->bulan == 'September' ? 'selected' : '' }}>
+                                        September</option>
+                                    <option value="Oktober" {{ $k->bulan == 'Oktober' ? 'selected' : '' }}>Oktober
+                                    </option>
+                                    <option value="November" {{ $k->bulan == 'November' ? 'selected' : '' }}>November
+                                    </option>
+                                    <option value="Desember" {{ $k->bulan == 'Desember' ? 'selected' : '' }}>Desember
+                                    </option>
                                 </select>
                                 <div class="invalid-feedback" id="n{{ $k->id }}">
                                 </div>
@@ -207,18 +215,25 @@
                                     value="{{ $k->bulan_ganti_plat }}"> --}}
                                 <select class="form-select" placeholder="Bulan Ganti Plat" name="bulan_ganti_plat"
                                     id="inputBulanGantiPlat{{ $k->id }}">
-                                    <option value="Januari" {{ $k->bulan == 'Januari' ? 'selected' : '' }}>Januari</option>
-                                    <option value="Februari" {{ $k->bulan == 'Februari' ? 'selected' : '' }}>Februari</option>
+                                    <option value="Januari" {{ $k->bulan == 'Januari' ? 'selected' : '' }}>Januari
+                                    </option>
+                                    <option value="Februari" {{ $k->bulan == 'Februari' ? 'selected' : '' }}>Februari
+                                    </option>
                                     <option value="Maret" {{ $k->bulan == 'Maret' ? 'selected' : '' }}>Maret</option>
                                     <option value="April" {{ $k->bulan == 'April' ? 'selected' : '' }}>April</option>
                                     <option value="Mei" {{ $k->bulan == 'Mei' ? 'selected' : '' }}>Mei</option>
                                     <option value="Juni" {{ $k->bulan == 'Juni' ? 'selected' : '' }}>Juni</option>
                                     <option value="Juli" {{ $k->bulan == 'Juli' ? 'selected' : '' }}>Juli</option>
-                                    <option value="Agustus" {{ $k->bulan == 'Agustus' ? 'selected' : '' }}>Agustus</option>
-                                    <option value="September" {{ $k->bulan == 'September' ? 'selected' : '' }}>September</option>
-                                    <option value="Oktober" {{ $k->bulan == 'Oktober' ? 'selected' : '' }}>Oktober</option>
-                                    <option value="November" {{ $k->bulan == 'November' ? 'selected' : '' }}>November</option>
-                                    <option value="Desember" {{ $k->bulan == 'Desember' ? 'selected' : '' }}>Desember</option>
+                                    <option value="Agustus" {{ $k->bulan == 'Agustus' ? 'selected' : '' }}>Agustus
+                                    </option>
+                                    <option value="September" {{ $k->bulan == 'September' ? 'selected' : '' }}>
+                                        September</option>
+                                    <option value="Oktober" {{ $k->bulan == 'Oktober' ? 'selected' : '' }}>Oktober
+                                    </option>
+                                    <option value="November" {{ $k->bulan == 'November' ? 'selected' : '' }}>November
+                                    </option>
+                                    <option value="Desember" {{ $k->bulan == 'Desember' ? 'selected' : '' }}>Desember
+                                    </option>
                                 </select>
                                 <div class="invalid-feedback" id="q{{ $k->id }}">
                                 </div>
@@ -241,60 +256,81 @@
                     </div>
                     <div class="mb-3">
                         <label for="surat_penanggung_jawab" class="form-label">Surat Penanggung Jawab</label>
-                        <input type="hidden" name="oldSurat_penanggung_jawab" id="oldSurat_penanggung_jawab" value="{{ $k->surat_penanggung_jawab }}">
+                        <input type="hidden" name="oldSurat_penanggung_jawab" id="oldSurat_penanggung_jawab"
+                            value="{{ $k->surat_penanggung_jawab }}">
                         <div class="col mb-3">
                             {{-- <iframe src="http://docs.google.com/gview?url={{ asset('storage/'.$k->surat_penanggung_jawab) }}&embedded=true" style="width:600px; height:500px;" frameborder="0"></iframe> --}}
-                            <a href="#" onclick="window.open('{{ asset('storage/'.$k->surat_penanggung_jawab) }}', '_blank')">Lihat Surat Penanggung Jawab</a>
+                            <a href="#"
+                                onclick="window.open('{{ asset('storage/' . $k->surat_penanggung_jawab) }}', '_blank')">Lihat
+                                Surat Penanggung Jawab</a>
                         </div>
-                        <input type="file" class="form-control" placeholder="Surat Penanggung Jawab" name="surat_penanggung_jawab" id="surat_penanggung_jawab{{ $k->id }}" value="{{ $k->surat_penanggung_jawab }}">
+                        <input type="file" class="form-control" placeholder="Surat Penanggung Jawab"
+                            name="surat_penanggung_jawab" id="surat_penanggung_jawab{{ $k->id }}"
+                            value="{{ $k->surat_penanggung_jawab }}">
                         <div class="invalid-feedback" id="t{{ $k->id }}">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="gambar_depan" class="form-label">Gambar Depan</label>
-                        <input type="hidden" name="oldGambar_depan" id="oldGambar_depan" value="{{ $k->gambar_depan }}">
+                        <input type="hidden" name="oldGambar_depan" id="oldGambar_depan"
+                            value="{{ $k->gambar_depan }}">
+                        <br>
                         @if ($k->gambar_depan)
-                            <img src="{{ asset('storage/' . $k->gambar_depan) }}" class="img-preview11 img-fluid mb-3">
+                            <img src="{{ asset('storage/' . $k->gambar_depan) }}"
+                                class="img-preview11 img-fluid border border-dark mb-3">
                         @else
-                            <img class="img-preview11 img-fluid mb-3">
+                            <img class="img-preview11 img-fluid border border-dark mb-3">
                         @endif
-                        <input type="file" class="form-control" name="gambar_depan" id="gambar_depan{{ $k->id }}" onchange="previewGambarDepanEdit()">
+                        <input type="file" class="form-control" name="gambar_depan"
+                            id="gambar_depan{{ $k->id }}" onchange="previewGambarDepanEdit()">
                         <div class="invalid-feedback" id="u{{ $k->id }}">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="gambar_belakang" class="form-label">Gambar Belakang</label>
-                        <input type="hidden" name="oldGambar_belakang" id="oldGambar_belakang" value="{{ $k->gambar_belakang }}">
+                        <input type="hidden" name="oldGambar_belakang" id="oldGambar_belakang"
+                            value="{{ $k->gambar_belakang }}">
+                        <br>
                         @if ($k->gambar_belakang)
-                            <img src="{{ asset('storage/' . $k->gambar_belakang) }}" class="img-preview22 img-fluid mb-3">
+                            <img src="{{ asset('storage/' . $k->gambar_belakang) }}"
+                                class="img-preview22 img-fluid border border-dark mb-3">
                         @else
-                            <img class="img-preview22 img-fluid mb-3">
+                            <img class="img-preview22 img-fluid border border-dark mb-3">
                         @endif
-                        <input type="file" class="form-control" name="gambar_belakang" id="gambar_belakang{{ $k->id }}" onchange="previewGambarBelakangEdit()">
+                        <input type="file" class="form-control" name="gambar_belakang"
+                            id="gambar_belakang{{ $k->id }}" onchange="previewGambarBelakangEdit()">
                         <div class="invalid-feedback" id="v{{ $k->id }}">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="gambar_samping_kanan" class="form-label">Gambar Samping Kanan</label>
-                        <input type="hidden" name="oldGambar_samping_kanan" id="oldGambar_samping_kanan" value="{{ $k->gambar_samping_kanan }}">
+                        <input type="hidden" name="oldGambar_samping_kanan" id="oldGambar_samping_kanan"
+                            value="{{ $k->gambar_samping_kanan }}">
+                        <br>
                         @if ($k->gambar_samping_kanan)
-                            <img src="{{ asset('storage/' . $k->gambar_samping_kanan) }}" class="img-preview33 img-fluid mb-3">
+                            <img src="{{ asset('storage/' . $k->gambar_samping_kanan) }}"
+                                class="img-preview33 img-fluid border border-dark mb-3">
                         @else
-                            <img class="img-preview33 img-fluid mb-3">
+                            <img class="img-preview33 img-fluid border border-dark mb-3">
                         @endif
-                        <input type="file" class="form-control" name="gambar_samping_kanan" id="gambar_samping_kanan{{ $k->id }}" onchange="previewGambarSampingKananEdit()">
+                        <input type="file" class="form-control" name="gambar_samping_kanan"
+                            id="gambar_samping_kanan{{ $k->id }}" onchange="previewGambarSampingKananEdit()">
                         <div class="invalid-feedback" id="w{{ $k->id }}">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="gambar_samping_kiri" class="form-label">Gambar Samping Kiri</label>
-                        <input type="hidden" name="oldGambar_samping_kiri" id="oldGambar_samping_kiri" value="{{ $k->gambar_samping_kiri }}">
+                        <input type="hidden" name="oldGambar_samping_kiri" id="oldGambar_samping_kiri"
+                            value="{{ $k->gambar_samping_kiri }}">
+                        <br>
                         @if ($k->gambar_samping_kiri)
-                            <img src="{{ asset('storage/' . $k->gambar_samping_kiri) }}" class="img-preview44 img-fluid mb-3">
+                            <img src="{{ asset('storage/' . $k->gambar_samping_kiri) }}"
+                                class="img-preview44 img-fluid border border-dark mb-3">
                         @else
-                            <img class="img-preview44 img-fluid mb-3">
+                            <img class="img-preview44 img-fluid border border-dark mb-3">
                         @endif
-                        <input type="file" class="form-control" name="gambar_samping_kiri" id="gambar_samping_kiri{{ $k->id }}" onchange="previewGambarSampingKiriEdit()">
+                        <input type="file" class="form-control" name="gambar_samping_kiri"
+                            id="gambar_samping_kiri{{ $k->id }}" onchange="previewGambarSampingKiriEdit()">
                         <div class="invalid-feedback" id="x{{ $k->id }}">
                         </div>
                     </div>

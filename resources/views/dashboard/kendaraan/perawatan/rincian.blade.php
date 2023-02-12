@@ -20,7 +20,7 @@
                     <label class="input-group-text" for="jperawatanP">Jenis Perawatan</label>
                     <span id="jpP"></span>
                 </div>
-                <div class="input-group mb-3">
+                <div class="input-group mb-3" style="width: fit-content">
                     <label class="input-group-text" for="pegawai">Pegawai</label>
                     <select class="form-select" name="pegawai" id="pegawai">
                         <option value="">Pegawai</option>
@@ -46,48 +46,53 @@
             </div>
             <div class="row justify-content-center text-center">
                 <div class="col">
-                    <h3 class="headerPrint">KENDARAAN DINAS <span id="npPH"></span></h3>
+                    <h3 class="headerPrint">KENDARAAN<span id="npPH"></span></h3>
                 </div>
             </div>
             <div class="row justify-content-center text-center">
                 <div class="col">
-                    <h3 class="headerPrint">FAKULTAS TEKNIK UNIVERSITAS LAMPUNG</h3>
-                    <hr class="s9">
+                    <h3 class="headerPrint">PT WAROENG STEAK</h3>
+
                 </div>
             </div>
-            <div class="row mb-3">
+            <div class="row mb-3 row-margin-rincian-head">
                 <div class="col">
-                    <table border="0" class="tnw">
-                        <tr>
-                            <td>Nomor Polisi</td>
-                            <td>:</td>
-                            <td><span id="npD"></span></td>
-                        </tr>
-                        <tr>
-                            <td>Tanggal</td>
-                            <td>:</td>
-                            <td><span id="tanggalD"></span> <span id="bulanD"></span> <span id="tahunD"></td>
-                        </tr>
-                        <tr>
-                            <td>Jenis Perawatan</td>
-                            <td>:</td>
-                            <td><span id="jpD"></span></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="col-auto">
-                    <table border="0" class="tnw">
-                        <tr>
-                            <td>KM</td>
-                            <td>:</td>
-                            <td><span id="kmD"></span></td>
-                        </tr>
-                    </table>
+                    <hr class="s9">
+                    <div class="row">
+                        <div class="col">
+                            <table border="0" class="tnw">
+                                <tr>
+                                    <td>Nomor Polisi</td>
+                                    <td>:</td>
+                                    <td><span id="npD">............</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Tanggal</td>
+                                    <td>:</td>
+                                    <td><span id="tanggalD"></span> <span id="bulanD"></span> <span id="tahunD"></td>
+                                </tr>
+                                <tr>
+                                    <td>Jenis Perawatan</td>
+                                    <td>:</td>
+                                    <td><span id="jpD">............</span></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-auto">
+                            <table border="0" class="tnw">
+                                <tr>
+                                    <td>KM</td>
+                                    <td>:</td>
+                                    <td><span id="kmD">............</span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <table class="table table-bordered" id="table_print">
+                    <table class="table-sm table-bordered" id="table_print" width="100%">
                         <thead class="dt-head-center">
                             <tr>
                                 <th>No</th>
@@ -124,42 +129,43 @@
                             <td colspan="5" class="text-right"><strong>Total</strong></td>
                             <td class="sum" id="sum"></td>
                         </tr>
-                        {{-- <tfoot style="display: none;"></tfoot> --}}
-                        {{-- <tfoot> --}}
+                        <tfoot style="display: none;">
+                        </tfoot>
                     </table>
                 </div>
             </div>
-            <div class="row">
+            <div class="row row-margin-rincian-foot mt-2">
                 <div class="col">
-                    <span class="tnw">tempat</span> : <span id="tempat">tempat</span>
+                    <span class="tnw">Tempat</span> : <span class="tnw" id="tempat">............</span>
                 </div>
             </div>
-            <div class="row mt-5">
+            <div class="row mt-3">
                 <div class="col"></div>
                 <div class="col"></div>
                 <div class="col tnw">
-                    Yogyakarta, <span id="tanggalN"></span> <span id="bulanN"></span> <span id="tahunN"></span>
+                    Yogyakarta, <span id="tanggalN">............</span> <span id="bulanN"></span> <span
+                        id="tahunN"></span>
                 </div>
             </div>
             <div class="row mb-5">
                 <div class="col"></div>
                 <div class="col"></div>
                 <div class="col">
-                    <span id="jabatanN" class="tnw"></span>
+                    <span id="jabatanN" class="tnw">............</span>
                 </div>
             </div>
             <div class="row pt-4">
                 <div class="col"></div>
                 <div class="col"></div>
                 <div class="col">
-                    <span id="pegawaiN" class="tnw"></span>
+                    <span id="pegawaiN" class="tnw">............</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col"></div>
                 <div class="col"></div>
                 <div class="col">
-                    <span id="nipN" class="tnw"></span>
+                    <span id="nipN" class="tnw">............</span>
                 </div>
             </div>
         </div>
@@ -178,7 +184,7 @@
             const date = new Date();
             document.getElementById('tanggalD').innerHTML = date.getDate();
             document.getElementById('tanggalN').innerHTML = date.getDate();
-            switch(date.getMonth()) {
+            switch (date.getMonth()) {
                 case 1:
                     document.getElementById('bulanD').innerHTML = 'Januari';
                     document.getElementById('bulanN').innerHTML = 'Januari';
@@ -296,53 +302,67 @@
             ],
             initComplete: function() {
                 this.api()
-                .columns(1).every(function() {
-                    var column = this;
-                    var select = $('<select class="form-select pP" id="platP"><option value="">No Plat</option></select>')
-                    .appendTo($('#pP')).on('change', function() {
-                        var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                    .columns(1).every(function() {
+                        var column = this;
+                        var select = $(
+                                '<select class="form-select pP" id="platP"><option value="">No Plat</option></select>'
+                            )
+                            .appendTo($('#pP')).on('change', function() {
+                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-                        column.search(val ? '^' + val + '$' : '', true, false).draw();
+                                column.search(val ? '^' + val + '$' : '', true, false).draw();
 
-                        sum = table.column(10, {search: 'applied'}).data().sum();
-                        sumP = new Intl.NumberFormat('de-DE').format(sum)
-                        document.getElementById('sum').innerHTML = 'Rp' + sumP;
+                                sum = table.column(10, {
+                                    search: 'applied'
+                                }).data().sum();
+                                sumP = new Intl.NumberFormat('de-DE').format(sum)
+                                document.getElementById('sum').innerHTML = 'Rp' + sumP;
 
-                        kmD = table.column(9, {search: 'applied'}).data()[0];
-                        document.getElementById('kmD').innerHTML = kmD;
+                                kmD = table.column(9, {
+                                    search: 'applied'
+                                }).data()[0];
+                                document.getElementById('kmD').innerHTML = kmD;
 
-                        document.getElementById('npPH').innerHTML = val;
-                        document.getElementById('npD').innerHTML = val;
-                    });
-                    column.data().unique().sort().each(function(d, j) {
-                        select.append('<option value="' + d + '">' + d + '</option>');
-                    });
-                })
-                .columns(2).every(function() {
-                    var column = this;
-                    var select = $('<select class="form-select jpP" id="jperawatanP"><option value="">Jenis Perawatan</option></select>')
-                    .appendTo($('#jpP')).on('change', function() {
-                        var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                                document.getElementById('npPH').innerHTML = val;
+                                document.getElementById('npD').innerHTML = val;
+                            });
+                        column.data().unique().sort().each(function(d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>');
+                        });
+                    })
+                    .columns(2).every(function() {
+                        var column = this;
+                        var select = $(
+                                '<select class="form-select jpP" id="jperawatanP"><option value="">Jenis Perawatan</option></select>'
+                            )
+                            .appendTo($('#jpP')).on('change', function() {
+                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-                        column.search(val ? '^' + val + '$' : '', true, false).draw();
+                                column.search(val ? '^' + val + '$' : '', true, false).draw();
 
-                        sum = table.column(10, {search: 'applied'}).data().sum();
-                        sumP = new Intl.NumberFormat('de-DE').format(sum)
-                        document.getElementById('sum').innerHTML = 'Rp' + sumP;
+                                sum = table.column(10, {
+                                    search: 'applied'
+                                }).data().sum();
+                                sumP = new Intl.NumberFormat('de-DE').format(sum)
+                                document.getElementById('sum').innerHTML = 'Rp' + sumP;
 
-                        tempat = table.column(8, {search: 'applied'}).data()[0];
-                        document.getElementById('tempat').innerHTML = tempat;
+                                tempat = table.column(8, {
+                                    search: 'applied'
+                                }).data()[0];
+                                document.getElementById('tempat').innerHTML = tempat;
 
-                        document.getElementById('jpD').innerHTML = val;
-                    });
-                    column.data().unique().sort().each(function(d, j) {
-                        select.append('<option value="' + d + '">' + d + '</option>');
-                    });
-                })
+                                document.getElementById('jpD').innerHTML = val;
+                            });
+                        column.data().unique().sort().each(function(d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>');
+                        });
+                    })
             }
         });
 
-        sum = table.column(10, {search: 'applied'}).data().sum();
+        sum = table.column(10, {
+            search: 'applied'
+        }).data().sum();
         sumP = new Intl.NumberFormat('de-DE').format(sum)
         document.getElementById('sum').innerHTML = 'Rp' + sumP;
 

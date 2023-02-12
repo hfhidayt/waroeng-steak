@@ -26,7 +26,7 @@
                     <label class="input-group-text" for="jpP">Jenis Perawatan</label>
                     <span id="jpP"></span>
                 </div>
-                <div class="input-group mb-3">
+                <div class="input-group mb-3" style="width: fit-content">
                     <label class="input-group-text" for="pegawai">Pegawai</label>
                     <select class="form-select" name="pegawai" id="pegawai">
                         <option value="">Pegawai</option>
@@ -57,8 +57,9 @@
             </div>
             <div class="row justify-content-center text-center">
                 <div class="col mb-3" id="jpnpbt">
-                    <h3 class="headerPrint"><span id="jpPH"></span> <span id="npPH"></span> <span
-                            id="bPH"></span> <span id="tPH"></span></h3>
+                    <h3 class="headerPrint"><span id="jpPH">............</span> <span
+                            id="npPH">............</span> <span id="bPH">............</span> <span
+                            id="tPH">............</span></h3>
                 </div>
             </div>
             <div class="row">
@@ -106,8 +107,8 @@
                             <td colspan="10" class="text-right"><strong>Total</strong></td>
                             <td class="sum" id="sum"></td>
                         </tr>
-                        <tfoot style="display: none;"></tfoot>
-                        {{-- <tfoot> --}}
+                        <tfoot style="display: none;">
+                        </tfoot>
                     </table>
                 </div>
             </div>
@@ -115,28 +116,29 @@
                 <div class="col"></div>
                 <div class="col"></div>
                 <div class="col tnw">
-                    Yogyakarta, <span id="tanggalN"></span> <span id="bulanN"></span> <span id="tahunN"></span>
+                    Yogyakarta, <span id="tanggalN">............</span> <span id="bulanN"></span> <span
+                        id="tahunN"></span>
                 </div>
             </div>
             <div class="row mb-5">
                 <div class="col"></div>
                 <div class="col"></div>
                 <div class="col">
-                    <span id="jabatanN" class="tnw"></span>
+                    <span id="jabatanN" class="tnw">............</span>
                 </div>
             </div>
             <div class="row pt-4">
                 <div class="col"></div>
                 <div class="col"></div>
                 <div class="col">
-                    <span id="pegawaiN" class="tnw"></span>
+                    <span id="pegawaiN" class="tnw">............</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col"></div>
                 <div class="col"></div>
                 <div class="col">
-                    <span id="nipN" class="tnw"></span>
+                    <span id="nipN" class="tnw">............</span>
                 </div>
             </div>
         </div>
@@ -154,7 +156,7 @@
         $('document').ready(function() {
             const date = new Date();
             document.getElementById('tanggalN').innerHTML = date.getDate();
-            switch(date.getMonth()) {
+            switch (date.getMonth()) {
                 case 1:
                     document.getElementById('bulanN').innerHTML = 'Januari';
                     break;
@@ -211,17 +213,17 @@
             table.columns().search('').draw();
 
             $("#platP").val(null).trigger('change');
-            
+
             document.getElementById('bulanP').value = '';
             var bPH = document.getElementById('bPH');
             bPH.innerHTML = '';
-            
+
             document.getElementById('tahunP').value = '';
             document.getElementById('tPH').innerHTML = '';
-            
+
             document.getElementById('jenis_perawatanP').value = '';
             document.getElementById('jpPH').innerHTML = '';
-            
+
             document.getElementById('pegawai').value = '';
             document.getElementById('tanggalN').innerHTML = '';
             document.getElementById('bulanN').innerHTML = '';
@@ -256,22 +258,24 @@
             initComplete: function() {
                 this.api().columns(1).every(function() {
                         var column = this;
-                        var select = $('<select class="form-select pP" id="platP"><option value="">No Plat</option></select>')
-                        .appendTo($('#pP')).on('change', function() {
-                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                        var select = $(
+                                '<select class="form-select pP" id="platP"><option value="">No Plat</option></select>'
+                            )
+                            .appendTo($('#pP')).on('change', function() {
+                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-                            column.search(val ? '^' + val + '$' : '', true, false).draw();
+                                column.search(val ? '^' + val + '$' : '', true, false).draw();
 
-                            var tots = document.getElementById('sum');
-                            sum = table.column(13, {
-                                search: 'applied'
-                            }).data().sum();
-                            sumP = new Intl.NumberFormat('de-DE').format(sum)
-                            tots.innerHTML = 'Rp' + sumP;
+                                var tots = document.getElementById('sum');
+                                sum = table.column(13, {
+                                    search: 'applied'
+                                }).data().sum();
+                                sumP = new Intl.NumberFormat('de-DE').format(sum)
+                                tots.innerHTML = 'Rp' + sumP;
 
-                            var npPH = document.getElementById('npPH');
-                            npPH.innerHTML = val;
-                        });
+                                var npPH = document.getElementById('npPH');
+                                npPH.innerHTML = val;
+                            });
                         column.data().unique().sort().each(function(d, j) {
                             select.append('<option value="' + d + '">' + d + '</option>');
                         });
