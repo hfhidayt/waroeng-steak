@@ -1,267 +1,576 @@
-/*
- * Author: Abdullah A Almsaeed
- * Date: 4 Jan 2014
- * Description:
- *      This is a demo file used only for the main dashboard (index.html)
- **/
+//Ambil data dari file \resources\views\dashboard\index.blade.php
+var k = document.getElementById("json").getAttribute("data-kendaraan");
+var ps = document.getElementById("json").getAttribute("data-perawatan");
 
-/* global moment:false, Chart:false, Sparkline:false */
+//Buat data yang telah diambil menjadi JSON
+var kendaraan = JSON.parse(k);
+var perawatan = JSON.parse(ps)
+var tahunPS = JSON.parse(ps.toString());
+var bulanPS = JSON.parse(ps.toString());
+var chartData = JSON.parse(ps.toString());
 
-$(function () {
-  'use strict'
+//Menampilkan Banyaknya kendaraan yang ada di database
+document.getElementById("jk1").value = kendaraan.length;
 
-  // Make the dashboard widgets sortable Using jquery UI
-  $('.connectedSortable').sortable({
-    placeholder: 'sort-highlight',
-    connectWith: '.connectedSortable',
-    handle: '.card-header, .nav-tabs',
-    forcePlaceholderSize: true,
-    zIndex: 999999
-  })
-  $('.connectedSortable .card-header').css('cursor', 'move')
+//Menampilkan Jenis Perawatan ke Header Chart
+document.getElementById('jp1').addEventListener('input', function(event) {
+    document.getElementById('chart-jenis').innerHTML = event.target.value;
 
-  // jQuery UI sortable for the todo list
-  $('.todo-list').sortable({
-    placeholder: 'sort-highlight',
-    handle: '.handle',
-    forcePlaceholderSize: true,
-    zIndex: 999999
-  })
-
-  // bootstrap WYSIHTML5 - text editor
-  $('.textarea').summernote()
-
-  $('.daterange').daterangepicker({
-    ranges: {
-      Today: [moment(), moment()],
-      Yesterday: [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-      'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-      'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-      'This Month': [moment().startOf('month'), moment().endOf('month')],
-      'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-    },
-    startDate: moment().subtract(29, 'days'),
-    endDate: moment()
-  }, function (start, end) {
-    // eslint-disable-next-line no-alert
-    alert('You chose: ' + start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-  })
-
-  /* jQueryKnob */
-  $('.knob').knob()
-
-  // jvectormap data
-  var visitorsData = {
-    US: 398, // USA
-    SA: 400, // Saudi Arabia
-    CA: 1000, // Canada
-    DE: 500, // Germany
-    FR: 760, // France
-    CN: 300, // China
-    AU: 700, // Australia
-    BR: 600, // Brazil
-    IN: 800, // India
-    GB: 320, // Great Britain
-    RU: 3000 // Russia
-  }
-  // World map by jvectormap
-  $('#world-map').vectorMap({
-    map: 'usa_en',
-    backgroundColor: 'transparent',
-    regionStyle: {
-      initial: {
-        fill: 'rgba(255, 255, 255, 0.7)',
-        'fill-opacity': 1,
-        stroke: 'rgba(0,0,0,.2)',
-        'stroke-width': 1,
-        'stroke-opacity': 1
-      }
-    },
-    series: {
-      regions: [{
-        values: visitorsData,
-        scale: ['#ffffff', '#0154ad'],
-        normalizeFunction: 'polynomial'
-      }]
-    },
-    onRegionLabelShow: function (e, el, code) {
-      if (typeof visitorsData[code] !== 'undefined') {
-        el.html(el.html() + ': ' + visitorsData[code] + ' new visitors')
-      }
+    var pt1 = document.getElementById('pt1').value;
+    if(event.target.value != '' && pt1 != '') {
+        jenisTahun(event.target.value, pt1);
+    } else {
+        tahunDefault(pt1);
     }
-  })
+});
 
-  // Sparkline charts
-  var sparkline1 = new Sparkline($('#sparkline-1')[0], { width: 80, height: 50, lineColor: '#92c1dc', endColor: '#ebf4f9' })
-  var sparkline2 = new Sparkline($('#sparkline-2')[0], { width: 80, height: 50, lineColor: '#92c1dc', endColor: '#ebf4f9' })
-  var sparkline3 = new Sparkline($('#sparkline-3')[0], { width: 80, height: 50, lineColor: '#92c1dc', endColor: '#ebf4f9' })
-
-  sparkline1.draw([1000, 1200, 920, 927, 931, 1027, 819, 930, 1021])
-  sparkline2.draw([515, 519, 520, 522, 652, 810, 370, 627, 319, 630, 921])
-  sparkline3.draw([15, 19, 20, 22, 33, 27, 31, 27, 19, 30, 21])
-
-  // The Calender
-  $('#calendar').datetimepicker({
-    format: 'L',
-    inline: true
-  })
-
-  // SLIMSCROLL FOR CHAT WIDGET
-  $('#chat-box').overlayScrollbars({
-    height: '250px'
-  })
-
-  /* Chart.js Charts */
-  // Sales chart
-  var salesChartCanvas = document.getElementById('revenue-chart-canvas').getContext('2d')
-  // $('#revenue-chart').get(0).getContext('2d');
-
-  var salesChartData = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [
-      {
-        label: 'Digital Goods',
-        backgroundColor: 'rgba(60,141,188,0.9)',
-        borderColor: 'rgba(60,141,188,0.8)',
-        pointRadius: false,
-        pointColor: '#3b8bba',
-        pointStrokeColor: 'rgba(60,141,188,1)',
-        pointHighlightFill: '#fff',
-        pointHighlightStroke: 'rgba(60,141,188,1)',
-        data: [28, 48, 40, 19, 86, 27, 90]
-      },
-      {
-        label: 'Electronics',
-        backgroundColor: 'rgba(210, 214, 222, 1)',
-        borderColor: 'rgba(210, 214, 222, 1)',
-        pointRadius: false,
-        pointColor: 'rgba(210, 214, 222, 1)',
-        pointStrokeColor: '#c1c7d1',
-        pointHighlightFill: '#fff',
-        pointHighlightStroke: 'rgba(220,220,220,1)',
-        data: [65, 59, 80, 81, 56, 55, 40]
-      }
-    ]
-  }
-
-  var salesChartOptions = {
-    maintainAspectRatio: false,
-    responsive: true,
-    legend: {
-      display: false
-    },
-    scales: {
-      xAxes: [{
-        gridLines: {
-          display: false
-        }
-      }],
-      yAxes: [{
-        gridLines: {
-          display: false
-        }
-      }]
+//Memfilter dan menghitung total biaya berdasarkan bulan yang dipilih
+document.getElementById('pb1').addEventListener('input', function(event) {
+    var pt1 = document.getElementById('pt1').value;
+    if(event.target.value == '') {
+        totalBulan1(pt1);
+    } else {
+        totalBulan2(event.target.value, pt1);
     }
-  }
+});
 
-  // This will get the first returned node in the jQuery collection.
-  // eslint-disable-next-line no-unused-vars
-  var salesChart = new Chart(salesChartCanvas, { // lgtm[js/unused-local-variable]
-    type: 'line',
-    data: salesChartData,
-    options: salesChartOptions
-  })
+//Menambahkan option ke select untuk memilih tahun yang hanya ada di database
+var tahun = {};
+tahunPS = tahunPS.filter(function(perawatan) {
+    if(perawatan.tahun in tahun) {
+        return false;
+    } else {
+        tahun[perawatan.tahun] = perawatan.tahun;
+        return true;
+    }
+});
+var select = document.getElementById('pt1');
+for (a in tahunPS) {
+    var el = document.createElement('option');
+    el.textContent = tahunPS[a].tahun;
+    el.value = tahunPS[a].tahun;
+    select.appendChild(el);
+}
 
-  // Donut Chart
-  var pieChartCanvas = $('#sales-chart-canvas').get(0).getContext('2d')
-  var pieData = {
-    labels: [
-      'Instore Sales',
-      'Download Sales',
-      'Mail-Order Sales'
-    ],
-    datasets: [
-      {
-        data: [30, 12, 20],
-        backgroundColor: ['#f56954', '#00a65a', '#f39c12']
-      }
-    ]
-  }
-  var pieOptions = {
-    legend: {
-      display: false
-    },
-    maintainAspectRatio: false,
-    responsive: true
-  }
-  // Create pie or douhnut chart
-  // You can switch between pie and douhnut using the method below.
-  // eslint-disable-next-line no-unused-vars
-  var pieChart = new Chart(pieChartCanvas, { // lgtm[js/unused-local-variable]
-    type: 'doughnut',
-    data: pieData,
-    options: pieOptions
-  })
+var totalJanuari, totalFebruari, totalMaret, totalApril, totalMei, totalJuni, totalJuli, totalAgustus, totalSeptember, totalOktober, totalNovember, totalDesember;
+document.getElementById('pt1').addEventListener('input', function(event) {
+    document.getElementById('chart-tahun').innerHTML = event.target.value;
 
-  // Sales graph chart
-  var salesGraphChartCanvas = $('#line-chart').get(0).getContext('2d')
-  // $('#revenue-chart').get(0).getContext('2d');
+    var JenisPerawatanSelect = document.getElementById('jp1').value;
+    if(event.target.value != '' && JenisPerawatanSelect != '') {
+        jenisTahun(JenisPerawatanSelect, event.target.value);
+    } else {
+        tahunDefault(event.target.value);
+    }
 
-  var salesGraphChartData = {
-    labels: ['2011 Q1', '2011 Q2', '2011 Q3', '2011 Q4', '2012 Q1', '2012 Q2', '2012 Q3', '2012 Q4', '2013 Q1', '2013 Q2'],
-    datasets: [
-      {
-        label: 'Digital Goods',
-        fill: false,
-        borderWidth: 2,
-        lineTension: 0,
-        spanGaps: true,
-        borderColor: '#efefef',
-        pointRadius: 3,
-        pointHoverRadius: 7,
-        pointColor: '#efefef',
-        pointBackgroundColor: '#efefef',
-        data: [2666, 2778, 4912, 3767, 6810, 5670, 4820, 15073, 10687, 8432]
-      }
-    ]
-  }
+    var pb1 = document.getElementById('pb1').value;
+    if(event.target.value == '') {
+        totalTahun1(pb1);
+    } else {
+        totalTahun2(event.target.value, pb1);
+    }
+});
 
-  var salesGraphChartOptions = {
-    maintainAspectRatio: false,
-    responsive: true,
-    legend: {
-      display: false
-    },
-    scales: {
-      xAxes: [{
-        ticks: {
-          fontColor: '#efefef'
+//Menampilkan jumlah keseluruah dari semua bulan dan tahun
+var total = 0;
+for (ps in perawatan) {
+    total += perawatan[ps].total_biaya;
+}
+document.getElementById("t1").value = 'Rp' + new Intl.NumberFormat().format(total);
+
+function jenisTahun(a, b) {
+    var chartJenis = chartData.filter(function(perawatan) {
+        if(perawatan.jenis_perawatan == a) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    var chartTahun = chartJenis.filter(function(perawatan) {
+        if(perawatan.tahun == b) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    // var bArr = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+    var chartBulanJanuari = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'Januari') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalJanuari = 0;
+    for(i in chartBulanJanuari) {
+        totalJanuari += chartBulanJanuari[i].total_biaya;
+    }
+    // chartBulanJanuari.forEach(function(total, index) {
+    //     totalJanuari += chartBulanJanuari.total_biaya;
+    // });
+    // console.log(totalJanuari);
+
+    var chartBulanFebruari = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'Februari') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalFebruari = 0;
+    for(i in chartBulanFebruari) {
+        totalFebruari += chartBulanFebruari[i].total_biaya;
+    }
+    // console.log(totalFebruari);
+
+    var chartBulanMaret = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'Maret') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalMaret = 0;
+    for(i in chartBulanMaret) {
+        totalMaret += chartBulanMaret[i].total_biaya;
+    }
+    // console.log(totalMaret);
+
+    var chartBulanApril = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'April') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalApril = 0;
+    for(i in chartBulanApril) {
+        totalApril += chartBulanApril[i].total_biaya;
+    }
+    // console.log(totalApril);
+
+    var chartBulanMei = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'Mei') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalMei = 0;
+    for(i in chartBulanMei) {
+        totalMei += chartBulanMei[i].total_biaya;
+    }
+    // console.log(totalMei);
+
+    var chartBulanJuni = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'Juni') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalJuni = 0;
+    for(i in chartBulanJuni) {
+        totalJuni += chartBulanJuni[i].total_biaya;
+    }
+    // console.log(totalJuni);
+
+    var chartBulanJuli = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'Juli') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalJuli = 0;
+    for(i in chartBulanJuli) {
+        totalJuli += chartBulanJuli[i].total_biaya;
+    }
+    // console.log(totalJuli);
+
+    var chartBulanAgustus = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'Agustus') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalAgustus = 0;
+    for(i in chartBulanAgustus) {
+        totalAgustus += chartBulanAgustus[i].total_biaya;
+    }
+    // console.log(totalAgustus);
+
+    var chartBulanSeptember = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'September') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalSeptember = 0;
+    for(i in chartBulanSeptember) {
+        totalSeptember += chartBulanSeptember[i].total_biaya;
+    }
+    // console.log(totalSeptember);
+
+    var chartBulanOktober = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'Oktober') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalOktober = 0;
+    for(i in chartBulanOktober) {
+        totalOktober += chartBulanOktober[i].total_biaya;
+    }
+    // console.log(totalOktober);
+
+    var chartBulanNovember = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'November') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalNovember = 0;
+    for(i in chartBulanNovember) {
+        totalNovember += chartBulanNovember[i].total_biaya;
+    }
+    // console.log(totalNovember);
+
+    var chartBulanDesember = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'Desember') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalDesember = 0;
+    for(i in chartBulanDesember) {
+        totalDesember += chartBulanDesember[i].total_biaya;
+    }
+    // console.log(totalDesember);
+
+    // var dataChart = [totalJanuari, totalFebruari, totalMaret, totalApril, totalMei, totalJuni, totalJuli, totalAgustus, totalSeptember, totalOktober, totalNovember, totalDesember];
+    
+    document.getElementById('perawatan-chart-canvas').remove();
+    document.getElementById('canvas-container').innerHTML = '<canvas id="perawatan-chart-canvas"></canvas>';
+    // canvas = document.getElementById('perawatan-chart-canvas');
+    // var ctx = document.getElementById("perawatan-chart-canvas").getContext('2d');
+    var ctx = document.getElementById('perawatan-chart-canvas').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
+            datasets: [{
+                label: 'Biaya',
+                // data: [12000, 19000, 3000, 23000, 2000, 3000, 10000, 5000, 25000, 14000, 15000, 1000],
+                data: [totalJanuari, totalFebruari, totalMaret, totalApril, totalMei, totalJuni, totalJuli, totalAgustus, totalSeptember, totalOktober, totalNovember, totalDesember],
+                borderWidth: 1
+            }]
         },
-        gridLines: {
-          display: false,
-          color: '#efefef',
-          drawBorder: false
+        options: {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return 'Rp' + new Intl.NumberFormat().format(context.raw);
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    ticks: {
+                        beginAtZero:true,
+                        callback: function(value, index, ticks) {
+                            return 'Rp' + new Intl.NumberFormat().format(value);
+                        }
+                    }
+                }
+            },
         }
-      }],
-      yAxes: [{
-        ticks: {
-          stepSize: 5000,
-          fontColor: '#efefef'
-        },
-        gridLines: {
-          display: true,
-          color: '#efefef',
-          drawBorder: false
-        }
-      }]
-    }
-  }
+    });
+}
 
-  // This will get the first returned node in the jQuery collection.
-  // eslint-disable-next-line no-unused-vars
-  var salesGraphChart = new Chart(salesGraphChartCanvas, { // lgtm[js/unused-local-variable]
-    type: 'line',
-    data: salesGraphChartData,
-    options: salesGraphChartOptions
-  })
-})
+function tahunDefault(a) {
+    var chartTahun = chartData.filter(function(perawatan) {
+        if(perawatan.tahun == a) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    // var bArr = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+    var chartBulanJanuari = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'Januari') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalJanuari = 0;
+    for(i in chartBulanJanuari) {
+        totalJanuari += chartBulanJanuari[i].total_biaya;
+    }
+    // chartBulanJanuari.forEach(function(total, index) {
+    //     totalJanuari += chartBulanJanuari.total_biaya;
+    // });
+    // console.log(totalJanuari);
+
+    var chartBulanFebruari = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'Februari') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalFebruari = 0;
+    for(i in chartBulanFebruari) {
+        totalFebruari += chartBulanFebruari[i].total_biaya;
+    }
+    // console.log(totalFebruari);
+
+    var chartBulanMaret = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'Maret') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalMaret = 0;
+    for(i in chartBulanMaret) {
+        totalMaret += chartBulanMaret[i].total_biaya;
+    }
+    // console.log(totalMaret);
+
+    var chartBulanApril = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'April') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalApril = 0;
+    for(i in chartBulanApril) {
+        totalApril += chartBulanApril[i].total_biaya;
+    }
+    // console.log(totalApril);
+
+    var chartBulanMei = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'Mei') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalMei = 0;
+    for(i in chartBulanMei) {
+        totalMei += chartBulanMei[i].total_biaya;
+    }
+    // console.log(totalMei);
+
+    var chartBulanJuni = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'Juni') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalJuni = 0;
+    for(i in chartBulanJuni) {
+        totalJuni += chartBulanJuni[i].total_biaya;
+    }
+    // console.log(totalJuni);
+
+    var chartBulanJuli = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'Juli') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalJuli = 0;
+    for(i in chartBulanJuli) {
+        totalJuli += chartBulanJuli[i].total_biaya;
+    }
+    // console.log(totalJuli);
+
+    var chartBulanAgustus = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'Agustus') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalAgustus = 0;
+    for(i in chartBulanAgustus) {
+        totalAgustus += chartBulanAgustus[i].total_biaya;
+    }
+    // console.log(totalAgustus);
+
+    var chartBulanSeptember = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'September') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalSeptember = 0;
+    for(i in chartBulanSeptember) {
+        totalSeptember += chartBulanSeptember[i].total_biaya;
+    }
+    // console.log(totalSeptember);
+
+    var chartBulanOktober = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'Oktober') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalOktober = 0;
+    for(i in chartBulanOktober) {
+        totalOktober += chartBulanOktober[i].total_biaya;
+    }
+    // console.log(totalOktober);
+
+    var chartBulanNovember = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'November') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalNovember = 0;
+    for(i in chartBulanNovember) {
+        totalNovember += chartBulanNovember[i].total_biaya;
+    }
+    // console.log(totalNovember);
+
+    var chartBulanDesember = chartTahun.filter(function(perawatan) {
+        if(perawatan.bulan == 'Desember') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalDesember = 0;
+    for(i in chartBulanDesember) {
+        totalDesember += chartBulanDesember[i].total_biaya;
+    }
+    // console.log(totalDesember);
+
+    // var dataChart = [totalJanuari, totalFebruari, totalMaret, totalApril, totalMei, totalJuni, totalJuli, totalAgustus, totalSeptember, totalOktober, totalNovember, totalDesember];
+    
+    document.getElementById('perawatan-chart-canvas').remove();
+    document.getElementById('canvas-container').innerHTML = '<canvas id="perawatan-chart-canvas"></canvas>';
+    // canvas = document.getElementById('perawatan-chart-canvas');
+    // var ctx = document.getElementById("perawatan-chart-canvas").getContext('2d');
+    var ctx = document.getElementById('perawatan-chart-canvas').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
+            datasets: [{
+                label: 'Biaya',
+                // data: [12000, 19000, 3000, 23000, 2000, 3000, 10000, 5000, 25000, 14000, 15000, 1000],
+                data: [totalJanuari, totalFebruari, totalMaret, totalApril, totalMei, totalJuni, totalJuli, totalAgustus, totalSeptember, totalOktober, totalNovember, totalDesember],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return 'Rp' + new Intl.NumberFormat().format(context.raw);
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    ticks: {
+                        beginAtZero:true,
+                        callback: function(value, index, ticks) {
+                            return 'Rp' + new Intl.NumberFormat().format(value);
+                        }
+                    }
+                }
+            },
+        }
+    });
+}
+
+function totalBulan1(a) {
+    var tahunIni = bulanPS.filter(function(perawatan) {
+        if(a == '') {
+            var total = 0;
+            for (ps in perawatan) {
+                total += perawatan[ps].total_biaya;
+            }
+            document.getElementById("t1").value = 'Rp' + new Intl.NumberFormat().format(total);
+            return true;
+        } else {
+            return perawatan.tahun == a;
+        }
+    });
+    var totalTahunIni = 0;
+    for(th in tahunIni) {
+        totalTahunIni += tahunIni[th].total_biaya;
+    }
+    document.getElementById('t1').value = 'Rp' + new Intl.NumberFormat().format(totalTahunIni);
+}
+
+function totalBulan2(a, b) {
+    var tahunIni = bulanPS.filter(function(perawatan) {
+        if(b == '') {
+            return perawatan.bulan == a;
+        } else {
+            return perawatan.bulan == a && perawatan.tahun == b;
+        }
+    });
+    var totalTahunIni = 0;
+    for(th in tahunIni) {
+        totalTahunIni += tahunIni2[th].total_biaya;
+    }
+    document.getElementById('t1').value = 'Rp' + new Intl.NumberFormat().format(totalTahunIni);
+}
+
+function totalTahun1(a) {
+    var bulanIni = bulanPS.filter(function(perawatan) {
+        if(a == '') {
+            var total = 0;
+            for (ps in perawatan) {
+                total += perawatan[ps].total_biaya;
+            }
+            document.getElementById("t1").value = 'Rp' + new Intl.NumberFormat().format(total);
+            return true;
+        } else {
+            return perawatan.bulan == a;
+        }
+    });
+    var totalBulanIni = 0;
+    for(tb in bulanIni) {
+        totalBulanIni += bulanIni[tb].total_biaya;
+    }
+    document.getElementById('t1').value = 'Rp' + new Intl.NumberFormat().format(totalBulanIni);
+}
+
+function totalTahun2(a, b) {
+    var bulanIni = bulanPS.filter(function(perawatan) {
+        if(b == '') {
+            return perawatan.tahun == a;
+        } else {
+            return perawatan.tahun == a && perawatan.bulan == b;
+        }
+    });
+    var totalBulanIni = 0;
+    for(tb in bulanIni) {
+        totalBulanIni += bulanIni[tb].total_biaya;
+    }
+    document.getElementById('t1').value = 'Rp' + new Intl.NumberFormat().format(totalBulanIni);
+}

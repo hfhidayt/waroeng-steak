@@ -13,6 +13,7 @@ use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\PenjualanController;
 use App\Models\JabatanPegawai;
+use App\Models\JenisPerawatan;
 use App\Models\Kendaraan;
 use App\Models\Pegawai;
 use App\Models\Perawatan;
@@ -45,6 +46,8 @@ Route::get('/dashboard', function () {
         'user' => User::count(),
         'perawatan' => Perawatan::all()->sum('total_biaya'),
         'kendaraans' => Kendaraan::all(),
+        'perawatans' => Perawatan::all(),
+        'jenis_perawatan' => JenisPerawatan::all()
     ]);
 })->middleware('auth');
 

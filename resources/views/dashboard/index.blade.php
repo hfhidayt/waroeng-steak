@@ -2,8 +2,7 @@
 @section('wrapper')
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo" height="60"
-            width="60">
+        <img class="animation__shake" src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo" height="60" width="60">
     </div>
     @include('partials.navbar')
     @include('partials.sidebar')
@@ -42,8 +41,7 @@
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
-                            <a href="/dashboard/kendaraan" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
+                            <a href="/dashboard/kendaraan" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -57,8 +55,7 @@
                             <div class="icon">
                                 <i class="ion ion-person-add"></i>
                             </div>
-                            <a href="/dashboard/akun" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
+                            <a href="/dashboard/akun" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -72,8 +69,7 @@
                             <div class="icon">
                                 <i class="ion ion-pie-graph"></i>
                             </div>
-                            <a href="/dashboard/laporan/perawatan/kendaraan" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
+                            <a href="/dashboard/laporan/perawatan/kendaraan" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -98,23 +94,46 @@
                                     <div class="card-body">
                                         <div class="col my-3" id="filters">
                                             <div class="input-group mb-3">
-                                                <label class="input-group-text" for="platP">Jumlah Kendaraan</label>
-                                                <span id="pP"></span>
+                                                <label class="input-group-text" for="jk1">Jumlah Kendaraan</label>
+                                                <input type="text" class="form-control" name="jk1" id="jk1" disabled>
                                             </div>
                                             <div class="input-group mb-3">
-                                                <label class="input-group-text" for="jpP">Jenis Perawatan</label>
-                                                <span id="jpP"></span>
+                                                <label class="input-group-text" for="jp1">Jenis Perawatan</label>
+                                                {{-- <span id="jp1"></span> --}}
+                                                <select class="form-select" name="jp1" id="jp1">
+                                                    <option value="">Jenis Perawatan</option>
+                                                    @foreach($jenis_perawatan as $jp)
+                                                        <option value="{{ $jp->jenis_perawatan }}">{{ $jp->jenis_perawatan }}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                             <div class="input-group mb-3">
-                                                <label class="input-group-text" for="bulanP">Pilih Bulan</label>
-                                                <span id="bP"></span>
+                                                <label class="input-group-text" for="pb1">Pilih Bulan</label>
+                                                <select class="form-select" name="pb1" id="pb1">
+                                                    <option value="">Bulan</option>
+                                                    <option value="Januari">Januari</option>
+                                                    <option value="Februari">Februari</option>
+                                                    <option value="Maret">Maret</option>
+                                                    <option value="April">April</option>
+                                                    <option value="Mei">Mei</option>
+                                                    <option value="Juni">Juni</option>
+                                                    <option value="Juli">Juli</option>
+                                                    <option value="Agustus">Agustus</option>
+                                                    <option value="September">September</option>
+                                                    <option value="Oktober">Oktober</option>
+                                                    <option value="November">November</option>
+                                                    <option value="Desember">Desember</option>
+                                                </select>
                                             </div>
                                             <div class="input-group mb-3">
-                                                <label class="input-group-text" for="tahunP">Pilih Tahun</label>
-                                                <span id="tP"></span>
+                                                <label class="input-group-text" for="pt1">Pilih Tahun</label>
+                                                <select class="form-select" name="pt1" id="pt1">
+                                                    <option value="">Tahun</option>
+                                                </select>
                                             </div>
                                             <div class="input-group mb-3">
-                                                <label class="input-group-text" for="pegawai">Total ......</label>
+                                                <label class="input-group-text" for="t1">Total</label>
+                                                <input type="text" class="form-control" name="t1" id="t1" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -130,33 +149,20 @@
                                     <div class="card-header">
                                         <h3 class="card-title">
                                             <i class="fas fa-chart-bar mr-1"></i>
-                                            Perawatan Tahun .........
+                                            <span id="chart-jenis"></span> Tahun <span id="chart-tahun"></span>
                                         </h3>
-                                        {{-- <div class="card-tools">
-                                            <ul class="nav nav-pills ml-auto">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" href="#perbulan-chart"
-                                                        data-toggle="tab">Perbulan</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#pertahun-chart"
-                                                        data-toggle="tab">Pertahun</a>
-                                                </li>
-                                            </ul>
-                                        </div> --}}
                                     </div><!-- /.card-header -->
                                     <div class="card-body" id="table_chart_1">
-                                        <div class="tab-content p-0">
+                                        <div class="tab-content p-0" id="canvas-container">
                                             <!-- Morris chart - Sales -->
-                                            <div class="chart tab-pane active" id="revenue-chart"
-                                                style="position: relative; height: 300px;">
-                                                <canvas id="revenue-chart-canvas" height="300"
-                                                    style="height: 300px;"></canvas>
+                                            {{-- <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;">
+                                            </div> --}}
+                                            <canvas id="perawatan-chart-canvas"></canvas>
+                                            <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: auto;">
+                                                <canvas id="perawatan-chart-canvas"></canvas>
                                             </div>
-                                            <div class="chart tab-pane" id="sales-chart"
-                                                style="position: relative; height: 300px;">
-                                                <canvas id="sales-chart-canvas" height="300"
-                                                    style="height: 300px;"></canvas>
+                                            <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
+                                                <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
                                             </div>
                                         </div>
                                     </div>
@@ -226,15 +232,11 @@
                                     <div class="card-body" id="table_chart_2">
                                         <div class="tab-content p-0">
                                             <!-- Morris chart - Sales -->
-                                            <div class="chart tab-pane active" id="revenue-chart"
-                                                style="position: relative; height: 300px;">
-                                                <canvas id="revenue-chart-canvas" height="300"
-                                                    style="height: 300px;"></canvas>
+                                            <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;">
+                                                <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
                                             </div>
-                                            <div class="chart tab-pane" id="sales-chart"
-                                                style="position: relative; height: 300px;">
-                                                <canvas id="sales-chart-canvas" height="300"
-                                                    style="height: 300px;"></canvas>
+                                            <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
+                                                <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
                                             </div>
                                         </div>
                                     </div>
@@ -490,7 +492,7 @@
     <footer class="main-footer">
         <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
         All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
+        <div class="d-none d-sm-inline-block float-right">
             <b>Version</b> 3.2.0
         </div>
     </footer>
@@ -643,3 +645,6 @@
     </script> --}}
     <!-- /.Javascript -->
 @endsection
+@push('script')
+    <script src="{{ asset('dist/js/pages/dashboard.js') }}" id="json" data-kendaraan="{{ $kendaraans }}" data-perawatan="{{ $perawatans }}" data-jenis-perawatan="{{ $jenis_perawatan }}"></script>
+@endpush
