@@ -100,7 +100,7 @@
                                             <div class="mb-3">
                                                 <label class="form-label" for="jp1">Jenis Perawatan</label>
                                                 {{-- <span id="jp1"></span> --}}
-                                                <select class="form-select test1" name="jp1" id="jp1">
+                                                <select class="form-select" name="jp1" id="jp1">
                                                     <option value="">Jenis Perawatan</option>
                                                     @foreach ($jenis_perawatan as $jp)
                                                         <option value="{{ $jp->jenis_perawatan }}">{{ $jp->jenis_perawatan }}</option>
@@ -109,7 +109,7 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label" for="pb1">Pilih Bulan</label>
-                                                <select class="form-select test1" name="pb1" id="pb1">
+                                                <select class="form-select" name="pb1" id="pb1">
                                                     <option value="">Bulan</option>
                                                     <option value="Januari">Januari</option>
                                                     <option value="Februari">Februari</option>
@@ -152,12 +152,12 @@
                                             <span id="chart-jenis"></span> Tahun <span id="chart-tahun"></span>
                                         </h3>
                                     </div><!-- /.card-header -->
-                                    <div class="card-body" id="table_chart_1">
+                                    <div class="card-body" id="table_chart1">
                                         <div class="tab-content p-0" id="canvas-container">
                                             <!-- Morris chart - Sales -->
                                             {{-- <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;">
                                             </div> --}}
-                                            <canvas id="perawatan-chart-canvas"></canvas>
+                                            {{-- <canvas id="perawatan-chart-canvas"></canvas> --}}
                                             <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: auto;">
                                                 <canvas id="perawatan-chart-canvas"></canvas>
                                             </div>
@@ -191,7 +191,7 @@
                                     </div>
                                     <!-- /.card-header -->
                                     <div class="card-body">
-                                        <div class="col my-3" id="filters">
+                                        <div class="col my-3" id="filters2">
                                             <div class="mb-3">
                                                 <label class="form-label" for="jp2">Jenis Perawatan</label>
                                                 {{-- <span id="jp2"></span> --}}
@@ -203,10 +203,10 @@
                                                 </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label" for="pk2">Pilih Kendaraan</label>
+                                                <label class="form-label" for="pk2">Pilih No. Plat Kendaraan</label>
                                                 {{-- <span id="pk2"></span> --}}
                                                 <select class="form-select" name="pk2" id="pk2">
-                                                    <option value="">Jenis Perawatan</option>
+                                                    <option value="">No. Plat</option>
                                                     @foreach ($kendaraans as $pk)
                                                         <option value="{{ $pk->no_plat }}">{{ $pk->no_plat }}</option>
                                                     @endforeach
@@ -255,12 +255,13 @@
                                     <div class="card-header">
                                         <h3 class="card-title text-center">
                                             <i class="fas fa-chart-bar mr-1"></i>
-                                            ....... Kendaraan No Plat .......
+                                            Kendaraan
                                         </h3>
                                     </div><!-- /.card-header -->
-                                    <div class="card-body" id="table_chart_2">
-                                        <div class="tab-content p-0" id="canvas2-container">
+                                    <div class="card-body" id="table_chart2">
+                                        <div class="tab-content p-0" id="canvas-kendaraan">
                                             <!-- Morris chart - Sales -->
+                                            {{-- <canvas id="kendaraan-chart-canvas"></canvas> --}}
                                             <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: auto;">
                                                 <canvas id="kendaraan-chart-canvas"></canvas>
                                             </div>
@@ -534,5 +535,5 @@
 @endsection
 @push('script')
     <script src="{{ asset('dist/js/pages/dashboard.js') }}" id="json" data-kendaraan="{{ $kendaraans }}" data-perawatan="{{ $perawatans }}" data-jenis-perawatan="{{ $jenis_perawatan }}"></script>
-    {{-- <script src="{{ asset('dist/js/pages/dashboard2.js') }}" id="json" data-kendaraan="{{ $kendaraans }}" data-perawatan="{{ $perawatans }}" data-jenis-perawatan="{{ $jenis_perawatan }}"></script> --}}
+    <script src="{{ asset('dist/js/pages/dashboard2.js') }}" id="json2" data-kendaraan="{{ $kendaraans }}" data-perawatan="{{ $perawatans }}" data-jenis-perawatan="{{ $jenis_perawatan }}"></script>
 @endpush
