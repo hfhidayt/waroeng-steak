@@ -86,7 +86,7 @@
                             <!-- Left col -->
                             <section class="col-lg-4 connectedSortable">
                                 <!-- Custom tabs (Charts with tabs)-->
-                                <div class="card h-100">
+                                <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">FILTER</h3>
                                     </div>
@@ -100,7 +100,7 @@
                                             <div class="mb-3">
                                                 <label class="form-label" for="jp1">Jenis Perawatan</label>
                                                 {{-- <span id="jp1"></span> --}}
-                                                <select class="form-select" name="jp1" id="jp1">
+                                                <select class="form-select test1" name="jp1" id="jp1">
                                                     <option value="">Jenis Perawatan</option>
                                                     @foreach ($jenis_perawatan as $jp)
                                                         <option value="{{ $jp->jenis_perawatan }}">{{ $jp->jenis_perawatan }}</option>
@@ -109,7 +109,7 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label" for="pb1">Pilih Bulan</label>
-                                                <select class="form-select" name="pb1" id="pb1">
+                                                <select class="form-select test1" name="pb1" id="pb1">
                                                     <option value="">Bulan</option>
                                                     <option value="Januari">Januari</option>
                                                     <option value="Februari">Februari</option>
@@ -145,7 +145,7 @@
                             <!-- right col (We are only adding the ID to make the widgets sortable)-->
                             <section class="col-lg-8 connectedSortable">
                                 <!-- Custom tabs (Charts with tabs)-->
-                                <div class="card h-100">
+                                <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">
                                             <i class="fas fa-chart-bar mr-1"></i>
@@ -157,13 +157,13 @@
                                             <!-- Morris chart - Sales -->
                                             {{-- <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;">
                                             </div> --}}
-                                            <canvas id="perawatan-chart-canvas"></canvas>
+                                            {{-- <canvas id="perawatan-chart-canvas"></canvas> --}}
                                             <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: auto;">
                                                 <canvas id="perawatan-chart-canvas"></canvas>
                                             </div>
-                                            <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
+                                            {{-- <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
                                                 <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                     <!-- /.card-body -->
@@ -192,24 +192,53 @@
                                     <!-- /.card-header -->
                                     <div class="card-body">
                                         <div class="col my-3" id="filters">
-                                            <div class="input-group mb-3">
-                                                <label class="input-group-text" for="jpP">Jenis Perawatan</label>
-                                                <span id="jpP"></span>
+                                            <div class="mb-3">
+                                                <label class="form-label" for="jp2">Jenis Perawatan</label>
+                                                {{-- <span id="jp2"></span> --}}
+                                                <select class="form-select" name="jp2" id="jp2">
+                                                    <option value="">Jenis Perawatan</option>
+                                                    @foreach ($jenis_perawatan as $jp)
+                                                        <option value="{{ $jp->jenis_perawatan }}">{{ $jp->jenis_perawatan }}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
-                                            <div class="input-group mb-3">
-                                                <label class="input-group-text" for="platP">Pilih Kendaraan</label>
-                                                <span id="pP"></span>
+                                            <div class="mb-3">
+                                                <label class="form-label" for="pk2">Pilih Kendaraan</label>
+                                                {{-- <span id="pk2"></span> --}}
+                                                <select class="form-select" name="pk2" id="pk2">
+                                                    <option value="">Jenis Perawatan</option>
+                                                    @foreach ($kendaraans as $pk)
+                                                        <option value="{{ $pk->no_plat }}">{{ $pk->no_plat }}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
-                                            <div class="input-group mb-3">
-                                                <label class="input-group-text" for="bulanP">Pilih Bulan</label>
-                                                <span id="bP"></span>
+                                            <div class="mb-3">
+                                                <label class="form-label" for="pb2">Pilih Bulan</label>
+                                                <select class="form-select" name="pb2" id="pb2">
+                                                    <option value="">Bulan</option>
+                                                    <option value="Januari">Januari</option>
+                                                    <option value="Februari">Februari</option>
+                                                    <option value="Maret">Maret</option>
+                                                    <option value="April">April</option>
+                                                    <option value="Mei">Mei</option>
+                                                    <option value="Juni">Juni</option>
+                                                    <option value="Juli">Juli</option>
+                                                    <option value="Agustus">Agustus</option>
+                                                    <option value="September">September</option>
+                                                    <option value="Oktober">Oktober</option>
+                                                    <option value="November">November</option>
+                                                    <option value="Desember">Desember</option>
+                                                </select>
                                             </div>
-                                            <div class="input-group mb-3">
-                                                <label class="input-group-text" for="tahunP">Pilih Tahun</label>
-                                                <span id="tP"></span>
+                                            <div class="mb-3">
+                                                <label class="form-label" for="pt2">Pilih Tahun</label>
+                                                <select class="form-select" name="pt2" id="pt2">
+                                                    <option value="">Tahun</option>
+                                                </select>
                                             </div>
-                                            <div class="input-group mb-3">
-                                                <label class="input-group-text" for="pegawai">Total ......</label>
+                                            <div class="mb-3">
+                                                <label class="form-label" for="t2">Total</label>
+                                                <input type="text" class="form-control" name="t2" id="t2" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -230,14 +259,14 @@
                                         </h3>
                                     </div><!-- /.card-header -->
                                     <div class="card-body" id="table_chart_2">
-                                        <div class="tab-content p-0">
+                                        <div class="tab-content p-0" id="canvas2-container">
                                             <!-- Morris chart - Sales -->
-                                            <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;">
-                                                <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
+                                            <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: auto;">
+                                                <canvas id="kendaraan-chart-canvas"></canvas>
                                             </div>
-                                            <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
+                                            {{-- <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
                                                 <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                     <!-- /.card-body -->
@@ -502,149 +531,8 @@
         <!-- Control sidebar content goes here -->
     </aside>
     <!-- /.control-sidebar -->
-
-    <!-- Javascript -->
-    {{-- <script>
-        var table = $('#table_chart').DataTable({
-            paging: false,
-            bInfo: false,
-            "sDom": "rtip",
-            ordering: false,
-            columnDefs: [{
-                    targets: '_all',
-                    className: 'dt-head-center'
-                },
-                {
-                    target: 3,
-                    visible: false
-                },
-                {
-                    target: 4,
-                    visible: false
-                },
-                {
-                    target: 13,
-                    visible: false
-                }
-            ],
-            initComplete: function() {
-                this.api().columns(1).every(function() {
-                        var column = this;
-                        var select = $(
-                                '<select class="form-select pP" id="platP"><option value="">No Plat</option></select>'
-                            )
-                            .appendTo($('#pP')).on('change', function() {
-                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
-
-                                column.search(val ? '^' + val + '$' : '', true, false).draw();
-
-                                var tots = document.getElementById('sum');
-                                sum = table.column(13, {
-                                    search: 'applied'
-                                }).data().sum();
-                                sumP = new Intl.NumberFormat('de-DE').format(sum)
-                                tots.innerHTML = 'Rp' + sumP;
-
-                                var npPH = document.getElementById('npPH');
-                                npPH.innerHTML = val;
-                            });
-                        column.data().unique().sort().each(function(d, j) {
-                            select.append('<option value="' + d + '">' + d + '</option>');
-                        });
-                    })
-                    .columns(3).every(function() {
-                        var column = this;
-                        var select = $(
-                                '<select class="form-select bP" id="bulanP"><option value="">Bulan</option></select>'
-                            )
-                            .appendTo($('#bP'))
-                            .on('input', function() {
-                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
-
-                                column.search(val ? '^' + val + '$' : '', true, false).draw();
-
-                                var tots = document.getElementById('sum');
-                                sum = table.column(13, {
-                                    search: 'applied'
-                                }).data().sum();
-                                sumP = new Intl.NumberFormat('de-DE').format(sum)
-                                tots.innerHTML = 'Rp' + sumP;
-
-                                var bPH = document.getElementById('bPH');
-                                bPH.innerHTML = val;
-                            });
-                        column
-                            .data().unique().sort()
-                        select.append('<option value="Januari">Januari</option>')
-                        select.append('<option value="Februari">Februari</option>')
-                        select.append('<option value="Maret">Maret</option>')
-                        select.append('<option value="April">April</option>')
-                        select.append('<option value="Mei">Mei</option>')
-                        select.append('<option value="Juni">Juni</option>')
-                        select.append('<option value="Juli">Juli</option>')
-                        select.append('<option value="Agustus">Agustus</option>')
-                        select.append('<option value="September">September</option>')
-                        select.append('<option value="Oktober">Oktober</option>')
-                        select.append('<option value="November">November</option>')
-                        select.append('<option value="Desember">Desember</option>')
-                    })
-                    .columns(4).every(function() {
-                        var column = this;
-                        var select = $(
-                                '<select class="form-select tP" id="tahunP"><option value="">Tahun</option></select>'
-                            )
-                            .appendTo($('#tP'))
-                            .on('change', function() {
-                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
-
-                                column.search(val ? '^' + val + '$' : '', true, false).draw();
-
-                                var tots = document.getElementById('sum');
-                                sum = table.column(13, {
-                                    search: 'applied'
-                                }).data().sum();
-                                sumP = new Intl.NumberFormat('de-DE').format(sum)
-                                tots.innerHTML = 'Rp' + sumP;
-
-                                var tPH = document.getElementById('tPH');
-                                tPH.innerHTML = val;
-                            });
-                        column
-                            .data().unique().sort().each(function(d, j) {
-                                select.append('<option value="' + d + '">' + d + '</option>');
-                            });
-                    })
-                    .columns(5).every(function() {
-                        var column = this;
-                        var select = $(
-                                '<select class="form-select jpP" id="jenis_perawatanP"><option value="">Jenis Perawatan</option></select>'
-                            )
-                            .appendTo($('#jpP'))
-                            .on('change', function() {
-                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
-
-                                column.search(val ? '^' + val + '$' : '', true, false).draw();
-
-                                var tots = document.getElementById('sum');
-                                sum = table.column(13, {
-                                    search: 'applied'
-                                }).data().sum();
-                                sumP = new Intl.NumberFormat('de-DE').format(sum)
-                                tots.innerHTML = 'Rp' + sumP;
-
-                                var jpPH = document.getElementById('jpPH');
-                                jpPH.innerHTML = val;
-                            });
-                        column
-                            .data().unique().sort().each(function(d, j) {
-                                select.append('<option value="' + d + '">' + d + '</option>');
-                            });
-                    })
-            }
-        });
-    </script> --}}
-    <!-- /.Javascript -->
 @endsection
 @push('script')
     <script src="{{ asset('dist/js/pages/dashboard.js') }}" id="json" data-kendaraan="{{ $kendaraans }}" data-perawatan="{{ $perawatans }}" data-jenis-perawatan="{{ $jenis_perawatan }}"></script>
+    <script src="{{ asset('dist/js/pages/dashboard2.js') }}" id="json" data-kendaraan="{{ $kendaraans }}" data-perawatan="{{ $perawatans }}" data-jenis-perawatan="{{ $jenis_perawatan }}"></script>
 @endpush
