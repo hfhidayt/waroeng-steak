@@ -157,7 +157,7 @@
                                             <!-- Morris chart - Sales -->
                                             {{-- <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;">
                                             </div> --}}
-                                            {{-- <canvas id="perawatan-chart-canvas"></canvas> --}}
+                                            <canvas id="perawatan-chart-canvas"></canvas>
                                             <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: auto;">
                                                 <canvas id="perawatan-chart-canvas"></canvas>
                                             </div>
@@ -534,5 +534,5 @@
 @endsection
 @push('script')
     <script src="{{ asset('dist/js/pages/dashboard.js') }}" id="json" data-kendaraan="{{ $kendaraans }}" data-perawatan="{{ $perawatans }}" data-jenis-perawatan="{{ $jenis_perawatan }}"></script>
-    <script src="{{ asset('dist/js/pages/dashboard2.js') }}" id="json" data-kendaraan="{{ $kendaraans }}" data-perawatan="{{ $perawatans }}" data-jenis-perawatan="{{ $jenis_perawatan }}"></script>
+    {{-- <script src="{{ asset('dist/js/pages/dashboard2.js') }}" id="json" data-kendaraan="{{ $kendaraans }}" data-perawatan="{{ $perawatans }}" data-jenis-perawatan="{{ $jenis_perawatan }}"></script> --}}
 @endpush
