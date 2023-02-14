@@ -65,3 +65,159 @@
         </div>
     </div>
 @endsection
+@push('script')
+    <script>
+        $(document).ready(function() {
+            var table = $('#table_id').DataTable({
+                // columnDefs: [{
+                //         targets: '_all',
+                //         className: 'dt-head-center'
+                //     },
+                //     {
+                //         target: 2,
+                //         visible: false
+                //     },
+                //     {
+                //         target: 3,
+                //         visible: false
+                //     }
+                // ],
+
+                initComplete: function() {
+                    this.api()
+                        // filter no_plat pajak.blade
+                        .columns(2)
+                        .every(function() {
+                            var column = this;
+                            var select = $(
+                                    '<select class="form-select platP"><option value="">-- Nomor Polisi --</option></select>'
+                                )
+                                .appendTo($('#platP'))
+                                .on('change', function() {
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                                    column.search(val ? '^' + val + '$' : '', true, false)
+                                        .draw();
+                                });
+                            column
+                                .data()
+                                .unique()
+                                .sort()
+                                .each(function(d, j) {
+                                    select.append('<option value="' + d + '">' + d +
+                                        '</option>');
+                                });
+                        })
+                        // filter bulan_pajak pajak.blade
+                        .columns(4)
+                        .every(function() {
+                            var column = this;
+                            var select = $(
+                                    '<select class="form-select"><option value="">-- Bulan Pajak --</option></select>'
+                                )
+                                .appendTo($('#bulanPajak'))
+                                .on('change', function() {
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                                    column.search(val ? '^' + val + '$' : '', true, false)
+                                        .draw();
+                                });
+                            column
+                                .data()
+                                .unique()
+                                .sort()
+                            select.append('<option value="Januari">Januari</option>')
+                            select.append('<option value="Februari">Februari</option>')
+                            select.append('<option value="Maret">Maret</option>')
+                            select.append('<option value="April">April</option>')
+                            select.append('<option value="Mei">Mei</option>')
+                            select.append('<option value="Juni">Juni</option>')
+                            select.append('<option value="Juli">Juli</option>')
+                            select.append('<option value="Agustus">Agustus</option>')
+                            select.append('<option value="September">September</option>')
+                            select.append('<option value="Oktober">Oktober</option>')
+                            select.append('<option value="November">November</option>')
+                            select.append('<option value="Desember">Desember</option>')
+                        })
+                        // filter tahun_pajak pajak.blade
+                        .columns(5)
+                        .every(function() {
+                            var column = this;
+                            var select = $(
+                                    '<select class="form-select"><option value="">-- Tahun Pajak --</option></select>'
+                                )
+                                .appendTo($('#tahunPajak'))
+                                .on('change', function() {
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                                    column.search(val ? '^' + val + '$' : '', true, false)
+                                        .draw();
+                                });
+                            column
+                                .data()
+                                .unique()
+                                .sort()
+                                .each(function(d, j) {
+                                    select.append('<option value="' + d + '">' + d +
+                                        '</option>');
+                                });
+                        })
+                        // filter bulan_ganti_plat pajak.blade
+                        .columns(7)
+                        .every(function() {
+                            var column = this;
+                            var select = $(
+                                    '<select class="form-select"><option value="">-- Bulan Ganti Plat --</option></select>'
+                                )
+                                .appendTo($('#bulanGantiPlat'))
+                                .on('change', function() {
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                                    column.search(val ? '^' + val + '$' : '', true, false)
+                                        .draw();
+                                });
+                            column
+                                .data()
+                                .unique()
+                                .sort()
+                            select.append('<option value="Januari">Januari</option>')
+                            select.append('<option value="Februari">Februari</option>')
+                            select.append('<option value="Maret">Maret</option>')
+                            select.append('<option value="April">April</option>')
+                            select.append('<option value="Mei">Mei</option>')
+                            select.append('<option value="Juni">Juni</option>')
+                            select.append('<option value="Juli">Juli</option>')
+                            select.append('<option value="Agustus">Agustus</option>')
+                            select.append('<option value="September">September</option>')
+                            select.append('<option value="Oktober">Oktober</option>')
+                            select.append('<option value="November">November</option>')
+                            select.append('<option value="Desember">Desember</option>')
+                        })
+                        // filter tahun_ganti_plat pajak.blade
+                        .columns(8)
+                        .every(function() {
+                            var column = this;
+                            var select = $(
+                                    '<select class="form-select"><option value="">-- Tahun Ganti Plat --</option></select>'
+                                )
+                                .appendTo($('#tahunGantiPlat'))
+                                .on('change', function() {
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                                    column.search(val ? '^' + val + '$' : '', true, false)
+                                        .draw();
+                                });
+                            column
+                                .data()
+                                .unique()
+                                .sort()
+                                .each(function(d, j) {
+                                    select.append('<option value="' + d + '">' + d +
+                                        '</option>');
+                                });
+                        })
+                },
+            });
+        });
+    </script>
+@endpush

@@ -86,29 +86,29 @@
                             <!-- Left col -->
                             <section class="col-lg-4 connectedSortable">
                                 <!-- Custom tabs (Charts with tabs)-->
-                                <div class="card">
+                                <div class="card h-100">
                                     <div class="card-header">
                                         <h3 class="card-title">FILTER</h3>
                                     </div>
                                     <!-- /.card-header -->
                                     <div class="card-body">
                                         <div class="col my-3" id="filters">
-                                            <div class="input-group mb-3">
-                                                <label class="input-group-text" for="jk1">Jumlah Kendaraan</label>
+                                            <div class="mb-3">
+                                                <label class="form-label" for="jk1">Jumlah Kendaraan</label>
                                                 <input type="text" class="form-control" name="jk1" id="jk1" disabled>
                                             </div>
-                                            <div class="input-group mb-3">
-                                                <label class="input-group-text" for="jp1">Jenis Perawatan</label>
+                                            <div class="mb-3">
+                                                <label class="form-label" for="jp1">Jenis Perawatan</label>
                                                 {{-- <span id="jp1"></span> --}}
                                                 <select class="form-select" name="jp1" id="jp1">
                                                     <option value="">Jenis Perawatan</option>
-                                                    @foreach($jenis_perawatan as $jp)
+                                                    @foreach ($jenis_perawatan as $jp)
                                                         <option value="{{ $jp->jenis_perawatan }}">{{ $jp->jenis_perawatan }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            <div class="input-group mb-3">
-                                                <label class="input-group-text" for="pb1">Pilih Bulan</label>
+                                            <div class="mb-3">
+                                                <label class="form-label" for="pb1">Pilih Bulan</label>
                                                 <select class="form-select" name="pb1" id="pb1">
                                                     <option value="">Bulan</option>
                                                     <option value="Januari">Januari</option>
@@ -125,14 +125,14 @@
                                                     <option value="Desember">Desember</option>
                                                 </select>
                                             </div>
-                                            <div class="input-group mb-3">
-                                                <label class="input-group-text" for="pt1">Pilih Tahun</label>
+                                            <div class="mb-3">
+                                                <label class="form-label" for="pt1">Pilih Tahun</label>
                                                 <select class="form-select" name="pt1" id="pt1">
                                                     <option value="">Tahun</option>
                                                 </select>
                                             </div>
-                                            <div class="input-group mb-3">
-                                                <label class="input-group-text" for="t1">Total</label>
+                                            <div class="mb-3">
+                                                <label class="form-label" for="t1">Total</label>
                                                 <input type="text" class="form-control" name="t1" id="t1" disabled>
                                             </div>
                                         </div>
@@ -145,7 +145,7 @@
                             <!-- right col (We are only adding the ID to make the widgets sortable)-->
                             <section class="col-lg-8 connectedSortable">
                                 <!-- Custom tabs (Charts with tabs)-->
-                                <div class="card">
+                                <div class="card h-100">
                                     <div class="card-header">
                                         <h3 class="card-title">
                                             <i class="fas fa-chart-bar mr-1"></i>
