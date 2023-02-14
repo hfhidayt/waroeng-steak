@@ -535,7 +535,7 @@ function totalBulan2(a, b) {
     });
     var totalTahunIni = 0;
     for(th in tahunIni) {
-        totalTahunIni += tahunIni2[th].total_biaya;
+        totalTahunIni += tahunIni[th].total_biaya;
     }
     document.getElementById('t1').value = 'Rp' + new Intl.NumberFormat().format(totalTahunIni);
 }
