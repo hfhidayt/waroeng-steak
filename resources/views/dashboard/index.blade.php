@@ -194,7 +194,6 @@
                                         <div class="col my-3" id="filters2">
                                             <div class="mb-3">
                                                 <label class="form-label" for="jp2">Jenis Perawatan</label>
-                                                {{-- <span id="jp2"></span> --}}
                                                 <select class="form-select" name="jp2" id="jp2">
                                                     <option value="">Jenis Perawatan</option>
                                                     @foreach ($jenis_perawatan as $jp)
@@ -203,12 +202,11 @@
                                                 </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label" for="pk2">Pilih No. Plat Kendaraan</label>
-                                                {{-- <span id="pk2"></span> --}}
-                                                <select class="form-select" name="pk2" id="pk2">
+                                                <label class="form-label" for="np2">Pilih No. Plat Kendaraan</label>
+                                                <select class="form-select" name="np2" id="np2">
                                                     <option value="">No. Plat</option>
-                                                    @foreach ($kendaraans as $pk)
-                                                        <option value="{{ $pk->no_plat }}">{{ $pk->no_plat }}</option>
+                                                    @foreach ($kendaraans as $k)
+                                                        <option value="{{ $k->id }}">{{ $k->no_plat }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -255,7 +253,7 @@
                                     <div class="card-header">
                                         <h3 class="card-title text-center">
                                             <i class="fas fa-chart-bar mr-1"></i>
-                                            Kendaraan
+                                            <span id="chart-header-jenis"></span> Kendaraan <span id="chart-header-no-plat"></span>
                                         </h3>
                                     </div><!-- /.card-header -->
                                     <div class="card-body" id="table_chart2">
@@ -276,7 +274,6 @@
                             </section>
                             <!-- right col -->
 
-
                             <section class="col-lg-7 connectedSortable">
                                 <!-- identitas kendaraan-->
                                 <div class="card">
@@ -290,85 +287,68 @@
                                             <div class="col">
                                                 <div class="mb-3">
                                                     <label for="wilayah" class="form-label">Wilayah</label>
-                                                    {{-- <input type="text" class="form-control" placeholder="-" name="wilayah"
-                                                        value="{{ $k->wilayah }}" disabled> --}}
+                                                    <input type="text" class="form-control" id="wilayah" name="wilayah" disabled>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="no_plat" class="form-label">Nomor Plat</label>
-                                                    {{-- <input type="text" class="form-control" placeholder="-" name="no_plat"
-                                                        value="{{ $k->no_plat }}" disabled> --}}
+                                                    {{-- <input type="text" class="form-control" id="no_plat" name="no_plat" disabled> --}}
+                                                    <select class="form-select" name="no_plat" id="no_plat">
+                                                        <option value="">No. Plat</option>
+                                                        @foreach ($kendaraans as $k)
+                                                            <option value="{{ $k->id }}">{{ $k->no_plat }}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="jenis_kendaraan" class="form-label">Jenis
-                                                        Kendaraan</label>
-                                                    {{-- <input type="text" class="form-control" placeholder="-"
-                                                        name="jenis_kendaraan" value="{{ $k->jenis_kendaraan }}" disabled> --}}
+                                                    <label for="jenis_kendaraan" class="form-label">Jenis Kendaraan</label>
+                                                    <input type="text" class="form-control" id="jenis_kendaraan" name="jenis_kendaraan" disabled>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="no_rangka" class="form-label">Nomor
-                                                        Rangka</label>
-                                                    {{-- <input type="text" class="form-control" placeholder="-" name="no_rangka"
-                                                        value="{{ $k->no_rangka }}" disabled> --}}
+                                                    <label for="no_rangka" class="form-label">Nomor Rangka</label>
+                                                    <input type="text" class="form-control" id="no_rangka" name="no_rangka" disabled>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="no_mesin" class="form-label">Nomor
-                                                        Mesin</label>
-                                                    {{-- <input type="text" class="form-control" placeholder="-" name="no_mesin"
-                                                        value="{{ $k->no_mesin }}" disabled> --}}
+                                                    <label for="no_mesin" class="form-label">Nomor Mesin</label>
+                                                    <input type="text" class="form-control" id="no_mesin" name="no_mesin" disabled>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="no_bpkb" class="form-label">Nomor BPKB</label>
-                                                    {{-- <input type="text" class="form-control" placeholder="-" name="no_bpkb"
-                                                        value="{{ $k->no_bpkb }}" disabled> --}}
+                                                    <input type="text" class="form-control" id="no_bpkb" name="no_bpkb" disabled>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="atas_nama" class="form-label">Atas Nama</label>
-                                                    {{-- <input type="text" class="form-control" placeholder="-" name="atas_nama"
-                                                        value="{{ $k->atas_nama }}" disabled> --}}
+                                                    <input type="text" class="form-control" id="atas_nama" name="atas_nama" disabled>
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="mb-3">
                                                     <label for="tahun" class="form-label">Tahun</label>
-                                                    {{-- <input type="text" class="form-control" placeholder="-" name="tahun"
-                                                        value="{{ $k->tahun }}" disabled> --}}
+                                                    <input type="text" class="form-control" id="tahun" name="tahun" disabled>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="warna" class="form-label">Warna</label>
-                                                    {{-- <input type="text" class="form-control" placeholder="-" name="warna"
-                                                        value="{{ $k->warna }}" disabled> --}}
+                                                    <input type="text" class="form-control" id="warna" name="warna" disabled>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="bahan_bakar" class="form-label">Bahan Bakar</label>
-                                                    {{-- <input type="text" class="form-control" placeholder="-"
-                                                        name="bahan_bakar" value="{{ $k->warna }}" disabled> --}}
+                                                    <input type="text" class="form-control" id="bahan_bakar" name="bahan_bakar" disabled>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="merk" class="form-label">Merk</label>
-                                                    {{-- <input type="text" class="form-control" placeholder="-" name="merk"
-                                                        value="{{ $k->jenis_merk }}" disabled> --}}
+                                                    <label for="jenis_merk" class="form-label">Merk</label>
+                                                    <input type="text" class="form-control" id="jenis_merk" name="jenis_merk" disabled>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="pic" class="form-label">PIC</label>
-                                                    {{-- <input type="text" class="form-control @error('pic') is-invalid @enderror"
-                                                        placeholder="-" name="pic" value="{{ $k->pic }}" disabled> --}}
+                                                    <input type="text" class="form-control" id="pic" name="pic" disabled>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="posisi_kendaraan" class="form-label">Posisi
-                                                        Kendaraan</label>
-                                                    {{-- <input type="text"
-                                                        class="form-control @error('posisi_kendaraan') is-invalid @enderror"
-                                                        placeholder="-" name="posisi_kendaraan"
-                                                        value="{{ $k->posisi_kendaraan }}" disabled> --}}
+                                                    <label for="posisi_kendaraan" class="form-label">Posisi Kendaraan</label>
+                                                    <input type="text" class="form-control" id="posisi_kendaraan" name="posisi_kendaraan" disabled>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="surat_penanggung_jawab" class="form-label">Surat
-                                                        Penanggung
-                                                        Jawab</label>
+                                                    <label for="surat_penanggung_jawab" class="form-label">Surat Penanggung Jawab</label>
                                                     <div class="col mb-3">
-                                                        {{-- <a href="#"
-                                                                onclick="window.open('{{ asset('storage/' . $k->surat_penanggung_jawab) }}', '_blank')">Lihat
-                                                                Surat Penanggung Jawab</a> --}}
+                                                        <a href="#" id="surat_penanggung_jawab">Lihat Surat Penanggung Jawab</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -378,30 +358,24 @@
                                                 <div class="mb-3">
                                                     <div class="row">
                                                         <div class="col">
-                                                            <label for="tanggal_pajak" class="form-label">Tanggal
-                                                                Pajak</label>
+                                                            <label for="tanggal_pajak" class="form-label">Tanggal Pajak</label>
                                                         </div>
                                                         <div class="col">
-                                                            <label for="bulan_pajak" class="form-label">Bulan
-                                                                Pajak</label>
+                                                            <label for="bulan_pajak" class="form-label">Bulan Pajak</label>
                                                         </div>
                                                         <div class="col">
-                                                            <label for="tahun_pajak" class="form-label">Tahun
-                                                                Pajak</label>
+                                                            <label for="tahun_pajak" class="form-label">Tahun Pajak</label>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col">
-                                                            {{-- <input type="text" class="form-control" placeholder="-"
-                                                                name="tanggal_pajak" value="{{ $k->tanggal_pajak }}" disabled> --}}
+                                                            <input type="text" class="form-control" name="tanggal_pajak" id="tanggal_pajak" disabled>
                                                         </div>
                                                         <div class="col">
-                                                            {{-- <input type="text" class="form-control" placeholder="-"
-                                                                name="bulan_pajak" value="{{ $k->bulan_pajak }}" disabled> --}}
+                                                            <input type="text" class="form-control" name="bulan_pajak" id="bulan_pajak" disabled>
                                                         </div>
                                                         <div class="col">
-                                                            {{-- <input type="text" class="form-control" placeholder="-"
-                                                                name="tahun_pajak" value="{{ $k->tahun_pajak }}" disabled> --}}
+                                                            <input type="text" class="form-control" name="tahun_pajak" id="tahun_pajak" disabled>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -412,31 +386,24 @@
                                                 <div class="mb-3">
                                                     <div class="row">
                                                         <div class="col">
-                                                            <label for="tanggal_ganti_plat" class="form-label">Tanggal
-                                                                Ganti
-                                                                Plat</label>
+                                                            <label for="tanggal_ganti_plat" class="form-label">Tanggal Ganti Plat</label>
                                                         </div>
                                                         <div class="col">
-                                                            <label for="bulan_ganti_plat" class="form-label">Bulan Ganti
-                                                                Plat</label>
+                                                            <label for="bulan_ganti_plat" class="form-label">Bulan Ganti Plat</label>
                                                         </div>
                                                         <div class="col">
-                                                            <label for="tahun_ganti_plat" class="form-label">Tahun Ganti
-                                                                Plat</label>
+                                                            <label for="tahun_ganti_plat" class="form-label">Tahun Ganti Plat</label>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col">
-                                                            {{-- <input type="text" class="form-control " placeholder="-" name="tanggal_ganti_plat"
-                                                                value="{{ $k->tanggal_ganti_plat }}" disabled> --}}
+                                                            <input type="text" class="form-control" name="tanggal_ganti_plat" id="tanggal_ganti_plat" disabled>
                                                         </div>
                                                         <div class="col">
-                                                            {{-- <input type="text" class="form-control " placeholder="-" name="bulan_ganti_plat"
-                                                                value="{{ $k->bulan_ganti_plat }}" disabled> --}}
+                                                            <input type="text" class="form-control" name="bulan_ganti_plat" id="bulan_ganti_plat" disabled>
                                                         </div>
                                                         <div class="col">
-                                                            {{-- <input type="text" class="form-control " placeholder="-" name="tahun_ganti_plat"
-                                                                value="{{ $k->tahun_ganti_plat }}" disabled> --}}
+                                                            <input type="text" class="form-control" name="tahun_ganti_plat" id="tahun_ganti_plat" disabled>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -446,8 +413,7 @@
                                             <div class="col">
                                                 <div class="mb-3">
                                                     <label for="keterangan" class="form-label">Keterangan</label>
-                                                    {{-- <input type="text" class="form-control " placeholder="-" name="keterangan"
-                                                        value="{{ $k->keterangan }}" disabled> --}}
+                                                    <input type="text" class="form-control" name="keterangan" id="keterangan" disabled>
                                                 </div>
                                             </div>
 
@@ -469,6 +435,7 @@
                                             <div class="col-6 col-sm-4">
                                                 <div class="mb-3">
                                                     <label for="gambar_depan" class="form-label">Gambar Depan</label>
+                                                    <span id="gambar_depan"></span>
                                                     {{-- <br>
                                                     <img src="{{ asset('storage/' . $k->gambar_depan) }}"
                                                         class="img-preview img-fluid border border-dark mb-3" disabled> --}}
@@ -477,8 +444,8 @@
                                             <div class="w-100 d-none d-md-block"></div>
                                             <div class="col-6 col-sm-4">
                                                 <div class="mb-3">
-                                                    <label for="gambar_belakang" class="form-label">Gambar
-                                                        Belakang</label>
+                                                    <label for="gambar_belakang" class="form-label">Gambar Belakang</label>
+                                                    <span id="gambar_belakang"></span>
                                                     {{-- <br>
                                                     <img src="{{ asset('storage/' . $k->gambar_belakang) }}"
                                                         class="img-preview img-fluid border border-dark mb-3" disabled> --}}
@@ -487,8 +454,8 @@
                                             <div class="w-100 d-none d-md-block"></div>
                                             <div class="col-6 col-sm-4">
                                                 <div class="mb-3">
-                                                    <label for="gambar_samping_kanan" class="form-label">Gambar Samping
-                                                        Kanan</label>
+                                                    <label for="gambar_samping_kanan" class="form-label">Gambar Samping Kanan</label>
+                                                    <span id="gambar_samping_kanan"></span>
                                                     {{-- <br>
                                                     <img src="{{ asset('storage/' . $k->gambar_samping_kanan) }}"
                                                         class="img-preview img-fluid border border-dark mb-3" disabled> --}}
@@ -497,8 +464,8 @@
                                             <div class="w-100 d-none d-md-block"></div>
                                             <div class="col-6 col-sm-4">
                                                 <div class="mb-3">
-                                                    <label for="gambar_samping_kiri" class="form-label">Gambar Samping
-                                                        Kiri</label>
+                                                    <label for="gambar_samping_kiri" class="form-label">Gambar Samping Kiri</label>
+                                                    <span id="gambar_samping_kiri"></span>
                                                     {{-- <br>
                                                     <img src="{{ asset('storage/' . $k->gambar_samping_kiri) }}"
                                                         class="img-preview img-fluid border border-dark mb-3" disabled> --}}
@@ -536,4 +503,5 @@
 @push('script')
     <script src="{{ asset('dist/js/pages/dashboard.js') }}" id="json" data-kendaraan="{{ $kendaraans }}" data-perawatan="{{ $perawatans }}" data-jenis-perawatan="{{ $jenis_perawatan }}"></script>
     <script src="{{ asset('dist/js/pages/dashboard2.js') }}" id="json2" data-kendaraan="{{ $kendaraans }}" data-perawatan="{{ $perawatans }}" data-jenis-perawatan="{{ $jenis_perawatan }}"></script>
+    <script src="{{ asset('dist/js/pages/dashboard3.js') }}" id="json3" data-kendaraan="{{ $kendaraans }}"></script>
 @endpush

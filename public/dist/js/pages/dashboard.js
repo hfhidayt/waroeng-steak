@@ -4,7 +4,7 @@ var ps = document.getElementById("json").getAttribute("data-perawatan");
 
 //Buat data yang telah diambil menjadi JSON
 var kendaraan = JSON.parse(k);
-var perawatan = JSON.parse(ps)
+var perawatan = JSON.parse(ps);
 var tahunPS = JSON.parse(ps.toString());
 var bulanPS = JSON.parse(ps.toString());
 var chartData = JSON.parse(ps.toString());
@@ -18,8 +18,10 @@ document.getElementById('jp1').addEventListener('input', function(event) {
 
     var pb1 = document.getElementById('pb1').value;
     var pt1 = document.getElementById('pt1').value;
-    if(event.target.value != '') {
+    if(pt1 != '') {
         buatChart(event.target.value, pt1);
+    } else {
+        chartKosong();
     }
 
     if(pt1 != '') {
@@ -64,6 +66,8 @@ document.getElementById('pt1').addEventListener('input', function(event) {
     var jp1 = document.getElementById('jp1').value;
     if(event.target.value != '') {
         buatChart(jp1, event.target.value);
+    } else {
+        chartKosong();
     }
 
     var jp1 = document.getElementById('jp1').value;
@@ -88,11 +92,12 @@ function buatChart(a, b) {
     var chartTahun = chartJenis.filter(function(perawatan) {
         if(perawatan.tahun == b) {
             return true;
+        } else if(b == '') {
+            return true;
         } else {
             return false;
         }
     });
-    // var bArr = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
     var chartBulanJanuari = chartTahun.filter(function(perawatan) {
         if(perawatan.bulan == 'Januari') {
             return true;
@@ -251,13 +256,9 @@ function buatChart(a, b) {
         totalDesember += chartBulanDesember[i].total_biaya;
     }
     // console.log(totalDesember);
-
-    // var dataChart = [totalJanuari, totalFebruari, totalMaret, totalApril, totalMei, totalJuni, totalJuli, totalAgustus, totalSeptember, totalOktober, totalNovember, totalDesember];
     
     document.getElementById('perawatan-chart-canvas').remove();
     document.getElementById('canvas-container').innerHTML = '<canvas id="perawatan-chart-canvas"></canvas>';
-    // canvas = document.getElementById('perawatan-chart-canvas');
-    // var ctx = document.getElementById("perawatan-chart-canvas").getContext('2d');
     var ctx = document.getElementById('perawatan-chart-canvas').getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -265,8 +266,45 @@ function buatChart(a, b) {
             labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
             datasets: [{
                 label: 'Biaya',
-                // data: [12000, 19000, 3000, 23000, 2000, 3000, 10000, 5000, 25000, 14000, 15000, 1000],
                 data: [totalJanuari, totalFebruari, totalMaret, totalApril, totalMei, totalJuni, totalJuli, totalAgustus, totalSeptember, totalOktober, totalNovember, totalDesember],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return 'Rp' + new Intl.NumberFormat().format(context.raw);
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    ticks: {
+                        beginAtZero:true,
+                        callback: function(value, index, ticks) {
+                            return 'Rp' + new Intl.NumberFormat().format(value);
+                        }
+                    }
+                }
+            },
+        }
+    });
+}
+
+function chartKosong() {
+    document.getElementById('perawatan-chart-canvas').remove();
+    document.getElementById('canvas-container').innerHTML = '<canvas id="perawatan-chart-canvas"></canvas>';
+    var ctx = document.getElementById('perawatan-chart-canvas').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
+            datasets: [{
+                label: 'Biaya',
+                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 borderWidth: 1
             }]
         },

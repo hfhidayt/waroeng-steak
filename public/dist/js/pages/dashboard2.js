@@ -1,274 +1,293 @@
-//Ambil data dari file \resources\views\dashboard\index.blade.php
-var k2 = document.getElementById("json2").getAttribute("data-kendaraan");
-var ps2 = document.getElementById("json2").getAttribute("data-perawatan");
+var kendaraan = document.getElementById("json2").getAttribute("data-kendaraan");
+var perawatan = document.getElementById("json2").getAttribute("data-perawatan");
 
-//Buat data yang telah diambil menjadi JSON
-var kendaraan = JSON.parse(k2);
-var noPlatK = JSON.parse(k2.toString());
-var perawatan = JSON.parse(ps2)
-var tahunPS2 = JSON.parse(ps2.toString());
-var bulanPS2 = JSON.parse(ps2.toString());
-var chartData2 = JSON.parse(ps2.toString());
+var k = JSON.parse(kendaraan);
+var ps = JSON.parse(perawatan);
+var dataPerawatan = JSON.parse(perawatan.toString());
 
-//Menampilkan Banyaknya kendaraan yang ada di database
-// document.getElementById("jk1").value = kendaraan.length;
-
-//Menampilkan Jenis Perawatan ke Header Chart
 document.getElementById('jp2').addEventListener('input', function(event) {
-    document.getElementById('chart-jenis').innerHTML = event.target.value;
+    document.getElementById('chart-header-jenis').innerHTML = event.target.value;
 
     var pb2 = document.getElementById('pb2').value;
+    var np2 = $('#np2').select2('data');
     var pt2 = document.getElementById('pt2').value;
-    if(event.target.value != '') {
-        buatChart2(event.target.value, pt2);
-    }
-
     if(pt2 != '') {
-        hitungTotal2(pt2, event.target.value, pb2);
+        hitungTotalKendaraan(event.target.value, np2[0].id, pb2, pt2);
+        buatChartKendaraan(event.target.value, np2[0].id, pt2);
     } else {
         document.getElementById('t2').value = 'Rp' + new Intl.NumberFormat().format(0);
+        chartKendaraanKosong();
     }
 });
 
-//Memfilter dan menghitung total biaya berdasarkan bulan yang dipilih
+$('#np2').select2({
+    theme: 'bootstrap-5',
+});
+
+$('#np2').on('select2:select', function(e) {
+    var data = e.params.data;
+    document.getElementById('chart-header-no-plat').innerHTML = k[data.id - 1].no_plat;
+
+    var jp2 = document.getElementById('jp2').value;
+    var pb2 = document.getElementById('pb2').value;
+    var pt2 = document.getElementById('pt2').value;
+    if(pt2 != '') {
+        hitungTotalKendaraan(jp2, data.id, pb2, pt2);
+        buatChartKendaraan(jp2, data.id, pt2);
+    } else {
+        document.getElementById('t2').value = 'Rp' + new Intl.NumberFormat().format(0);
+        chartKendaraanKosong();
+    }
+    // console.log(data.id); -> return id
+});
+
 document.getElementById('pb2').addEventListener('input', function(event) {
     var jp2 = document.getElementById('jp2').value;
+    var np2 = $('#np2').select2('data');
     var pt2 = document.getElementById('pt2').value;
-    if(pt2 != '') {
-        hitungTotal2(pt2, jp2, event.target.value);
+    if(event.target.value) {
+        hitungTotalKendaraan(jp2, np2[0].id, event.target.value, pt2);
     } else {
         document.getElementById('t2').value = 'Rp' + new Intl.NumberFormat().format(0);
     }
 });
 
-//Menambahkan option ke select untuk memilih tahun yang hanya ada di database
-//filter jika lebih dari 1 maka ditampilkan 1 saja
-var tahun = {};
-tahunPS2 = tahunPS2.filter(function(perawatan) {
-    if(perawatan.tahun in tahun) {
-        return false;
-    } else {
-        tahun[perawatan.tahun] = perawatan.tahun;
-        return true;
-    }
-});
-var select = document.getElementById('pt2');
-for (a in tahunPS2) {
-    var el = document.createElement('option');
-    el.textContent = tahunPS2[a].tahun;
-    el.value = tahunPS2[a].tahun;
-    select.appendChild(el);
-}
+trimTahun();
 
 document.getElementById('pt2').addEventListener('input', function(event) {
-    document.getElementById('chart-tahun').innerHTML = event.target.value;
-
-    var jp2 = document.getElementById('jp2').value;
-    if(event.target.value != '') {
-        buatChart2(jp2, event.target.value);
-    }
-
     var jp2 = document.getElementById('jp2').value;
     var pb2 = document.getElementById('pb2').value;
-    if(event.target.value != '') {
-        hitungTotal2(event.target.value, jp2, pb2);
+    var np2 = $('#np2').select2('data');
+    // console.log(np2[0].id);
+    if(event.target.value) {
+        // console.log('1');
+        hitungTotalKendaraan(jp2, np2[0].id, pb2, event.target.value);
+        buatChartKendaraan(jp2, np2[0].id, event.target.value);
     } else {
+        // console.log('2');
         document.getElementById('t2').value = 'Rp' + new Intl.NumberFormat().format(0);
+        chartKendaraanKosong();
     }
 });
 
-function buatChart2(a, b) {
-    var chartJenis = chartData2.filter(function(perawatan) {
-        if(perawatan.jenis_perawatan == a) {
+function trimTahun() {
+    var tahun = {};
+    var trim = dataPerawatan.filter(ps => {
+        if(ps.tahun in tahun) {
+            return false;
+        } else {
+            tahun[ps.tahun] = ps.tahun;
             return true;
-        } else if(a == '') {
+        }
+    });
+    var selectTahun = document.getElementById('pt2');
+    for(i in trim) {
+        var el = document.createElement('option');
+        el.textContent = trim[i].tahun;
+        el.value = trim[i].tahun;
+        selectTahun.appendChild(el);
+    }
+}
+
+function buatChartKendaraan(x, y, z) {
+    var chartKendaraanJenis = dataPerawatan.filter(ps => {
+        if(ps.jenis_perawatan == x) {
+            return true;
+        } else if(x == '') {
             return true;
         } else {
             return false;
         }
     });
-    var chartTahun = chartJenis.filter(function(perawatan) {
-        if(perawatan.tahun == b) {
+    // console.log(chartKendaraanJenis);
+    var chartKendaraanPlat = chartKendaraanJenis.filter(ps => {
+        if(ps.kendaraan_id == y) {
+            return true;
+        } else if(y == '') {
             return true;
         } else {
             return false;
         }
     });
-    // var bArr = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-    var chartBulanJanuari = chartTahun.filter(function(perawatan) {
-        if(perawatan.bulan == 'Januari') {
+    // console.log(chartKendaraanPlat);
+    var chartKendaraanTahun = chartKendaraanPlat.filter(ps => {
+        if(ps.tahun == z) {
+            return true;
+        } else if(z == '') {
             return true;
         } else {
             return false;
         }
     });
-    totalJanuari = 0;
-    for(i in chartBulanJanuari) {
-        totalJanuari += chartBulanJanuari[i].total_biaya;
+    var chartKendaraanBulanJanuari = chartKendaraanTahun.filter(function(ps) {
+        if(ps.bulan == 'Januari') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    totalKendaraanJanuari = 0;
+    for(i in chartKendaraanBulanJanuari) {
+        totalKendaraanJanuari += chartKendaraanBulanJanuari[i].total_biaya;
     }
     // chartBulanJanuari.forEach(function(total, index) {
     //     totalJanuari += chartBulanJanuari.total_biaya;
     // });
     // console.log(totalJanuari);
 
-    var chartBulanFebruari = chartTahun.filter(function(perawatan) {
-        if(perawatan.bulan == 'Februari') {
+    var chartKendaraanBulanFebruari = chartKendaraanTahun.filter(function(ps) {
+        if(ps.bulan == 'Februari') {
             return true;
         } else {
             return false;
         }
     });
-    totalFebruari = 0;
-    for(i in chartBulanFebruari) {
-        totalFebruari += chartBulanFebruari[i].total_biaya;
+    totalKendaraanFebruari = 0;
+    for(i in chartKendaraanBulanFebruari) {
+        totalKendaraanFebruari += chartKendaraanBulanFebruari[i].total_biaya;
     }
-    // console.log(totalFebruari);
+    // console.log(totalKendaraanFebruari);
 
-    var chartBulanMaret = chartTahun.filter(function(perawatan) {
-        if(perawatan.bulan == 'Maret') {
+    var chartKendaraanMaret = chartKendaraanTahun.filter(function(ps) {
+        if(ps.bulan == 'Maret') {
             return true;
         } else {
             return false;
         }
     });
-    totalMaret = 0;
-    for(i in chartBulanMaret) {
-        totalMaret += chartBulanMaret[i].total_biaya;
+    totalKendaraanMaret = 0;
+    for(i in chartKendaraanMaret) {
+        totalKendaraanMaret += chartKendaraanMaret[i].total_biaya;
     }
-    // console.log(totalMaret);
+    // console.log(totalKendaraanMaret);
 
-    var chartBulanApril = chartTahun.filter(function(perawatan) {
-        if(perawatan.bulan == 'April') {
+    var chartKendaraanApril = chartKendaraanTahun.filter(function(ps) {
+        if(ps.bulan == 'April') {
             return true;
         } else {
             return false;
         }
     });
-    totalApril = 0;
-    for(i in chartBulanApril) {
-        totalApril += chartBulanApril[i].total_biaya;
+    totalKendaraanApril = 0;
+    for(i in chartKendaraanApril) {
+        totalKendaraanApril += chartKendaraanApril[i].total_biaya;
     }
-    // console.log(totalApril);
+    // console.log(totalKendaraanApril);
 
-    var chartBulanMei = chartTahun.filter(function(perawatan) {
-        if(perawatan.bulan == 'Mei') {
+    var chartKendaraanMei = chartKendaraanTahun.filter(function(ps) {
+        if(ps.bulan == 'Mei') {
             return true;
         } else {
             return false;
         }
     });
-    totalMei = 0;
-    for(i in chartBulanMei) {
-        totalMei += chartBulanMei[i].total_biaya;
+    totalKendaraanMei = 0;
+    for(i in chartKendaraanMei) {
+        totalKendaraanMei += chartKendaraanMei[i].total_biaya;
     }
-    // console.log(totalMei);
+    // console.log(totalKendaraanMei);
 
-    var chartBulanJuni = chartTahun.filter(function(perawatan) {
-        if(perawatan.bulan == 'Juni') {
+    var chartKendaraanJuni = chartKendaraanTahun.filter(function(ps) {
+        if(ps.bulan == 'Juni') {
             return true;
         } else {
             return false;
         }
     });
-    totalJuni = 0;
-    for(i in chartBulanJuni) {
-        totalJuni += chartBulanJuni[i].total_biaya;
+    totalKendaraanJuni = 0;
+    for(i in chartKendaraanJuni) {
+        totalKendaraanJuni += chartKendaraanJuni[i].total_biaya;
     }
-    // console.log(totalJuni);
+    // console.log(totalKendaraanJuni);
 
-    var chartBulanJuli = chartTahun.filter(function(perawatan) {
-        if(perawatan.bulan == 'Juli') {
+    var chartKendaraanJuli = chartKendaraanTahun.filter(function(ps) {
+        if(ps.bulan == 'Juli') {
             return true;
         } else {
             return false;
         }
     });
-    totalJuli = 0;
-    for(i in chartBulanJuli) {
-        totalJuli += chartBulanJuli[i].total_biaya;
+    totalKendaraanJuli = 0;
+    for(i in chartKendaraanJuli) {
+        totalKendaraanJuli += chartKendaraanJuli[i].total_biaya;
     }
-    // console.log(totalJuli);
+    // console.log(totalKendaraanJuli);
 
-    var chartBulanAgustus = chartTahun.filter(function(perawatan) {
-        if(perawatan.bulan == 'Agustus') {
+    var chartKendaraanAgustus = chartKendaraanTahun.filter(function(ps) {
+        if(ps.bulan == 'Agustus') {
             return true;
         } else {
             return false;
         }
     });
-    totalAgustus = 0;
-    for(i in chartBulanAgustus) {
-        totalAgustus += chartBulanAgustus[i].total_biaya;
+    totalKendaraanAgustus = 0;
+    for(i in chartKendaraanAgustus) {
+        totalKendaraanAgustus += chartKendaraanAgustus[i].total_biaya;
     }
-    // console.log(totalAgustus);
+    // console.log(totalKendaraanAgustus);
 
-    var chartBulanSeptember = chartTahun.filter(function(perawatan) {
-        if(perawatan.bulan == 'September') {
+    var chartKendaraanSeptember = chartKendaraanTahun.filter(function(ps) {
+        if(ps.bulan == 'September') {
             return true;
         } else {
             return false;
         }
     });
-    totalSeptember = 0;
-    for(i in chartBulanSeptember) {
-        totalSeptember += chartBulanSeptember[i].total_biaya;
+    totalKendaraanSeptember = 0;
+    for(i in chartKendaraanSeptember) {
+        totalKendaraanSeptember += chartKendaraanSeptember[i].total_biaya;
     }
-    // console.log(totalSeptember);
+    // console.log(totalKendaraanSeptember);
 
-    var chartBulanOktober = chartTahun.filter(function(perawatan) {
-        if(perawatan.bulan == 'Oktober') {
+    var chartKendaraanOktober = chartKendaraanTahun.filter(function(ps) {
+        if(ps.bulan == 'Oktober') {
             return true;
         } else {
             return false;
         }
     });
-    totalOktober = 0;
-    for(i in chartBulanOktober) {
-        totalOktober += chartBulanOktober[i].total_biaya;
+    totalKendaraanOktober = 0;
+    for(i in chartKendaraanOktober) {
+        totalKendaraanOktober += chartKendaraanOktober[i].total_biaya;
     }
-    // console.log(totalOktober);
+    // console.log(totalKendaraanOktober);
 
-    var chartBulanNovember = chartTahun.filter(function(perawatan) {
-        if(perawatan.bulan == 'November') {
+    var chartKendaraanNovember = chartKendaraanTahun.filter(function(ps) {
+        if(ps.bulan == 'November') {
             return true;
         } else {
             return false;
         }
     });
-    totalNovember = 0;
-    for(i in chartBulanNovember) {
-        totalNovember += chartBulanNovember[i].total_biaya;
+    totalKendaraanNovember = 0;
+    for(i in chartKendaraanNovember) {
+        totalKendaraanNovember += chartKendaraanNovember[i].total_biaya;
     }
-    // console.log(totalNovember);
+    // console.log(totalKendaraanNovember);
 
-    var chartBulanDesember = chartTahun.filter(function(perawatan) {
-        if(perawatan.bulan == 'Desember') {
+    var chartKendaraanDesember = chartKendaraanTahun.filter(function(ps) {
+        if(ps.bulan == 'Desember') {
             return true;
         } else {
             return false;
         }
     });
-    totalDesember = 0;
-    for(i in chartBulanDesember) {
-        totalDesember += chartBulanDesember[i].total_biaya;
+    totalKendaraanDesember = 0;
+    for(i in chartKendaraanDesember) {
+        totalKendaraanDesember += chartKendaraanDesember[i].total_biaya;
     }
-    // console.log(totalDesember);
-
-    // var dataChart = [totalJanuari, totalFebruari, totalMaret, totalApril, totalMei, totalJuni, totalJuli, totalAgustus, totalSeptember, totalOktober, totalNovember, totalDesember];
+    // console.log(totalKendaraanDesember);
     
     document.getElementById('kendaraan-chart-canvas').remove();
     document.getElementById('canvas-kendaraan').innerHTML = '<canvas id="kendaraan-chart-canvas"></canvas>';
-    // canvas = document.getElementById('kendaraan-chart-canvas');
-    // var ctx = document.getElementById("kendaraan-chart-canvas").getContext('2d');
-    var ctx = document.getElementById('kendaraan-chart-canvas').getContext('2d');
-    var myChart = new Chart(ctx, {
+    var contex = document.getElementById('kendaraan-chart-canvas').getContext('2d');
+    var chartKendaraan = new Chart(contex, {
         type: 'bar',
         data: {
             labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
             datasets: [{
                 label: 'Biaya',
-                // data: [12000, 19000, 3000, 23000, 2000, 3000, 10000, 5000, 25000, 14000, 15000, 1000],
-                data: [totalJanuari, totalFebruari, totalMaret, totalApril, totalMei, totalJuni, totalJuli, totalAgustus, totalSeptember, totalOktober, totalNovember, totalDesember],
+                data: [totalKendaraanJanuari, totalKendaraanFebruari, totalKendaraanMaret, totalKendaraanApril, totalKendaraanMei, totalKendaraanJuni, totalKendaraanJuli, totalKendaraanAgustus, totalKendaraanSeptember, totalKendaraanOktober, totalKendaraanNovember, totalKendaraanDesember],
                 borderWidth: 1
             }]
         },
@@ -296,27 +315,57 @@ function buatChart2(a, b) {
     });
 }
 
-function hitungTotal2(x, y, z, w) {
-    var tahun = bulanPS2.filter(perawatan => {
-        if(perawatan.tahun == x) {
+function chartKendaraanKosong() {
+    document.getElementById('kendaraan-chart-canvas').remove();
+    document.getElementById('canvas-kendaraan').innerHTML = '<canvas id="kendaraan-chart-canvas"></canvas>';
+    var contex = document.getElementById('kendaraan-chart-canvas').getContext('2d');
+    var chartKendaraan = new Chart(contex, {
+        type: 'bar',
+        data: {
+            labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
+            datasets: [{
+                label: 'Biaya',
+                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return 'Rp' + new Intl.NumberFormat().format(context.raw);
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    ticks: {
+                        beginAtZero:true,
+                        callback: function(value, index, ticks) {
+                            return 'Rp' + new Intl.NumberFormat().format(value);
+                        }
+                    }
+                }
+            },
+        }
+    });
+}
+
+function hitungTotalKendaraan(a, z, i, z2) {
+    var jenis = dataPerawatan.filter(ps => {
+        if(ps.jenis_perawatan == a) {
             return true;
-        } else if(x == '') {
+        } else if(a == '') {
             return true;
         } else {
             return false;
         }
     });
-    var jenisPerawatan = tahun.filter(perawatan => {
-        if(perawatan.jenis_perawatan == y) {
-            return true;
-        } else if(y == '') {
-            return true;
-        } else {
-            return false;
-        }
-    });
-    var bulan = jenisPerawatan.filter(perawatan => {
-        if(perawatan.bulan == z) {
+    // console.log(jenis);
+    var noPlat = jenis.filter(ps => {
+        if(ps.kendaraan_id == z) {
             return true;
         } else if(z == '') {
             return true;
@@ -324,21 +373,33 @@ function hitungTotal2(x, y, z, w) {
             return false;
         }
     });
-    // var no_plat = noPlatK.filter(kendaraan => {
-    //     if(kendaraan.no_plat == w) {
-    //         return true;
-    //     } else if(w == '') {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // });
+    // console.log(noPlat);
+    var bulan = noPlat.filter(ps => {
+        if(ps.bulan == i) {
+            return true;
+        } else if(i == '') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    // console.log(bulan);
+    var tahun = bulan.filter(ps => {
+        if(ps.tahun == z2) {
+            return true;
+        } else if(z2 == '') {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    // console.log(z2);
+    // console.log(tahun);
+    // console.log(tahun[0].total_biaya);
     var total = 0;
-    for(i in bulan) {
-        total += bulan[i].total_biaya;
+    for(i in tahun) {
+        total += tahun[i].total_biaya;
     }
-    // for(j in no_plat){
-    //     total += no_plat[i].total_biaya;
-    // }
+    // console.log(total);
     document.getElementById('t2').value = 'Rp' + new Intl.NumberFormat().format(total);
 }
