@@ -284,20 +284,20 @@
                                     <div class="card-body">
                                         <!-- data kendaraan -->
                                         <div class="row">
-                                            <div class="col">
-                                                <div class="mb-3">
-                                                    <label for="wilayah" class="form-label">Wilayah</label>
-                                                    <input type="text" class="form-control" id="wilayah" name="wilayah" disabled>
-                                                </div>
-                                                <div class="mb-3">
+                                            {{-- kolom 1 --}}
+                                            <div class="col-6">
+                                                {{-- <div class="mb-3">
                                                     <label for="no_plat" class="form-label">Nomor Plat</label>
-                                                    {{-- <input type="text" class="form-control" id="no_plat" name="no_plat" disabled> --}}
                                                     <select class="form-select" name="no_plat" id="no_plat">
                                                         <option value="">No. Plat</option>
                                                         @foreach ($kendaraans as $k)
                                                             <option value="{{ $k->id }}">{{ $k->no_plat }}</option>
                                                         @endforeach
                                                     </select>
+                                                </div> --}}
+                                                <div class="mb-3">
+                                                    <label for="wilayah" class="form-label">Wilayah</label>
+                                                    <input type="text" class="form-control" id="wilayah" name="wilayah" disabled>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="jenis_kendaraan" class="form-label">Jenis Kendaraan</label>
@@ -320,7 +320,8 @@
                                                     <input type="text" class="form-control" id="atas_nama" name="atas_nama" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col">
+                                            {{-- kolom 2 --}}
+                                            <div class="col-6">
                                                 <div class="mb-3">
                                                     <label for="tahun" class="form-label">Tahun</label>
                                                     <input type="text" class="form-control" id="tahun" name="tahun" disabled>
@@ -344,12 +345,6 @@
                                                 <div class="mb-3">
                                                     <label for="posisi_kendaraan" class="form-label">Posisi Kendaraan</label>
                                                     <input type="text" class="form-control" id="posisi_kendaraan" name="posisi_kendaraan" disabled>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="surat_penanggung_jawab" class="form-label">Surat Penanggung Jawab</label>
-                                                    <div class="col mb-3">
-                                                        <a href="#" id="surat_penanggung_jawab">Lihat Surat Penanggung Jawab</a>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -416,7 +411,14 @@
                                                     <input type="text" class="form-control" name="keterangan" id="keterangan" disabled>
                                                 </div>
                                             </div>
-
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label for="surat_penanggung_jawab" class="form-label">Surat Penanggung Jawab</label>
+                                                    <div class="col">
+                                                        <a href="#" id="surat_penanggung_jawab">Lihat Surat Penanggung Jawab</a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <!-- /.card-body -->
@@ -432,40 +434,38 @@
                                     </div><!-- /.card-header -->
                                     <div class="card-body" id="table_chart_2">
                                         <div class="row">
-                                            <div class="col-6 col-sm-4">
+                                            <div class="col-6 col-sm-6">
                                                 <div class="mb-3">
                                                     <label for="gambar_depan" class="form-label">Gambar Depan</label>
-                                                    <span id="gambar_depan"></span>
+                                                    <div><span id="gambar_depan"></span></div>
                                                     {{-- <br>
                                                     <img src="{{ asset('storage/' . $k->gambar_depan) }}"
                                                         class="img-preview img-fluid border border-dark mb-3" disabled> --}}
                                                 </div>
                                             </div>
-                                            <div class="w-100 d-none d-md-block"></div>
-                                            <div class="col-6 col-sm-4">
+                                            <div class="col-6 col-sm-6">
                                                 <div class="mb-3">
                                                     <label for="gambar_belakang" class="form-label">Gambar Belakang</label>
-                                                    <span id="gambar_belakang"></span>
+                                                    <div><span id="gambar_belakang"></span></div>
                                                     {{-- <br>
                                                     <img src="{{ asset('storage/' . $k->gambar_belakang) }}"
                                                         class="img-preview img-fluid border border-dark mb-3" disabled> --}}
                                                 </div>
                                             </div>
                                             <div class="w-100 d-none d-md-block"></div>
-                                            <div class="col-6 col-sm-4">
+                                            <div class="col-6 col-sm-6">
                                                 <div class="mb-3">
                                                     <label for="gambar_samping_kanan" class="form-label">Gambar Samping Kanan</label>
-                                                    <span id="gambar_samping_kanan"></span>
+                                                    <div><span id="gambar_samping_kanan"></span></div>
                                                     {{-- <br>
                                                     <img src="{{ asset('storage/' . $k->gambar_samping_kanan) }}"
                                                         class="img-preview img-fluid border border-dark mb-3" disabled> --}}
                                                 </div>
                                             </div>
-                                            <div class="w-100 d-none d-md-block"></div>
-                                            <div class="col-6 col-sm-4">
+                                            <div class="col-6 col-sm-6">
                                                 <div class="mb-3">
                                                     <label for="gambar_samping_kiri" class="form-label">Gambar Samping Kiri</label>
-                                                    <span id="gambar_samping_kiri"></span>
+                                                    <div><span id="gambar_samping_kiri"></span></div>
                                                     {{-- <br>
                                                     <img src="{{ asset('storage/' . $k->gambar_samping_kiri) }}"
                                                         class="img-preview img-fluid border border-dark mb-3" disabled> --}}
@@ -503,5 +503,5 @@
 @push('script')
     <script src="{{ asset('dist/js/pages/dashboard.js') }}" id="json" data-kendaraan="{{ $kendaraans }}" data-perawatan="{{ $perawatans }}" data-jenis-perawatan="{{ $jenis_perawatan }}"></script>
     <script src="{{ asset('dist/js/pages/dashboard2.js') }}" id="json2" data-kendaraan="{{ $kendaraans }}" data-perawatan="{{ $perawatans }}" data-jenis-perawatan="{{ $jenis_perawatan }}"></script>
-    <script src="{{ asset('dist/js/pages/dashboard3.js') }}" id="json3" data-kendaraan="{{ $kendaraans }}"></script>
+    {{-- <script src="{{ asset('dist/js/pages/dashboard3.js') }}" id="json3" data-kendaraan="{{ $kendaraans }}"></script> --}}
 @endpush

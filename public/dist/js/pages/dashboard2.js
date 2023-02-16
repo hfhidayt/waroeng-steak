@@ -4,6 +4,7 @@ var perawatan = document.getElementById("json2").getAttribute("data-perawatan");
 var k = JSON.parse(kendaraan);
 var ps = JSON.parse(perawatan);
 var dataPerawatan = JSON.parse(perawatan.toString());
+var kendaraanJSON = JSON.parse(kendaraan);
 
 document.getElementById('jp2').addEventListener('input', function(event) {
     document.getElementById('chart-header-jenis').innerHTML = event.target.value;
@@ -20,14 +21,41 @@ document.getElementById('jp2').addEventListener('input', function(event) {
     }
 });
 
+// import select2 untuk no_plat dashboard
 $('#np2').select2({
     theme: 'bootstrap-5',
+    width: '100%',
 });
 
+// function select2 untuk mengisi chart dan indentitas kendaraan dashboard
 $('#np2').on('select2:select', function(e) {
     var data = e.params.data;
     document.getElementById('chart-header-no-plat').innerHTML = k[data.id - 1].no_plat;
-
+    // start (identitas kendaraan dashboard)
+    document.getElementById('wilayah').value = kendaraanJSON[data.id - 1].wilayah;
+    document.getElementById('jenis_kendaraan').value = kendaraanJSON[data.id - 1].jenis_kendaraan;
+    document.getElementById('no_rangka').value = kendaraanJSON[data.id - 1].no_rangka;
+    document.getElementById('no_mesin').value = kendaraanJSON[data.id - 1].no_mesin;
+    document.getElementById('no_bpkb').value = kendaraanJSON[data.id - 1].no_bpkb;
+    document.getElementById('atas_nama').value = kendaraanJSON[data.id - 1].atas_nama;
+    document.getElementById('tanggal_pajak').value = kendaraanJSON[data.id - 1].tanggal_pajak;
+    document.getElementById('bulan_pajak').value = kendaraanJSON[data.id - 1].bulan_pajak;
+    document.getElementById('tahun_pajak').value = kendaraanJSON[data.id - 1].tahun_pajak;
+    document.getElementById('tanggal_ganti_plat').value = kendaraanJSON[data.id - 1].tanggal_ganti_plat;
+    document.getElementById('bulan_ganti_plat').value = kendaraanJSON[data.id - 1].bulan_ganti_plat;
+    document.getElementById('tahun_ganti_plat').value = kendaraanJSON[data.id - 1].tahun_ganti_plat;
+    document.getElementById('tahun').value = kendaraanJSON[data.id - 1].tahun;
+    document.getElementById('warna').value = kendaraanJSON[data.id - 1].warna;
+    document.getElementById('bahan_bakar').value = kendaraanJSON[data.id - 1].bahan_bakar;
+    document.getElementById('jenis_merk').value = kendaraanJSON[data.id - 1].jenis_merk;
+    document.getElementById('pic').value = kendaraanJSON[data.id - 1].pic;
+    document.getElementById('posisi_kendaraan').value = kendaraanJSON[data.id - 1].posisi_kendaraan;
+    document.getElementById('keterangan').value = kendaraanJSON[data.id - 1].keterangan;
+    document.getElementById('gambar_depan').innerHTML = '<img src="storage/' + kendaraanJSON[data.id - 1].gambar_depan + '" class="img-preview img-fluid border border-dark mb-3">';
+    document.getElementById('gambar_belakang').innerHTML = '<img src="storage/' + kendaraanJSON[data.id - 1].gambar_belakang + '" class="img-preview img-fluid border border-dark mb-3">';
+    document.getElementById('gambar_samping_kanan').innerHTML = '<img src="storage/' + kendaraanJSON[data.id - 1].gambar_samping_kanan + '" class="img-preview img-fluid border border-dark mb-3">';
+    document.getElementById('gambar_samping_kiri').innerHTML = '<img src="storage/' + kendaraanJSON[data.id - 1].gambar_samping_kiri + '" class="img-preview img-fluid border border-dark mb-3">';
+    // end (identitas kendaraan dashboard)
     var jp2 = document.getElementById('jp2').value;
     var pb2 = document.getElementById('pb2').value;
     var pt2 = document.getElementById('pt2').value;
@@ -39,6 +67,12 @@ $('#np2').on('select2:select', function(e) {
         chartKendaraanKosong();
     }
     // console.log(data.id); -> return id
+});
+
+// function surat penanggung jawab dashboard
+document.getElementById('surat_penanggung_jawab').addEventListener('click', event => {
+    var no_plat = $('#np2').select2('data');
+    window.open('storage/' + kendaraanJSON[no_plat[0].id].surat_penanggung_jawab, '_blank');
 });
 
 document.getElementById('pb2').addEventListener('input', function(event) {

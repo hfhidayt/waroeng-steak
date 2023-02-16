@@ -24,6 +24,10 @@
     width: fit-content;
 }
 
+/* .no_plat {
+    width: 100% !important;
+} */
+
 table.table-bordered > thead > tr > th{
     border: 1px solid black !important;
     /* border-collapse: collapse; */
