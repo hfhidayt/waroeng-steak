@@ -46,7 +46,7 @@
             </div>
             <div class="row justify-content-center text-center">
                 <div class="col">
-                    <h3 class="headerPrint">KENDARAAN<span id="npPH"></span></h3>
+                    <h3 class="headerPrint">KENDARAAN <span id="npPH"></span></h3>
                 </div>
             </div>
             <div class="row justify-content-center text-center">
