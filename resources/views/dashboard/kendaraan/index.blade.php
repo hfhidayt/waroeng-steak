@@ -15,6 +15,7 @@
                 <a href="/dashboard/merk/kendaraan" class="btn btn-success">Merk Kendaraan</a>
                 <a href="/dashboard/jenis/kendaraan" class="btn btn-success">Jenis Kendaraan</a>
                 <a href="/dashboard/bahanbakar/kendaraan" class="btn btn-success">Bahan Bakar</a>
+                <a href="/dashboard/download/kendaraan" class="btn btn-warning">Download Data Kendaraan</a>
             </div>
         </div>
         <div class="row">
@@ -81,9 +82,10 @@
             oFReader.readAsDataURL(image.files[0]);
 
             oFReader.onload = function(oFREvent) {
-            imgPreview.src = oFREvent.target.result;
+                imgPreview.src = oFREvent.target.result;
             }
         }
+
         function previewGambarBelakang() {
             const image = document.querySelector('#gambar_belakang');
             const imgPreview = document.querySelector('.img-preview2');
@@ -94,9 +96,10 @@
             oFReader.readAsDataURL(image.files[0]);
 
             oFReader.onload = function(oFREvent) {
-            imgPreview.src = oFREvent.target.result;
+                imgPreview.src = oFREvent.target.result;
             }
         }
+
         function previewGambarSampingKanan() {
             const image = document.querySelector('#gambar_samping_kanan');
             const imgPreview = document.querySelector('.img-preview3');
@@ -107,9 +110,10 @@
             oFReader.readAsDataURL(image.files[0]);
 
             oFReader.onload = function(oFREvent) {
-            imgPreview.src = oFREvent.target.result;
+                imgPreview.src = oFREvent.target.result;
             }
         }
+
         function previewGambarSampingKiri() {
             const image = document.querySelector('#gambar_samping_kiri');
             const imgPreview = document.querySelector('.img-preview4');
@@ -120,13 +124,41 @@
             oFReader.readAsDataURL(image.files[0]);
 
             oFReader.onload = function(oFREvent) {
-            imgPreview.src = oFREvent.target.result;
+                imgPreview.src = oFREvent.target.result;
             }
         }
 
-        // preview image update
+        function previewBPKB() {
+            const image = document.querySelector('#foto_bpkb');
+            const imgPreview = document.querySelector('.img-preview5');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+
+        function previewSTNK() {
+            const image = document.querySelector('#foto_stnk');
+            const imgPreview = document.querySelector('.img-preview6');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+
+        // preview image update / edit
         function previewGambarDepanEdit() {
-            const image = document.querySelector('#gambar_depan_baru');
+            const image = document.querySelector('#gambar_depan');
             const imgPreview = document.querySelector('.img-preview11');
 
             imgPreview.style.display = 'block';
@@ -135,11 +167,12 @@
             oFReader.readAsDataURL(image.files[0]);
 
             oFReader.onload = function(oFREvent) {
-            imgPreview.src = oFREvent.target.result;
+                imgPreview.src = oFREvent.target.result;
             }
         }
+
         function previewGambarBelakangEdit() {
-            const image = document.querySelector('#gambar_belakang_baru');
+            const image = document.querySelector('#gambar_belakang');
             const imgPreview = document.querySelector('.img-preview22');
 
             imgPreview.style.display = 'block';
@@ -148,11 +181,12 @@
             oFReader.readAsDataURL(image.files[0]);
 
             oFReader.onload = function(oFREvent) {
-            imgPreview.src = oFREvent.target.result;
+                imgPreview.src = oFREvent.target.result;
             }
         }
+
         function previewGambarSampingKananEdit() {
-            const image = document.querySelector('#gambar_samping_kanan_baru');
+            const image = document.querySelector('#gambar_samping_kanan');
             const imgPreview = document.querySelector('.img-preview33');
 
             imgPreview.style.display = 'block';
@@ -161,11 +195,12 @@
             oFReader.readAsDataURL(image.files[0]);
 
             oFReader.onload = function(oFREvent) {
-            imgPreview.src = oFREvent.target.result;
+                imgPreview.src = oFREvent.target.result;
             }
         }
-        function previewGambarSampingKiriEdit   () {
-            const image = document.querySelector('#gambar_samping_kiri_baru');
+
+        function previewGambarSampingKiriEdit() {
+            const image = document.querySelector('#gambar_samping_kiri');
             const imgPreview = document.querySelector('.img-preview44');
 
             imgPreview.style.display = 'block';
@@ -174,13 +209,41 @@
             oFReader.readAsDataURL(image.files[0]);
 
             oFReader.onload = function(oFREvent) {
-            imgPreview.src = oFREvent.target.result;
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+
+        function previewBPKBEdit() {
+            const image = document.querySelector('#foto_bpkb');
+            const imgPreview = document.querySelector('.img-preview55');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+
+        function previewSTNKEdit() {
+            const image = document.querySelector('#foto_stnk');
+            const imgPreview = document.querySelector('.img-preview66');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
             }
         }
 
         // error handling for create
-        @if(session()->has('create'))
-            $( document ).ready(function() {
+        @if (session()->has('create'))
+            $(document).ready(function() {
                 $('#create').modal('show');
             });
 
@@ -188,30 +251,30 @@
             const npe = document.getElementById('np_e');
             @error('no_plat')
                 np.classList.add('is-invalid');
-                npe.append('@error("no_plat") {{ $message }} @enderror');
+                npe.append('@error('no_plat') {{ $message }} @enderror');
             @enderror
             np.setAttribute('value', "{{ old('no_plat') }}");
-            
+
             @php
-                Illuminate\Support\Facades\Session::forget('create')
+                Illuminate\Support\Facades\Session::forget('create');
             @endphp
         @endif
 
         // error handling for edit
-        @if(session()->has('editId'))
-            $( document ).ready(function() {
-                $('#edit{{ session("editId") }}').modal('show');
+        @if (session()->has('editId'))
+            $(document).ready(function() {
+                $('#edit{{ session('editId') }}').modal('show');
             });
-            
-            const np = document.getElementById('no_plat{{ session("editId") }}');
-            const npe = document.getElementById('np_e{{ session("editId") }}');
+
+            const np = document.getElementById('no_plat{{ session('editId') }}');
+            const npe = document.getElementById('np_e{{ session('editId') }}');
             @error('no_plat')
                 np.classList.add('is-invalid');
-                npe.append('@error("no_plat") {{ $message }} @enderror');
+                npe.append('@error('no_plat') {{ $message }} @enderror');
             @enderror
 
             @php
-                Illuminate\Support\Facades\Session::forget('editId')
+                Illuminate\Support\Facades\Session::forget('editId');
             @endphp
         @endif
     </script>

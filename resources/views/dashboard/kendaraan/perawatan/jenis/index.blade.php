@@ -48,24 +48,33 @@
 @endsection
 @push('script')
     <script>
-        @if(session()->has('editJPS'))
-            $( document ).ready(function() {
-                $('#edit{{ session("editJPS") }}').modal('show');
+        $(document).ready(function() {
+            var table = $('#table_id').DataTable({
+                ordering: false,
+                columnDefs: [{
+                    targets: '_all',
+                    className: 'dt-head-center'
+                }]
+            });
+        });
+        @if (session()->has('editJPS'))
+            $(document).ready(function() {
+                $('#edit{{ session('editJPS') }}').modal('show');
             });
 
-            const jp = document.getElementById('jenis_perawatan{{ session("editJPS") }}');
-            const jpse = document.getElementById('jps_e{{ session("editJPS") }}');
+            const jp = document.getElementById('jenis_perawatan{{ session('editJPS') }}');
+            const jpse = document.getElementById('jps_e{{ session('editJPS') }}');
             @error('jenis_perawatan')
                 jp.classList.add('is-invalid');
-                jpse.append('@error("jenis_perawatan") {{ $message }} @enderror');
+                jpse.append('@error('jenis_perawatan') {{ $message }} @enderror');
             @enderror
             jp.setAttribute('value', "{{ old('jenis_perawatan') }}");
 
             @php
-                Illuminate\Support\Facades\Session::forget('editJPS')
+                Illuminate\Support\Facades\Session::forget('editJPS');
             @endphp
-        @elseif(session()->has('createJPS'))
-            $( document ).ready(function() {
+        @elseif (session()->has('createJPS'))
+            $(document).ready(function() {
                 $('#createJPS').modal('show');
             });
 
@@ -73,15 +82,15 @@
             const jpse = document.getElementById('jps_e');
             @error('jenis_perawatan')
                 jp.classList.add('is-invalid');
-                jpse.append('@error("jenis_perawatan") {{ $message }} @enderror');
+                jpse.append('@error('jenis_perawatan') {{ $message }} @enderror');
             @enderror
             jp.setAttribute('value', "{{ old('jenis_perawatan') }}");
 
             const tp = document.getElementById('tgl_perawatan');
 
             @php
-                Illuminate\Support\Facades\Session::forget('createJPS')
+                Illuminate\Support\Facades\Session::forget('createJPS');
             @endphp
-        @endif 
+        @endif
     </script>
 @endpush

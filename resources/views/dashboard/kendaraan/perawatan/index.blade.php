@@ -14,8 +14,8 @@
                 <a href="#createPS" class="btn btn-success" data-bs-toggle="modal">Tambah Perawatan</a>
                 @include('dashboard.kendaraan.perawatan.create')
                 <a href="/dashboard/jenis/perawatan/kendaraan" class="btn btn-success">Jenis Perawatan</a>
-                <a href="/dashboard/laporan/perawatan/kendaraan" class="btn btn-success">Laporan Biaya</a>
-                <a href="/dashboard/rincian/perawatan/kendaraan" class="btn btn-success">Rincian Biaya</a>
+                <a href="/dashboard/laporan/perawatan/kendaraan" class="btn btn-warning">Print Laporan Biaya</a>
+                <a href="/dashboard/rincian/perawatan/kendaraan" class="btn btn-warning">Print Rincian Biaya</a>
             </div>
         </div>
         {{-- <select class="form-select kendaraan_idC" name="kendaraan_id" id="kendaraan_id">
@@ -47,7 +47,7 @@
                             <th scope="col">tahun</th>
                             <th scope="col">Tanggal Perawatan</th>
                             <th scope="col">Jenis Perawatan</th>
-                            <th scope="col">Tempat Perawatan</th>
+                            <th scope="col">PIC</th>
                             <th scope="col">Total Biaya</th>
                             <th scope="col">Aksi</th>
                         </tr>
@@ -56,12 +56,12 @@
                         @foreach ($perawatan as $ps)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                <td class="text-center">{{ !empty($ps->kendaraan) ? $ps->kendaraan->no_plat:'' }}</td>
+                                <td class="text-center">{{ !empty($ps->kendaraan) ? $ps->kendaraan->no_plat : '' }}</td>
                                 <td class="text-center">{{ $ps->bulan }}</td>
                                 <td class="text-center">{{ $ps->tahun }}</td>
                                 <td class="text-center">{{ $ps->tanggal }} {{ $ps->bulan }} {{ $ps->tahun }}</td>
                                 <td class="text-center">{{ $ps->jenis_perawatan }}</td>
-                                <td class="text-center">{{ $ps->tempat_perawatan }}</td>
+                                <td class="text-center">{{ $ps->kendaraan->pic }}</td>
                                 <td class="text-center">Rp{{ number_format($ps->total_biaya, 0, ',', '.') }}</td>
                                 <td>
                                     <a href="#show{{ $ps->id }}" class="btn btn-primary border-0" data-bs-toggle="modal">Lihat</a>
@@ -84,18 +84,18 @@
         $(document).ready(function() {
             var table = $('#table_id').DataTable({
                 columnDefs: [{
-                    targets: '_all',
-                    className: 'dt-head-center'
-                },
-                {
-                    target: 2,
-                    visible: false
-                },
-                {
-                    target: 3,
-                    visible: false
-                }
-            ],
+                        targets: '_all',
+                        className: 'dt-head-center'
+                    },
+                    {
+                        target: 2,
+                        visible: false
+                    },
+                    {
+                        target: 3,
+                        visible: false
+                    }
+                ],
 
                 initComplete: function() {
                     this.api()
@@ -230,7 +230,7 @@
                         //                 '</option>');
                         //         });
                         // })
-                        
+
                         // filter no_plat perawatan.blade
                         .columns(1)
                         .every(function() {
@@ -384,115 +384,115 @@
             oFReader.readAsDataURL(image.files[0]);
 
             oFReader.onload = function(oFREvent) {
-            imgPreview.src = oFREvent.target.result;
+                imgPreview.src = oFREvent.target.result;
             }
         }
-        
-        @if(session()->has('editPS'))
-            $( document ).ready(function() {
-                $('#edit{{ session("editPS") }}').modal('show');
+
+        @if (session()->has('editPS'))
+            $(document).ready(function() {
+                $('#edit{{ session('editPS') }}').modal('show');
             });
 
-            const np = document.getElementById('kendaraan_id{{ session("editPS") }}');
-            const npe = document.getElementById('np_e{{ session("editPS") }}');
+            const np = document.getElementById('kendaraan_id{{ session('editPS') }}');
+            const npe = document.getElementById('np_e{{ session('editPS') }}');
             @error('kendaraan_id')
                 np.classList.add('is-invalid');
-                npe.append('@error("kendaraan_id") {{ $message }} @enderror');
+                npe.append('@error('kendaraan_id') {{ $message }} @enderror');
             @enderror
 
-            const tp = document.getElementById('tanggal{{ session("editPS") }}');
-            const tpe = document.getElementById('tp_e{{ session("editPS") }}');
+            const tp = document.getElementById('tanggal{{ session('editPS') }}');
+            const tpe = document.getElementById('tp_e{{ session('editPS') }}');
             @error('tanggal')
                 tp.classList.add('is-invalid');
-                tpe.append('@error("tanggal") {{ $message }} @enderror');
+                tpe.append('@error('tanggal') {{ $message }} @enderror');
             @enderror
 
-            const bp = document.getElementById('bulan{{ session("editPS") }}');
-            const bpe = document.getElementById('bp_e{{ session("editPS") }}');
+            const bp = document.getElementById('bulan{{ session('editPS') }}');
+            const bpe = document.getElementById('bp_e{{ session('editPS') }}');
             @error('bulan')
                 bp.classList.add('is-invalid');
-                bpe.append('@error("bulan") {{ $message }} @enderror');
+                bpe.append('@error('bulan') {{ $message }} @enderror');
             @enderror
 
-            const thp = document.getElementById('tahun{{ session("editPS") }}');
-            const thpe = document.getElementById('thp_e{{ session("editPS") }}');
+            const thp = document.getElementById('tahun{{ session('editPS') }}');
+            const thpe = document.getElementById('thp_e{{ session('editPS') }}');
             @error('tahun')
                 th.classList.add('is-invalid');
-                thpe.append('@error("tahun") {{ $message }} @enderror');
+                thpe.append('@error('tahun') {{ $message }} @enderror');
             @enderror
 
-            const jp = document.getElementById('jenis_perawatan{{ session("editPS") }}');
-            const jpe = document.getElementById('jp_e{{ session("editPS") }}');
+            const jp = document.getElementById('jenis_perawatan{{ session('editPS') }}');
+            const jpe = document.getElementById('jp_e{{ session('editPS') }}');
             @error('jenis_perawatan')
                 jp.classList.add('is-invalid');
-                jpe.append('@error("jenis_perawatan") {{ $message }} @enderror');
+                jpe.append('@error('jenis_perawatan') {{ $message }} @enderror');
             @enderror
 
-            const bj = document.getElementById('barang_jasa{{ session("editPS") }}');
-            const bje = document.getElementById('bj_e{{ session("editPS") }}');
+            const bj = document.getElementById('barang_jasa{{ session('editPS') }}');
+            const bje = document.getElementById('bj_e{{ session('editPS') }}');
             @error('barang_jasa')
                 bj.classList.add('is-invalid');
-                bje.append('@error("barang_jasa") {{ $message }} @enderror');
+                bje.append('@error('barang_jasa') {{ $message }} @enderror');
             @enderror
             // bj.setAttribute('value', "{{ old('barang_jasa') }}");
 
-            const v = document.getElementById('volume{{ session("editPS") }}');
-            const ve = document.getElementById('v_e{{ session("editPS") }}');
+            const v = document.getElementById('volume{{ session('editPS') }}');
+            const ve = document.getElementById('v_e{{ session('editPS') }}');
             @error('volume')
                 v.classList.add('is-invalid');
-                ve.append('@error("volume") {{ $message }} @enderror');
+                ve.append('@error('volume') {{ $message }} @enderror');
             @enderror
             // v.setAttribute('value', "{{ old('volume') }}");
 
-            const s = document.getElementById('satuan{{ session("editPS") }}');
-            const se = document.getElementById('s_e{{ session("editPS") }}');
+            const s = document.getElementById('satuan{{ session('editPS') }}');
+            const se = document.getElementById('s_e{{ session('editPS') }}');
             @error('satuan')
                 s.classList.add('is-invalid');
-                se.append('@error("satuan") {{ $message }} @enderror');
+                se.append('@error('satuan') {{ $message }} @enderror');
             @enderror
             // s.setAttribute('value', "{{ old('satuan') }}");
 
-            const tps = document.getElementById('tempat_perawatan{{ session("editPS") }}');
-            const tpse = document.getElementById('tps_e{{ session("editPS") }}');
+            const tps = document.getElementById('tempat_perawatan{{ session('editPS') }}');
+            const tpse = document.getElementById('tps_e{{ session('editPS') }}');
             @error('tempat_perawatan')
                 tps.classList.add('is-invalid');
-                tpse.append('@error("tempat_perawatan") {{ $message }} @enderror');
-            @enderror
-            
-            const k = document.getElementById('kilometer{{ session("editPS") }}');
-            const ke = document.getElementById('k_e{{ session("editPS") }}');
-            @error('kilometer')
-                k.classList.add('is-invalid');
-                ke.append('@error("kilometer") {{ $message }} @enderror');
+                tpse.append('@error('tempat_perawatan') {{ $message }} @enderror');
             @enderror
 
-            const hs = document.getElementById('harga_satuan{{ session("editPS") }}');
-            const hse = document.getElementById('hs_e{{ session("editPS") }}');
+            const k = document.getElementById('kilometer{{ session('editPS') }}');
+            const ke = document.getElementById('k_e{{ session('editPS') }}');
+            @error('kilometer')
+                k.classList.add('is-invalid');
+                ke.append('@error('kilometer') {{ $message }} @enderror');
+            @enderror
+
+            const hs = document.getElementById('harga_satuan{{ session('editPS') }}');
+            const hse = document.getElementById('hs_e{{ session('editPS') }}');
             @error('harga_satuan')
                 hs.classList.add('is-invalid');
-                hse.append('@error("harga_satuan") {{ $message }} @enderror');
+                hse.append('@error('harga_satuan') {{ $message }} @enderror');
             @enderror
             // hs.setAttribute('value', "{{ old('harga_satuan') }}");
 
-            const tb = document.getElementById('total_biaya{{ session("editPS") }}');
-            const tbe = document.getElementById('tb_e{{ session("editPS") }}');
+            const tb = document.getElementById('total_biaya{{ session('editPS') }}');
+            const tbe = document.getElementById('tb_e{{ session('editPS') }}');
             @error('total_biaya')
                 tb.classList.add('is-invalid');
-                tbe.append('@error("total_biaya") {{ $message }} @enderror');
+                tbe.append('@error('total_biaya') {{ $message }} @enderror');
             @enderror
-            
-            const n = document.getElementById('nota{{ session("editPS") }}');
-            const ne = document.getElementById('n_e{{ session("editPS") }}');
+
+            const n = document.getElementById('nota{{ session('editPS') }}');
+            const ne = document.getElementById('n_e{{ session('editPS') }}');
             @error('nota')
                 n.classList.add('is-invalid');
-                ne.append('@error("nota") {{ $message }} @enderror');
+                ne.append('@error('nota') {{ $message }} @enderror');
             @enderror
 
             @php
-                Illuminate\Support\Facades\Session::forget('editPS')
+                Illuminate\Support\Facades\Session::forget('editPS');
             @endphp
-        @elseif(session()->has('createPS'))
-            $( document ).ready(function() {
+        @elseif (session()->has('createPS'))
+            $(document).ready(function() {
                 $('#createPS').modal('show');
             });
 
@@ -500,14 +500,14 @@
             const npe = document.getElementById('np_e');
             @error('kendaraan_id')
                 np.classList.add('is-invalid');
-                npe.append('@error("kendaraan_id") {{ $message }} @enderror');
+                npe.append('@error('kendaraan_id') {{ $message }} @enderror');
             @enderror
 
             const tp = document.getElementById('tanggal');
             const tpe = document.getElementById('tp_e');
             @error('tanggal')
                 tp.classList.add('is-invalid');
-                tpe.append('@error("tanggal") {{ $message }} @enderror');
+                tpe.append('@error('tanggal') {{ $message }} @enderror');
             @enderror
             tp.setAttribute('value', "{{ old('tanggal') }}");
 
@@ -515,7 +515,7 @@
             const bpe = document.getElementById('bp_e');
             @error('bulan')
                 bp.classList.add('is-invalid');
-                bpe.append('@error("bulan") {{ $message }} @enderror');
+                bpe.append('@error('bulan') {{ $message }} @enderror');
             @enderror
             tp.setAttribute('value', "{{ old('bulan') }}");
 
@@ -523,7 +523,7 @@
             const thpe = document.getElementById('thp_e');
             @error('tahun')
                 thp.classList.add('is-invalid');
-                thpe.append('@error("tahun") {{ $message }} @enderror');
+                thpe.append('@error('tahun') {{ $message }} @enderror');
             @enderror
             tp.setAttribute('value', "{{ old('tahun') }}");
 
@@ -531,14 +531,14 @@
             const jpe = document.getElementById('jp_e');
             @error('jenis_perawatan')
                 jp.classList.add('is-invalid');
-                jpe.append('@error("jenis_perawatan") {{ $message }} @enderror');
+                jpe.append('@error('jenis_perawatan') {{ $message }} @enderror');
             @enderror
-            
+
             const bj = document.getElementById('barang_jasa');
             const bje = document.getElementById('bj_e');
             @error('barang_jasa')
                 bj.classList.add('is-invalid');
-                bje.append('@error("barang_jasa") {{ $message }} @enderror');
+                bje.append('@error('barang_jasa') {{ $message }} @enderror');
             @enderror
             bj.setAttribute('value', "{{ old('barang_jasa') }}");
 
@@ -546,7 +546,7 @@
             const ve = document.getElementById('v_e');
             @error('volume')
                 v.classList.add('is-invalid');
-                ve.append('@error("volume") {{ $message }} @enderror');
+                ve.append('@error('volume') {{ $message }} @enderror');
             @enderror
             v.setAttribute('value', "{{ old('volume') }}");
 
@@ -554,7 +554,7 @@
             const se = document.getElementById('s_e');
             @error('satuan')
                 s.classList.add('is-invalid');
-                se.append('@error("satuan") {{ $message }} @enderror');
+                se.append('@error('satuan') {{ $message }} @enderror');
             @enderror
             s.setAttribute('value', "{{ old('satuan') }}");
 
@@ -562,15 +562,15 @@
             const tpse = document.getElementById('tps_e');
             @error('tempat_perawatan')
                 tps.classList.add('is-invalid');
-                tpse.append('@error("total_biaya") {{ $message }} @enderror');
+                tpse.append('@error('total_biaya') {{ $message }} @enderror');
             @enderror
             tps.setAttribute('value', "{{ old('tempat_perawatan') }}");
-            
+
             const k = document.getElementById('kilometer');
             const ke = document.getElementById('k_e');
             @error('kilometer')
                 k.classList.add('is-invalid');
-                ke.append('@error("kilometer") {{ $message }} @enderror');
+                ke.append('@error('kilometer') {{ $message }} @enderror');
             @enderror
             k.setAttribute('value', "{{ old('kilometer') }}");
 
@@ -578,7 +578,7 @@
             const hse = document.getElementById('hs_e');
             @error('harga_satuan')
                 hs.classList.add('is-invalid');
-                hse.append('@error("harga_satuan") {{ $message }} @enderror');
+                hse.append('@error('harga_satuan') {{ $message }} @enderror');
             @enderror
             hs.setAttribute('value', "{{ old('harga_satuan') }}");
 
@@ -586,20 +586,20 @@
             const tbe = document.getElementById('tb_e');
             @error('total_biaya')
                 tb.classList.add('is-invalid');
-                tbe.append('@error("total_biaya") {{ $message }} @enderror');
+                tbe.append('@error('total_biaya') {{ $message }} @enderror');
             @enderror
             tb.setAttribute('value', "{{ old('total_biaya') }}");
-            
+
             const n = document.getElementById('nota');
             const ne = document.getElementById('n_e');
             @error('nota')
                 n.classList.add('is-invalid');
-                ne.append('@error("nota") {{ $message }} @enderror');
+                ne.append('@error('nota') {{ $message }} @enderror');
             @enderror
             // n.setAttribute('value', "{{ old('nota') }}");
 
             @php
-                Illuminate\Support\Facades\Session::forget('createPS')
+                Illuminate\Support\Facades\Session::forget('createPS');
             @endphp
         @endif
     </script>

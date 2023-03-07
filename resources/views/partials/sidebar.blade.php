@@ -52,29 +52,29 @@
                             Pembelian Kendaraan
                         </p>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a href="/dashboard/penjualan/kendaraan" class="nav-link">
-                        <i class="nav-icon fas fa-sack-dollar"></i>
+                        <i class="nav-icon fa-solid fa-hand-holding-dollar"></i>
                         <p>
                             Penjualan Kendaraan
                         </p>
                     </a>
                 </li>
-            </ul> --}}
-                @can('admin')
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-weight="treeview" role="menu" data-accordion="false">
-                        <li class="nav-header">USER</li>
-                        <li class="nav-item">
-                            <a href="/dashboard/akun" class="nav-link">
-                                <i class="nav-icon far fa-user"></i>
-                                <p>
-                                    Akun
-                                </p>
-                            </a>
-                        </li>
-                    </ul>
-                @endcan
+            </ul>
+            @can('admin')
+                <ul class="nav nav-pills nav-sidebar flex-column" data-weight="treeview" role="menu" data-accordion="false">
+                    <li class="nav-header">USER</li>
+                    <li class="nav-item">
+                        <a href="/dashboard/akun" class="nav-link">
+                            <i class="nav-icon far fa-user"></i>
+                            <p>
+                                Akun
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            @endcan
         </nav>
 
         {{-- <!-- SidebarSearch Form -->

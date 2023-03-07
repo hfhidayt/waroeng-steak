@@ -51,6 +51,7 @@ Route::get('/dashboard', function () {
     ]);
 })->middleware('auth');
 
+// print laporan kendaraan
 Route::get('/dashboard/laporan/perawatan/kendaraan', function () {
     return view('dashboard.kendaraan.perawatan.laporan', [
         'title' => 'Laporan Biaya Perawatan',
@@ -60,6 +61,7 @@ Route::get('/dashboard/laporan/perawatan/kendaraan', function () {
     ]);
 })->middleware('auth');
 
+// print rincian kendaraan
 Route::get('/dashboard/rincian/perawatan/kendaraan', function () {
     return view('dashboard.kendaraan.perawatan.rincian', [
         'title' => 'Rincian Biaya Perawatan',
@@ -70,8 +72,16 @@ Route::get('/dashboard/rincian/perawatan/kendaraan', function () {
 })->middleware('auth');
 
 Route::get('/dashboard/pajak/kendaraan', function () {
-    return view('dashboard.kendaraan.pajak', [
+    return view('dashboard.kendaraan.pajak.index', [
         'title' => 'Pajak',
+        'kendaraan' => Kendaraan::all(),
+    ]);
+})->middleware('auth');
+
+// download data kendaraan
+Route::get('/dashboard/download/kendaraan', function () {
+    return view('dashboard.kendaraan.download', [
+        'title' => 'Download Data Kendaraan',
         'kendaraan' => Kendaraan::all(),
     ]);
 })->middleware('auth');

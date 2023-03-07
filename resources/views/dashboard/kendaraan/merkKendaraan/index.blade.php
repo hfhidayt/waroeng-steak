@@ -46,24 +46,33 @@
 @endsection
 @push('script')
     <script>
-        @if(session()->has('editMK'))
-            $( document ).ready(function() {
-                $('#edit{{ session("editMK") }}').modal('show');
+        $(document).ready(function() {
+            var table = $('#table_id').DataTable({
+                ordering: false,
+                columnDefs: [{
+                    targets: '_all',
+                    className: 'dt-head-center'
+                }]
+            });
+        });
+        @if (session()->has('editMK'))
+            $(document).ready(function() {
+                $('#edit{{ session('editMK') }}').modal('show');
             });
 
-            const mk = document.getElementById('merk{{ session("editMK") }}');
-            const mke = document.getElementById('mk_e{{ session("editMK") }}');
+            const mk = document.getElementById('merk{{ session('editMK') }}');
+            const mke = document.getElementById('mk_e{{ session('editMK') }}');
             @error('merk')
                 mk.classList.add('is-invalid');
-                mke.append('@error("merk") {{ $message }} @enderror');
+                mke.append('@error('merk') {{ $message }} @enderror');
             @enderror
             // mk.setAttribute('value', "{{ old('merk') }}");
 
             @php
-                Illuminate\Support\Facades\Session::forget('editMK')
+                Illuminate\Support\Facades\Session::forget('editMK');
             @endphp
-        @elseif(session()->has('createMK'))
-            $( document ).ready(function() {
+        @elseif (session()->has('createMK'))
+            $(document).ready(function() {
                 $('#createMK').modal('show');
             });
 
@@ -71,15 +80,15 @@
             const mke = document.getElementById('mk_e');
             @error('merk')
                 mk.classList.add('is-invalid');
-                mke.append('@error("merk") {{ $message }} @enderror');
+                mke.append('@error('merk') {{ $message }} @enderror');
             @enderror
             // mk.setAttribute('value', "{{ old('merk') }}");
 
             const tp = document.getElementById('tgl_kendaraan');
 
             @php
-                Illuminate\Support\Facades\Session::forget('createMK')
+                Illuminate\Support\Facades\Session::forget('createMK');
             @endphp
-        @endif 
+        @endif
     </script>
 @endpush

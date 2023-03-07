@@ -5,14 +5,14 @@
     <div class="content-wrapper">
         <div class="row">
             <div class="col mx-4 my-4">
-                @if(session()->has('success'))
+                @if (session()->has('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         {{ session('success') }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
                 <a href="#create" class="btn btn-success" data-bs-toggle="modal">Tambah Akun Baru</a>
-                <a href="/dashboard/pegawai" class="btn btn-success">Pegawai</a>
+                <a href="/dashboard/pegawai" class="btn btn-success">Daftar Pegawai</a>
             </div>
         </div>
         <div class="row">
@@ -48,27 +48,36 @@
 @endsection
 @push('script')
     <script>
-        @if(session()->has('editId'))
-            $( document ).ready(function() {
-                $('#edit{{ session("editId") }}').modal('show');
+        $(document).ready(function() {
+            var table = $('#table_id').DataTable({
+                ordering: false,
+                columnDefs: [{
+                    targets: '_all',
+                    className: 'dt-head-center'
+                }]
+            });
+        });
+        @if (session()->has('editId'))
+            $(document).ready(function() {
+                $('#edit{{ session('editId') }}').modal('show');
             });
             @error('username')
-                const cE = document.getElementById('u{{ session("editId") }}');
+                const cE = document.getElementById('u{{ session('editId') }}');
                 cE.classList.add('is-invalid');
             @enderror
             @error('password')
-                const dE = document.getElementById('p{{ session("editId") }}');
+                const dE = document.getElementById('p{{ session('editId') }}');
                 dE.classList.add('is-invalid');
             @enderror
-            const a = document.getElementById('a{{ session("editId") }}');
-            a.append('@error("username") {{ $message }} @enderror');
-            const b = document.getElementById('b{{ session("editId") }}');
-            b.append('@error("password") {{ $message }} @enderror');
+            const a = document.getElementById('a{{ session('editId') }}');
+            a.append('@error('username') {{ $message }} @enderror');
+            const b = document.getElementById('b{{ session('editId') }}');
+            b.append('@error('password') {{ $message }} @enderror');
             @php
-                Illuminate\Support\Facades\Session::forget('editId')
+                Illuminate\Support\Facades\Session::forget('editId');
             @endphp
-        @elseif(session()->has('create'))
-            $( document ).ready(function() {
+        @elseif (session()->has('create'))
+            $(document).ready(function() {
                 $('#create').modal('show');
             });
             @error('username')
@@ -81,11 +90,11 @@
                 d.classList.add('is-invalid');
             @enderror
             const a = document.getElementById('a');
-            a.append('@error("username") {{ $message }} @enderror');
+            a.append('@error('username') {{ $message }} @enderror');
             const b = document.getElementById('b');
-            b.append('@error("password") {{ $message }} @enderror');
+            b.append('@error('password') {{ $message }} @enderror');
             @php
-                Illuminate\Support\Facades\Session::forget('create')
+                Illuminate\Support\Facades\Session::forget('create');
             @endphp
         @endif
     </script>

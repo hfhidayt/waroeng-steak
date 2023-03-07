@@ -46,7 +46,7 @@
             </div>
             <div class="row justify-content-center text-center">
                 <div class="col">
-                    <h3 class="headerPrint">KENDARAAN<span id="npPH"></span></h3>
+                    <h3 class="headerPrint">KENDARAAN <span id="npPH"></span></h3>
                 </div>
             </div>
             <div class="row justify-content-center text-center">
@@ -55,7 +55,7 @@
 
                 </div>
             </div>
-            <div class="row mb-3 row-margin-rincian-head">
+            <div class="row row-margin-rincian-head mb-3">
                 <div class="col">
                     <hr class="s9">
                     <div class="row">
@@ -78,7 +78,7 @@
                                 </tr>
                             </table>
                         </div>
-                        <div class="col-auto">
+                        {{-- <div class="col-auto">
                             <table border="0" class="tnw">
                                 <tr>
                                     <td>KM</td>
@@ -86,7 +86,7 @@
                                     <td><span id="kmD">............</span></td>
                                 </tr>
                             </table>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -134,17 +134,16 @@
                     </table>
                 </div>
             </div>
-            <div class="row row-margin-rincian-foot mt-2">
+            {{-- <div class="row row-margin-rincian-foot mt-2">
                 <div class="col">
                     <span class="tnw">Tempat</span> : <span class="tnw" id="tempat">............</span>
                 </div>
-            </div>
+            </div> --}}
             <div class="row mt-3">
                 <div class="col"></div>
                 <div class="col"></div>
                 <div class="col tnw">
-                    Yogyakarta, <span id="tanggalN">............</span> <span id="bulanN"></span> <span
-                        id="tahunN"></span>
+                    Yogyakarta, <span id="tanggalN">............</span> <span id="bulanN"></span> <span id="tahunN"></span>
                 </div>
             </div>
             <div class="row mb-5">
@@ -161,13 +160,13 @@
                     <span id="pegawaiN" class="tnw">............</span>
                 </div>
             </div>
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col"></div>
                 <div class="col"></div>
                 <div class="col">
                     <span id="nipN" class="tnw">............</span>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 @endsection
@@ -243,17 +242,17 @@
         });
 
         $('#pegawai').on('change', function() {
-            var pn = this.value - 1;
+            var pn = this.value - 2;
             document.getElementById('pegawaiN').innerHTML = pegawai[pn].nama;
             document.getElementById('jabatanN').innerHTML = jabatan[pegawai[pn].jabatan_pegawai_id].nama_jabatan;
-            document.getElementById('nipN').innerHTML = pegawai[pn].nip;
+            // document.getElementById('nipN').innerHTML = pegawai[pn].nip;
         });
 
         $('#reset').on('click', function() {
             $("#platP").val(null).trigger('change');
 
             document.getElementById('jperawatanP').value = '';
-            document.getElementById('kmD').innerHTML = '';
+            // document.getElementById('kmD').innerHTML = '';
             document.getElementById('jpD').innerHTML = '';
             document.getElementById('tempat').innerHTML = '';
 
@@ -263,7 +262,7 @@
             document.getElementById('tahunN').innerHTML = '';
             document.getElementById('pegawaiN').innerHTML = '';
             document.getElementById('jabatanN').innerHTML = '';
-            document.getElementById('nipN').innerHTML = '';
+            // document.getElementById('nipN').innerHTML = '';
 
             var table = $('#table_print').DataTable();
             table.search('').draw();
@@ -318,10 +317,10 @@
                                 sumP = new Intl.NumberFormat('de-DE').format(sum)
                                 document.getElementById('sum').innerHTML = 'Rp' + sumP;
 
-                                kmD = table.column(9, {
-                                    search: 'applied'
-                                }).data()[0];
-                                document.getElementById('kmD').innerHTML = kmD;
+                                // kmD = table.column(9, {
+                                //     search: 'applied'
+                                // }).data()[0];
+                                // document.getElementById('kmD').innerHTML = kmD;
 
                                 document.getElementById('npPH').innerHTML = val;
                                 document.getElementById('npD').innerHTML = val;
@@ -346,10 +345,10 @@
                                 sumP = new Intl.NumberFormat('de-DE').format(sum)
                                 document.getElementById('sum').innerHTML = 'Rp' + sumP;
 
-                                tempat = table.column(8, {
-                                    search: 'applied'
-                                }).data()[0];
-                                document.getElementById('tempat').innerHTML = tempat;
+                                // tempat = table.column(8, {
+                                //     search: 'applied'
+                                // }).data()[0];
+                                // document.getElementById('tempat').innerHTML = tempat;
 
                                 document.getElementById('jpD').innerHTML = val;
                             });

@@ -430,7 +430,7 @@
                                 <!-- gambar kendaraan -->
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">GAMBAR KENDARAAN</h3>
+                                        <h3 class="card-title">GAMBAR & FOTO</h3>
                                     </div><!-- /.card-header -->
                                     <div class="card-body" id="table_chart_2">
                                         <div class="row">
@@ -469,6 +469,18 @@
                                                     {{-- <br>
                                                     <img src="{{ asset('storage/' . $k->gambar_samping_kiri) }}"
                                                         class="img-preview img-fluid border border-dark mb-3" disabled> --}}
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-sm-6">
+                                                <div class="mb-3">
+                                                    <label for="foto_bpkb" class="form-label">Foto BPKB</label>
+                                                    <div><span id="foto_bpkb"></span></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-sm-6">
+                                                <div class="mb-3">
+                                                    <label for="foto_stnk" class="form-label">Foto STNK</label>
+                                                    <div><span id="foto_stnk"></span></div>
                                                 </div>
                                             </div>
                                         </div>

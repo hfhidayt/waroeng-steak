@@ -20,7 +20,7 @@
                     </div>
                     <div class="mb-3">
                         <select class="form-select" name="jabatan_pegawai_id" id="jabatan_pegawai_id" required>
-                            <option value="">Jabatan Pegawai</option>
+                            <option value="">~Pilih Jabatan Pegawai~</option>
                             @foreach ($jabatan_pegawai as $jp)
                                 <option value="{{ $jp->id }}">{{ $jp->nama_jabatan }}</option>
                             @endforeach

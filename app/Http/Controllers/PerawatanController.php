@@ -21,7 +21,8 @@ class PerawatanController extends Controller
             'title' => 'Perawatan',
             'jenis_perawatan' => JenisPerawatan::all(),
             'no_plat' => Kendaraan::select('id', 'no_plat')->get(),
-            'perawatan' => Perawatan::all()
+            'perawatan' => Perawatan::all(),
+            'kendaraan' => Kendaraan::all()
         ]);
     }
 

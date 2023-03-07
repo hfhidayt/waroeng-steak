@@ -11,6 +11,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
+                <a href="/dashboard/laporan/pajak/kendaraan" class="btn btn-warning">Print Laporan Pajak</a>
             </div>
         </div>
         <div class="div row">
@@ -32,9 +33,10 @@
                     <thead class="table-dark dt-head-center">
                         <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Wilayah</th>
+                            <th scope="col">Jenis Kendaran</th>
                             <th scope="col">Plat</th>
-                            <th scope="col">Jenis/Merk</th>
+                            <th scope="col">Merk</th>
+                            <th scope="col">PIC</th>
                             <th scope="col" hidden>Bulan Pajak</th>
                             <th scope="col" hidden>Tahun Pajak</th>
                             <th scope="col">Pajak</th>
@@ -47,9 +49,10 @@
                         @foreach ($kendaraan as $k)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                <td class="text-center">{{ $k->wilayah }}</td>
+                                <td class="text-center">{{ $k->jenis_kendaraan }}</td>
                                 <td class="text-center">{{ $k->no_plat }}</td>
                                 <td class="text-center">{{ $k->jenis_merk }}</td>
+                                <td class="text-center">{{ $k->pic }}</td>
                                 <td class="text-center" hidden>{{ $k->bulan_pajak }}</td>
                                 <td class="text-center" hidden>{{ $k->tahun_pajak }}</td>
                                 <td class="text-center">{{ $k->tanggal_pajak }} {{ $k->bulan_pajak }} {{ $k->tahun_pajak }}</td>
@@ -69,10 +72,10 @@
     <script>
         $(document).ready(function() {
             var table = $('#table_id').DataTable({
-                // columnDefs: [{
-                //         targets: '_all',
-                //         className: 'dt-head-center'
-                //     },
+                columnDefs: [{
+                    targets: '_all',
+                    className: 'dt-head-center'
+                }],
                 //     {
                 //         target: 2,
                 //         visible: false

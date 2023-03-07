@@ -5,7 +5,7 @@
     <div class="content-wrapper">
         <div class="row">
             <div class="col mx-4 my-4">
-                @if(session()->has('success'))
+                @if (session()->has('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         {{ session('success') }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -56,30 +56,39 @@
 @endsection
 @push('script')
     <script>
-        @if(session()->has('edit'))
-            $( document ).ready(function() {
-                $('#edit{{ session("edit") }}').modal('show');
+        $(document).ready(function() {
+            var table = $('#table_id').DataTable({
+                ordering: false,
+                columnDefs: [{
+                    targets: '_all',
+                    className: 'dt-head-center'
+                }]
+            });
+        });
+        @if (session()->has('edit'))
+            $(document).ready(function() {
+                $('#edit{{ session('edit') }}').modal('show');
             });
 
-            const n = document.getElementById('nama{{ session("edit") }}');
-            const ne = document.getElementById('nama_e{{ session("edit") }}');
+            const n = document.getElementById('nama{{ session('edit') }}');
+            const ne = document.getElementById('nama_e{{ session('edit') }}');
             @error('nama')
                 n.classList.add('is-invalid');
-                ne.append('@error("nama") {{ $message }} @enderror');
+                ne.append('@error('nama') {{ $message }} @enderror');
             @enderror
-            
-            const jp = document.getElementById('jabatan_pegawai_id{{ session("edit") }}');
-            const jpe = document.getElementById('jabatan_pegawai_e{{ session("edit") }}');
+
+            const jp = document.getElementById('jabatan_pegawai_id{{ session('edit') }}');
+            const jpe = document.getElementById('jabatan_pegawai_e{{ session('edit') }}');
             @error('jabatan_pegawai_id')
                 jp.classList.add('is-invalid');
-                jpe.append('@error("jabatan_pegawai_id") {{ $message }} @enderror');
+                jpe.append('@error('jabatan_pegawai_id') {{ $message }} @enderror');
             @enderror
 
             @php
-                Illuminate\Support\Facades\Session::forget('edit')
+                Illuminate\Support\Facades\Session::forget('edit');
             @endphp
-        @elseif(session()->has('create'))
-            $( document ).ready(function() {
+        @elseif (session()->has('create'))
+            $(document).ready(function() {
                 $('#create').modal('show');
             });
 
@@ -87,20 +96,20 @@
             const ne = document.getElementById('nama_e');
             @error('nama')
                 n.classList.add('is-invalid');
-                ne.append('@error("nama") {{ $message }} @enderror');
+                ne.append('@error('nama') {{ $message }} @enderror');
             @enderror
             n.setAttribute('value', "{{ old('nama') }}");
-            
+
             const jp = document.getElementById('jabatan_pegawai_id');
             const jpe = document.getElementById('jabatan_pegawai_e');
             @error('jabatan_pegawai_id')
                 jp.classList.add('is-invalid');
-                jpe.append('@error("jabatan_pegawai_id") {{ $message }} @enderror');
+                jpe.append('@error('jabatan_pegawai_id') {{ $message }} @enderror');
             @enderror
             // jp.setAttribute('value', "{{ old('jabatan_pegawai') }}");
 
             @php
-                Illuminate\Support\Facades\Session::forget('create')
+                Illuminate\Support\Facades\Session::forget('create');
             @endphp
         @endif
     </script>

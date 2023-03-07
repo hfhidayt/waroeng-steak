@@ -21,7 +21,7 @@
                     </div>
                     <div class="mb-3">
                         <select class="form-select" name="jabatan_pegawai_id" id="jabatan_pegawai_id{{ $p->id }}" required>
-                            <option value="">Jabatan Pegawai</option>
+                            {{-- <option value="">Jabatan Pegawai</option> --}}
                             @foreach ($jabatan_pegawai as $jp)
                                 <option value="{{ $jp->id }}" {{ $p->jabatan_pegawai_id === $jp->id ? 'selected' : '' }}>{{ $jp->nama_jabatan }}</option>
                             @endforeach
@@ -32,7 +32,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger mr-auto" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary">Buat</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </form>
         </div>

@@ -46,24 +46,33 @@
 @endsection
 @push('script')
     <script>
-        @if(session()->has('editJK'))
-            $( document ).ready(function() {
-                $('#edit{{ session("editJK") }}').modal('show');
+        $(document).ready(function() {
+            var table = $('#table_id').DataTable({
+                ordering: false,
+                columnDefs: [{
+                    targets: '_all',
+                    className: 'dt-head-center'
+                }]
+            });
+        });
+        @if (session()->has('editJK'))
+            $(document).ready(function() {
+                $('#edit{{ session('editJK') }}').modal('show');
             });
 
-            const jk = document.getElementById('jenis_kendaraan{{ session("editJK") }}');
-            const jke = document.getElementById('jk_e{{ session("editJK") }}');
+            const jk = document.getElementById('jenis_kendaraan{{ session('editJK') }}');
+            const jke = document.getElementById('jk_e{{ session('editJK') }}');
             @error('jenis_kendaraan')
                 jk.classList.add('is-invalid');
-                jke.append('@error("jenis_kendaraan") {{ $message }} @enderror');
+                jke.append('@error('jenis_kendaraan') {{ $message }} @enderror');
             @enderror
             // jk.setAttribute('value', "{{ old('jenis_kendaraan') }}");
 
             @php
-                Illuminate\Support\Facades\Session::forget('editJK')
+                Illuminate\Support\Facades\Session::forget('editJK');
             @endphp
-        @elseif(session()->has('createJK'))
-            $( document ).ready(function() {
+        @elseif (session()->has('createJK'))
+            $(document).ready(function() {
                 $('#createJK').modal('show');
             });
 
@@ -71,15 +80,15 @@
             const jke = document.getElementById('jk_e');
             @error('jenis_kendaraan')
                 jk.classList.add('is-invalid');
-                jke.append('@error("jenis_kendaraan") {{ $message }} @enderror');
+                jke.append('@error('jenis_kendaraan') {{ $message }} @enderror');
             @enderror
             // jk.setAttribute('value', "{{ old('jenis_kendaraan') }}");
 
             const tp = document.getElementById('tgl_kendaraan');
 
             @php
-                Illuminate\Support\Facades\Session::forget('createJK')
+                Illuminate\Support\Facades\Session::forget('createJK');
             @endphp
-        @endif 
+        @endif
     </script>
 @endpush
