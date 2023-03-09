@@ -116,7 +116,7 @@
                         <div class="invalid-feedback" id="l{{ $k->id }}">
                         </div>
                     </div>
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <div class="row">
                             <div class="col">
                                 <label for="editTanggalPajak" class="form-label">Tanggal Pajak</label>
@@ -135,9 +135,6 @@
                                 </div>
                             </div>
                             <div class="col">
-                                {{-- <input type="text" class="form-control" placeholder="Bulan Pajak"
-                                    name="bulan_pajak" id="inputBulanPajak{{ $k->id }}"
-                                    value="{{ $k->bulan_pajak }}"> --}}
                                 <select class="form-select" placeholder="Bulan Pajak" name="bulan_pajak" id="inputBulanPajak{{ $k->id }}">
                                     <option value="Januari" {{ $k->bulan == 'Januari' ? 'selected' : '' }}>Januari
                                     </option>
@@ -188,9 +185,6 @@
                                 </div>
                             </div>
                             <div class="col">
-                                {{-- <input type="text" class="form-control" placeholder="Bulan Ganti Plat"
-                                    name="bulan_ganti_plat" id="inputBulanGantiPlat{{ $k->id }}"
-                                    value="{{ $k->bulan_ganti_plat }}"> --}}
                                 <select class="form-select" placeholder="Bulan Ganti Plat" name="bulan_ganti_plat" id="inputBulanGantiPlat{{ $k->id }}">
                                     <option value="Januari" {{ $k->bulan == 'Januari' ? 'selected' : '' }}>Januari
                                     </option>
@@ -221,7 +215,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="mb-3">
                         <label for="editKeterangan" class="form-label">Keterangan</label>
                         <input type="text" class="form-control" placeholder="Keterangan" name="keterangan" id="inputKeterangan{{ $k->id }}" value="{{ $k->keterangan }}">

@@ -33,7 +33,7 @@
                     <thead class="table-dark dt-head-center">
                         <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Jenis Kendaran</th>
+                            <th scope="col">Jenis Kendaraan</th>
                             <th scope="col">Plat</th>
                             <th scope="col">Merk</th>
                             <th scope="col">PIC</th>

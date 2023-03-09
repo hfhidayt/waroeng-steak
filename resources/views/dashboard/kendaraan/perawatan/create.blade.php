@@ -1,5 +1,4 @@
-<div class="modal fade" id="createPS" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="createPS" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
@@ -22,8 +21,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="number" class="form-control" placeholder="Tgl Perawatan" name="tanggal"
-                            id="tanggal">
+                        <input type="number" class="form-control" placeholder="Tgl Perawatan" name="tanggal" id="tanggal">
                         <div class="invalid-feedback" id="tp_e">
                         </div>
                         {{-- <input type="text" class="form-control" placeholder="Bulan Perawatan" name="bulan"
@@ -45,8 +43,7 @@
                         </select>
                         {{-- <div class="invalid-feedback" id="bp_e">
                         </div> --}}
-                        <input type="number" class="form-control" placeholder="Tahun Perawatan" name="tahun"
-                            id="tahun">
+                        <input type="number" class="form-control" placeholder="Tahun Perawatan" name="tahun" id="tahun">
                         {{-- <div class="invalid-feedback" id="thp_e">
                         </div> --}}
                     </div>
@@ -54,8 +51,7 @@
                         <select class="form-select" name="jenis_perawatan" id="jenis_perawatan">
                             <option value="">-- Perawatan Kendaraan --</option>
                             @foreach ($jenis_perawatan as $js)
-                                <option value="{{ $js->jenis_perawatan }}"
-                                    {{ old('jenis_perawatan') == $js->jenis_perawatan ? 'selected' : '' }}>
+                                <option value="{{ $js->jenis_perawatan }}" {{ old('jenis_perawatan') == $js->jenis_perawatan ? 'selected' : '' }}>
                                     {{ $js->jenis_perawatan }}</option>
                             @endforeach
                         </select>
@@ -63,14 +59,12 @@
                         </div> --}}
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Barang/Jasa" name="barang_jasa"
-                            id="barang_jasa">
+                        <input type="text" class="form-control" placeholder="Barang/Jasa" name="barang_jasa" id="barang_jasa">
                         <div class="invalid-feedback" id="bj_e">
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="number" class="form-control volume" placeholder="Volume" name="volume"
-                            id="volume" oninput="hitung()">
+                        <input type="number" class="form-control volume" placeholder="Volume" name="volume" id="volume" oninput="hitung()">
                         <div class="invalid-feedback" id="v_e">
                         </div>
                     </div>
@@ -80,34 +74,29 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Tempat Perawatan"
-                            name="tempat_perawatan" id="tempat_perawatan">
+                        <input type="text" class="form-control" placeholder="Tempat Perawatan" name="tempat_perawatan" id="tempat_perawatan">
                         <div class="invalid-feedback" id="tps_e">
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="number" class="form-control" placeholder="Kilometer Kendaraan" name="kilometer"
-                            id="kilometer">
+                        <input type="number" class="form-control" placeholder="Kilometer Kendaraan" name="kilometer" id="kilometer">
                         <div class="invalid-feedback" id="k_e">
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="number" class="form-control harga_satuan" placeholder="Harga Satuan"
-                            name="harga_satuan" id="harga_satuan" oninput="hitung()">
+                        <input type="number" class="form-control harga_satuan" placeholder="Harga Satuan" name="harga_satuan" id="harga_satuan" oninput="hitung()">
                         <div class="invalid-feedback" id="hs_e">
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control total_biaya" placeholder="Total Biaya"
-                            name="total_biaya" id="total_biaya" disabled>
+                        <input type="text" class="form-control total_biaya" placeholder="Total Biaya" name="total_biaya" id="total_biaya" disabled>
                         <div class="invalid-feedback" id="tb_e">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="nota" class="form-label">Nota</label>
                         <img class="img-preview img-fluid mb-3">
-                        <input class="form-control" type="file" id="nota" name="nota"
-                            onchange="previewImage()">
+                        <input class="form-control" type="file" id="nota" name="nota" onchange="previewImage()">
                         <div class="invalid-feedback" id="n_e">
                         </div>
                     </div>

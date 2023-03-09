@@ -74,11 +74,21 @@ class KendaraanController extends Controller
             'keterangan' => 'nullable',
         ]);
 
-        $validatedData['surat_penanggung_jawab'] = $request->file('surat_penanggung_jawab')->store('surat');
-        $validatedData['gambar_depan'] = $request->file('gambar_depan')->store('kendaraan');
-        $validatedData['gambar_belakang'] = $request->file('gambar_belakang')->store('kendaraan');
-        $validatedData['gambar_samping_kanan'] = $request->file('gambar_samping_kanan')->store('kendaraan');
-        $validatedData['gambar_samping_kiri'] = $request->file('gambar_samping_kiri')->store('kendaraan');
+        if ($request->file('surat_penanggung_jawab')) {
+            $validatedData['surat_penanggung_jawab'] = $request->file('surat_penanggung_jawab')->store('surat');
+        }
+        if ($request->file('gambar_depan')) {
+            $validatedData['gambar_depan'] = $request->file('gambar_depan')->store('kendaraan');
+        }
+        if ($request->file('gambar_belakang')) {
+            $validatedData['gambar_belakang'] = $request->file('gambar_belakang')->store('kendaraan');
+        }
+        if ($request->file('gambar_samping_kanan')) {
+            $validatedData['gambar_samping_kanan'] = $request->file('gambar_samping_kanan')->store('kendaraan');
+        }
+        if ($request->file('gambar_samping_kiri')) {
+            $validatedData['gambar_samping_kiri'] = $request->file('gambar_samping_kiri')->store('kendaraan');
+        }
 
         Kendaraan::Create($validatedData);
 
@@ -147,7 +157,7 @@ class KendaraanController extends Controller
             'keterangan' => 'nullable',
         ]);
 
-        if($request->no_plat === $kendaraan->no_plat) {
+        if ($request->no_plat === $kendaraan->no_plat) {
             unset($validatedData['no_plat']);
         }
         // dd("request: ".$request->no_plat, "kendaraan: ".$kendaraan->no_plat, $validatedData);
@@ -189,7 +199,7 @@ class KendaraanController extends Controller
 
         return redirect('/dashboard/kendaraan')->with('success', 'Berhasil memperbarui data kendaraan');
     }
-	// tes push
+    // tes push
     /**
      * Remove the specified resource from storage.
      *

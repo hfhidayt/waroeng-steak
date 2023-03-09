@@ -95,12 +95,10 @@
                         <div class="invalid-feedback" id="l">
                         </div>
                     </div>
-                    <div class="input-group mb-3">
+                    {{-- <div class="input-group mb-3">
                         <input type="number" class="form-control" placeholder="Tanggal Pajak" name="tanggal_pajak" id="inputTanggalPajak">
                         <div class="invalid-feedback" id="m">
                         </div>
-                        {{-- <input type="text" class="form-control" placeholder="Bulan Pajak" name="bulan_pajak"
-                            id="inputBulanPajak"> --}}
                         <select class="form-select" placeholder="Bulan Pajak" name="bulan_pajak" id="inputBulanPajak">
                             <option value="" selected>Bulan Pajak</option>
                             <option value="Januari">Januari</option>
@@ -126,8 +124,6 @@
                         <input type="number" class="form-control" placeholder="Tgl Ganti Plat" name="tanggal_ganti_plat" id="inputTanggalGantiPlat">
                         <div class="invalid-feedback" id="p">
                         </div>
-                        {{-- <input type="text" class="form-control" placeholder="Bulan Ganti Plat"
-                            name="bulan_ganti_plat" id="inputBulanGantiPlat"> --}}
                         <select class="form-select" placeholder="Bulan Ganti Plat" name="bulan_ganti_plat" id="inputBulanGantiPlat">
                             <option value="" selected>Bulan Ganti Plat</option>
                             <option value="Januari">Januari</option>
@@ -148,7 +144,7 @@
                         <input type="number" class="form-control" placeholder="Tahun Ganti Plat" name="tahun_ganti_plat" id="inputTahunGantiPlat">
                         <div class="invalid-feedback" id="r">
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Keterangan" name="keterangan" id="inputKeterangan">
                         <div class="invalid-feedback" id="s">

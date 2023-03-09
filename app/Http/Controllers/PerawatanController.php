@@ -73,6 +73,12 @@ class PerawatanController extends Controller
 
         Perawatan::Create($validatedData);
 
+        if ($validatedData["jenis_perawatan"] == "Bayar Pajak Tahunan") {
+            Kendaraan::Where('id', $validatedData["kendaraan_id"])->update(array("tanggal_pajak" => $validatedData["tanggal"], "bulan_pajak" => $validatedData["bulan"], "tahun_pajak" => $validatedData["tahun"]));
+        } elseif ($validatedData["jenis_perawatan"] == "Bayar Pajak 5 Tahunan") {
+            Kendaraan::Where('id', $validatedData["kendaraan_id"])->update(array("tanggal_ganti_plat" => $validatedData["tanggal"], "bulan_ganti_plat" => $validatedData["bulan"], "tahun_ganti_plat" => $validatedData["tahun"]));
+        }
+
         $request->session()->forget('createPS');
 
         return redirect('/dashboard/perawatan/kendaraan')->with('success', 'Berhasil menambahkan perawatan!');
@@ -138,6 +144,12 @@ class PerawatanController extends Controller
         $validatedData['total_biaya'] = (int)$validatedData['harga_satuan'] * (int)$validatedData['volume'];
 
         Perawatan::where('id', $kendaraan->id)->update($validatedData);
+
+        if ($validatedData["jenis_perawatan"] == "Bayar Pajak Tahunan") {
+            Kendaraan::Where('id', $validatedData["kendaraan_id"])->update(array("tanggal_pajak" => $validatedData["tanggal"], "bulan_pajak" => $validatedData["bulan"], "tahun_pajak" => $validatedData["tahun"]));
+        } elseif ($validatedData["jenis_perawatan"] == "Bayar Pajak 5 Tahunan") {
+            Kendaraan::Where('id', $validatedData["kendaraan_id"])->update(array("tanggal_ganti_plat" => $validatedData["tanggal"], "bulan_ganti_plat" => $validatedData["bulan"], "tahun_ganti_plat" => $validatedData["tahun"]));
+        }
 
         $request->session()->forget('editPS');
 

@@ -57,9 +57,7 @@
             </div>
             <div class="row justify-content-center text-center">
                 <div class="col mb-3" id="jpnpbt">
-                    <h3 class="headerPrint"><span id="jpPH">............</span> <span
-                            id="npPH">............</span> <span id="bPH">............</span> <span
-                            id="tPH">............</span></h3>
+                    <h3 class="headerPrint"><span id="jpPH">............</span> <span id="npPH">............</span> <span id="bPH">............</span> <span id="tPH">............</span></h3>
                 </div>
             </div>
             <div class="row">
@@ -116,8 +114,7 @@
                 <div class="col"></div>
                 <div class="col"></div>
                 <div class="col tnw">
-                    Yogyakarta, <span id="tanggalN">............</span> <span id="bulanN"></span> <span
-                        id="tahunN"></span>
+                    Yogyakarta, <span id="tanggalN">............</span> <span id="bulanN"></span> <span id="tahunN"></span>
                 </div>
             </div>
             <div class="row mb-5">
@@ -134,13 +131,13 @@
                     <span id="pegawaiN" class="tnw">............</span>
                 </div>
             </div>
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col"></div>
                 <div class="col"></div>
                 <div class="col">
                     <span id="nipN" class="tnw">............</span>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 @endsection

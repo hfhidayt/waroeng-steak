@@ -53,14 +53,14 @@
                         </p>
                     </a>
                 </li> --}}
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="/dashboard/penjualan/kendaraan" class="nav-link">
                         <i class="nav-icon fa-solid fa-hand-holding-dollar"></i>
                         <p>
                             Penjualan Kendaraan
                         </p>
                     </a>
-                </li>
+                </li> --}}
             </ul>
             @can('admin')
                 <ul class="nav nav-pills nav-sidebar flex-column" data-weight="treeview" role="menu" data-accordion="false">

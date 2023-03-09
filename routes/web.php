@@ -47,7 +47,7 @@ Route::get('/dashboard', function () {
         'perawatan' => Perawatan::all()->sum('total_biaya'),
         'kendaraans' => Kendaraan::all(),
         'perawatans' => Perawatan::all(),
-        'jenis_perawatan' => JenisPerawatan::all()
+        'jenis_perawatan' => JenisPerawatan::all(),
     ]);
 })->middleware('auth');
 
@@ -57,7 +57,7 @@ Route::get('/dashboard/laporan/perawatan/kendaraan', function () {
         'title' => 'Laporan Biaya Perawatan',
         'perawatan' => Perawatan::all(),
         'pegawai' => Pegawai::all(),
-        'jabatan' => JabatanPegawai::all()
+        'jabatan' => JabatanPegawai::all(),
     ]);
 })->middleware('auth');
 
@@ -67,7 +67,7 @@ Route::get('/dashboard/rincian/perawatan/kendaraan', function () {
         'title' => 'Rincian Biaya Perawatan',
         'perawatan' => Perawatan::all(),
         'pegawai' => Pegawai::all(),
-        'jabatan' => JabatanPegawai::all()
+        'jabatan' => JabatanPegawai::all(),
     ]);
 })->middleware('auth');
 
@@ -75,6 +75,16 @@ Route::get('/dashboard/pajak/kendaraan', function () {
     return view('dashboard.kendaraan.pajak.index', [
         'title' => 'Pajak',
         'kendaraan' => Kendaraan::all(),
+    ]);
+})->middleware('auth');
+
+// print pajak kendaraan
+Route::get('/dashboard/laporan/pajak/kendaraan', function () {
+    return view('dashboard.kendaraan.pajak.laporan', [
+        'title' => 'Pajak',
+        'perawatan' => Perawatan::all(),
+        'pegawai' => Pegawai::all(),
+        'jabatan' => JabatanPegawai::all(),
     ]);
 })->middleware('auth');
 

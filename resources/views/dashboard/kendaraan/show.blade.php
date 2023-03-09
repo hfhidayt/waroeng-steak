@@ -63,7 +63,9 @@
                     <input type="text" class="form-control @error('posisi_kendaraan') is-invalid @enderror" placeholder="-" name="posisi_kendaraan" value="{{ $k->posisi_kendaraan }}" disabled>
                 </div>
                 <div class="mb-3">
-                    <div class="row">
+                    <label for="tanggal_pajak" class="form-label">Pajak Tahunan</label>
+                    <input type="text" class="form-control" placeholder="-" name="tanggal_pajak" value="{{ $k->tanggal_pajak }} {{ $k->bulan_pajak }} {{ $k->tahun_pajak }}" disabled>
+                    {{-- <div class="row">
                         <div class="col">
                             <label for="tanggal_pajak" class="form-label">Tanggal Pajak</label>
                         </div>
@@ -84,10 +86,12 @@
                         <div class="col">
                             <input type="text" class="form-control" placeholder="-" name="tahun_pajak" value="{{ $k->tahun_pajak }}" disabled>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="mb-3">
-                    <div class="row">
+                    <label for="tanggal_ganti_plat" class="form-label">Pajak 5 Tahunan (Ganti Plat)</label>
+                    <input type="text" class="form-control" placeholder="-" name="tanggal_ganti_plat" value="{{ $k->tanggal_ganti_plat }} {{ $k->bulan_ganti_plat }} {{ $k->tahun_ganti_plat }}" disabled>
+                    {{-- <div class="row">
                         <div class="col">
                             <label for="tanggal_ganti_plat" class="form-label">Tanggal Ganti Plat</label>
                         </div>
@@ -108,7 +112,7 @@
                         <div class="col">
                             <input type="text" class="form-control" placeholder="-" name="tahun_ganti_plat" value="{{ $k->tahun_ganti_plat }}" disabled>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="mb-3">
                     <label for="keterangan" class="form-label">Keterangan</label>

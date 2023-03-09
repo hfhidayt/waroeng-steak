@@ -20,7 +20,7 @@
         </div>
         <div class="row">
             <div class="col mx-4 my-3">
-                <table class="table" id="table_id">
+                <table class="table" id="table_id" width="100%">
                     <thead class="table-dark dt-head-center">
                         <tr>
                             <th scope="col">No</th>
@@ -29,6 +29,7 @@
                             <th scope="col">Jenis/Merk</th>
                             <th scope="col">Jenis Kendaraan</th>
                             <th scope="col">PIC</th>
+                            <th scope="col">Keterangan</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -41,6 +42,7 @@
                                 <td class="text-center">{{ $k->jenis_merk }}</td>
                                 <td class="text-center">{{ $k->jenis_kendaraan }}</td>
                                 <td class="text-center">{{ $k->pic }}</td>
+                                <td class="text-center">{{ $k->keterangan }}</td>
                                 <td>
                                     <a href="#show{{ $k->id }}" class="btn btn-primary border-0" data-bs-toggle="modal">Lihat</a>
                                     @include('dashboard.kendaraan.show')
