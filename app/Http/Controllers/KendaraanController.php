@@ -189,7 +189,7 @@ class KendaraanController extends Controller
 
         return redirect('/dashboard/kendaraan')->with('success', 'Berhasil memperbarui data kendaraan');
     }
-//
+	// tes push
     /**
      * Remove the specified resource from storage.
      *
