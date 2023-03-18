@@ -71,6 +71,8 @@ class KendaraanController extends Controller
             'gambar_belakang' => 'nullable',
             'gambar_samping_kanan' => 'nullable',
             'gambar_samping_kiri' => 'nullable',
+            'foto_bpkb' => 'nullable',
+            'foto_stnk' => 'nullable',
             'keterangan' => 'nullable',
         ]);
 
@@ -88,6 +90,12 @@ class KendaraanController extends Controller
         }
         if ($request->file('gambar_samping_kiri')) {
             $validatedData['gambar_samping_kiri'] = $request->file('gambar_samping_kiri')->store('kendaraan');
+        }
+        if ($request->file('foto_bpkb')) {
+            $validatedData['foto_bpkb'] = $request->file('foto_bpkb')->store('kendaraan');
+        }
+        if ($request->file('foto_stnk')) {
+            $validatedData['foto_stnk'] = $request->file('foto_stnk')->store('kendaraan');
         }
 
         Kendaraan::Create($validatedData);
@@ -154,6 +162,8 @@ class KendaraanController extends Controller
             'gambar_belakang' => 'nullable',
             'gambar_samping_kanan' => 'nullable',
             'gambar_samping_kiri' => 'nullable',
+            'foto_bpkb' => 'nullable',
+            'foto_stnk' => 'nullable',
             'keterangan' => 'nullable',
         ]);
 
@@ -191,6 +201,18 @@ class KendaraanController extends Controller
                 Storage::delete($request->oldGambar_samping_kiri);
             }
             $validatedData['gambar_samping_kiri'] = $request->file('gambar_samping_kiri')->store('kendaraan');
+        }
+        if ($request->file('foto_bpkb')) {
+            if ($request->oldFoto_bpkb) {
+                Storage::delete($request->oldFoto_bpkb);
+            }
+            $validatedData['foto_bpkb'] = $request->file('foto_bpkb')->store('kendaraan');
+        }
+        if ($request->file('foto_stnk')) {
+            if ($request->oldFoto_stnk) {
+                Storage::delete($request->oldFoto_stnk);
+            }
+            $validatedData['foto_stnk'] = $request->file('foto_stnk')->store('kendaraan');
         }
 
         Kendaraan::Where('id', $kendaraan->id)->update($validatedData);

@@ -41,6 +41,8 @@ class CreateKendaraansTable extends Migration
             $table->string('gambar_belakang')->nullable(); //gambar
             $table->string('gambar_samping_kanan')->nullable(); //gambar
             $table->string('gambar_samping_kiri')->nullable(); //gambar
+            $table->string('foto_bpkb')->nullable(); //foto bpkb
+            $table->string('foto_stnk')->nullable(); //foto bpkb
             $table->string('keterangan')->nullable(); //ubah ke type foreignId() kalo sudah ada tabelnya
             $table->timestamps();
         });
