@@ -25,7 +25,7 @@
                     <select class="form-select" name="pegawai" id="pegawai">
                         <option value="">Pegawai</option>
                         @foreach ($pegawai as $p)
-                            <option value="{{ $p->id }}">{{ $p->nama }}</option>
+                            <option value="{{ $loop->iteration }}">{{ $p->nama }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -240,11 +240,13 @@
             document.getElementById('tahunD').innerHTML = date.getFullYear();
             document.getElementById('tahunN').innerHTML = date.getFullYear();
         });
-
+        
         $('#pegawai').on('change', function() {
-            var pn = this.value - 2;
+            var pn = this.value - 1;
+            console.log(pn);
             document.getElementById('pegawaiN').innerHTML = pegawai[pn].nama;
-            document.getElementById('jabatanN').innerHTML = jabatan[pegawai[pn].jabatan_pegawai_id].nama_jabatan;
+            document.getElementById('jabatanN').innerHTML = jabatan[pegawai[pn].jabatan_pegawai_id - 1].nama_jabatan;
+            console.log(pegawai[pn].jabatan_pegawai_id);
             // document.getElementById('nipN').innerHTML = pegawai[pn].nip;
         });
 

@@ -208,8 +208,8 @@
         $('#pegawai').on('change', function() {
             var pn = this.value - 1;
             document.getElementById('pegawaiN').innerHTML = pegawai[pn].nama;
-            document.getElementById('jabatanN').innerHTML = jabatan[pegawai[pn].jabatan_pegawai_id].nama_jabatan;
-            document.getElementById('nipN').innerHTML = pegawai[pn].nip;
+            document.getElementById('jabatanN').innerHTML = jabatan[pegawai[pn].jabatan_pegawai_id - 1].nama_jabatan;
+            // document.getElementById('nipN').innerHTML = pegawai[pn].nip;
         });
 
         $('#reset').on('click', function() {
