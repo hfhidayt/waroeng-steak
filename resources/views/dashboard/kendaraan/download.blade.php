@@ -121,7 +121,8 @@
                 className: 'dt-head-center'
             }],
             dom: 'Bfrtip',
-            buttons: [{
+            buttons: [
+            {
                 extend: 'excelHtml5',
                 customize: function ( xlsx ){
                     var sheet = xlsx.xl.worksheets['sheet1.xml'];
@@ -130,7 +131,13 @@
                     $('row c', sheet).attr( 's', '25' );
                 },
                 createEmptyCells: true
-            }]
+            },
+            {
+                extend: 'pdfHtml5',
+                orientation: 'landscape',
+                pageSize: 'LEGAL'
+            }
+        ]
         });
     </script>
 @endpush

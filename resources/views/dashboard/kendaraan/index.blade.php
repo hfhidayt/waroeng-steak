@@ -68,14 +68,7 @@
             columnDefs: [{
                 targets: '_all',
                 className: 'dt-head-center'
-            }],
-            dom: 'Bfrtip',
-            buttons: [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5'
-            ]
+            }]
         });
         // $(document).ready(function() {
         //     var table = $('#table_id').DataTable({
