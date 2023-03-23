@@ -121,12 +121,16 @@
                 className: 'dt-head-center'
             }],
             dom: 'Bfrtip',
-            buttons: [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5'
-            ]
+            buttons: [{
+                extend: 'excelHtml5',
+                customize: function ( xlsx ){
+                    var sheet = xlsx.xl.worksheets['sheet1.xml'];
+    
+                    // jQuery selector to add a border
+                    $('row c', sheet).attr( 's', '25' );
+                },
+                createEmptyCells: true
+            }]
         });
     </script>
 @endpush
