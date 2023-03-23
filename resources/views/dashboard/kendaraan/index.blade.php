@@ -63,15 +63,42 @@
 @endsection
 @push('script')
     <script>
-        $(document).ready(function() {
-            var table = $('#table_id').DataTable({
-                ordering: false,
-                columnDefs: [{
-                    targets: '_all',
-                    className: 'dt-head-center'
-                }]
-            });
+        let table = new DataTable('#table_id', {
+            ordering: false,
+            columnDefs: [{
+                targets: '_all',
+                className: 'dt-head-center'
+            }],
+            dom: 'Bfrtip',
+            buttons: [
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5'
+            ]
         });
+        // $(document).ready(function() {
+        //     var table = $('#table_id').DataTable({
+        //         // ordering: false,
+        //         // columnDefs: [{
+        //         //     targets: '_all',
+        //         //     className: 'dt-head-center'
+        //         // }],
+        //         // dom: 'B',
+        //         buttons: [
+        //             'print', 'copy'
+        //         ]
+        //     });
+        // });
+
+        // $(document).ready(function() {
+        //     $('#table_id').DataTable( {
+        //         dom: 'Blfrtip',
+        //         buttons: [
+        //             'copy', 'csv', 'excel', 'pdf', 'print'
+        //         ]
+        //     } );
+        // } );
 
         // printview image create
         function previewGambarDepan() {

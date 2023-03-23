@@ -114,16 +114,19 @@
 @endsection
 @push('script')
     <script>
-        $(document).ready(function() {
-            var table = $('#example').DataTable( {
-                dom: 'Bfrtip',
-                buttons: [
-                    'copyHtml5',
-                    'excelHtml5',
-                    'csvHtml5',
-                    'pdfHtml5'
-                ]
-            } );
-        } );
+        let table = new DataTable('#example', {
+            ordering: false,
+            columnDefs: [{
+                targets: '_all',
+                className: 'dt-head-center'
+            }],
+            dom: 'Bfrtip',
+            buttons: [
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5'
+            ]
+        });
     </script>
 @endpush
