@@ -37,11 +37,11 @@
                             <th scope="col">Plat</th>
                             <th scope="col">Merk</th>
                             <th scope="col">PIC</th>
-                            <th scope="col" hidden>Bulan Pajak</th>
-                            <th scope="col" hidden>Tahun Pajak</th>
+                            <th scope="col">Bulan Pajak</th>
+                            <th scope="col">Tahun Pajak</th>
                             <th scope="col">Pajak</th>
-                            <th scope="col" hidden>Bulan Ganti Plat</th>
-                            <th scope="col" hidden>Tahun Ganti Plat</th>
+                            <th scope="col">Bulan Ganti Plat</th>
+                            <th scope="col">Tahun Ganti Plat</th>
                             <th scope="col">Ganti Plat</th>
                         </tr>
                     </thead>
@@ -53,11 +53,11 @@
                                 <td class="text-center">{{ $k->no_plat }}</td>
                                 <td class="text-center">{{ $k->jenis_merk }}</td>
                                 <td class="text-center">{{ $k->pic }}</td>
-                                <td class="text-center" hidden>{{ $k->bulan_pajak }}</td>
-                                <td class="text-center" hidden>{{ $k->tahun_pajak }}</td>
+                                <td class="text-center">{{ $k->bulan_pajak }}</td>
+                                <td class="text-center">{{ $k->tahun_pajak }}</td>
                                 <td class="text-center">{{ $k->tanggal_pajak }} {{ $k->bulan_pajak }} {{ $k->tahun_pajak }}</td>
-                                <td class="text-center" hidden>{{ $k->bulan_ganti_plat }}</td>
-                                <td class="text-center" hidden>{{ $k->tahun_ganti_plat }}</td>
+                                <td class="text-center">{{ $k->bulan_ganti_plat }}</td>
+                                <td class="text-center">{{ $k->tahun_ganti_plat }}</td>
                                 <td class="text-center">{{ $k->tanggal_ganti_plat }} {{ $k->bulan_ganti_plat }} {{ $k->tahun_ganti_plat }}
                                 </td>
                             </tr>
@@ -75,16 +75,24 @@
                 columnDefs: [{
                     targets: '_all',
                     className: 'dt-head-center'
-                }],
-                //     {
-                //         target: 2,
-                //         visible: false
-                //     },
-                //     {
-                //         target: 3,
-                //         visible: false
-                //     }
-                // ],
+                },
+                {
+                    target: 5,
+                    visible: false
+                },
+                {
+                    target: 6,
+                    visible: false
+                },
+                {
+                    target: 8,
+                    visible: false
+                },
+                {
+                    target: 9,
+                    visible: false
+                }
+            ],
 
                 initComplete: function() {
                     this.api()
@@ -112,7 +120,7 @@
                                 });
                         })
                         // filter bulan_pajak pajak.blade
-                        .columns(4)
+                        .columns(5)
                         .every(function() {
                             var column = this;
                             var select = $(
@@ -143,7 +151,7 @@
                             select.append('<option value="Desember">Desember</option>')
                         })
                         // filter tahun_pajak pajak.blade
-                        .columns(5)
+                        .columns(6)
                         .every(function() {
                             var column = this;
                             var select = $(
@@ -166,7 +174,7 @@
                                 });
                         })
                         // filter bulan_ganti_plat pajak.blade
-                        .columns(7)
+                        .columns(8)
                         .every(function() {
                             var column = this;
                             var select = $(
@@ -197,7 +205,7 @@
                             select.append('<option value="Desember">Desember</option>')
                         })
                         // filter tahun_ganti_plat pajak.blade
-                        .columns(8)
+                        .columns(9)
                         .every(function() {
                             var column = this;
                             var select = $(

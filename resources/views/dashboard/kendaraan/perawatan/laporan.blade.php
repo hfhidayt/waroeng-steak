@@ -85,7 +85,7 @@
                             @foreach ($perawatan as $ps)
                                 <tr id="row-{{ $ps->id }}">
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $ps->kendaraan->no_plat }}</td>
+                                    <td>{{ !empty($ps->kendaraan) ? $ps->kendaraan->no_plat : '' }}</td>
                                     <td>{{ $ps->tanggal }} {{ $ps->bulan }} {{ $ps->tahun }}</td>
                                     <td>{{ $ps->bulan }}</td>
                                     <td>{{ $ps->tahun }}</td>

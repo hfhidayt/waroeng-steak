@@ -16,27 +16,11 @@
                     <label class="input-group-text" for="platP">Nomor Polisi</label>
                     <span id="pP"></span>
                 </div>
-                {{-- <div class="input-group mb-3">
-                    <label class="input-group-text" for="bulanP">Bulan Pajak</label>
-                    <span id="bPajak"></span>
-                    <label class="input-group-text ml-3" for="tahunP">Tahun Pajak</label>
-                    <span id="tPajak"></span>
-                </div>
-                <div class="input-group mb-3">
-                    <label class="input-group-text" for="bulanP">Bulan Ganti Plat</label>
-                    <span id="bGPajak"></span>
-                    <label class="input-group-text ml-3" for="tahunP">Tahun Ganti Plat</label>
-                    <span id="tGPajak"></span>
-                </div> --}}
                 <div class="input-group mb-3">
                     <label class="input-group-text" for="bulanP">Bulan</label>
                     <span id="bP"></span>
                     <label class="input-group-text ml-3" for="tahunP">Tahun</label>
                     <span id="tP"></span>
-                </div>
-                <div class="input-group mb-3">
-                    <label class="input-group-text" for="jpP">Jenis Pajak</label>
-                    <span id="jpP"></span>
                 </div>
                 <div class="input-group mb-3" style="width: fit-content">
                     <label class="input-group-text" for="pegawai">Pegawai</label>
@@ -95,10 +79,14 @@
                             @foreach ($perawatan as $ps)
                                 <tr id="row-{{ $ps->id }}">
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $ps->kendaraan->jenis_kendaraan }}</td>
+                                    {{-- <td>{{ $ps->kendaraan->jenis_kendaraan }}</td>
                                     <td>{{ $ps->kendaraan->no_plat }}</td>
                                     <td>{{ $ps->kendaraan->jenis_merk }}</td>
-                                    <td>{{ $ps->kendaraan->pic }}</td>
+                                    <td>{{ $ps->kendaraan->pic }}</td> --}}
+                                    <td>{{ !empty($ps->kendaraan) ? $ps->kendaraan->jenis_kendaraan : '' }}</td>
+                                    <td>{{ !empty($ps->kendaraan) ? $ps->kendaraan->no_plat : '' }}</td>
+                                    <td>{{ !empty($ps->kendaraan) ? $ps->kendaraan->jenis_merk : '' }}</td>
+                                    <td>{{ !empty($ps->kendaraan) ? $ps->kendaraan->pic : '' }}</td>
                                     <td hidden>{{ $ps->bulan }}</td>
                                     <td hidden>{{ $ps->tahun }}</td>
                                     <td hidden>{{ $ps->jenis_perawatan }}</td>
@@ -208,7 +196,7 @@
         $('#pegawai').on('change', function() {
             var pn = this.value - 1;
             document.getElementById('pegawaiN').innerHTML = pegawai[pn].nama;
-            document.getElementById('jabatanN').innerHTML = jabatan[pegawai[pn].jabatan_pegawai_id - 1].nama_jabatan;
+            document.getElementById('jabatanN').innerHTML = jabatan[pegawai[pn].jabatan_pegawai_id].nama_jabatan;
             // document.getElementById('nipN').innerHTML = pegawai[pn].nip;
         });
 
@@ -247,18 +235,6 @@
                     targets: '_all',
                     className: 'dt-head-center'
                 },
-                // {
-                //     target: 5,
-                //     visible: false
-                // },
-                // {
-                //     target: 6,
-                //     visible: false
-                // },
-                // { 
-                //     target: 10,
-                //     visible: false
-                // }
             ],
             initComplete: function() {
                 this.api().columns(2).every(function() {

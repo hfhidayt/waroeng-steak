@@ -61,7 +61,7 @@
                                 <td class="text-center">{{ $ps->tahun }}</td>
                                 <td class="text-center">{{ $ps->tanggal }} {{ $ps->bulan }} {{ $ps->tahun }}</td>
                                 <td class="text-center">{{ $ps->jenis_perawatan }}</td>
-                                <td class="text-center">{{ $ps->kendaraan->pic }}</td>
+                                <td class="text-center">{{ !empty($ps->kendaraan) ? $ps->kendaraan->pic : ''  }}</td>
                                 <td class="text-center">Rp{{ number_format($ps->total_biaya, 0, ',', '.') }}</td>
                                 <td>
                                     <a href="#show{{ $ps->id }}" class="btn btn-primary border-0" data-bs-toggle="modal">Lihat</a>

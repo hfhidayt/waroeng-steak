@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BahanBakar;
 use App\Models\JenisKendaraan;
 use App\Models\Kendaraan;
+use App\Models\Perawatan;
 use App\Models\Merk;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -23,7 +24,8 @@ class KendaraanController extends Controller
             'jenis_kendaraan' => JenisKendaraan::all(),
             'merk' => Merk::all(),
             'bahan_bakar' => BahanBakar::all(),
-            'kendaraans' => Kendaraan::all()
+            'kendaraans' => Kendaraan::all(),
+            'perawatans' => Perawatan::all(),
         ]);
     }
 
@@ -228,8 +230,14 @@ class KendaraanController extends Controller
      * @param  \App\Models\Kendaraan  $kendaraan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kendaraan $kendaraan)
+    public function destroy(Kendaraan $kendaraan, Perawatan $perawatan)
     {
+        $perawatan = Perawatan::where('kendaraan_id', $kendaraan->id)->get();
+        $pa = [];
+        foreach($perawatan as $p) {
+            $pa[] = $p->id;
+        }
+        Perawatan::destroy($pa);
         Kendaraan::destroy($kendaraan->id);
         return redirect('/dashboard/kendaraan')->with('success', 'Kendaraan berhasil dihapus');
     }

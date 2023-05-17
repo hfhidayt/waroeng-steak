@@ -112,7 +112,7 @@
                             @foreach ($perawatan as $ps)
                                 <tr id="row-{{ $ps->id }}">
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $ps->kendaraan->no_plat }}</td>
+                                    <td>{{ !empty($ps->kendaraan) ? $ps->kendaraan->no_plat : '' }}</td>
                                     <td>{{ $ps->jenis_perawatan }}</td>
                                     <td>{{ $ps->barang_jasa }}</td>
                                     <td>{{ $ps->volume }}</td>
@@ -240,21 +240,19 @@
             document.getElementById('tahunD').innerHTML = date.getFullYear();
             document.getElementById('tahunN').innerHTML = date.getFullYear();
         });
-        
+
         $('#pegawai').on('change', function() {
             var pn = this.value - 1;
             console.log(pn);
             document.getElementById('pegawaiN').innerHTML = pegawai[pn].nama;
             document.getElementById('jabatanN').innerHTML = jabatan[pegawai[pn].jabatan_pegawai_id - 1].nama_jabatan;
             console.log(pegawai[pn].jabatan_pegawai_id);
-            // document.getElementById('nipN').innerHTML = pegawai[pn].nip;
         });
 
         $('#reset').on('click', function() {
             $("#platP").val(null).trigger('change');
 
             document.getElementById('jperawatanP').value = '';
-            // document.getElementById('kmD').innerHTML = '';
             document.getElementById('jpD').innerHTML = '';
             document.getElementById('tempat').innerHTML = '';
 
@@ -264,7 +262,6 @@
             document.getElementById('tahunN').innerHTML = '';
             document.getElementById('pegawaiN').innerHTML = '';
             document.getElementById('jabatanN').innerHTML = '';
-            // document.getElementById('nipN').innerHTML = '';
 
             var table = $('#table_print').DataTable();
             table.search('').draw();
@@ -302,8 +299,7 @@
                 }
             ],
             initComplete: function() {
-                this.api()
-                    .columns(1).every(function() {
+                this.api().columns(1).every(function() {
                         var column = this;
                         var select = $(
                                 '<select class="form-select pP" id="platP"><option value="">No Plat</option></select>'
@@ -318,11 +314,6 @@
                                 }).data().sum();
                                 sumP = new Intl.NumberFormat('de-DE').format(sum)
                                 document.getElementById('sum').innerHTML = 'Rp' + sumP;
-
-                                // kmD = table.column(9, {
-                                //     search: 'applied'
-                                // }).data()[0];
-                                // document.getElementById('kmD').innerHTML = kmD;
 
                                 document.getElementById('npPH').innerHTML = val;
                                 document.getElementById('npD').innerHTML = val;
