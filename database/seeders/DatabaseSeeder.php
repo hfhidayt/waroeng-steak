@@ -30,17 +30,17 @@ class DatabaseSeeder extends Seeder
             'username' => 'admin',
             'password' => Hash::make('admin')
         ]);
-        
+
         User::Create([
             'username' => 'aziz',
             'password' => Hash::make('aziz')
         ]);
-        
+
         User::Create([
             'username' => 'faris',
             'password' => Hash::make('faris')
         ]);
-        
+
         User::Create([
             'username' => 'hassan',
             'password' => Hash::make('hassan')
@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
         JabatanPegawai::Create([
             'nama_jabatan' => 'Kasubbag. Keuangan & Umum'
         ]);
-        
+
         JabatanPegawai::Create([
             'nama_jabatan' => 'Pengadministrasi BMN'
         ]);
@@ -69,19 +69,19 @@ class DatabaseSeeder extends Seeder
         Merk::Create([
             'merk' => 'Toyota'
         ]);
-        
+
         Merk::Create([
             'merk' => 'Suzuki'
         ]);
-        
+
         Merk::Create([
             'merk' => 'Honda'
         ]);
-        
+
         Merk::Create([
             'merk' => 'Yamaha'
         ]);
-        
+
         Merk::Create([
             'merk' => 'Mitsubishi'
         ]);
@@ -89,27 +89,27 @@ class DatabaseSeeder extends Seeder
         BahanBakar::Create([
             'bahan_bakar' => 'Bensin'
         ]);
-        
+
         BahanBakar::Create([
             'bahan_bakar' => 'Solar'
         ]);
-        
+
         BahanBakar::Create([
             'bahan_bakar' => 'Listrik'
         ]);
-        
+
         BahanBakar::Create([
             'bahan_bakar' => 'Pertalite'
         ]);
-        
+
         BahanBakar::Create([
             'bahan_bakar' => 'Pertamax'
         ]);
-        
+
         BahanBakar::Create([
             'bahan_bakar' => 'Pertamax Dex'
         ]);
-        
+
         BahanBakar::Create([
             'bahan_bakar' => 'Pertamax Turbo'
         ]);
@@ -117,42 +117,42 @@ class DatabaseSeeder extends Seeder
         JenisKendaraan::Create([
             'jenis_kendaraan' => 'Motor'
         ]);
-        
+
         JenisKendaraan::Create([
             'jenis_kendaraan' => 'Mobil'
         ]);
-        
+
         JenisKendaraan::Create([
             'jenis_kendaraan' => 'Minibus'
         ]);
-        
+
         JenisKendaraan::Create([
             'jenis_kendaraan' => 'Box'
         ]);
-        
+
         JenisPerawatan::Create([
             'jenis_perawatan' => 'Pengisian BBM'
         ]);
-        
+
         JenisPerawatan::Create([
             'jenis_perawatan' => 'Servis Rutin'
         ]);
-        
+
         JenisPerawatan::Create([
             'jenis_perawatan' => 'Perbaikan'
         ]);
-        
+
         JenisPerawatan::Create([
             'jenis_perawatan' => 'Pergantian'
         ]);
-        
-        JenisPerawatan::Create([
-            'jenis_perawatan' => 'Bayar Pajak Tahunan'
-        ]);
-        
-        JenisPerawatan::Create([
-            'jenis_perawatan' => 'Bayar Pajak 5 Tahunan'
-        ]);
+
+        // JenisPerawatan::Create([
+        //     'jenis_perawatan' => 'Bayar Pajak Tahunan'
+        // ]);
+
+        // JenisPerawatan::Create([
+        //     'jenis_perawatan' => 'Bayar Pajak 5 Tahunan'
+        // ]);
 
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
@@ -181,7 +181,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>'SEKEN '
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 8977 CU',
@@ -209,7 +209,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>'BARU'
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 8225 FU',
@@ -237,7 +237,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>'BARU'
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 1875 HY',
@@ -265,7 +265,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>'BARU'
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 8662 FU',
@@ -293,7 +293,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>'BARU'
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 5936 TX',
@@ -321,7 +321,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>'BARU'
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 5929 TX',
@@ -349,7 +349,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>'BARU'
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 6810 LX',
@@ -377,7 +377,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 4409 UR',
@@ -405,7 +405,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 3293 MO',
@@ -433,7 +433,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>'BARU'
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 7812 HN',
@@ -461,7 +461,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 1038 EO',
@@ -489,7 +489,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 1595 NP',
@@ -506,7 +506,7 @@ class DatabaseSeeder extends Seeder
             'pic'=>'Kantor Deresan/Owner',
             'keterangan'=>''
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 1923 EO',
@@ -534,7 +534,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 1049 NO',
@@ -562,7 +562,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 1560 EP',
@@ -590,7 +590,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>'Baru'
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 1924 EP',
@@ -612,7 +612,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 1847 EO',
@@ -640,7 +640,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>'Baru'
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 1015 EV',
@@ -668,7 +668,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 1266 NO',
@@ -696,7 +696,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 1820 NO',
@@ -724,7 +724,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 1819 NO',
@@ -752,7 +752,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 1817 NO',
@@ -780,7 +780,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 7020 NN',
@@ -808,7 +808,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 1594 NP',
@@ -830,7 +830,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 1201 NV',
@@ -852,7 +852,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 1307 XX',
@@ -874,7 +874,7 @@ class DatabaseSeeder extends Seeder
             'gambar_samping_kiri' => 'kendaraan/kiri.png',
             'keterangan'=>''
         ]);
-        
+
         Kendaraan::Create([
             'wilayah'=>'KANTOR JOGJA',
             'no_plat'=>'AB 8411 EI',
@@ -915,7 +915,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '635000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '11',
             'tanggal' => '8',
@@ -931,7 +931,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '6350000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '9',
             'tanggal' => '5',
@@ -947,7 +947,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '95000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '22',
             'tanggal' => '22',
@@ -963,7 +963,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '212500',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '21',
             'tanggal' => '3',
@@ -979,7 +979,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '635000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '4',
             'tanggal' => '8',
@@ -995,7 +995,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '6350000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '8',
             'tanggal' => '5',
@@ -1011,7 +1011,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '95000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '5',
             'tanggal' => '22',
@@ -1027,7 +1027,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '212500',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '25',
             'tanggal' => '13',
@@ -1043,7 +1043,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '635000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '27',
             'tanggal' => '13',
@@ -1059,7 +1059,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '7550000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '15',
             'tanggal' => '21',
@@ -1075,7 +1075,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '380000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '28',
             'tanggal' => '22',
@@ -1091,7 +1091,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '255000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '1',
             'tanggal' => '3',
@@ -1107,7 +1107,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '635000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '20',
             'tanggal' => '8',
@@ -1123,7 +1123,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '6350000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '3',
             'tanggal' => '5',
@@ -1139,7 +1139,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '187000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '4',
             'tanggal' => '22',
@@ -1155,7 +1155,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '212500',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '24',
             'tanggal' => '1',
@@ -1171,7 +1171,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '187000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '22',
             'tanggal' => '3',
@@ -1187,7 +1187,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '6100000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '6',
             'tanggal' => '2',
@@ -1203,7 +1203,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '380000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '16',
             'tanggal' => '3',
@@ -1219,7 +1219,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '187000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '17',
             'tanggal' => '1',
@@ -1235,7 +1235,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '345000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '10',
             'tanggal' => '3',
@@ -1251,7 +1251,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '6350000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '3',
             'tanggal' => '2',
@@ -1267,7 +1267,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '380000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '27',
             'tanggal' => '3',
@@ -1283,7 +1283,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '187000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '14',
             'tanggal' => '3',
@@ -1299,7 +1299,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '635000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '3',
             'tanggal' => '8',
@@ -1315,7 +1315,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '6350000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '12',
             'tanggal' => '5',
@@ -1331,7 +1331,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '95000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '1',
             'tanggal' => '22',
@@ -1347,7 +1347,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '212500',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '1',
             'tanggal' => '13',
@@ -1363,7 +1363,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '3245000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '21',
             'tanggal' => '13',
@@ -1379,7 +1379,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '6350000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '5',
             'tanggal' => '21',
@@ -1395,7 +1395,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '95000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '13',
             'tanggal' => '22',
@@ -1411,7 +1411,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '255000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '26',
             'tanggal' => '1',
@@ -1427,7 +1427,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '635000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '20',
             'tanggal' => '3',
@@ -1443,7 +1443,7 @@ class DatabaseSeeder extends Seeder
             'total_biaya' => '6350000',
             'nota' => 'nota/00.png'
         ]);
-        
+
         Perawatan::Create([
             'kendaraan_id' => '8',
             'tanggal' => '2',

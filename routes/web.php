@@ -85,6 +85,7 @@ Route::get('/dashboard/laporan/pajak/kendaraan', function () {
         'perawatan' => Perawatan::all(),
         'pegawai' => Pegawai::all(),
         'jabatan' => JabatanPegawai::all(),
+        'kendaraan' => Kendaraan::all(),
     ]);
 })->middleware('auth');
 

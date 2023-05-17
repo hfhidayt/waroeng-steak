@@ -37,12 +37,12 @@
                             <th scope="col">Plat</th>
                             <th scope="col">Merk</th>
                             <th scope="col">PIC</th>
-                            <th scope="col">Bulan Pajak</th>
-                            <th scope="col">Tahun Pajak</th>
-                            <th scope="col">Pajak</th>
-                            <th scope="col">Bulan Ganti Plat</th>
-                            <th scope="col">Tahun Ganti Plat</th>
-                            <th scope="col">Ganti Plat</th>
+                            <th scope="col">Bulan Pajak Tahunan</th>
+                            <th scope="col">Tahun Pajak Tahunan</th>
+                            <th scope="col">Pajak Tahunan</th>
+                            <th scope="col">Bulan Pajak Ganti Plat</th>
+                            <th scope="col">Tahun Pajak Ganti Plat</th>
+                            <th scope="col">Pajak Ganti Plat</th>
                         </tr>
                     </thead>
                     <tbody class="text-center">
@@ -124,7 +124,7 @@
                         .every(function() {
                             var column = this;
                             var select = $(
-                                    '<select class="form-select"><option value="">-- Bulan Pajak --</option></select>'
+                                    '<select class="form-select"><option value="">-- Bulan Pajak Tahunan --</option></select>'
                                 )
                                 .appendTo($('#bulanPajak'))
                                 .on('change', function() {
@@ -155,7 +155,7 @@
                         .every(function() {
                             var column = this;
                             var select = $(
-                                    '<select class="form-select"><option value="">-- Tahun Pajak --</option></select>'
+                                    '<select class="form-select"><option value="">-- Tahun Pajak Tahunan --</option></select>'
                                 )
                                 .appendTo($('#tahunPajak'))
                                 .on('change', function() {
@@ -178,7 +178,7 @@
                         .every(function() {
                             var column = this;
                             var select = $(
-                                    '<select class="form-select"><option value="">-- Bulan Ganti Plat --</option></select>'
+                                    '<select class="form-select"><option value="">-- Bulan Pajak Ganti Plat --</option></select>'
                                 )
                                 .appendTo($('#bulanGantiPlat'))
                                 .on('change', function() {
@@ -209,7 +209,7 @@
                         .every(function() {
                             var column = this;
                             var select = $(
-                                    '<select class="form-select"><option value="">-- Tahun Ganti Plat --</option></select>'
+                                    '<select class="form-select"><option value="">-- Tahun Pajak Ganti Plat --</option></select>'
                                 )
                                 .appendTo($('#tahunGantiPlat'))
                                 .on('change', function() {
