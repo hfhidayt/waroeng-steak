@@ -192,16 +192,16 @@
             $("#platP").val(null).trigger('change');
 
             document.getElementById('bulanP').value = '';
-            var bPH = document.getElementById('bPH');
-            bPH.innerHTML = '';
+            // var bPH = document.getElementById('bPH');
+            // bPH.innerHTML = '';
             document.getElementById('bulanP2').value = '';
-            var bPH = document.getElementById('bPH2');
-            bPH.innerHTML = '';
+            // var bPH = document.getElementById('bPH2');
+            // bPH.innerHTML = '';
 
             document.getElementById('tahunP').value = '';
-            document.getElementById('tPH').innerHTML = '';
+            // document.getElementById('tPH').innerHTML = '';
             document.getElementById('tahunP2').value = '';
-            document.getElementById('tPH2').innerHTML = '';
+            // document.getElementById('tPH2').innerHTML = '';
 
             document.getElementById('pegawai').value = '';
             document.getElementById('pegawaiN').innerHTML = '';
@@ -254,8 +254,8 @@
                                 // sumP = new Intl.NumberFormat('de-DE').format(sum)
                                 // tots.innerHTML = 'Rp' + sumP;
 
-                                var npPH = document.getElementById('npPH');
-                                npPH.innerHTML = val;
+                                // var npPH = document.getElementById('npPH');
+                                // npPH.innerHTML = val;
                             });
                         column.data().unique().sort().each(function(d, j) {
                             select.append('<option value="' + d + '">' + d + '</option>');
